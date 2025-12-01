@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+@layer base {
+  * {
+    font-family: "Montserrat", sans-serif;
+    box-sizing: border-box;
+  }
+}
+
+.hero {
+    background-image: url(/public/fundo-hero.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+.container-hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    padding-bottom: 17rem;
+}
+
+.textRoot {
+    color: black;
+}
+
+.textRoot:hover {
+    color: rgb(158, 117, 90);
+}
+
+.degrade {
+    background-image: url(/public/degrade.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
