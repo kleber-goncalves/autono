@@ -1,5 +1,5 @@
-import Intro_cmp from "../../../components/Intro_cmp"
-import minhaImagem from "/public/fundo-intro.jpg"
+import Intro_cmp from "../../../components/Intro_cmp";
+import minhaImagem from "/public/fundo-intro.jpg";
 
 function Intro() {
     return (
@@ -16,4 +16,4 @@ function Intro() {
     );
 }
 
-export default Intro
+export default Intro;

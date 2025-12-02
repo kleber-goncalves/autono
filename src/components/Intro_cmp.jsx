@@ -11,12 +11,12 @@ export default function Intro_cmp({
     ...props
 }) {
     const baseClass =
-        "max-w-8xl mx-auto px-6 lg:px-6 py-20 flex flex-col items-center gap-12";
+        "max-w-8xl mx-auto px-6 lg:px-6 py-20 flex flex-col items-center ";
 
     const baseTitle = "text-6xl max-w-3xl leading-snug tracking-wide text-black text-center";
 
     const baseText =
-        "text-black text-3xl leading-relaxed max-w-5xl text-center";
+        "text-black text-2xl leading-relaxed max-w-2xl text-center";
 
     return (
         <div className={`${baseClass} ${className}`} {...props}>
