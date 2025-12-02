@@ -4,7 +4,7 @@ import { FaLinkedin } from "react-icons/fa6";
 
 function Rodape() {
     return (
-        <footer className="bg-white text-black py-10">
+        <footer className="bg-white text-black  py-28">
             <section className="max-w-7xl mx-auto px-4 flex justify-between flex-wrap">
                 <div className="flex flex-col gap-6  w-full lg:w-1/2">
                     <h2 className="tracking-widest text-2xl font-bold mb-4">
