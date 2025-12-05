@@ -16,7 +16,7 @@ export default function Intro_cmp({
     const baseTitle = "text-6xl max-w-3xl leading-snug tracking-wide text-black text-center";
 
     const baseText =
-        "text-black text-2xl leading-relaxed max-w-2xl text-center";
+        "text-black text-2xl leading-relaxed tracking-wide max-w-2xl text-center";
 
     return (
         <div className={`${baseClass} ${className}`} {...props}>

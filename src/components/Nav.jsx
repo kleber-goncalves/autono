@@ -95,10 +95,10 @@ function Nav() {
                     <LinkItem href="/tecnologia" isScrolled={isScrolled}>
                         Tecnologia
                     </LinkItem>
-                    <LinkItem href="/about" isScrolled={isScrolled}>
+                    <LinkItem href="/sobre" isScrolled={isScrolled}>
                         Sobre
                     </LinkItem>
-                    <LinkItem href="/contact" isScrolled={isScrolled}>
+                    <LinkItem href="/carreiras" isScrolled={isScrolled}>
                         Carreiras
                     </LinkItem>
 
