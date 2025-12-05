@@ -30,4 +30,4 @@ nos movemos"
     );
 }
 
-export default Abordagem
+export default Abordagem;

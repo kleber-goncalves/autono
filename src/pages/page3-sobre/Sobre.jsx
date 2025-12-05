@@ -1,7 +1,10 @@
 import Nav from "../../components/Nav";
 import Intro from "../page3-sobre/layout/Intro";
 import Abordagem from "./layout/Abordagem";
+import Acessoria from "./layout/Acessoria";
+import Decorativo from "./layout/Decorativo";
 import Linha_temp from "./layout/Linha_tmp";
+import Rodape from './../../components/Rodape';
 
 function Sobre() {
     return (
@@ -10,7 +13,9 @@ function Sobre() {
             <Intro />
             <Abordagem />
             <Linha_temp />
-            
+            <Decorativo />
+            <Acessoria />
+            <Rodape/>
         </>
     )
 }
