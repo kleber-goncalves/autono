@@ -23,10 +23,13 @@ function Sobreii() {
                         </p>
                         <button
                             className="bg-black flex-row  text-white  flex border border-white cursor-pointer
-                                        rounded-lg w-fit max-w-xs items-center gap-2 px-8 py-3 tracking-wider hover:bg-white hover:border-black hover:text-black transition"
+                                        rounded-lg w-fit max-w-xs items-center   tracking-wider hover:bg-white hover:border-black hover:text-black transition "
                         >
-                            <p className=" cursor-pointer">Saiba Mais</p>
-                            <div className="cursor-pointer text-2xl pl-4 border-l  border-black">
+                            <div className="px-4 py-2 border-r  border-white hover:border-black">
+                                <p className=" cursor-pointer">Saiba Mais</p>
+                            </div>
+
+                            <div className="cursor-pointer text-xl px-3 py-2.5 hover:border-black hover:border-l">
                                 <TfiArrowRight />
                             </div>
                         </button>
