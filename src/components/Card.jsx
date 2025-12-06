@@ -15,6 +15,8 @@ export default function Card({
     classNameBarraIII = "",
     classNameTitle = "",
     classNameText = "",
+    classNameTextII = "",
+    classNameTextIII = "",
     ...props
 }) {
     // 🟦 BASES FIXAS
@@ -23,9 +25,10 @@ export default function Card({
     const baseBarra = "border-l-4"; //Barra grossa - pegar o componete todo
     const baseBarraII = "border-l h-13"; //Barra fina - o tomanho da barra é fixo
     const baseBarraIII = "border-l"; //Barra fina - pegar o componete todo
-    const baseTitle = " text-2xl leading-relaxed tracking-widest ";
+    const baseTitle = " text-2xl  leading-relaxed tracking-widest ";
     const baseText = "text-base max-w-md tracking-widest leading-relaxed";
-    const baseButtonClassName = "flex-row flex border  cursor-pointer rounded-lg w-fit max-w-xs items-center tracking-wider transition ";
+    const baseButtonClassName =
+        "flex-row flex border  cursor-pointer rounded-lg w-fit max-w-xs items-center tracking-wider transition-all duration-300 ";
     const divPClassName = "px-4 py-2 border-r   ";
     const divArrowClassName = "cursor-pointer text-xl px-3 py-2.5 hover:border-l";
 
@@ -42,7 +45,7 @@ export default function Card({
             barraIII: "border-white",
 
             baseButtonClassName:
-                "text-white border-white bg-black hover:bg-white hover:text-black",
+                "text-white border-white bg-black hover:bg-white hover:inset-shadow-sm hover:inset-shadow-indigo-500 hover:shadow-lg/20 hover:shadow-[#ffffff] hover:text-black",
             divPClassName: "border-white hover:border-black",
             divArrowClassName: "hover:border-black ",
         },
@@ -56,7 +59,8 @@ export default function Card({
             barraII: "border-black",
             barraIII: "border-black",
 
-            baseButtonClassName: "text-black border-black bg-white hover:bg-black hover:text-white",
+            baseButtonClassName:
+                "text-black border-black bg-white hover:inset-shadow-sm hover:inset-shadow-indigo-500/50 hover:shadow-xl/50 hover:bg-black hover:text-white",
             divPClassName: "border-black hover:border-white",
             divArrowClassName: "hover:border-white ",
         },
@@ -110,14 +114,14 @@ export default function Card({
                                 <>
                                     {text_2 && (
                                         <p
-                                            className={`${baseText} ${classNameText}`}
+                                            className={`${baseText} ${classNameTextII}`}
                                         >
                                             {text_2}
                                         </p>
                                     )}
                                     {text_3 && (
                                         <p
-                                            className={`${baseText} ${classNameText}`}
+                                            className={`${baseText} ${classNameTextIII}`}
                                         >
                                             {text_3}
                                         </p>

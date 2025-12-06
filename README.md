@@ -1,5 +1,8 @@
 # React + Vite
 
+                    <div className="absolute top-0 left-0 h-full rotate-97 w-20 border-l-4 border-black opacity-75"></div>
+
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
