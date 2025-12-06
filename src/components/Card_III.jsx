@@ -1,9 +1,8 @@
 import { TfiArrowRight } from "react-icons/tfi";
 
-export default function Card_II({
+export default function Card_III({
     title,
     text,
-    text_2,
     text_button,
     children,
     variant = "black",
@@ -12,24 +11,22 @@ export default function Card_II({
     className = "",
     classNameTitle = "",
     classNameText = "",
-    classNameTextII = "",
 }) {
     
     const baseClass =
-        "flex max-w-md flex-col px-10 gap-17 py-10 rounded-2xl border border-white";
+        "flex max-w-xs flex-col gap-9 ";
     const baseTitle = " leading-relaxed tracking-widest";
-    const baseText = "text-sm tracking-wider leading-relaxed";
-    const baseText_2 = "text-base tracking-wider leading-relaxed";
+    const baseText = "text-base tracking-wider leading-relaxed";
     const baseButtonClassName =
         "flex-row flex border cursor-pointer rounded-lg w-fit max-w-xs items-center tracking-wider transition-all duration-300 ";
     const divPClassName = "px-4 py-2 border-r   ";
-    const divArrowClassName = "cursor-pointer text-xl px-3 py-2.5 hover:border-l";
+    const divArrowClassName =
+        "cursor-pointer text-xl px-3 py-2.5 hover:border-l transition-all";
 
     const variants = {
         white: {
             title: "text-white",
-            text: "text-gray-400",
-            text_2: "text-white",
+            text: "text-white",
             baseButtonClassName:
                 "text-white border-white bg-black hover:bg-white hover:text-black hover:inset-shadow-sm hover:inset-shadow-indigo-500 hover:shadow-lg/20 hover:shadow-[#ffffff]",
             divPClassName: "border-white hover:border-black",
@@ -38,8 +35,6 @@ export default function Card_II({
         black: {
             title: "text-black",
             text: "text-black",
-            text_2: "text-black",
-            baseClassName: "bg-white",
             baseButtonClassName:
                 "text-black border-black bg-white hover:bg-black hover:inset-shadow-sm hover:inset-shadow-indigo-500/50 hover:shadow-xl/50 hover:text-white",
             divPClassName: "border-black hover:border-white",
@@ -54,6 +49,9 @@ export default function Card_II({
         sizeII: {
             title: "text-2xl",
         },
+        sizeIII: {
+            title: "text-[40px]",
+        }
     };
 
     const mts = {
@@ -66,7 +64,7 @@ export default function Card_II({
     const magt = mts[mt]
     const tmlh = sizes[size];
     const styles = variants[variant];
-    const showPartII = children || text || text_2;
+    const showPartII = children || text;
 
 
     return (
@@ -90,13 +88,6 @@ export default function Card_II({
                                         className={`${baseText} ${styles.text} ${classNameText}`}
                                     >
                                         {text}
-                                    </p>
-                                )}
-                                {text_2 && (
-                                    <p
-                                        className={`${baseText_2} ${styles.text_2} ${classNameTextII}`}
-                                    >
-                                        {text_2}
                                     </p>
                                 )}
                             </>

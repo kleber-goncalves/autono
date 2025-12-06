@@ -2,7 +2,7 @@ import Card from "../../../components/Card";
 
 function Acessoria() {
     return (
-        <section className="max-w-8xl bg-black border border-black mx-auto py-36 px-6 lg:px-9 flex flex-col  ">
+        <section className="max-w-8xl  bg-black border border-black mx-auto py-36 px-6 lg:px-9 flex flex-col  ">
             <div className="flex flex-col gap-y-36 px-50">
                 <div className="flex flex-col  ">
                     <Card title="Autono na mídia" text="NOTÍCIAS" />
