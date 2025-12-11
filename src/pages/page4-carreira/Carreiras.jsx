@@ -5,7 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import Nav from "../../components/Nav";
 import Rodape from "../../components/Rodape";
-import Intro from "./layout/intro";
+import Intro from "./layout/Intro";
 import Localy from "./layout/Localy";
 import Sec_carreira from "./layout/sec_carreira";
 
