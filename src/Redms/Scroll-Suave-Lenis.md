@@ -8,7 +8,7 @@ Documentação completa sobre como o sistema de scroll suave funciona na aplica�
 
 1. [Visão Geral](#visão-geral)
 2. [Arquitetura do Sistema](#arquitetura-do-sistema)
-3. [Como Funciona](#como-funciona-teste)
+3. [Como Funciona](#%E2%9A%99%EF%B8%8F-como-funciona-teste)
 4. [Cada Biblioteca Explicada](#cada-biblioteca-explicada)
 5. [Fluxo de Sincronização](#fluxo-de-sincronização)
 6. [Configurações Principais](#configurações-principais)
