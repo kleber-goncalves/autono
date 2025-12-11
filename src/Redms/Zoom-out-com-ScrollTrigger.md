@@ -324,9 +324,9 @@ export default Infrografico;
     <!-- overflow-hidden: oculta overflow durante animação -->
 </section>
 ```
-
+---
 #### Caso queira que as outras sessões não tenha mais o efeito adicione a classe stickes sem a classe top
-#### IMPORTANTE!! => TODAS AS SESSÕES DEPOIS DA ÚLTIMA SESSÃO COM STICKES, É OBRIGATÓRIO USAR A CLASSE STICKES
+##### IMPORTANTE!! => TODAS AS SESSÕES DEPOIS DA ÚLTIMA SESSÃO COM STICKES, É OBRIGATÓRIO USAR A CLASSE STICKES
 ```html
 <section class="sticky overflow-hidden">
     <!-- min-h-screen: ocupa altura da viewport -->
