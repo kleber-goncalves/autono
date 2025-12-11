@@ -8,7 +8,7 @@ function Intro() {
                 classNameTitle="text-7xl"
                 classNameText="tracking-wide max-w-3xl"
                 titulo="NOSSA HISTÓRIA"
-                texto="Sou um parágrafo. Aqui você pode adicionar e editar seu próprio texto. É fácil, basta clicar em Editar texto ou clicar duas vezes sobre mim. Você também pode alterar a fonte e mais. Sou um ótimo lugar para você compartilhar a sua história com os visitantes."
+                texto="Desde o primeiro instante, nossa jornada foi movida por sonho, propósito e a certeza de que o futuro da mobilidade deveria ser mais limpo, inteligente e humano. Tudo começou com uma visão: reimaginar o transporte, substituindo poluição e ruído por energia limpa, silêncio e eficiência — acreditando que cada trajeto poderia ser uma escolha pelo planeta"
             />
         </section>
     );

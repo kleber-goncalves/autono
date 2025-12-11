@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 
 // =========================================================
 // 1. HOOK CUSTOMIZADO: Lógica de esconder/mostrar (Smart Navbar)
-// Mantido do código anterior.
 // =========================================================
 function useScrollDirection() {
     const [lastScrollY, setLastScrollY] = useState(0);
@@ -37,10 +36,10 @@ function useScrollDirection() {
 function Nav() {
     const scrollDirection = useScrollDirection();
 
-    // NOVO ESTADO: Controla se o usuário rolou o suficiente para mudar a cor
+    // ESTADO: Controla se o usuário rolou o suficiente para mudar a cor
     const [isScrolled, setIsScrolled] = useState(false);
 
-    // NOVO EFEITO: Monitora a posição do scroll para mudar 'isScrolled'
+    // EFEITO: Monitora a posição do scroll para mudar 'isScrolled'
     useEffect(() => {
         const handleScrollColor = () => {
             // Define o limite de scroll (ex: 80px)
@@ -68,8 +67,8 @@ function Nav() {
     const textColorClass = isScrolled ? "text-black" : "text-black"; // Supondo que o Hero tenha fundo escuro
 
     return (
-        <nav
-            // ALTERADO: transition-all para animar tanto a posição quanto a cor
+        <nav 
+            // transition-all para animar tanto a posição quanto a cor
             className={`
                 fixed top-0 w-full z-20 
                 transform transition-all duration-500
@@ -77,13 +76,13 @@ function Nav() {
                 ${bgColorClass}
             `}
         >
-            <div className="w-full max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div className="w-full max-w-8xl mx-auto px-30 py-7 flex items-center justify-between">
                 {/* Logo */}
                 <div>
                     <a
                         href="/"
                         // NOVO: Aplica a classe de cor de texto dinâmica
-                        className={`text-black text-xl tracking-widest font-extrabold transition duration-150 ${textColorClass}`}
+                        className={`text-black text-xl tracking-[0.4rem] font-bold transition duration-150 ${textColorClass}`}
                     >
                         AUTONO
                     </a>
@@ -104,10 +103,11 @@ function Nav() {
 
                     {/* Botão de Ação (CTA) - Manter cores fortes para visibilidade */}
                     <a
+                    role="link"
                         href="/subscribe"
                         className="
-                            bg-black text-white px-5 py-2 
-                            rounded-full font-medium text-sm
+                            bg-black text-white px-7 py-[3px]
+                            rounded-md font-medium text-base
                             hover:bg-white hover:text-black hover:border-black border-2 border-transparent transition duration-300
                         "
                     >
@@ -122,13 +122,13 @@ function Nav() {
 export default Nav;
 
 // --- (Componente Auxiliar para Links) ---
-// ALTERADO: Recebe 'isScrolled' para gerenciar a cor do texto
+// Recebe 'isScrolled' para gerenciar a cor do texto
 const LinkItem = ({ href, children, isScrolled }) => (
     <a
         href={href}
-        // Ajusta a cor do texto: preto quando scrollado, branco quando transparente
+        // Ajuste de cor do texto: preto quando scrollado, branco quando transparente
         className={`
-            text-sm font-medium transition duration-150 py-1
+            text-base transition duration-150 py-1
             ${
                 isScrolled
                     ? "text-black hover:text-gray-600"

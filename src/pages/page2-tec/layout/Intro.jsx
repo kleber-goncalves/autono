@@ -8,7 +8,9 @@ function Intro() {
                 titulo="TECNOLOGIA PERCEPTIVA ATIVADA
 "
                 image={minhaImagem}
-                texto="Clique aqui para editar esse parágrafo e adicionar seu próprio texto. Este é um ótimo lugar para explicar o título e detalhes ou informações importantes.
+                texto="Sentimos o mundo à nossa volta, interpretamos cada movimento —
+Veículos que “veem” como você, reagem antes mesmo do mundo pedir,
+Transformando cada trajeto em segurança, consciência e futuro.
 
 "
             />

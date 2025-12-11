@@ -9,6 +9,7 @@ export default function Card({
     children,
     variant = "white",
     className = "",
+    classNameButton = "",
     classNameBarra = "",
     classNameBarraII = "",
     classNameBaseII = "",
@@ -17,6 +18,8 @@ export default function Card({
     classNameText = "",
     classNameTextII = "",
     classNameTextIII = "",
+    href = "#",
+    target = "_self",
     ...props
 }) {
     // 🟦 BASES FIXAS
@@ -30,11 +33,13 @@ export default function Card({
     const baseButtonClassName =
         "flex-row flex border  cursor-pointer rounded-lg w-fit max-w-xs items-center tracking-wider transition-all duration-300 ";
     const divPClassName = "px-4 py-2 border-r   ";
-    const divArrowClassName = "cursor-pointer text-xl px-3 py-2.5 hover:border-l";
+    const divArrowClassName =
+        "cursor-pointer text-xl px-3 py-2.5 hover:border-l";
 
     // 🟨 VARIANTES
     const variants = {
         white: {
+            title: "text-white",
             text: "text-white",
             text_2: "text-white",
             text_3: "text-white",
@@ -50,6 +55,7 @@ export default function Card({
             divArrowClassName: "hover:border-black ",
         },
         black: {
+            title: "text-black",
             text_2: "text-black",
             text_3: "text-black",
             text: "text-black",
@@ -82,7 +88,11 @@ export default function Card({
                     <div
                         className={`${baseClassII} ${styles.baseClassII} ${className}`}
                     >
-                        <p className={`${baseText} ${classNameText}`}>{text}</p>
+                        <p
+                            className={`${baseText} ${styles.text} ${classNameText}`}
+                        >
+                            {text}
+                        </p>
                     </div>
                 </div>
                 {/*Barra grossa - pegar o componete todo*/}
@@ -92,7 +102,9 @@ export default function Card({
                     <div
                         className={`${baseClassII} ${styles.baseClassII} ${className}`}
                     >
-                        <h2 className={`${baseTitle} ${classNameTitle}`}>
+                        <h2
+                            className={`${baseTitle} ${styles.title} ${classNameTitle}`}
+                        >
                             {title}
                         </h2>
                     </div>
@@ -114,21 +126,23 @@ export default function Card({
                                 <>
                                     {text_2 && (
                                         <p
-                                            className={`${baseText} ${classNameTextII}`}
+                                            className={`${baseText} ${styles.text_2} ${classNameTextII}`}
                                         >
                                             {text_2}
                                         </p>
                                     )}
                                     {text_3 && (
                                         <p
-                                            className={`${baseText} ${classNameTextIII}`}
+                                            className={`${baseText} ${styles.text_3} ${classNameTextIII}`}
                                         >
                                             {text_3}
                                         </p>
                                     )}
                                     {text_button && (
-                                        <button
-                                            className={`${baseButtonClassName} ${styles.baseButtonClassName} `}
+                                        <a
+                                            href={href}
+                                            target={target}
+                                            className={`${baseButtonClassName} ${styles.baseButtonClassName} ${classNameButton}`}
                                         >
                                             <div
                                                 className={`${divPClassName} ${styles.divPClassName} `}
@@ -142,7 +156,7 @@ export default function Card({
                                             >
                                                 <TfiArrowRight />
                                             </div>
-                                        </button>
+                                        </a>
                                     )}
                                 </>
                             )}

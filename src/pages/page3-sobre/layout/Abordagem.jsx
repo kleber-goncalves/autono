@@ -12,10 +12,10 @@ function Abordagem() {
                         text="NOSSA MISSÃO"
                         title="Revolucionar como
 nos movemos"
-                        text_2="Sou um parágrafo. Aqui você pode adicionar e editar seu próprio texto. É fácil, basta clicar em Editar texto ou clicar duas vezes sobre mim. Você também pode alterar a fonte e mais. Sou um ótimo lugar para você compartilhar a sua história.
+                        text_2="Buscamos inovar a cada passo: com veículos 100% elétricos, infraestrutura moderna, recarga eficiente e sustentabilidade em cada parte do processo. Acreditamos que mover pessoas deve significar também preservar o planeta, reduzir emissões e garantir qualidade de vida às futuras gerações.
 
 "
-                        text_3="Este é um ótimo espaço para escrever um texto longo sobre sua empresa e seus serviços. Você pode dar mais detalhes sobre sua equipe, projetos e metas. Clique duas vezes sobre mim para editar o conteúdo."
+                        text_3="Nós acreditamos que cada viagem, cada trajeto, pode ser uma oportunidade de mudança — para o indivíduo, para a comunidade, para o planeta. Nosso compromisso é construir um transporte que faça sentido, que respeite o mundo e que leve as pessoas adiante com propósito."
                     />
                 </div>
                 <div className="flex flex-col  items-center ">

@@ -9,7 +9,7 @@ import Carreiras from "./pages/page4-carreira/Carreiras";
 function App() {
     return (
         <BrowserRouter>
-            <Routes>
+            <Routes >
                 <Route path="/" element={<Autono />} />
                 <Route path="/tecnologia" element={<Tecnologia />} />
                 <Route path="/sobre" element={<Sobre />} />

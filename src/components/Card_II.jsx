@@ -13,8 +13,9 @@ export default function Card_II({
     classNameTitle = "",
     classNameText = "",
     classNameTextII = "",
+    href = "#",
+    target = "_self",
 }) {
-    
     const baseClass =
         "flex max-w-md flex-col px-10 gap-17 py-10 rounded-2xl border border-white";
     const baseTitle = " leading-relaxed tracking-widest";
@@ -23,7 +24,8 @@ export default function Card_II({
     const baseButtonClassName =
         "flex-row flex border cursor-pointer rounded-lg w-fit max-w-xs items-center tracking-wider transition-all duration-300 ";
     const divPClassName = "px-4 py-2 border-r   ";
-    const divArrowClassName = "cursor-pointer text-xl px-3 py-2.5 hover:border-l";
+    const divArrowClassName =
+        "cursor-pointer text-xl px-3 py-2.5 hover:border-l";
 
     const variants = {
         white: {
@@ -60,14 +62,12 @@ export default function Card_II({
         mtI: "mt-4",
         mtII: "mt-12",
         mtIII: "mt-0",
-    }
+    };
 
-
-    const magt = mts[mt]
+    const magt = mts[mt];
     const tmlh = sizes[size];
     const styles = variants[variant];
     const showPartII = children || text || text_2;
-
 
     return (
         <>
@@ -104,7 +104,9 @@ export default function Card_II({
                     </div>
                 )}
 
-                <button
+                <a
+                    href={href}
+                    target={target}
                     className={`${baseButtonClassName} ${magt} ${styles.baseButtonClassName} `}
                 >
                     <div
@@ -117,7 +119,7 @@ export default function Card_II({
                     >
                         <TfiArrowRight />
                     </div>
-                </button>
+                </a>
             </div>
         </>
     );

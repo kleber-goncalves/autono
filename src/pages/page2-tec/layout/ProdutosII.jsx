@@ -27,11 +27,14 @@ function ProdutosII() {
                             CIBERSEGURANÇA AVANÇADA
                         </h2>
                         <p className="text-base max-w-md tracking-widest leading-relaxed">
-                            Sou um parágrafo. Aqui você pode adicionar e editar
-                            seu texto. É fácil, basta clicar em "Editar texto"
-                            ou clicar duas vezes sobre mim. Você também pode
-                            alterar a fonte e mais. Sou um ótimo lugar para você
-                            compartilhar a sua história com os visitantes.
+                            Em um mundo onde carros já não são simples máquinas,
+                            mas computadores sobre rodas, nossa empresa garante
+                            que seu volante também represente segurança digital
+                            e confiança real. Nosso painel integrado une
+                            conectividade, telemetria e controle — e é protegido
+                            por camadas robustas de cibersegurança, para que
+                            você dirija com tranquilidade, sem medo de invasões,
+                            roubo de dados ou manipulação indevida de sistemas.
                         </p>
                     </div>
                 </div>
@@ -41,11 +44,15 @@ function ProdutosII() {
                             INFORMAÇÕES EM TEMPO REAL
                         </h2>
                         <p className="text-base max-w-md tracking-widest leading-relaxed">
-                            Sou um parágrafo. Aqui você pode adicionar e editar
-                            seu texto. É fácil, basta clicar em "Editar texto"
-                            ou clicar duas vezes sobre mim. Você também pode
-                            alterar a fonte e mais. Sou um ótimo lugar para você
-                            compartilhar a sua história com os visitantes.
+                            Nossa visão vai além de mover pessoas — queremos
+                            entregar clareza, controle e segurança desde o
+                            primeiro segundo da viagem. Por isso, todos os
+                            nossos veículos contam com um painel digital
+                            inteligente, que exibe — em tempo real — dados
+                            essenciais como nível de bateria, autonomia
+                            restante, consumo de energia, estado do sistema,
+                            localização, navegação e status dos sensores de
+                            segurança
                         </p>
                     </div>
                 </div>

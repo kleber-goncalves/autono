@@ -1,5 +1,6 @@
 import Card from "../../../components/Card";
 
+
 function Sobre() {
     return (
         <section className="max-w-8xl  bg-black border border-black mx-auto py-46 flex flex-col  ">

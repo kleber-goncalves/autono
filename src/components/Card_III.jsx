@@ -11,10 +11,10 @@ export default function Card_III({
     className = "",
     classNameTitle = "",
     classNameText = "",
+    href = "#",
+    target = "_self",
 }) {
-    
-    const baseClass =
-        "flex max-w-xs flex-col gap-9 ";
+    const baseClass = "flex max-w-xs flex-col gap-9 ";
     const baseTitle = " leading-relaxed tracking-widest";
     const baseText = "text-base tracking-wider leading-relaxed";
     const baseButtonClassName =
@@ -51,21 +51,19 @@ export default function Card_III({
         },
         sizeIII: {
             title: "text-[40px]",
-        }
+        },
     };
 
     const mts = {
         mtI: "mt-4",
         mtII: "mt-12",
         mtIII: "mt-0",
-    }
+    };
 
-
-    const magt = mts[mt]
+    const magt = mts[mt];
     const tmlh = sizes[size];
     const styles = variants[variant];
     const showPartII = children || text;
-
 
     return (
         <>
@@ -95,7 +93,9 @@ export default function Card_III({
                     </div>
                 )}
 
-                <button
+                <a
+                    href={href}
+                    target={target}
                     className={`${baseButtonClassName} ${magt} ${styles.baseButtonClassName} `}
                 >
                     <div
@@ -108,7 +108,7 @@ export default function Card_III({
                     >
                         <TfiArrowRight />
                     </div>
-                </button>
+                </a>
             </div>
         </>
     );
