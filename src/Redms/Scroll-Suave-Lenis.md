@@ -4,18 +4,6 @@ Documentação completa sobre como o sistema de scroll suave funciona na aplica�
 
 ---
 
-## 📖 Índice
-
-1. [Visão Geral](#visão-geral)
-2. [Arquitetura do Sistema](#arquitetura-do-sistema)
-3. [Como Funciona](#o-fluxo-completo)
-4. [Cada Biblioteca Explicada](#cada-biblioteca-explicada)
-5. [Fluxo de Sincronização](#fluxo-de-sincronização)
-6. [Configurações Principais](#configurações-principais)
-7. [Solução de Problemas](#solução-de-problemas)
-
----
-
 ## 🎬 Visão Geral
 
 O arquivo `autono.jsx` é responsável por **orquestrar** todo o sistema de scroll suave da aplicação. Ele:
