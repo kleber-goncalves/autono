@@ -59,7 +59,7 @@ O arquivo `autono.jsx` é responsável por **orquestrar** todo o sistema de scro
 
 ---
 
-## ⚙️ Como Funciona
+## Como Funciona
 
 ### O Fluxo Completo
 
