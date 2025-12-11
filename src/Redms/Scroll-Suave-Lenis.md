@@ -382,31 +382,47 @@ Isso garante que:
 
 ```javascript
 // Dentro de autono.jsx
+
+import { useEffect } from "react";
+import Lenis from "lenis"; // Importe do Lenis
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
 useEffect(() => {
-        // Inicializa o Lenis
-        const lenis = new Lenis({
-            duration: 1.2, // Quanto maior, mais "manteiga"
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Easing padrão suave
-            smoothWheel: true,
-        });
+    // Inicializa o Lenis
+    const lenis = new Lenis({
+        duration: 1.2, // Quanto maior, mais "manteiga"
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Easing padrão suave
+        smoothWheel: true,
 
-        // Conecta o Lenis ao GSAP ScrollTrigger
-        lenis.on('scroll', ScrollTrigger.update);
+        // CONFIGURAÇÃO MOBILE CRÍTICA:
+        // 'false' deixa o touch 100% nativo do celular (RECOMENDADO)
+        // 'true' faz o Lenis controlar o touch (pode ser pesado)
+        syncTouch: false,
 
-        // Adiciona o Lenis ao ticker do GSAP para sincronia perfeita
-        gsap.ticker.add((time) => {
-            lenis.raf(time * 1000);
-        });
+        // Se quiser garantir ainda mais que o touch não seja afetado:
+        touchMultiplier: 2,
+    });
 
-        // Desativa o lag smoothing do GSAP para evitar conflitos visuais
-        gsap.ticker.lagSmoothing(0);
+    // Conecta o Lenis ao GSAP ScrollTrigger
+    lenis.on("scroll", ScrollTrigger.update);
 
-        // Limpeza ao desmontar
-        return () => {
-            gsap.ticker.remove((time) => lenis.raf(time * 1000));
-            lenis.destroy();
-        };
-    }, []);
+    // Adiciona o Lenis ao ticker do GSAP para sincronia perfeita
+    gsap.ticker.add((time) => {
+        lenis.raf(time * 1000);
+    });
+
+    // Desativa o lag smoothing do GSAP para evitar conflitos visuais
+    gsap.ticker.lagSmoothing(0);
+
+    // Limpeza ao desmontar
+    return () => {
+        gsap.ticker.remove((time) => lenis.raf(time * 1000));
+        lenis.destroy();
+    };
+}, []);
 ```
 
 ### Exemplo 1: Animar elemento ao scroll
