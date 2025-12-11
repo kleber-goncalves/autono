@@ -175,7 +175,7 @@ src/
 │           ├── Infografico.jsx     ← Usa zoom out
 │           ├── Parceiros.jsx       ← Usa zoom out
 │           └── [outros].jsx
-├── utils/
+├── Efeitos/
 │   └── useGsapEfeitoZoomScroll.js  ← Hook da animação (IMPORTANTE!)
 └── components/
     └── Scroll-bar.jsx
@@ -202,12 +202,22 @@ Elementos animam (zoom out + fade)
 ### 1️⃣ Hook Customizado (`useGsapEfeitoZoomScroll.js`)
 
 ```javascript
-// filepath: c:\projetos\front\autono\src\utils\useGsapEfeitoZoomScroll.js
+// filepath: c:\projetos\front\autono\src\Efeitos \useGsapEfeitoZoomScroll.js
 import { useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger);
+// Certifique-se de que o plugin está registrado UMA VEZ
+if (typeof window !== "undefined") {
+    gsap.registerPlugin(ScrollTrigger);
+}
+
+/**
+ * Hook customizado para aplicar animações de contêiner e zoom out com ScrollTrigger.
+ * @param {object} containerRef - A Ref (referência) do React do contêiner principal.
+ * @param {string} animatedElementsSelector - O seletor CSS dos elementos internos a serem animados (ex: ".stat-area").
+ * @param {number} scrollLength - A duração da rolagem em pixels para a animação (ex: 2000).
+ */
 
 export function useGsapContainerAnimation(
     containerRef,                    // Ref do container
@@ -216,6 +226,7 @@ export function useGsapContainerAnimation(
 ) {
     useEffect(() => {
         const containerElement = containerRef.current;
+        // Verifica se a Ref existe antes de continuar
         if (!containerElement) return;
 
         // 1. Fixa o container na tela (sticky com ScrollTrigger)
@@ -228,7 +239,8 @@ export function useGsapContainerAnimation(
             },
         });
 
-        // 2. Anima elementos internos (zoom out + fade)
+        // 2. Animação individual dos elementos internos (Zoom Out + Fade)
+        // Busca APENAS os elementos filhos dentro do containerElement
         const statAreas = gsap.utils.toArray(
             animatedElementsSelector,
             containerElement
@@ -265,8 +277,8 @@ export function useGsapContainerAnimation(
 
 ```javascript
 // filepath: c:\projetos\front\autono\src\pages\page1\layout\Infografico.jsx
-import { useGsapContainerAnimation } from "../../../utils/useGsapEfeitoZoomScroll";
-import React, { useRef } from "react";
+import { useGsapContainerAnimation } from "../../../Efeitos/useGsapEfeitoZoomScroll";
+import { useRef } from "react";
 
 function Infrografico() {
     // Cria referência do container
@@ -300,8 +312,9 @@ export default Infrografico;
 
 ---
 
-### 3️⃣ Classes Tailwind Essenciais
+### 3️⃣ Classes Tailwind Essenciais nas sessões
 
+#### Para começar o efeito
 ```html
 <!-- Container sticky -->
 <section class="sticky top-0 overflow-hidden">
@@ -312,6 +325,15 @@ export default Infrografico;
 </section>
 ```
 
+#### Caso queira que as outras sessões não tenha mais o efeito adicione a classe stickes sem a classe top
+#### IMPORTANTE!! => TODAS AS SESSÕES DEPOIS DA ÚLTIMA SESSÃO COM STICKES, É OBRIGATÓRIO USAR A CLASSE STICKES
+```html
+<section class="sticky overflow-hidden">
+    <!-- min-h-screen: ocupa altura da viewport -->
+    <!-- sticky: fica fixo quando atinge top-0 -->
+    <!-- overflow-hidden: oculta overflow durante animação -->
+</section>
+```
 ---
 
 ## 🔌 Sincronização: Sticky + Zoom Out + ScrollTrigger
@@ -453,7 +475,25 @@ className="sticky top-0 overflow-hidden"
 // (3) overflow-hidden - Evita overflow durante animação
 ```
 
-### Problema 2: Animação não funciona
+### Problema 2: Sessões passando emcima da sessão com stickes
+
+**Sintoma:** Parece que as sessões estão com z-index errado
+
+**Solução:**
+```javascript
+// Nas sessões, certifique-se que tem:
+<!-- Container sticky -->
+<section class="sticky top-0 overflow-hidden">
+    <!-- min-h-screen: ocupa altura da viewport -->
+    <!-- sticky: fica fixo quando atinge top-0 -->
+    <!-- top-0: fica fixo no topo -->
+    <!-- overflow-hidden: oculta overflow durante animação -->
+</section>
+```
+
+---
+
+### Problema 3: Animação não funciona
 
 **Sintoma:** Elemento não encolhe
 
@@ -469,7 +509,7 @@ console.log(containerRef.current); // Deve retornar um elemento DOM
 console.log(document.querySelectorAll(".stat-area").length); // > 0?
 ```
 
-### Problema 3: Animação muito rápida/lenta
+### Problema 4: Animação muito rápida/lenta
 
 **Solução:**
 ```javascript
@@ -488,7 +528,7 @@ gsap.to(area, {
 });
 ```
 
-### Problema 4: Conflito com Lenis
+### Problema 5: Conflito com Lenis
 
 **Sintoma:** ScrollTrigger não atualiza com Lenis
 
@@ -606,4 +646,4 @@ gsap.to(areas, {
 
 ---
 
-**Desenvolvido com ❤️ usando GSAP ScrollTrigger, CSS Sticky, e Lenis**
+**Desenvolvido com GSAP ScrollTrigger, CSS Sticky, e Lenis**
