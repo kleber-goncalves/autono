@@ -19,10 +19,10 @@ function BackgroundVideo() {
             {/* 4. O Conteúdo: Fica por cima de tudo */}
             <div className="z-10 flex flex-col ">
                 <Intro_cmp
-                    className="gap-7 py-30"
+                    className=" py-30"
                     classNameTitle="text-7xl max-w-5xl"
                     classNameText="tracking-wide max-w-3xl"
-                    titulo="O FUTURO DA MOBILIDADE CHEGOU"
+                    titulo={["O FUTURO DA ", "MOBILIDADE CHEGOU"]}
                     texto="Prove uma direção autônoma mais segura com Autono."
                 />
             </div>

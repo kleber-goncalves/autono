@@ -1,4 +1,3 @@
-import { Video } from "lucide-react";
 import BackgroundVideo from "../../../components/Video_fundo";
 
 function Hero() {

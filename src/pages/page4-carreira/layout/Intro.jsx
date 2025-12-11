@@ -7,8 +7,7 @@ function Intro() {
                 className="gap-15"
                 classNameTitle="text-7xl"
                 classNameText="tracking-wide max-w-3xl"
-                titulo="NÓS REALIZAMOS GRANDES IDEIAS
-"
+                titulo={["NÓS REALIZAMOS", "GRANDES IDEIAS"]}
                 texto="Faça parte dessa viagem!
 
 "

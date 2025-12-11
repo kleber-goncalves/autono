@@ -1,5 +1,5 @@
-import { useGsapContainerAnimation } from "../../../utils/useGsapEfeitoZoomScroll";
-import React, { useRef } from "react";
+import { useGsapContainerAnimation } from "../../../Efeitos/useGsapEfeitoZoomScroll";
+import { useRef } from "react";
 function Infrografico() {
     const containerRef = useRef(null);
 

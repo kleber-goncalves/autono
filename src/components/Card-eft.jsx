@@ -7,7 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 // PLUGIN - ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
 
-export default function Card({
+export default function Card_eft({
     title,
     text,
     text_2,
@@ -33,7 +33,8 @@ export default function Card({
     const baseClass = "flex  flex-col  ";
     const baseClassII = "flex  px-6 pl-10 flex-col  ";
     //const baseBarra = "border-l-4"; //Barra grossa - pegar o componete todo//
-    const baseBarra = "border-l-4"; //Barra grossa - pegar o componete todo
+    const baseBarra = "border-l"; //Barra grossa - pegar o componete todo
+    const baseBarraEfeito = "absolute top-19 border-l-4 h-33"; //Barra grossa - pegar o componete todo
     const baseBarraII = "border-l h-13"; //Barra fina - o tomanho da barra é fixo
     const baseBarraIII = "border-l"; //Barra fina - pegar o componete todo
     const baseTitle = " text-2xl  leading-relaxed tracking-widest ";
@@ -92,7 +93,7 @@ export default function Card({
                 // Quando o efeito começa
                 {
                     opacity: 0,
-                    y: 190, // Começa 120px à direita ( → )
+                    y: 190, // Começa 190px à de baixo ( ↓ )
                 },
                 // Quando o efeito termina
                 {
@@ -101,8 +102,9 @@ export default function Card({
                     duration: 1.5,
                     scrollTrigger: {
                         trigger: ".boxRef1",
-                        start: "top 100%", // Inicia quando o topo do elemento estiver a 100% do topo da viewport
-                        end: "top 0.7%", // Termina quando o botão estiver a 0.7%",
+                        start: "top 100%", // Inicia quando o topo do elemento estiver a 100%", // Inicia quando o topo do elemento estiver a 100% do topo da viewport
+                        end: "bottom 100px", // Termina quando o botão estiver a 100px",
+                        toggleActions: "play none none reverse", // Opcional: faz a animação voltar se subir
                     },
                 }
             );
@@ -138,6 +140,7 @@ export default function Card({
             >
                 {/*Barra fina - o tomanho da barra é fixo*/}
                 <div
+                    ref={containerRef}
                     className={` ${baseBarraII} ${styles.barraII} ${classNameBarraII}`}
                     {...props}
                 >
@@ -152,6 +155,9 @@ export default function Card({
                     </div>
                 </div>
                 {/*Barra grossa - pegar o componete todo*/}
+                <div
+                    className={`boxRef1 ${baseBarraEfeito} ${styles.barra} ${classNameBarra}`}
+                ></div>
                 <div
                     className={` ${baseBarra} ${styles.barra} ${classNameBarra}`}
                 >

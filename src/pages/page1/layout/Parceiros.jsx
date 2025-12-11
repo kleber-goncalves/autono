@@ -1,5 +1,5 @@
 import Card from "../../../components/Card";
-import { useGsapContainerAnimation } from "../../../utils/useGsapEfeitoZoomScroll";
+import { useGsapContainerAnimation } from "../../../Efeitos/useGsapEfeitoZoomScroll";
 import React, { useRef } from "react";
 
 function Parceiros() {
