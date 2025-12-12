@@ -1,4 +1,5 @@
 import Card from "../../../components/Card";
+import ProjectImage from "../../../components/ProjectImage";
 
 function Abordagem() {
     return (
@@ -19,10 +20,9 @@ nos movemos"
                     />
                 </div>
                 <div className="flex flex-col  items-center ">
-                    <img
+                    <ProjectImage
+                        id="mulher-abordagem"
                         className="rounded-3xl  max-w-sm"
-                        src="/public/mulher-abordagem.jpg"
-                        alt="abordagem"
                     />
                 </div>
             </div>

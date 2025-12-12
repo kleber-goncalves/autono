@@ -1,4 +1,3 @@
-import Linha_temp from "./Linha_tmp";
 
 const TimelineCard = ({ data, position }) => {
     return (

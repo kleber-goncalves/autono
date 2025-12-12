@@ -1,6 +1,8 @@
 import Card from "../../../components/Card";
 import { useGsapContainerAnimation } from "../../../Efeitos/useGsapEfeitoZoomScroll";
 import React, { useRef } from "react";
+import ProjectImage from "../../../components/ProjectImage";
+
 
 function Parceiros() {
     const containerRef = useRef(null);
@@ -32,11 +34,8 @@ parceiros"
                 </div>
                 <div className="grid grid-cols-2 gap-30 items-center justify-items-center">
                     <div className="flex flex-col stat-area gap-3 items-center">
-                        <img
-                            src="/public/TransportX-parceiros.png"
-                            alt="TRANSPORTEX      
-
-"
+                        <ProjectImage
+                            id="TransportX-parceiros"
                             className="w-4/6"
                         />
                         <h2 className="text-white text-xl text-center tracking-widest">
@@ -44,11 +43,8 @@ parceiros"
                         </h2>
                     </div>
                     <div className="flex flex-col stat-area gap-13 items-center">
-                        <img
-                            src="/public/IDISoftware-parceiros.png"
-                            alt="TRANSPORTEX      
-
-"
+                        <ProjectImage
+                            id="IDISoftware-parceiros"
                             className="w-2/4 flex pt-4"
                         />
                         <h2 className="text-white text-center  text-xl tracking-widest">
@@ -56,25 +52,17 @@ parceiros"
                         </h2>
                     </div>
                     <div className="flex flex-col stat-area gap-9 items-center">
-                        <img
-                            src="/public/ICars-parceiros.png"
-                            alt="TRANSPORTEX      
-
-"
-                            className="w-3/6"
-                        />
+                        <ProjectImage id="ICars-parceiros" className="w-3/6" />
                         <h2 className="text-white text-center text-xl tracking-widest">
                             IMAGINE CARROS
                         </h2>
                     </div>
                     <div className="flex flex-col stat-area  items-center">
-                        <img
-                            src="/public/Tri-Nex-parceiro.png"
-                            alt="TRANSPORTEX      
-
-"
+                        <ProjectImage
+                            id="Tri-Nex-parceiro"
                             className="w-8/6 flex pb-3"
                         />
+
                         <h2 className="text-white relative top-6 text-center text-xl tracking-widest">
                             TRI-NEX
                         </h2>
