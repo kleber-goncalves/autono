@@ -1,6 +1,7 @@
 import Card from "../../../components/Card";
 import Card_II from "../../../components/Card_II";
 
+import ProjectImage from "../../../components/ProjectImage";
 
 
 
@@ -19,7 +20,7 @@ function Sec_carreira() {
                     />
                 </div>
                 <div className="flex flex-col">
-                    <img src="/public/carreira.jpg" alt="carreira" />
+                    <ProjectImage id="carreira" />
                 </div>
             </div>
             <div className="grid grid-cols-2 items-center gap-x-90 gap-y-30 px-6 pb-20 lg:px-59">

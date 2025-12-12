@@ -1,5 +1,7 @@
 import { useGsapContainerAnimation } from "../../../Efeitos/useGsapEfeitoZoomScroll";
 import { useRef } from "react";
+import ProjectImage from "../../../components/ProjectImage";
+
 function Infrografico() {
     const containerRef = useRef(null);
 
@@ -17,7 +19,10 @@ function Infrografico() {
         >
             <div className="grid grid-cols-1 lg:grid-cols-2  gap-16 items-center">
                 <div className="flex justify-center stat-area items-center w-full h-full ">
-                    <img src="/public/braco-info.jpg" alt="infografico" />
+                                        <ProjectImage
+                        id="braco-info"
+                        
+                                        />
                 </div>
                 <div className="flex stat-area flex-col gap-20">
                     <h2 className="text-black text-4xl leading-relaxed tracking-widest ">

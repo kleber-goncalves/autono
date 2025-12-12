@@ -1,4 +1,6 @@
 import Card from "../../../components/Card"
+import ProjectImage from "../../../components/ProjectImage";
+
 
 function Localy() {
     return (
@@ -15,7 +17,7 @@ function Localy() {
                     />
                 </div>
                 <div className="flex flex-col  ">
-                    <img src="/public/localy.jpg" alt="localy" />
+                    <ProjectImage id="localy" />
                 </div>
             </div>
         </section>

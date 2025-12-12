@@ -1,4 +1,6 @@
 import Card from "../../../components/Card";
+import ProjectImage from "../../../components/ProjectImage";
+
 
 function ProdutosI() {
     return (
@@ -15,7 +17,7 @@ function ProdutosI() {
                 </div>
 
                 <div>
-                    <img src="/public/car-produtoI.jpg" alt="car-produtoI" />
+                    <ProjectImage id="car-produtoI" />
                 </div>
                 <div className=" text-white flex flex-col items-center">
                     <div className="flex flex-col gap-8">

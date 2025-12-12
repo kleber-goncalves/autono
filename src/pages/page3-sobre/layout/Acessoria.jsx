@@ -1,4 +1,6 @@
 import Card from "../../../components/Card";
+import ProjectImage from "../../../components/ProjectImage";
+
 
 function Acessoria() {
     return (
@@ -9,25 +11,19 @@ function Acessoria() {
                 </div>
                 <div className="grid grid-cols-5 gap-40">
                     <div className="flex items-center">
-                        <img src="/public/RCR-.png" alt="autono-midia" />
+                        <ProjectImage id="RCR" />
                     </div>
                     <div className="flex items-center">
-                        <img
-                            src="/public/TB_Review-01.png"
-                            alt="autono-midia"
-                        />
+                        <ProjectImage id="TBReview" />
                     </div>
                     <div className="flex items-center">
-                        <img src="/public/Finance.png" alt="autono-midia" />
+                        <ProjectImage id="Finance" />
                     </div>
                     <div className="flex items-center">
-                        <img
-                            src="/public/Palo_Alto_Tribunal.png"
-                            alt="autono-midia"
-                        />
+                        <ProjectImage id="PaloAltoTribunal" />
                     </div>
                     <div className="flex items-center">
-                        <img src="/public/London_post.png" alt="autono-midia" />
+                        <ProjectImage id="Londonpost" />
                     </div>
                 </div>
             </div>

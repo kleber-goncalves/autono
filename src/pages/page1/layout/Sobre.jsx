@@ -1,6 +1,7 @@
 import Card_eft from "../../../components/Card-eft";
 import { useRef } from "react";
-import  useEfeitoGsap  from "../../../Efeitos/useEfeito-simples_scrollTigger";
+import useEfeitoGsap from "../../../Efeitos/useEfeito-simples_scrollTigger";
+import ProjectImage from "../../../components/ProjectImage";
 
 /*
 // GSAP-IMPORTS
@@ -87,11 +88,15 @@ function Sobre() {
                     />
                 </div>
                 <div className="max-w-2xl">
+                    <ProjectImage id="car-sobre" ref={boxRef1} />
+
+                    {/*
                     <img
                         ref={boxRef1}
                         src="/public/car-sobre.jpg"
                         alt="car-sobre"
                     />
+                    */}
                 </div>
             </div>
         </section>

@@ -1,5 +1,5 @@
 import Intro_cmp from "../../../components/Intro_cmp";
-import minhaImagem from "/public/fundo-intro.jpg";
+import minhaImagem from "/src/assets/fundo-intro.jpg";
 
 function Intro() {
     return (

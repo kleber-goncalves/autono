@@ -1,4 +1,6 @@
 import Card from "../../../components/Card";
+import ProjectImage from "../../../components/ProjectImage";
+
 
 function ProdutosII() {
     return (
@@ -16,10 +18,7 @@ function ProdutosII() {
                 </div>
 
                 <div className="flex flex-col ml-10 max-w-2xl ">
-                    <img
-                        src="/public/paineil-produtoII.jpg"
-                        alt="paineil-produtoII"
-                    />
+                    <ProjectImage id="paineil-produtoII" />
                 </div>
                 <div className=" text-black flex flex-col items-center">
                     <div className="flex flex-col gap-8">

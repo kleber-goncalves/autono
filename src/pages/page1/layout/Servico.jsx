@@ -1,6 +1,9 @@
 import Card from "../../../components/Card";
 import Card_III from "../../../components/Card_III";
 
+import ProjectImage from "../../../components/ProjectImage";
+
+
 // GSAP-IMPORTS
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
@@ -107,18 +110,12 @@ function Servicos() {
                         />
                     </div>
                     <div className="">
-                        <img
-                            ref={boxRef1}
-                            src="/public/car-servico-1.jpg"
-                            alt="Carro Serviço"
-                            className=""
-                        />
+                        <ProjectImage id="car-servico-1" ref={boxRef1} />
                     </div>
                     <div className="relative w-full ">
-                        <img
+                        <ProjectImage
+                            id="velocimetroServico"
                             ref={boxRef2}
-                            src="/public/velocimetro-servico.jpg"
-                            alt="Carro Serviço"
                             className="w-full h-auto object-cover "
                         />
                     </div>
@@ -144,10 +141,9 @@ function Servicos() {
                         />
                     </div>
                     <div className="pr-4 relative w-full">
-                        <img
+                        <ProjectImage
+                            id="car-servico-2"
                             ref={boxRef3}
-                            src="/public/car-servico-2.jpg"
-                            alt="Carro Serviço"
                             className="w-full h-auto object-cover "
                         />
                     </div>

@@ -1,9 +1,8 @@
-import { TfiArrowRight } from "react-icons/tfi";
 import Card from "../../../components/Card";
 
 function Sobreii() {
     return (
-        <section className="bg-white min-h-screen pl-58 py-34 overflow-hidden bg-[url('/public/fundo-sobreii.jpg')] bg-fixed bg-cover bg-center">
+        <section className="bg-white min-h-screen pl-58 py-34 overflow-hidden bg-[url('/src/assets/fundo-sobreii.jpg')] bg-fixed bg-cover bg-center">
             <div className="flex bg-black max-w-lg rounded-2xl px-6 py-10  flex-col pl-10 ">
                 <Card
                     classNameBaseII="mt-17 max-w-sm gap-8"
