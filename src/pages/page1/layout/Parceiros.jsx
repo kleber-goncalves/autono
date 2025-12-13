@@ -1,8 +1,7 @@
 import Card from "../../../components/Card";
-import { useGsapContainerAnimation } from "../../../Efeitos/useGsapEfeitoZoomScroll";
+import { useGsapContainerAnimation } from "../../../hooks/Efeitos/useGsapEfeitoZoomScroll";
 import React, { useRef } from "react";
 import ProjectImage from "../../../components/ProjectImage";
-
 
 function Parceiros() {
     const containerRef = useRef(null);

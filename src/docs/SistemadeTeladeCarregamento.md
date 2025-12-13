@@ -2,7 +2,7 @@
 
 ## Visão Geral
 
-Este projeto implementa um sistema avançado de telas de carregamento personalizadas para cada página da aplicação React. Utilizando Code Splitting com `React.lazy()`, o sistema garante que cada rota tenha sua própria tela de loading, proporcionando uma experiência de usuário consistente e profissional. O sistema inclui um hook personalizado para controlar o tempo mínimo de exibição das telas e um wrapper que integra tudo de forma elegante.
+Este projeto implementa um sistema avançado de telas de carregamento personalizadas para cada página da aplicação React. Utilizando Code Splitting com `React.lazy()`, o sistema garante que cada rota tenha sua própria tela de loading, proporcionando uma experiência de usuário consistente e profissional. O sistema inclui um hook personalizado para controlar o tempo mínimo de exibição das telas e um wrapper que integra tudo de forma elegante, incluindo a recalibragem automática das animações GSAP/ScrollTrigger após o carregamento.
 
 ## Telas de Carregamento
 
@@ -43,7 +43,7 @@ const useMinimumLoadingTime = (minDuration = 1000) => {
 
 ## Componente MinimumLoadingWrapper
 
-O `MinimumLoadingWrapper.jsx` é um componente wrapper que combina o hook de tempo mínimo com o sistema de lazy loading do React.
+O `MinimumLoadingWrapper.jsx` é um componente wrapper que combina o hook de tempo mínimo com o sistema de lazy loading do React e garante a recalibragem das animações GSAP/ScrollTrigger.
 
 ### Funcionamento
 
@@ -51,10 +51,18 @@ O `MinimumLoadingWrapper.jsx` é um componente wrapper que combina o hook de tem
 const MinimumLoadingWrapper = ({ children, fallback, minDuration = 1000 }) => {
     const isMinTimeElapsed = useMinimumLoadingTime(minDuration);
 
-    if (isMinTimeElapsed) {
-        return children;
-    }
+    useEffect(() => {
+        if (isMinTimeElapsed) {
+            const t = setTimeout(() => {
+                if (ScrollTrigger && typeof ScrollTrigger.refresh === "function") {
+                    ScrollTrigger.refresh();
+                }
+            }, 50);
+            return () => clearTimeout(t);
+        }
+    }, [isMinTimeElapsed]);
 
+    if (isMinTimeElapsed) return children;
     return fallback;
 };
 ```
@@ -64,6 +72,14 @@ const MinimumLoadingWrapper = ({ children, fallback, minDuration = 1000 }) => {
 - O wrapper utiliza o hook `useMinimumLoadingTime` para verificar se o tempo mínimo de carregamento passou.
 - Só renderiza o componente real (`children`) quando tanto o bundle do `React.lazy()` foi carregado quanto o tempo mínimo expirou.
 - Caso contrário, exibe o `fallback` (a tela de loading customizada).
+
+### Recalibragem do ScrollTrigger
+
+Quando o tempo mínimo expira e o componente real é renderizado, o wrapper chama `ScrollTrigger.refresh()` após um pequeno delay (50ms). Isso é crucial porque:
+
+- **Problema**: Durante o carregamento, o layout da página pode mudar drasticamente (de uma tela de loading simples para um layout complexo com animações).
+- **Solução**: `ScrollTrigger.refresh()` recalcula todas as posições e triggers das animações baseadas em scroll, garantindo que componentes como `Card-eft.jsx` funcionem corretamente.
+- **Componentes Afetados**: Qualquer componente que use GSAP/ScrollTrigger (como `Card-eft.jsx`) depende dessa recalibragem para que suas animações de entrada, pin e zoom sejam posicionadas corretamente no novo layout.
 
 ### Props
 
@@ -112,12 +128,14 @@ function App() {
 3. **Fallback Customizado**: Cada rota tem sua própria tela de loading (`LoadingScreen*`).
 4. **Controle de Tempo**: O `minDuration` garante tempo mínimo de 900ms para consistência.
 5. **Transição Suave**: A tela de loading só desaparece quando o componente é carregado E o tempo mínimo passou.
+6. **Recalibragem Automática**: Após a transição, `ScrollTrigger.refresh()` é chamado para ajustar animações em componentes como `Card-eft.jsx`.
 
 ## Benefícios do Sistema
 
 - **Performance**: Code Splitting reduz o tamanho inicial do bundle.
 - **Experiência do Usuário**: Telas customizadas por página mantêm o engajamento.
 - **Consistência**: Tempo mínimo evita flashes de loading.
+- **Animações Corretas**: Recalibragem automática do ScrollTrigger garante funcionamento perfeito das animações GSAP.
 - **Manutenibilidade**: Arquitetura modular facilita adição de novas telas.
 - **Reutilização**: Hook e wrapper podem ser usados em outros projetos.
 
@@ -126,5 +144,6 @@ function App() {
 - **Tempo Mínimo**: Ajuste `minDuration` no `App.jsx` para cada rota.
 - **Novas Telas**: Crie novos componentes em `src/components/Loadings/` seguindo o padrão.
 - **Estilos**: Modifique animações e skeletons no `App.css`.
+- **Delay de Refresh**: Ajuste o setTimeout no `MinimumLoadingWrapper` se necessário para layouts mais complexos.
 
-Este sistema garante uma experiência de carregamento profissional e otimizada para toda a aplicação.
+Este sistema garante uma experiência de carregamento profissional e otimizada para toda a aplicação, com animações GSAP funcionando perfeitamente após a transição.
