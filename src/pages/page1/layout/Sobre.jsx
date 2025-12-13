@@ -1,18 +1,8 @@
 import Card_eft from "../../../components/Card-eft";
 import { useRef } from "react";
-import useEfeitoGsap from "../../../Efeitos/useEfeito-simples_scrollTigger";
+import useEfeitoGsap from "../../../hooks/Efeitos/useEfeito-simples_scrollTigger";
 import ProjectImage from "../../../components/ProjectImage";
 
-/*
-// GSAP-IMPORTS
-import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import useEfeitoGsap from './../../../Efeitos/useEfeito-simples_scrollTigger';
-// PLUGIN - ScrollTrigger
-gsap.registerPlugin(ScrollTrigger);
-
-*/
 function Sobre() {
     //As referências para os elementos que serão animados
     const boxRef1 = useRef(null); // Primeira imagem de carro (lado direito)
@@ -28,51 +18,6 @@ function Sobre() {
         duration: 2,
         opacity: 0.4,
     });
-
-    /* useEffect(() => {
-        let ctx = gsap.context(() => {
-            // 1. Animação para a primeira imagem de carro (slide da direita para a esquerda)
-            gsap.fromTo(
-                boxRef1.current,
-                {
-                    opacity: 1,
-                    x: 120, // Começa 120px à direita ( → )
-                },
-                {
-                    opacity: 1,
-                    x: 0, // Vai para a posição original
-                    duration: 1.5,
-                    scrollTrigger: {
-                        trigger: boxRef1.current,
-                        start: "top 100%", // Inicia quando o topo do elemento estiver a 100% do topo da viewport
-                        end: "top 0.7%", // Termina quando o botão estiver a 0.7%",
-                        scrub: 1.5, // Animação suave ligada à rolagem
-                    },
-                }
-            );
-            gsap.fromTo(
-                boxRef2.current,
-                {
-                    opacity: 1,
-                    x: 0, // Começa 120px à direita ( → )
-                },
-                {
-                    opacity: 1,
-                    x: 0, // Vai para a posição original
-                    duration: 1.5,
-                    scrollTrigger: {
-                        trigger: boxRef1.current,
-                        start: "top 100%", // Inicia quando o topo do elemento estiver a 100% do topo da viewport
-                        end: "top 0.7%", // Termina quando o botão estiver a 0.7%",
-                        scrub: 1.5, // Animação suave ligada à rolagem
-                    },
-                }
-            );
-
-        }, containerRef);
-
-        return () => ctx.revert(); // Limpa o contexto ao desmontar o componente
-    }, []); */
 
     return (
         <section className="max-w-8xl  bg-black border border-black mx-auto py-46 flex flex-col  ">

@@ -84,48 +84,51 @@ export default function Card_eft({
     const showBottomPart = children || text_2 || text_3 || text_button;
 
     const containerRef = useRef(null);
+    const box1Ref = useRef(null);
+    const box2Ref = useRef(null); // use apenas se houver um elemento com esse efeito
 
     useEffect(() => {
         let ctx = gsap.context(() => {
             // 1. Animação para a primeira imagem de carro (slide da direita para a esquerda)
-            gsap.fromTo(
-                ".boxRef1",
-                // Quando o efeito começa
-                {
-                    opacity: 0,
-                    y: 190, // Começa 190px à de baixo ( ↓ )
-                },
-                // Quando o efeito termina
-                {
-                    opacity: 1,
-                    y: 0, // Vai para a posição original
-                    duration: 1.5,
-                    scrollTrigger: {
-                        trigger: ".boxRef1",
-                        start: "top 100%", // Inicia quando o topo do elemento estiver a 100%", // Inicia quando o topo do elemento estiver a 100% do topo da viewport
-                        end: "bottom 100px", // Termina quando o botão estiver a 100px",
-                        toggleActions: "play none none reverse", // Opcional: faz a animação voltar se subir
-                    },
-                }
-            );
-            gsap.fromTo(
-                ".boxRef2",
-                {
-                    opacity: 1,
-                    x: 0, // Começa 120px à direita ( → )
-                },
-                {
-                    opacity: 1,
-                    x: 0, // Vai para a posição original
-                    duration: 1.5,
-                    scrollTrigger: {
-                        trigger: ".boxRef2",
-                        start: "top 100%", // Inicia quando o topo do elemento estiver a 100% do topo da viewport
-                        end: "top 0.7%", // Termina quando o botão estiver a 0.7%",
-                        scrub: 1.5, // Animação suave ligada à rolagem
-                    },
-                }
-            );
+            // animação do box1 (usa o ref diretamente)
+            if (box1Ref.current) {
+                gsap.fromTo(
+                    box1Ref.current,
+                    { opacity: 0, y: 190 },
+                    {
+                        opacity: 1,
+                        y: 0,
+                        duration: 1.5,
+                        scrollTrigger: {
+                            trigger: box1Ref.current,
+                            start: "top 100%",
+                            end: "bottom 100px",
+                            toggleActions: "play none none reverse",
+                        },
+                    }
+                );
+            }
+
+            // animação do box2 (só se existir um alvo)
+            if (box2Ref.current) {
+                gsap.fromTo(
+                    box2Ref.current,
+                    { opacity: 1, x: 120 },
+                    {
+                        opacity: 1,
+                        x: 0,
+                        duration: 1.5,
+                        scrollTrigger: {
+                            trigger: box2Ref.current,
+                            start: "top 100%",
+                            end: "top 0.7%",
+                            scrub: 1.5,
+                        },
+                    }
+                );
+            }
+            // garante recalcular posições logo após iniciar (útil quando conteúdo foi lazy-loaded)
+            ScrollTrigger.refresh();
         }, containerRef);
 
         return () => ctx.revert(); // Limpa o contexto ao desmontar o componente
@@ -156,7 +159,8 @@ export default function Card_eft({
                 </div>
                 {/*Barra grossa - pegar o componete todo*/}
                 <div
-                    className={`boxRef1 ${baseBarraEfeito} ${styles.barra} ${classNameBarra}`}
+                    ref={box1Ref}
+                    className={` ${baseBarraEfeito} ${styles.barra} ${classNameBarra}`}
                 ></div>
                 <div
                     className={` ${baseBarra} ${styles.barra} ${classNameBarra}`}

@@ -175,8 +175,9 @@ src/
 │           ├── Infografico.jsx     ← Usa zoom out
 │           ├── Parceiros.jsx       ← Usa zoom out
 │           └── [outros].jsx
-├── Efeitos/
-│   └── useGsapEfeitoZoomScroll.js  ← Hook da animação (IMPORTANTE!)
+├── hookes/
+│   └── Efeitos/
+│       └── useGsapEfeitoZoomScroll.js  ← Hook da animação (IMPORTANTE!)
 └── components/
     └── Scroll-bar.jsx
 ```
@@ -202,7 +203,7 @@ Elementos animam (zoom out + fade)
 ### 1️⃣ Hook Customizado (`useGsapEfeitoZoomScroll.js`)
 
 ```javascript
-// filepath: c:\projetos\front\autono\src\Efeitos \useGsapEfeitoZoomScroll.js
+// filepath: c:\projetos\front\autono\src\hooks\Efeitos\useGsapEfeitoZoomScroll
 import { useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -277,7 +278,7 @@ export function useGsapContainerAnimation(
 
 ```javascript
 // filepath: c:\projetos\front\autono\src\pages\page1\layout\Infografico.jsx
-import { useGsapContainerAnimation } from "../../../Efeitos/useGsapEfeitoZoomScroll";
+import { useGsapContainerAnimation } from "../../../hooks/Efeitos/useGsapEfeitoZoomScroll";
 import { useRef } from "react";
 
 function Infrografico() {
