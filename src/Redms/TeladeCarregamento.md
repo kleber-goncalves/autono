@@ -1,4 +1,4 @@
- Tela de Carregamento
+# Tela de Carregamento
 
 ## Visão Geral
 
