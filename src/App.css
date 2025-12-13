@@ -18,6 +18,25 @@ html {
     animation-range: entry 0% cover 100%;
 }
 
+
+@keyframes fadeIn {
+    /* 0% (Início da animação) */
+    from {
+        opacity: 0;
+       
+    }
+    /* 100% (Fim da animação) */
+    to {
+        opacity: 1;
+    }
+}
+
+/* Aplicação da Classe 'animate-fade-in' */
+.animate-fade-in {
+    animation: fadeIn 0.8s ease-out ;
+}
+
+
 @keyframes animation_scroll {
     from {
         opacity: 0;
