@@ -31,6 +31,28 @@ html {
     }
 }
 
+
+@keyframes custom-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(3px); } /* Aumente este valor para descer mais */
+}
+.animate-custom-bounce {
+  animation: custom-bounce 1.5s infinite ease ;
+}
+
+
+@keyframes custom-arrows {
+  0% { transform: translateY(0); opacity: 0;}
+  30% { transform: translateY(9px); opacity: 1;}
+  100% { transform: translateY(25px); opacity: 0;}
+}
+
+.animate-custom-arrows {
+  animation: custom-arrows 1.5s infinite ease-in-out; ;
+}
+
+
+
 /* Aplicação da Classe 'animate-fade-in' */
 .animate-fade-in {
     animation: fadeIn 0.8s ease-out ;

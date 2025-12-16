@@ -1,6 +1,7 @@
 import React from "react";
 import videoBg from "../../public/fundo-hero.mp4"; // Importe seu vídeo ou use URL externa
 import Intro_cmp from "./Intro_cmp";
+import MouseAnimation from "./MouseAnimation";
 
 function BackgroundVideo() {
     return (
@@ -25,6 +26,12 @@ function BackgroundVideo() {
                     titulo={["O FUTURO DA ", "MOBILIDADE CHEGOU"]}
                     texto="Prove uma direção autônoma mais segura com Autono."
                 />
+        
+                
+                <MouseAnimation
+                    
+            />
+        
             </div>
         </div>
     );
