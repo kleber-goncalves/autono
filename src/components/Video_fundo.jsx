@@ -6,9 +6,13 @@ import MouseAnimation from "./MouseAnimation";
 function BackgroundVideo() {
     return (
         // 1. O container pai deve ser relative para conter o vídeo absolute
-        <div className="relative w-full h-screen overflow-hidden">
+        <div
+            className="relative w-full h-screen overflow-hidden"
+            data-bg="white"
+        >
             {/* 2. O Vídeo: age como o background */}
             <video
+                data-bg="white"
                 className="absolute top-0 left-0 w-full h-full object-cover -z-10"
                 src={videoBg}
                 autoPlay
@@ -18,7 +22,7 @@ function BackgroundVideo() {
             />
 
             {/* 4. O Conteúdo: Fica por cima de tudo */}
-            <div className="z-10 flex flex-col ">
+            <div data-bg="white" className="z-10 flex flex-col ">
                 <Intro_cmp
                     className=" py-30"
                     classNameTitle="text-7xl max-w-5xl"
@@ -26,12 +30,8 @@ function BackgroundVideo() {
                     titulo={["O FUTURO DA ", "MOBILIDADE CHEGOU"]}
                     texto="Prove uma direção autônoma mais segura com Autono."
                 />
-        
-                
-                <MouseAnimation
-                    
-            />
-        
+
+                <MouseAnimation />
             </div>
         </div>
     );

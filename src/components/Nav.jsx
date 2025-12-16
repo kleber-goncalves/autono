@@ -1,129 +1,209 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
-// =========================================================
-// 1. HOOK CUSTOMIZADO: Lógica de esconder/mostrar (Smart Navbar)
-// =========================================================
+// Hook para direção de scroll (mantive sua lógica)
 function useScrollDirection() {
     const [lastScrollY, setLastScrollY] = useState(0);
     const [scrollDirection, setScrollDirection] = useState("up");
 
-    const updateScrollDirection = () => {
-        const scrollY = window.scrollY;
-
-        // Esconde se rolar para baixo e já tiver saído do topo (> 50px)
-        const direction = scrollY > lastScrollY && scrollY > 600 ? "down" : "up";
-
-        if (direction !== scrollDirection) {
-            setScrollDirection(direction);
-        }
-
-        setLastScrollY(scrollY > 0 ? scrollY : 0);
-    };
-
     useEffect(() => {
-        window.addEventListener("scroll", updateScrollDirection);
-        return () => {
-            window.removeEventListener("scroll", updateScrollDirection);
+        const update = () => {
+            const y = window.scrollY;
+            const dir = y > lastScrollY && y > 600 ? "down" : "up";
+            if (dir !== scrollDirection) setScrollDirection(dir);
+            setLastScrollY(y > 0 ? y : 0);
         };
-    }, [lastScrollY]);
+        window.addEventListener("scroll", update, { passive: true });
+        return () => window.removeEventListener("scroll", update);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [lastScrollY, scrollDirection]);
 
     return scrollDirection;
 }
 
-// =========================================================
-// 2. COMPONENTE NAV: Lógica de Cor de Fundo
-// =========================================================
 function Nav() {
+    const navRef = useRef(null);
     const scrollDirection = useScrollDirection();
 
-    // ESTADO: Controla se o usuário rolou o suficiente para mudar a cor
     const [isScrolled, setIsScrolled] = useState(false);
+    const [isNavOverDark, setIsNavOverDark] = useState(false);
 
-    // EFEITO: Monitora a posição do scroll para mudar 'isScrolled'
+    // Mantém isScrolled (opcional) -- sua lógica
     useEffect(() => {
-        const handleScrollColor = () => {
-            // Define o limite de scroll (ex: 80px)
-            setIsScrolled(window.scrollY > 80);
-        };
-
-        window.addEventListener("scroll", handleScrollColor);
-        handleScrollColor(); // Executa na montagem para verificar o estado inicial
-
+        const handleScrollColor = () => setIsScrolled(window.scrollY > 80);
+        window.addEventListener("scroll", handleScrollColor, { passive: true });
+        window.addEventListener("resize", handleScrollColor);
+        handleScrollColor();
         return () => {
             window.removeEventListener("scroll", handleScrollColor);
+            window.removeEventListener("resize", handleScrollColor);
         };
     }, []);
 
-    // Classe para esconder/mostrar (baseada na direção)
-    const visibilityClass =
-        scrollDirection === "down"
-            ? "-translate-y-26"
-            : "translate-y-0 nav-up";
+    // Checagem rápida e imediata durante o scroll (rAF)
+    useEffect(() => {
+        if (!navRef.current) return;
+        let raf = null;
 
-    // Classe para cor de fundo (baseada na posição)
+        const parseRgb = (rgbStr) => {
+            if (!rgbStr) return null;
+            const m = rgbStr.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/i);
+            if (!m) return null;
+            return [parseInt(m[1], 10), parseInt(m[2], 10), parseInt(m[3], 10)];
+        };
+        const brightness = (r, g, b) => (299 * r + 587 * g + 114 * b) / 1000;
+        const findSectionAncestor = (el) => {
+            while (el && el !== document.body) {
+                if (el.tagName && el.tagName.toLowerCase() === "section")
+                    return el;
+                if (
+                    el.dataset &&
+                    (el.dataset.section !== undefined ||
+                        el.dataset.bg !== undefined)
+                )
+                    return el;
+                el = el.parentElement;
+            }
+            return null;
+        };
+
+        // Função que decide se está sobre fundo escuro
+        const checkUnderNav = () => {
+            if (!navRef.current) return;
+
+            const rect = navRef.current.getBoundingClientRect();
+            const x = Math.round(rect.left + rect.width / 2);
+            const y = Math.round(
+                Math.min(window.innerHeight - 1, rect.bottom + 2)
+            );
+            const el = document.elementFromPoint(x, y);
+            if (!el) return;
+
+            const section = findSectionAncestor(el) || el;
+
+            // Prioriza data-bg (controle manual)
+            if (section.dataset && section.dataset.bg) {
+                const val = section.dataset.bg.toLowerCase();
+                setIsNavOverDark(
+                    val === "dark" || val === "black" || val === "preto"
+                );
+                return;
+            }
+
+            // Sobe para achar background-color sólido
+            let cur = section;
+            let bg = null;
+            while (cur && cur !== document.body) {
+                const style = window.getComputedStyle(cur);
+                bg = style.backgroundColor;
+                if (bg && bg !== "rgba(0, 0, 0, 0)" && bg !== "transparent")
+                    break;
+                cur = cur.parentElement;
+            }
+            if (!bg || bg === "rgba(0, 0, 0, 0)" || bg === "transparent") {
+                bg =
+                    window.getComputedStyle(document.body).backgroundColor ||
+                    "rgb(255,255,255)";
+            }
+
+            const rgb = parseRgb(bg);
+            if (!rgb) {
+                setIsNavOverDark(false);
+                return;
+            }
+            const b = brightness(...rgb);
+            setIsNavOverDark(b < 130);
+        };
+
+        // Handler de scroll: chama checkUnderNav via rAF a cada frame enquanto rola
+        const onScroll = () => {
+            if (raf) cancelAnimationFrame(raf);
+            raf = requestAnimationFrame(checkUnderNav);
+        };
+
+        // ADICIONA o listener direto (sem debounce) mas com rAF para limitar por frame
+        window.addEventListener("scroll", onScroll, { passive: true });
+        window.addEventListener("resize", onScroll);
+
+        // faz um check inicial
+        onScroll();
+
+        return () => {
+            if (raf) cancelAnimationFrame(raf);
+            window.removeEventListener("scroll", onScroll);
+            window.removeEventListener("resize", onScroll);
+        };
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [navRef]);
+
+    // Classes rápidas (quase instantâneas)
+    const visibilityClass =
+        scrollDirection === "down" ? "-translate-y-18" : "translate-y-0 nav-up";
     const bgColorClass = isScrolled
         ? "w-auto ml-23 mr-23 top-3 bg-white/20 rounded-2xl border border-white/60 backdrop-blur-sm "
-        : "bg-transparent border-none "; // Fundo transparente no topo
-
-    // Classe para o logo/texto para garantir que ele seja visível
-    const textColorClass = isScrolled ? "text-black" : "text-black"; // Supondo que o Hero tenha fundo escuro
-
-    // Container interno — aqui mudamos o max-width/spacing quando scrolled
-    // Isso faz o navbar "encolher" mas permanecer centralizado (mx-auto)
+        : "bg-transparent border-none";
+    // Aqui trocamos a duração para 75ms (quase instantâneo). Se quiser sem animação: use "transition-none"
+    const textColorClass = isNavOverDark ? "text-white" : "text-black";
+    const linkHover = isNavOverDark
+        ? "hover:text-gray-200"
+        : "hover:text-gray-700";
     const containerBase =
-        "w-full mx-auto flex items-center justify-between  duration-800 ease-in-out";
-
-    const animtion = isScrolled ? "" : "nav-up";
+        "w-full mx-auto flex items-center justify-between transition-all duration-150 ease-linear will-change-transform";
 
     const containerSizeClass = isScrolled
-        ? "max-w-6xl px-4 py-3" // ENCOLHIDO quando scrolled
-        : "max-w-8xl  px-30 py-7"; // LARGURA total no topo
+        ? "max-w-6xl px-4 py-3"
+        : "max-w-8xl px-30 py-7";
+    
+       const animtion = isScrolled ? "" : "nav-up";
 
     return (
         <nav
-            // transition-all para animar tanto a posição quanto a cor
-            className={`
-                fixed z-20 left-0 right-0
-                transform ${visibilityClass}
-                ${bgColorClass}
-                ${animtion}
-                transition-all duration-500
-            `}
+            ref={navRef}
+            // reduzimos duração de transição geral e usamos will-change pra performance
+            className={`fixed top-0 left-0 right-0 z-20 transform ${visibilityClass}  ${animtion}  ${bgColorClass} duration-800 ease-in-out`}
+            style={{ willChange: "transform, background-color" }}
         >
             <div className={`${containerBase} ${containerSizeClass}`}>
-                {/* Logo */}
                 <div className="shrink-0">
                     <a
                         href="/"
-                        // NOVO: Aplica a classe de cor de texto dinâmica
-                        className={`text-black text-xl tracking-[0.4rem] font-bold transition duration-150 ${textColorClass}`}
+                        className={`font-bold tracking-[0.4rem] text-xl transition-colors duration-75 ease-linear ${textColorClass}`}
+                        style={{ willChange: "color" }}
                     >
                         AUTONO
                     </a>
                 </div>
 
-                {/* Links de Navegação */}
-                <div className="hidden md:flex gap-8 items-center">
-                    {/* NOVO: Aplica a classe de cor de texto dinâmica nos links */}
-                    <LinkItem href="/tecnologia" isScrolled={isScrolled}>
+                <div
+                    className={`hidden md:flex gap-8 items-center ${textColorClass}`}
+                >
+                    <a
+                        href="/tecnologia"
+                        className={`text-base transition-colors duration-75 ease-linear ${linkHover}`}
+                    >
                         Tecnologia
-                    </LinkItem>
-                    <LinkItem href="/sobre" isScrolled={isScrolled}>
+                    </a>
+                    <a
+                        href="/sobre"
+                        className={`text-base transition-colors duration-75 ease-linear ${linkHover}`}
+                    >
                         Sobre
-                    </LinkItem>
-                    <LinkItem href="/carreiras" isScrolled={isScrolled}>
+                    </a>
+                    <a
+                        href="/carreiras"
+                        className={`text-base transition-colors duration-75 ease-linear ${linkHover}`}
+                    >
                         Carreiras
-                    </LinkItem>
+                    </a>
 
-                    {/* Botão de Ação (CTA) - Manter cores fortes para visibilidade */}
                     <a
                         role="link"
                         href="/subscribe"
-                        className="
-                            bg-black text-white px-7 py-[3px]
-                            rounded-md font-medium text-base
-                            hover:bg-white hover:text-black hover:border-black border-2 border-transparent transition duration-300
-                        "
+                        className={`px-7 py-[3px] rounded-md border transition-colors duration-150 ease-linear ${
+                            isNavOverDark
+                                ? "bg-white text-black hover:bg-black hover:text-white"
+                                : "bg-black text-white border-black hover:bg-white hover:text-black"
+                        }`}
+                        style={{ willChange: "color, border-color" }}
                     >
                         Assinar
                     </a>
@@ -134,22 +214,3 @@ function Nav() {
 }
 
 export default Nav;
-
-// --- (Componente Auxiliar para Links) ---
-// Recebe 'isScrolled' para gerenciar a cor do texto
-const LinkItem = ({ href, children, isScrolled }) => (
-    <a
-        href={href}
-        // Ajuste de cor do texto: preto quando scrollado, branco quando transparente
-        className={`
-            text-base transition duration-150 py-1
-            ${
-                isScrolled
-                    ? "text-black hover:text-gray-600"
-                    : "text-black hover:text-gray-300"
-            }
-        `}
-    >
-        {children}
-    </a>
-);

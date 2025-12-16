@@ -11,6 +11,22 @@ html {
     -webkit-overflow-scrolling: touch;
 }
 
+:root {
+  --nav-text-color: #000;
+  --nav-border-color: rgba(0,0,0,0.1);
+}
+
+.nav-text {
+  color: var(--nav-text-color);
+  transition: color 60ms linear;
+}
+
+.nav-border {
+  border-color: var(--nav-border-color);
+}
+
+
+
 .scroll-animation {
     animation: animation_scroll linear;
     animation-duration: 1s;
