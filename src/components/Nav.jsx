@@ -56,29 +56,43 @@ function Nav() {
 
     // Classe para esconder/mostrar (baseada na direção)
     const visibilityClass =
-        scrollDirection === "down" ? "-translate-y-full" : "translate-y-0";
+        scrollDirection === "down"
+            ? "-translate-y-26"
+            : "translate-y-0 nav-up";
 
     // Classe para cor de fundo (baseada na posição)
     const bgColorClass = isScrolled
-        ? "bg-white  shadow-md"
-        : "bg-transparent  shadow-none"; // Fundo transparente no topo
+        ? "w-auto ml-23 mr-23 top-3 bg-white/20 rounded-2xl border border-white/60 backdrop-blur-sm "
+        : "bg-transparent border-none "; // Fundo transparente no topo
 
     // Classe para o logo/texto para garantir que ele seja visível
     const textColorClass = isScrolled ? "text-black" : "text-black"; // Supondo que o Hero tenha fundo escuro
 
+    // Container interno — aqui mudamos o max-width/spacing quando scrolled
+    // Isso faz o navbar "encolher" mas permanecer centralizado (mx-auto)
+    const containerBase =
+        "w-full mx-auto flex items-center justify-between  duration-800 ease-in-out";
+
+    const animtion = isScrolled ? "" : "nav-up";
+
+    const containerSizeClass = isScrolled
+        ? "max-w-6xl px-4 py-3" // ENCOLHIDO quando scrolled
+        : "max-w-8xl  px-30 py-7"; // LARGURA total no topo
+
     return (
-        <nav 
+        <nav
             // transition-all para animar tanto a posição quanto a cor
             className={`
-                fixed top-0 w-full z-20 
-                transform transition-all duration-500
-                ${visibilityClass}
+                fixed z-20 left-0 right-0
+                transform ${visibilityClass}
                 ${bgColorClass}
+                ${animtion}
+                transition-all duration-500
             `}
         >
-            <div className="w-full max-w-8xl mx-auto px-30 py-7 flex items-center justify-between">
+            <div className={`${containerBase} ${containerSizeClass}`}>
                 {/* Logo */}
-                <div>
+                <div className="shrink-0">
                     <a
                         href="/"
                         // NOVO: Aplica a classe de cor de texto dinâmica
@@ -103,7 +117,7 @@ function Nav() {
 
                     {/* Botão de Ação (CTA) - Manter cores fortes para visibilidade */}
                     <a
-                    role="link"
+                        role="link"
                         href="/subscribe"
                         className="
                             bg-black text-white px-7 py-[3px]

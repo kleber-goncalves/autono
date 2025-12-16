@@ -18,6 +18,20 @@ html {
     animation-range: entry 0% cover 100%;
 }
 
+@keyframes nav-up {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+    
+}
+
+.nav-up {
+    animation: nav-up 1.5s ease;
+}
+
 
 @keyframes fadeIn {
     /* 0% (Início da animação) */
