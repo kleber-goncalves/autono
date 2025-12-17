@@ -3,7 +3,7 @@ import ProjectImage from "../../../components/ProjectImage";
 
 function Abordagem() {
     return (
-        <section className="max-w-8xl border border-black mx-auto py-40 px-6 lg:px-9 flex flex-col items-center ">
+        <section className="max-w-8xl border bg-white border-black mx-auto py-40 px-6 lg:px-9 flex flex-col items-center ">
             <div className="grid grid-cols-2 gap-y-20">
                 <div className="flex flex-col  px-50  ">
                     <Card

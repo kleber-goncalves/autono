@@ -85,7 +85,7 @@ function Linha_temp() {
     };
 
     return (
-        <section>
+        <section className="bg-white">
             <div className="min-h-screen bg-white flex flex-col items-center justify-center py-40 font-sans selection:bg-orange-100">
                 {/* Header */}
                 <div className="w-full max-w-6xl mb-12">
