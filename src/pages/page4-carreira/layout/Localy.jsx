@@ -4,7 +4,7 @@ import ProjectImage from "../../../components/ProjectImage";
 
 function Localy() {
     return (
-        <section className="max-w-8xl mx-auto px-6 lg:px-9  border-b flex flex-col ">
+        <section className="max-w-8xl bg-white mx-auto px-6 lg:px-9  border-b flex flex-col ">
             <div className="grid grid-cols-2 items-center gap-y-20">
                 <div className="flex flex-col px-50  ">
                     <Card

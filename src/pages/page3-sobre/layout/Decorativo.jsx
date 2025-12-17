@@ -1,6 +1,6 @@
 function Decorativo() {
     return (
-        <section className="h-screen max-w-8xl  overflow-hidden bg-[url('/src/assets/fundo-destaques.jpg')] bg-fixed  bg-cover bg-center"></section>
+        <section className="h-screen max-w-8xl bg-white  overflow-hidden bg-[url('/src/assets/fundo-destaques.jpg')] bg-fixed  bg-cover bg-center"></section>
     );
 }
 

@@ -138,29 +138,41 @@ function Nav() {
     // Classes rápidas
     const visibilityClass =
         scrollDirection === "down" ? "-translate-y-18" : "translate-y-0 nav-up";
-    const bgColorClass = isScrolled
-        ? "w-auto ml-23 mr-23 top-3 bg-white/20 rounded-2xl border border-white/60 backdrop-blur-sm "
-        : "bg-transparent border-none";
 
+    // Mudança de cor de fundo do nav bar do "isNavOverDark ( Detector de cor de fundo )" dizer
+    const bgColorClassII = isNavOverDark
+        ? "bg-white/20 border border-white/60 backdrop-blur-sm "
+        : "bg-black/20 border border-black/60 backdrop-blur-sm ";
+
+    // Mudança de cor do texto do nav bar com base do "isNavOverDark ( Detector de cor de fundo )" dizer
     const textColorClass = isNavOverDark ? "text-white" : "text-black";
+
     const linkHover = isNavOverDark
         ? "hover:text-white text-gray-300" // V- branco
         : "hover:text-black text-gray-700"; // V- preto
+
+    // Controle maior do layout do nav bar com base do "isScrolled ( Detector de rolagem )" dizer
+    const bgColorClass = isScrolled
+        ? "w-auto ml-23 mr-23 top-3 rounded-2xl"
+        : "bg-transparent border-none";
+
+    // Controle maior do layout do nav bar 
     const containerBase =
         "w-full mx-auto flex items-center justify-between transition-all duration-150 ease-linear will-change-transform";
-
+    
+    // Mudança do layout do nav bar com base do "isScrolled ( Detector de rolagem )" dizer
     const containerSizeClass = isScrolled
         ? "max-w-6xl px-4 py-3"
         : "max-w-8xl px-30 py-7";
-    
-        // animação para o nav nao ter animação quando estiver no topo do hero
-       const animtion = isScrolled ?  "" :  "nav-padrao";  
+
+    // animação para o nav nao ter animação quando estiver no topo do hero
+    const animtion = isScrolled ? "" : "nav-padrao";
 
     return (
         <nav
             ref={navRef}
             // usar will-change pra performance, para o navegador ja esperar uma mudança
-            className={`fixed top-0 left-0 right-0 z-20 transform ${visibilityClass}  ${animtion}  ${bgColorClass} duration-800 ease-in-out`}
+            className={`fixed top-0 left-0 right-0 z-20 transform ${visibilityClass}  ${animtion} ${bgColorClassII}  ${bgColorClass} duration-800 ease-in-out`}
             style={{ willChange: "transform, background-color" }}
         >
             <div className={`${containerBase} ${containerSizeClass}`}>

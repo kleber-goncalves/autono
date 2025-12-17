@@ -67,7 +67,7 @@ function Sec_carreira() {
                         text_button="Enviar CV"
                     />
                 </div>
-                <div>
+                <div >
                     <Card_II
                         size="sizeII"
                         variant="black"
