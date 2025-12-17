@@ -14,6 +14,8 @@ import Carreira from "../page1/layout/Carreira";
 import Rodape from "/src/components/Rodape";
 
 
+
+
 gsap.registerPlugin(ScrollTrigger);
 
 function Autono() {
@@ -23,7 +25,7 @@ function Autono() {
     useEffect(() => {
         const start = () => {
             const lenis = new Lenis({
-                duration: 2.0,
+                duration: 1.2,
                 easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
                 smoothWheel: true,
                 syncTouch: false,
@@ -51,6 +53,7 @@ function Autono() {
         <>
             <Nav />
             <Hero />
+           
             <Sobre />
             <Servicos />
             <Sobreii />

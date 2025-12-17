@@ -1,15 +1,20 @@
 import React from "react";
 import videoBg from "../../public/fundo-hero.mp4"; // Importe seu vídeo ou use URL externa
 import Intro_cmp from "./Intro_cmp";
-import MouseAnimation from "./MouseAnimation";
+import MouseAnimation from "/src/components/MouseAnimation";
+
 
 function BackgroundVideo() {
     return (
         // 1. O container pai deve ser relative para conter o vídeo absolute
-        <div className="relative w-full h-screen overflow-hidden">
+        <div
+            className="relative z-3 w-full h-screen  overflow-hidden"
+            data-bg="white"
+        >
             {/* 2. O Vídeo: age como o background */}
             <video
-                className="absolute top-0 left-0 w-full h-full object-cover -z-10"
+                data-bg="white"
+                className="absolute top-0  left-0 w-full h-full object-cover -z-10 "
                 src={videoBg}
                 autoPlay
                 loop
@@ -18,7 +23,7 @@ function BackgroundVideo() {
             />
 
             {/* 4. O Conteúdo: Fica por cima de tudo */}
-            <div className="z-10 flex flex-col ">
+            <div data-bg="white" className="flex z-10 flex-col ">
                 <Intro_cmp
                     className=" py-30"
                     classNameTitle="text-7xl max-w-5xl"
@@ -26,12 +31,11 @@ function BackgroundVideo() {
                     titulo={["O FUTURO DA ", "MOBILIDADE CHEGOU"]}
                     texto="Prove uma direção autônoma mais segura com Autono."
                 />
-        
-                
-                <MouseAnimation
-                    
-            />
-        
+
+                <MouseAnimation />
+                <div
+                    className="absolute z-3 inset-0 bg-linear-to-b  from-black/5 via-transparent to-black"
+                ></div>
             </div>
         </div>
     );

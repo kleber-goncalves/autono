@@ -20,7 +20,10 @@ function Sobre() {
     });
 
     return (
-        <section className="max-w-8xl  bg-black border border-black mx-auto py-46 flex flex-col  ">
+        <section
+            data-bg="dark"
+            className="max-w-8xl   bg-black border border-black mx-auto py-46 flex flex-col  "
+        >
             <div className="flex flex-col md:flex-row mx-auto gap-20  items-center ">
                 <div ref={boxRef2} className="flex px-30">
                     <Card_eft
