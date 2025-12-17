@@ -12,9 +12,7 @@ import Infrografico from "../page1/layout/Infografico";
 import Parceiros from "../page1/layout/Parceiros";
 import Carreira from "../page1/layout/Carreira";
 import Rodape from "/src/components/Rodape";
-
-
-
+import CustomCursor from "/src/components/CustomCursor";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -37,7 +35,6 @@ function Autono() {
 
             const raf = (time) => lenis.raf(time * 1000);
             gsap.ticker.add(raf);
-
         };
 
         if (document.readyState === "complete") {
@@ -51,9 +48,10 @@ function Autono() {
 
     return (
         <>
+            <CustomCursor />
             <Nav />
             <Hero />
-           
+
             <Sobre />
             <Servicos />
             <Sobreii />
