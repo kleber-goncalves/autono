@@ -33,7 +33,9 @@ function BackgroundVideo() {
                 />
 
                 <MouseAnimation />
-                <div className="absolute z-3 inset-0 bg-linear-to-b  from-black/5 via-transparent to-black"></div>
+                <div
+                    className="absolute z-3 inset-0 bg-linear-to-b  from-black/5 via-transparent to-black"
+                ></div>
             </div>
         </div>
     );

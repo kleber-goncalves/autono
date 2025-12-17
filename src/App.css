@@ -11,7 +11,61 @@ html {
     -webkit-overflow-scrolling: touch;
 }
 
+@keyframes text-decoration {
+    0% {
+        transform: translateX(0);
+        text-decoration: chocolate solid;
+        text-underline-offset: 8px;
 
+        text-decoration-line: underline;
+    }
+    100% {
+        transform: translateX(100%);
+        text-decoration: chocolate solid;
+        text-underline-offset: 8px;
+
+        text-decoration-line: underline;
+    }
+}
+
+.text-dect {
+    animation: text-decoration 1.5s ease;
+}
+
+
+.link-glow {
+    position: relative;
+    display: inline-block;
+}
+
+/* Linha base */
+.link-glow::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -6px;
+    transform: translateX(-50%);
+    width: 0%;
+    height: 1px;
+    background-color: currentColor;
+    border-radius: 999px;
+
+    /* Glow */
+    box-shadow:
+        0 0 2px currentColor,
+        0 0 12px currentColor;
+
+    transition:
+        width 0.18s ease-out,
+        box-shadow 0.25s ease-out;
+
+    transition-delay: var(--delay, 0ms);
+}
+
+/* Hover */
+.link-glow:hover::after {
+    width: 100%;
+}
 
 
 @keyframes nav-up {
@@ -24,13 +78,11 @@ html {
     100% {
         transform: translateY(0);
     }
-    
 }
 
 .nav-up {
     animation: nav-up 1.5s ease;
 }
-
 
 @keyframes nav-padrao {
     0% {
@@ -39,19 +91,16 @@ html {
     100% {
         transform: translateY(0);
     }
-    
 }
 
 .nav-padrao {
     animation: nav-padrao;
 }
 
-
 @keyframes fadeIn {
     /* 0% (Início da animação) */
     from {
         opacity: 0;
-       
     }
     /* 100% (Fim da animação) */
     to {
@@ -59,21 +108,22 @@ html {
     }
 }
 
-
 .animate-fade-in {
-    animation: fadeIn 0.8s ease-out ;
+    animation: fadeIn 0.8s ease-out;
 }
-
 
 @keyframes custom-bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(3px); } /* Aumente este valor para descer mais */
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(3px);
+    } /* Aumente este valor para descer mais */
 }
 .animate-custom-bounce {
-  animation: custom-bounce 1.5s infinite ease ;
+    animation: custom-bounce 1.5s infinite ease;
 }
-
-
 
 @keyframes animation_scroll {
     from {
@@ -93,7 +143,6 @@ html {
     animation-range: entry 0% cover 100%;
 }
 
-
 .hero {
     background-image: url(/public/fundo-hero.jpg);
     background-size: cover;
@@ -109,7 +158,6 @@ html {
     height: 100vh;
     padding-bottom: 17rem;
 }
-
 
 .textRoot:hover {
     color: rgb(158, 117, 90);

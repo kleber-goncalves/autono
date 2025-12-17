@@ -144,8 +144,8 @@ function Nav() {
 
     const textColorClass = isNavOverDark ? "text-white" : "text-black";
     const linkHover = isNavOverDark
-        ? "hover:text-gray-300"
-        : "hover:text-white";
+        ? "hover:text-white text-gray-300" // V- branco
+        : "hover:text-black text-gray-700"; // V- preto
     const containerBase =
         "w-full mx-auto flex items-center justify-between transition-all duration-150 ease-linear will-change-transform";
 
@@ -159,7 +159,7 @@ function Nav() {
     return (
         <nav
             ref={navRef}
-            // usar will-change pra performance, para o navegador ja esperar uma mudança 
+            // usar will-change pra performance, para o navegador ja esperar uma mudança
             className={`fixed top-0 left-0 right-0 z-20 transform ${visibilityClass}  ${animtion}  ${bgColorClass} duration-800 ease-in-out`}
             style={{ willChange: "transform, background-color" }}
         >
@@ -178,20 +178,23 @@ function Nav() {
                     className={`hidden md:flex gap-8 items-center ${textColorClass}`}
                 >
                     <a
+                        style={{ "--delay": "80ms" }}
                         href="/tecnologia"
-                        className={`text-base transition-colors duration-75 ease-linear ${linkHover}`}
+                        className={`text-base transition-colors duration-75 link-glow  ease-linear ${linkHover}`}
                     >
                         Tecnologia
                     </a>
                     <a
+                        style={{ "--delay": "80ms" }}
                         href="/sobre"
-                        className={`text-base transition-colors duration-75 ease-linear ${linkHover}`}
+                        className={`text-base transition-colors duration-75 link-glow  ease-linear ${linkHover}`}
                     >
                         Sobre
                     </a>
                     <a
+                        style={{ "--delay": "160ms" }}
                         href="/carreiras"
-                        className={`text-base transition-colors duration-75 ease-linear ${linkHover}`}
+                        className={`text-base transition-colors duration-75 link-glow ease-linear ${linkHover}`}
                     >
                         Carreiras
                     </a>
@@ -199,7 +202,7 @@ function Nav() {
                     <a
                         role="link"
                         href="/subscribe"
-                        className={`px-7 py-[3px] rounded-md border transition-colors duration-150 ease-linear ${
+                        className={`px-7 py-[3px] rounded-md  border transition-colors duration-150 ease-linear ${
                             isNavOverDark
                                 ? "bg-white text-black hover:bg-black hover:text-white"
                                 : "bg-black text-white border-black hover:bg-white hover:text-black"
