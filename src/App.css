@@ -11,32 +11,15 @@ html {
     -webkit-overflow-scrolling: touch;
 }
 
-:root {
-  --nav-text-color: #000;
-  --nav-border-color: rgba(0,0,0,0.1);
-}
-
-.nav-text {
-  color: var(--nav-text-color);
-  transition: color 60ms linear;
-}
-
-.nav-border {
-  border-color: var(--nav-border-color);
-}
 
 
-
-.scroll-animation {
-    animation: animation_scroll linear;
-    animation-duration: 1s;
-    animation-timeline: view();
-    animation-range: entry 0% cover 100%;
-}
 
 @keyframes nav-up {
     0% {
-        transform: translateY(100%);
+        transform: translateY(26%);
+    }
+    50% {
+        transform: translateY(46%);
     }
     100% {
         transform: translateY(0);
@@ -46,6 +29,21 @@ html {
 
 .nav-up {
     animation: nav-up 1.5s ease;
+}
+
+
+@keyframes nav-padrao {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(0);
+    }
+    
+}
+
+.nav-padrao {
+    animation: nav-padrao;
 }
 
 
@@ -62,6 +60,11 @@ html {
 }
 
 
+.animate-fade-in {
+    animation: fadeIn 0.8s ease-out ;
+}
+
+
 @keyframes custom-bounce {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(3px); } /* Aumente este valor para descer mais */
@@ -70,23 +73,6 @@ html {
   animation: custom-bounce 1.5s infinite ease ;
 }
 
-
-@keyframes custom-arrows {
-  0% { transform: translateY(0); opacity: 0;}
-  30% { transform: translateY(9px); opacity: 1;}
-  100% { transform: translateY(25px); opacity: 0;}
-}
-
-.animate-custom-arrows {
-  animation: custom-arrows 1.5s infinite ease-in-out; ;
-}
-
-
-
-/* Aplicação da Classe 'animate-fade-in' */
-.animate-fade-in {
-    animation: fadeIn 0.8s ease-out ;
-}
 
 
 @keyframes animation_scroll {
@@ -99,6 +85,14 @@ html {
         transform: translate(0px);
     }
 }
+
+.scroll-animation {
+    animation: animation_scroll linear;
+    animation-duration: 1s;
+    animation-timeline: view();
+    animation-range: entry 0% cover 100%;
+}
+
 
 .hero {
     background-image: url(/public/fundo-hero.jpg);
@@ -116,9 +110,6 @@ html {
     padding-bottom: 17rem;
 }
 
-.textRoot {
-    color: black;
-}
 
 .textRoot:hover {
     color: rgb(158, 117, 90);

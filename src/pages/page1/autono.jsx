@@ -14,6 +14,8 @@ import Carreira from "../page1/layout/Carreira";
 import Rodape from "/src/components/Rodape";
 
 
+
+
 gsap.registerPlugin(ScrollTrigger);
 
 function Autono() {
@@ -51,6 +53,7 @@ function Autono() {
         <>
             <Nav />
             <Hero />
+           
             <Sobre />
             <Servicos />
             <Sobreii />

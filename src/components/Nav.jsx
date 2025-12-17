@@ -27,7 +27,7 @@ function Nav() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isNavOverDark, setIsNavOverDark] = useState(false);
 
-    // Mantém isScrolled (opcional) -- sua lógica
+    //  isScrolled
     useEffect(() => {
         const handleScrollColor = () => setIsScrolled(window.scrollY > 80);
         window.addEventListener("scroll", handleScrollColor, { passive: true });
@@ -135,17 +135,17 @@ function Nav() {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [navRef]);
 
-    // Classes rápidas (quase instantâneas)
+    // Classes rápidas
     const visibilityClass =
         scrollDirection === "down" ? "-translate-y-18" : "translate-y-0 nav-up";
     const bgColorClass = isScrolled
         ? "w-auto ml-23 mr-23 top-3 bg-white/20 rounded-2xl border border-white/60 backdrop-blur-sm "
         : "bg-transparent border-none";
-    // Aqui trocamos a duração para 75ms (quase instantâneo). Se quiser sem animação: use "transition-none"
+
     const textColorClass = isNavOverDark ? "text-white" : "text-black";
     const linkHover = isNavOverDark
-        ? "hover:text-gray-200"
-        : "hover:text-gray-700";
+        ? "hover:text-gray-300"
+        : "hover:text-white";
     const containerBase =
         "w-full mx-auto flex items-center justify-between transition-all duration-150 ease-linear will-change-transform";
 
@@ -153,12 +153,13 @@ function Nav() {
         ? "max-w-6xl px-4 py-3"
         : "max-w-8xl px-30 py-7";
     
-       const animtion = isScrolled ? "" : "nav-up";
+        // animação para o nav nao ter animação quando estiver no topo do hero
+       const animtion = isScrolled ?  "" :  "nav-padrao";  
 
     return (
         <nav
             ref={navRef}
-            // reduzimos duração de transição geral e usamos will-change pra performance
+            // usar will-change pra performance, para o navegador ja esperar uma mudança 
             className={`fixed top-0 left-0 right-0 z-20 transform ${visibilityClass}  ${animtion}  ${bgColorClass} duration-800 ease-in-out`}
             style={{ willChange: "transform, background-color" }}
         >
