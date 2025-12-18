@@ -2,6 +2,7 @@ import React from "react";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
+import CustomCursor from "/src/components/CustomCursor";
 
 // Importar o novo wrapper
 import MinimumLoadingWrapper from "./utils/MinimumLoadingWrapper";
@@ -25,6 +26,7 @@ function App() {
     return (
         <>
             <BrowserRouter>
+                <CustomCursor />
                 <Routes>
                     <Route
                         path="/"
