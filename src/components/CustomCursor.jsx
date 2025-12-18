@@ -2,7 +2,7 @@
 import React, { useEffect, useRef } from "react";
 import "../style/customCursor.css"; // importe o CSS (nome sugestão)
 
-const CustomCursor = ({ speed = 0.28, innerSize = 6, outerSize = 36  }) => {
+const CustomCursor = ({ speed = 0.28, innerSize = 6, outerSize = 27  }) => {
     //speed = 0.28 → controla quanto “atraso” o anel externo terá (maior = menos atraso, mais responsivo).
     //innerSize = 6 → tamanho do ponto interno (em pixels).
     //outerSize = 36 → tamanho do anel externo (em pixels).
@@ -22,9 +22,42 @@ const CustomCursor = ({ speed = 0.28, innerSize = 6, outerSize = 36  }) => {
             if (innerRef.current) {
                 innerRef.current.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate(-50%, -50%)`;
             }
+
+            // se estava escondido por mouse sair, mostra ao voltar
+            if (outerRef.current && outerRef.current.style.opacity === "0") {
+                outerRef.current.style.opacity = "1";
+            }
+            if (innerRef.current && innerRef.current.style.opacity === "0") {
+                innerRef.current.style.opacity = "1";
+            }
         };
 
+        // detectar quando o mouse sai da janela: mouseout com relatedTarget === null
+        const onDocMouseOut = (e) => {
+            // quando relatedTarget for null significa que o ponteiro saiu da janela
+            if (!e.relatedTarget && !e.toElement) {
+                if (outerRef.current) outerRef.current.style.opacity = "0";
+                if (innerRef.current) innerRef.current.style.opacity = "0";
+            }
+        };
+
+        // também esconder quando a janela perde foco (alt+tab, trocar de app, abrir devtools separado)
+        const onWindowBlur = () => {
+            if (outerRef.current) outerRef.current.style.opacity = "0";
+            if (innerRef.current) innerRef.current.style.opacity = "0";
+        };
+
+        // mostrar quando a janela volta a foco (ou quando mouse entra com mousemove já faz isso)
+        const onWindowFocus = () => {
+            if (outerRef.current) outerRef.current.style.opacity = "1";
+            if (innerRef.current) innerRef.current.style.opacity = "1";
+        };
+
+        // Adiciona listeners
         document.addEventListener("mousemove", onMove);
+        document.addEventListener("mouseout", onDocMouseOut);
+        window.addEventListener("blur", onWindowBlur);
+        window.addEventListener("focus", onWindowFocus);
 
         let frameId;
         const animate = () => {
@@ -43,8 +76,12 @@ const CustomCursor = ({ speed = 0.28, innerSize = 6, outerSize = 36  }) => {
 
         // Ao desmontar, limpa tudo
         return () => {
-            document.removeEventListener("mousemove", onMove);
-            cancelAnimationFrame(frameId);
+      document.removeEventListener("mousemove", onMove);
+      document.removeEventListener("mouseout", onDocMouseOut);
+      window.removeEventListener("blur", onWindowBlur);
+      window.removeEventListener("focus", onWindowFocus);
+      cancelAnimationFrame(frameId);
+
         };
     }, [speed]);
 
@@ -54,12 +91,12 @@ const CustomCursor = ({ speed = 0.28, innerSize = 6, outerSize = 36  }) => {
             <div
                 ref={outerRef}
                 className="custom-cursor-outer"
-                style={{ width: outerSize, height: outerSize }}
+                style={{ width: outerSize, height: outerSize, opacity: 1 }}
             />
             <div
                 ref={innerRef}
                 className="custom-cursor-inner"
-                style={{ width: innerSize, height: innerSize }}
+                style={{ width: innerSize, height: innerSize, opacity: 1 }}
             />
         </>
     );

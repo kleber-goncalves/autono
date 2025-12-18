@@ -11,45 +11,6 @@ html {
     -webkit-overflow-scrolling: touch;
 }
 
-body {
-    cursor: none;
-}
-
-.custom-cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 20px;             /* ajuste o tamanho conforme desejado */
-  height: 20px;
-  background-color: #000;  /* cor do cursor personalizado */
-  border-radius: 50%;      
-  pointer-events: none;    /* permite clicar nos elementos abaixo */
-  transform: translate(-50%, -50%);
-  z-index: 9999;
-  transition: background-color 0.15s ease; /* efeito suave em mudanças de estilo */
-}
-
-@keyframes text-decoration {
-    0% {
-        transform: translateX(0);
-        text-decoration: chocolate solid;
-        text-underline-offset: 8px;
-
-        text-decoration-line: underline;
-    }
-    100% {
-        transform: translateX(100%);
-        text-decoration: chocolate solid;
-        text-underline-offset: 8px;
-
-        text-decoration-line: underline;
-    }
-}
-
-.text-dect {
-    animation: text-decoration 1.5s ease;
-}
-
 
 .link-glow {
     position: relative;

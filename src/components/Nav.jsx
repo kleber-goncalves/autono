@@ -148,8 +148,8 @@ function Nav() {
     const textColorClass = isNavOverDark ? "text-white" : "text-black";
 
     const linkHover = isNavOverDark
-        ? "hover:text-white text-gray-300" // V- branco
-        : "hover:text-black text-gray-700"; // V- preto
+        ? "hover:text-white text-gray-300 hover:font-medium" // V- text-branco
+        : "hover:text-black text-gray-700 hover:font-medium"; // V- text-preto
 
     // Controle maior do layout do nav bar com base do "isScrolled ( Detector de rolagem )" dizer
     const bgColorClass = isScrolled
