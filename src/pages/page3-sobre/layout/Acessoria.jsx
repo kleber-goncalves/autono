@@ -1,5 +1,6 @@
 import Card from "../../../components/Card";
 import ProjectImage from "../../../components/ProjectImage";
+import { Fade } from "react-awesome-reveal";
 
 
 function Acessoria() {
@@ -10,21 +11,31 @@ function Acessoria() {
                     <Card title="Autono na mídia" text="NOTÍCIAS" />
                 </div>
                 <div className="grid grid-cols-5 gap-40">
-                    <div className="flex items-center">
-                        <ProjectImage id="RCR" />
-                    </div>
-                    <div className="flex items-center">
-                        <ProjectImage id="TBReview" />
-                    </div>
-                    <div className="flex items-center">
-                        <ProjectImage id="Finance" />
-                    </div>
-                    <div className="flex items-center">
-                        <ProjectImage id="PaloAltoTribunal" />
-                    </div>
-                    <div className="flex items-center">
-                        <ProjectImage id="Londonpost" />
-                    </div>
+                    <Fade cascade triggerOnce duration={1300} delay={0}>
+                        <div className="flex items-center">
+                            <ProjectImage id="RCR" />
+                        </div>
+                    </Fade>
+                    <Fade cascade triggerOnce duration={1300} delay={200}>
+                        <div className="flex items-center">
+                            <ProjectImage id="TBReview" />
+                        </div>
+                    </Fade>
+                    <Fade cascade triggerOnce duration={1300} delay={500}>
+                        <div className="flex items-center">
+                            <ProjectImage id="Finance" />
+                        </div>
+                    </Fade>
+                    <Fade cascade triggerOnce duration={1300} delay={800}>
+                        <div className="flex items-center">
+                            <ProjectImage id="PaloAltoTribunal" />
+                        </div>
+                    </Fade>
+                    <Fade cascade triggerOnce duration={1300} delay={1200}>
+                        <div className="flex items-center">
+                            <ProjectImage id="Londonpost" />
+                        </div>
+                    </Fade>
                 </div>
             </div>
         </section>

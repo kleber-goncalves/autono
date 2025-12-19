@@ -1,6 +1,6 @@
 import Card from "../../../components/Card";
 import Card_III from "../../../components/Card_III";
-
+import useEfeitoGsap from "../../../hooks/Efeitos/useEfeito-simples_scrollTigger";
 import ProjectImage from "../../../components/ProjectImage";
 
 
@@ -14,18 +14,36 @@ gsap.registerPlugin(ScrollTrigger);
 function Servicos() {
     const containerRef = useRef(null);
     //As referências para os elementos que serão animados
-    const boxRef1 = useRef(null); // Primeira imagem de carro (lado direito)
-    const boxRef2 = useRef(null); // Imagem do velocímetro (lado esquerdo)
-    const boxRef3 = useRef(null); // Segunda imagem de carro (lado direito)
+    const imgRef1 = useRef(null); // Primeira imagem de carro (lado direito)
+    const imgRef2 = useRef(null); // Imagem do velocímetro (lado esquerdo)
+    const imgRef3 = useRef(null); // Segunda imagem de carro (lado direito)
 
-    
 
+    const boxRef1 = useRef(null); 
+    const boxRef2 = useRef(null); 
+    const boxRef3 = useRef(null); 
+
+    useEfeitoGsap(boxRef1, {
+        fromX: 0,
+        duration: 0.2,
+        opacity: 0.4,
+    });
+    useEfeitoGsap(boxRef2, {
+        fromX: 0,
+        duration: 0.2,
+        opacity: 0,
+    });
+    useEfeitoGsap(boxRef3, {
+        fromX: 0,
+        duration: 0.2,
+        opacity: 0.4,
+    });
 
     useEffect(() => {
         let ctx = gsap.context(() => {
             // 1. Animação para a primeira imagem de carro (slide da direita para a esquerda)
             gsap.fromTo(
-                boxRef1.current,
+                imgRef1.current,
                 {
                     opacity: 0,
                     x: 150, // Começa 150px à direita ( → )
@@ -35,7 +53,7 @@ function Servicos() {
                     x: 0, // Vai para a posição original
                     duration: 1.5,
                     scrollTrigger: {
-                        trigger: boxRef1.current,
+                        trigger: imgRef1.current,
                         start: "top 100%", // Inicia quando o topo do elemento estiver a 100% do topo da viewport
                         end: "top 0.7%", // Termina quando o botão estiver a 0.7%",
                         scrub: 1.5, // Animação suave ligada à rolagem
@@ -45,7 +63,7 @@ function Servicos() {
 
             // 2. Animação para a imagem do velocímetro (slide da esquerda para a direita)
             gsap.fromTo(
-                boxRef2.current,
+                imgRef2.current,
                 {
                     opacity: 0,
                     x: -150, // Começa 150px à esquerda ( → )
@@ -55,7 +73,7 @@ function Servicos() {
                     x: 0, // Vai para a posição original
                     duration: 1.5,
                     scrollTrigger: {
-                        trigger: boxRef2.current,
+                        trigger: imgRef2.current,
                         start: "top 100%",
                         end: "top 0.7%", // Termina quando o botão estiver a 0.7%",
                         scrub: 1.5,
@@ -65,7 +83,7 @@ function Servicos() {
 
             // 3. Animação para a segunda imagem de carro (slide da direita para a esquerda)
             gsap.fromTo(
-                boxRef3.current,
+                imgRef3.current,
                 {
                     opacity: 0,
                     x: 150, // Começa 150px à direita ( ← )
@@ -75,7 +93,7 @@ function Servicos() {
                     x: 0, // Vai para a posição original
                     duration: 1.5,
                     scrollTrigger: {
-                        trigger: boxRef3.current,
+                        trigger: imgRef3.current,
                         start: "top 100%",
                         end: "top 0.7%", // Termina quando o botão estiver a 0.7%",
                         scrub: 1.5,
@@ -99,7 +117,7 @@ function Servicos() {
                 />
 
                 <div className="grid grid-cols-1 lg:grid-cols-2  gap-x-16 gap-y-40 items-center">
-                    <div className="flex flex-col pl-10 gap-8">
+                    <div ref={boxRef1} className="flex flex-col pl-10 gap-8">
                         <Card_III
                             size="sizeIII"
                             variant="black"
@@ -110,17 +128,17 @@ function Servicos() {
                         />
                     </div>
                     <div className="">
-                        <ProjectImage id="car-servico-1" ref={boxRef1} />
+                        <ProjectImage id="car-servico-1" ref={imgRef1} />
                     </div>
                     <div className="relative w-full ">
                         <ProjectImage
                             id="velocimetroServico"
-                            ref={boxRef2}
+                            ref={imgRef2}
                             className="w-full h-auto object-cover "
                         />
                     </div>
 
-                    <div className="pl-20 flex  flex-col gap-8">
+                    <div ref={boxRef2} className="pl-20 flex  flex-col gap-8">
                         <Card_III
                             size="sizeIII"
                             variant="black"
@@ -130,7 +148,7 @@ function Servicos() {
                             href="/tecnologia"
                         />
                     </div>
-                    <div className="flex flex-col pl-10 gap-8">
+                    <div ref={boxRef3} className="flex flex-col pl-10 gap-8">
                         <Card_III
                             size="sizeIII"
                             variant="black"
@@ -143,7 +161,7 @@ function Servicos() {
                     <div className="pr-4 relative w-full">
                         <ProjectImage
                             id="car-servico-2"
-                            ref={boxRef3}
+                            ref={imgRef3}
                             className="w-full h-auto object-cover "
                         />
                     </div>

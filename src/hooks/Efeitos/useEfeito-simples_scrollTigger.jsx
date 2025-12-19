@@ -23,7 +23,8 @@ const useEfeitoGsap = (refElement, config = {}) => {
         duration = 1.5,
         start = "top 100%",
         end = "top 0.7%",
-        scrub = 1.5,
+        scrub = 0,
+        pin = false,
     } = config;
 
     useEffect(() => {
@@ -48,6 +49,7 @@ const useEfeitoGsap = (refElement, config = {}) => {
                         start: start,
                         end: end,
                         scrub: scrub,
+                        pin: pin,
                         //markers: true, // Descomente para ver os marcadores do ScrollTrigger
                     },
                 }
@@ -56,7 +58,7 @@ const useEfeitoGsap = (refElement, config = {}) => {
 
         // Função de limpeza: reverte todas as animações criadas neste contexto
         return () => ctx.revert();
-    }, [refElement, opacity, fromX, duration, start, end, scrub]); // Dependências para reexecutar se as props mudarem
+    }, [refElement, opacity, fromX, duration, start, end, scrub, pin]); // Dependências para reexecutar se as props mudarem
 };
 
 export default useEfeitoGsap;

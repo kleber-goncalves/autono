@@ -1,13 +1,14 @@
 import Card from "../../../components/Card";
 import { useGsapContainerAnimation } from "../../../hooks/Efeitos/useGsapEfeitoZoomScroll";
-import React, { useRef } from "react";
+import  { useRef } from "react";
 import ProjectImage from "../../../components/ProjectImage";
+import { Fade } from "react-awesome-reveal";
 
 function Parceiros() {
     const containerRef = useRef(null);
 
     useGsapContainerAnimation(
-        containerRef, // ⬅️ Passando a Ref
+        containerRef, 
 
         ".stat-area",
         2000
@@ -32,40 +33,63 @@ parceiros"
                     />
                 </div>
                 <div className="grid grid-cols-2 gap-30 items-center justify-items-center">
-                    <div className="flex flex-col stat-area gap-3 items-center">
-                        <ProjectImage
-                            id="TransportX-parceiros"
-                            className="w-4/6"
-                        />
-                        <h2 className="text-white text-xl text-center tracking-widest">
-                            TRANSPORTE X
-                        </h2>
-                    </div>
-                    <div className="flex flex-col stat-area gap-13 items-center">
-                        <ProjectImage
-                            id="IDISoftware-parceiros"
-                            className="w-2/4 flex pt-4"
-                        />
-                        <h2 className="text-white text-center  text-xl tracking-widest">
-                            IDI SOFTWARE
-                        </h2>
-                    </div>
-                    <div className="flex flex-col stat-area gap-9 items-center">
-                        <ProjectImage id="ICars-parceiros" className="w-3/6" />
-                        <h2 className="text-white text-center text-xl tracking-widest">
-                            IMAGINE CARROS
-                        </h2>
-                    </div>
-                    <div className="flex flex-col stat-area  items-center">
-                        <ProjectImage
-                            id="Tri-Nex-parceiro"
-                            className="w-8/6 flex pb-3"
-                        />
+                    <Fade cascade duration={1200} triggerOnce damping={0.14}>
+                        <div className="flex flex-col stat-area gap-3 items-center">
+                            <ProjectImage
+                                id="TransportX-parceiros"
+                                className="w-4/6"
+                            />
+                            <h2 className="text-white text-xl text-center tracking-widest">
+                                TRANSPORTE X
+                            </h2>
+                        </div>
+                    </Fade>
+                    <Fade cascade duration={1800} triggerOnce damping={0.14}>
+                        <div className="flex flex-col stat-area gap-13 items-center">
+                            <ProjectImage
+                                id="IDISoftware-parceiros"
+                                className="w-2/4 flex pt-4"
+                            />
+                            <h2 className="text-white text-center  text-xl tracking-widest">
+                                IDI SOFTWARE
+                            </h2>
+                        </div>
+                    </Fade>
+                    <Fade
+                        cascade
+                        duration={2200}
+                        triggerOnce
+                        damping={0.14}
+                        fraction={0.2}
+                    >
+                        <div className="flex flex-col stat-area gap-9 items-center">
+                            <ProjectImage
+                                id="ICars-parceiros"
+                                className="w-3/6"
+                            />
+                            <h2 className="text-white text-center text-xl tracking-widest">
+                                IMAGINE CARROS
+                            </h2>
+                        </div>
+                    </Fade>
+                    <Fade
+                        cascade
+                        triggerOnce
+                        duration={2800}
+                        damping={0.14}
+                        fraction={0.2}
+                    >
+                        <div className="flex flex-col stat-area  items-center">
+                            <ProjectImage
+                                id="Tri-Nex-parceiro"
+                                className="w-8/6 flex pb-3"
+                            />
 
-                        <h2 className="text-white relative top-6 text-center text-xl tracking-widest">
-                            TRI-NEX
-                        </h2>
-                    </div>
+                            <h2 className="text-white relative top-6 text-center text-xl tracking-widest">
+                                TRI-NEX
+                            </h2>
+                        </div>
+                    </Fade>
                 </div>
             </div>
         </section>
