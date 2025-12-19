@@ -1,54 +1,167 @@
-# Autono — Scroll suave e indicador de progresso
+# Autono
 
-Resumo rápido
+![Autono Logo](public/vite.svg) <!-- Substitua por um logo real se disponível -->
 
--   Este README documenta o componente Scroll-bar.jsx (indicador de progresso) e sua integração com `autono.jsx`, além da combinação de Lenis (rolagem suave), GSAP e ScrollTrigger.
--   Objetivo: mostrar como funciona, como usar e como ajustar os parâmetros para obter uma rolagem "mais suave que manteiga" sem quebrar o comportamento de ScrollTrigger.
+Um site portfólio moderno e interativo para a Autono, desenvolvido com React e Vite. O projeto destaca animações suaves, scroll progressivo e integração de elementos 3D para uma experiência visual imersiva.
 
-Arquitetura e responsabilidades
+## 📋 Descrição
 
--   autono.jsx
-    -   Inicializa Lenis (motor de rolagem suave).
-    -   Conecta Lenis ao GSAP/ScrollTrigger com `lenis.on('scroll', ScrollTrigger.update)` e integra o RAF do Lenis ao ticker do GSAP.
-    -   Monta a aplicação e passa `lenisRef` ao componente `ScrollProgressBar`.
--   src/components/Scroll-bar.jsx
-    -   Componente visual que desenha uma barra fixa no topo e atualiza sua largura com base no progresso de rolagem.
-    -   Aceita prop opcional `lenisRef`: se fornecida, usa a instância Lenis para calcular progresso; caso contrário, usa rolagem nativa como fallback.
--   src/utils/useGsapEfeitoZoomScroll.js (hook)
-    -   Hook auxiliar que cria ScrollTrigger/gsap para efeitos de pin/zoom em seções específicas.
+O Autono é um site responsivo que apresenta os serviços, tecnologias e informações da empresa Autono. Construído com tecnologias modernas como React, GSAP para animações e integração com Three.js para elementos 3D, oferece uma navegação fluida e envolvente.
 
-Como funciona (fluxo)
+### Funcionalidades Principais
 
-1. autono.jsx cria e configura Lenis durante o carregamento da página.
-2. Lenis passa eventos de scroll para ScrollTrigger (via `lenis.on('scroll', ScrollTrigger.update)`).
-3. GSAP sincroniza animações e ScrollTrigger com o RAF customizado do Lenis (usando `gsap.ticker.add` -> `lenis.raf`).
-4. Scroll-bar.jsx pode receber `lenisRef` para ler a posição de rolagem diretamente da instância Lenis; caso contrário, calcula o progresso com window.scrollY.
+-   **Páginas Dinâmicas**: Inclui seções para Home, Tecnologia, Sobre e Carreiras.
+-   **Animações GSAP**: Efeitos de zoom, pin e transições suaves durante o scroll.
+-   **Scroll Suave**: Implementado com Lenis para uma experiência de rolagem premium.
+-   **Indicador de Progresso**: Barra de progresso no topo que acompanha o scroll.
+-   **Integração 3D**: Suporte para modelos 3D interativos usando React Three Fiber, permitindo visualizações imersivas de produtos ou elementos decorativos.
+-   **Design Responsivo**: Otimizado para desktop e mobile com Tailwind CSS.
+-   **Carregamento Otimizado**: Telas de carregamento personalizadas para melhor UX.
 
-Como usar (exemplo mínimo)
+## 🛠️ Tecnologias Utilizadas
 
-1. Em autono.jsx (já presente no projeto):
-    - Inicialize Lenis e armazene em uma ref (ex: `lenisRef.current = new Lenis(...)`).
-    - Faça `lenis.on('scroll', ScrollTrigger.update)` e `gsap.ticker.add((t) => lenis.raf(t * 1000))`.
-    - Renderize `<ScrollProgressBar lenisRef={lenisRef} />`.
-2. Em um componente local:
-    - Para animações baseadas em rolagem, use ScrollTrigger normalmente. Se Lenis estiver ativo, assegure que ScrollTrigger está sendo atualizado pelo evento do Lenis (conforme acima).
-3. Para efeitos de "pin" e zoom (useGsapContainerAnimation):
-    - Passe uma ref do contêiner para o hook: `useGsapContainerAnimation(containerRef, ".stat-area", 2000)`.
+-   **Frontend**:
 
-Props e detalhes do ScrollProgressBar
+    -   React 19
+    -   Vite (para build e desenvolvimento rápido)
+    -   Tailwind CSS (para estilização)
+    -   GSAP (para animações avançadas)
+    -   Lenis (para scroll suave)
+    -   React Router DOM (para navegação)
 
--   lenisRef (opcional): ref ou instância Lenis. Se fornecida, o componente tentará ler `lenisRef.current.scroll` (ou `lenisRef.scroll`) para calcular progresso.
--   Comportamento de fallback: usa window.scrollY quando Lenis não existe.
--   Performance: o componente usa um loop com requestAnimationFrame para detectar mudanças de scroll eficientemente e evitar listeners excessivos.
+-   **3D e Interatividade**:
 
-Ajustes finos e recomendações
+    -   Three.js
+    -   React Three Fiber (@react-three/fiber)
+    -   React Three Drei (@react-three/drei) - para helpers e controles
 
--   Ajuste `duration` do Lenis para controlar a suavidade (valores maiores = suavidade mais prolongada). Ex.: 0.8–1.6.
--   Ajuste `easing` para o feeling desejado. A função usada no projeto é um bom ponto de partida.
--   Se o scroll travar ou parar:
-    -   Verifique se Lenis foi inicializado apenas uma vez.
-    -   Assegure que não haja CSS conflitando (ex.: `overflow: hidden` indevido em html/body) ou `position: fixed` timando áreas inteiras.
-    -   Garanta que ScrollTrigger.update seja chamado a cada evento de scroll do Lenis.
+-   **Ícones e UI**:
+
+    -   Lucide React
+    -   React Icons
+
+-   **Ferramentas de Desenvolvimento**:
+    -   ESLint (para linting)
+    -   Vite Plugin React
+
+## 🚀 Instalação e Execução
+
+### Pré-requisitos
+
+-   Node.js (versão 18 ou superior)
+-   npm ou yarn
+
+### Passos para Instalação
+
+1. **Clone o repositório**:
+
+    ```bash
+    git clone https://github.com/kleber-goncalves/autono.git
+    cd autono
+    ```
+
+2. **Instale as dependências**:
+
+    ```bash
+    npm install
+    ```
+
+3. **Para integração 3D (opcional)**:
+   Se desejar adicionar elementos 3D, instale as dependências adicionais:
+
+    ```bash
+    npm install three @types/three @react-three/fiber @react-three/drei
+    ```
+
+4. **Execute o projeto em modo desenvolvimento**:
+
+    ```bash
+    npm run dev
+    ```
+
+5. **Build para produção**:
+    ```bash
+    npm run build
+    npm run preview
+    ```
+
+## 📖 Como Usar
+
+### Estrutura do Projeto
+
+-   `src/pages/`: Contém as páginas principais (autono.jsx, Tecnologia.jsx, Sobre.jsx, Carreiras.jsx).
+-   `src/components/`: Componentes reutilizáveis como Nav, Card, LoadingScreen, etc.
+-   `src/hooks/`: Hooks customizados para animações e efeitos.
+-   `src/utils/`: Utilitários como MinimumLoadingWrapper e Quebrar-texto.
+-   `src/style/`: Estilos globais e específicos.
+-   `public/`: Assets estáticos, incluindo modelos 3D (.glb).
+
+### Adicionando Integração 3D
+
+Com base na conversa com a IA Gemini, para adicionar um modelo 3D:
+
+1. **Prepare o modelo**: Coloque o arquivo .glb na pasta `public/`.
+2. **Crie um componente Scene**: Use React Three Fiber para renderizar o modelo.
+3. **Integre no layout**: Adicione o componente em uma página, garantindo altura definida no Tailwind.
+
+Exemplo básico de componente 3D:
+
+```jsx
+import React from "react";
+import { Canvas } from "@react-three/fiber";
+import { useGLTF, OrbitControls, Stage } from "@react-three/drei";
+
+function Model(props) {
+    const { scene } = useGLTF("/modelo.glb");
+    return <primitive object={scene} {...props} />;
+}
+
+export default function Scene() {
+    return (
+        <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
+            <ambientLight intensity={0.5} />
+            <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
+            <Stage environment="city" intensity={0.6}>
+                <Model scale={0.01} />
+            </Stage>
+            <OrbitControls enableZoom={false} autoRotate />
+        </Canvas>
+    );
+}
+```
+
+Para ajustes de tamanho e interatividade, consulte a documentação do React Three Fiber.
+
+## 🤝 Contribuição
+
+Contribuições são bem-vindas! Siga estes passos:
+
+1. Fork o projeto.
+2. Crie uma branch para sua feature (`git checkout -b feature/nova-feature`).
+3. Commit suas mudanças (`git commit -m 'Adiciona nova feature'`).
+4. Push para a branch (`git push origin feature/nova-feature`).
+5. Abra um Pull Request.
+
+### Diretrizes
+
+-   Mantenha o código limpo e bem documentado.
+-   Teste suas mudanças em diferentes dispositivos.
+-   Siga as convenções de nomenclatura existentes.
+
+## 📄 Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
+
+## 📞 Contato
+
+-   **Autor**: Kleber Gonçalves
+-   **Email**: [seu-email@example.com]
+-   **LinkedIn**: [Seu LinkedIn]
+
+---
+
+Desenvolvido com ❤️ usando React e Vite. - Garanta que ScrollTrigger.update seja chamado a cada evento de scroll do Lenis.
+
 -   Para compatibilidade com link anchors e navegadores:
     -   Evite `scroll-behavior: smooth` no CSS quando Lenis estiver ativo, para prevenir conflitos.
 
