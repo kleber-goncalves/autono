@@ -8,13 +8,13 @@ function BackgroundVideo() {
     return (
         // 1. O container pai deve ser relative para conter o vídeo absolute
         <div
-            className="relative z-3 w-full h-screen  overflow-hidden"
+            className="relative z-3 w-full md:h-screen h-full overflow-hidden"
             data-bg="white"
         >
             {/* 2. O Vídeo: age como o background */}
             <video
                 data-bg="white"
-                className="absolute top-0  left-0 w-full h-full object-cover -z-10 "
+                className="absolute top-0  left-0 w-full h-full object-center  object-cover -z-10 "
                 src={videoBg}
                 autoPlay
                 loop
@@ -23,19 +23,17 @@ function BackgroundVideo() {
             />
 
             {/* 4. O Conteúdo: Fica por cima de tudo */}
-            <div data-bg="white" className="flex z-10 flex-col ">
+            <div data-bg="white" className="flex z-10 flex-col  ">
                 <Intro_cmp
                     className=" py-30"
-                    classNameTitle="text-7xl max-w-5xl"
-                    classNameText="tracking-wide max-w-3xl"
+                    classNameTitle="md:text-7xl text-[26px] md:max-w-5xl"
+                    classNameText="tracking-wide md:max-w-3xl"
                     titulo={["O FUTURO DA ", "MOBILIDADE CHEGOU"]}
                     texto="Prove uma direção autônoma mais segura com Autono."
                 />
 
                 <MouseAnimation />
-                <div
-                    className="absolute z-3 inset-0 bg-linear-to-b  from-black/5 via-transparent to-black"
-                ></div>
+                <div className="absolute z-3 inset-0 bg-linear-to-b  from-black/5 via-transparent to-black"></div>
             </div>
         </div>
     );

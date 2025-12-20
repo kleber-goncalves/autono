@@ -148,3 +148,36 @@ html {
     background-repeat: no-repeat;
     height: 100vh;
 }
+
+
+.grid-templete {
+    display: grid;
+   grid-template-areas: 
+   ". 1 ."
+   ". 2 ."
+   ". 3 ."
+   ". 4 ."
+   ". 5 ."
+   ". 6 ."
+   ;
+}
+
+.um {
+    grid-area: 1;
+}
+.dois {
+    grid-area: 2;
+}
+.tres {
+    grid-area: 3;
+}
+.quatro {
+    grid-area: 4;
+}
+.cinco {
+    grid-area: 5;
+}
+.seis {
+    grid-area: 6;
+}
+

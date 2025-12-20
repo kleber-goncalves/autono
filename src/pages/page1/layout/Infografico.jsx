@@ -17,112 +17,112 @@ function Infrografico() {
     return (
         <section
             ref={containerRef}
-            className="bg-white min-h-screen efeito-container sticky mb-90 top-0 py-4 overflow-hidden"
+            className="bg-red-900 md:min-h-screen efeito-container sticky md:mb-90 mb-50 top-0 md:py-4 px-8 overflow-hidden"
         >
-            <div className="grid grid-cols-1 lg:grid-cols-2  gap-16 items-center">
-                <div className="flex justify-center stat-area items-center w-full h-full ">
+            <div className="grid grid-cols-1 lg:grid-cols-2  md:gap-16 md:items-center">
+                <div className="flex justify-center stat-area md:items-center md:w-full md:h-full ">
                     <ProjectImage id="braco-info" />
                 </div>
-                <div className="flex stat-area flex-col gap-20">
-                    <h2 className="text-black text-4xl leading-relaxed tracking-widest ">
+                <div className="flex stat-area  flex-col md:gap-20 gap-4">
+                    <h2 className="text-black md:text-4xl text-lg leading-relaxed tracking-widest ">
                         Autono em números
                     </h2>
-                    <div className="grid grid-cols-2 max-w-4xl gap-y-20 ">
-                        <div className="flex flex-col gap-7">
+                    <div className="grid grid-cols-2 md:max-w-4xl justify-center  md:gap-y-20 gap-y-10 ">
+                        <div className="flex flex-col md:gap-7 gap-4">
                             <div className="flex">
-                                <div className="h-full border-b-3 border-black opacity-100">
+                                <div className="md:h-full border-b-3 border-black opacity-100">
                                     <Fade
                                         cascade
                                         triggerOnce
                                         duration={1400}
                                         damping={0.14}
                                     >
-                                        <h2 className="text-5xl leading-relaxed tracking-widest">
+                                        <h2 className="md:text-5xl  text-[27px] leading-relaxed tracking-widest">
                                             2
                                         </h2>
                                     </Fade>
                                 </div>
-                                <div className="h-full w-56 border-b border-black opacity-100">
+                                <div className="h-full md:w-56 w-26 border-b border-black opacity-100">
                                     <Fade
                                         cascade
                                         triggerOnce
                                         duration={1400}
                                         damping={0.14}
                                     >
-                                        <h2 className="text-5xl leading-relaxed tracking-widest">
+                                        <h2 className="md:text-5xl mb-3 text-[27px] leading-relaxed tracking-widest">
                                             00
                                         </h2>
                                     </Fade>
                                 </div>
                             </div>
 
-                            <p className="text-1xl leading-relaxed tracking-widest">
+                            <p className="md:text-1xl text-[11px] leading-relaxed tracking-widest">
                                 EMPREGADOS
                             </p>
                         </div>
-                        <div className="flex flex-col gap-7">
+                        <div className="flex flex-col md:gap-7 gap-4">
                             <div className="flex">
-                                <div className="h-full border-b-3 border-black opacity-100">
+                                <div className="h-full  border-b-3 border-black opacity-100">
                                     <Fade
                                         cascade
                                         triggerOnce
                                         duration={1400}
                                         damping={0.14}
                                     >
-                                        <h2 className="text-5xl leading-relaxed tracking-widest">
+                                        <h2 className="md:text-5xl mb-2 text-[27px] leading-relaxed tracking-widest">
                                             5
                                         </h2>
                                     </Fade>
                                 </div>
-                                <div className="h-full w-36 border-b border-black opacity-100">
+                                <div className="h-full md:w-36 w-[76px] border-b border-black opacity-100">
                                     <Fade
                                         cascade
                                         triggerOnce
                                         duration={1400}
                                         damping={0.14}
                                     >
-                                        <h2 className="text-5xl leading-relaxed tracking-widest"></h2>
+                                        <h2 className="md:text-5xl  text-[27px] leading-relaxed tracking-widest"></h2>
                                     </Fade>
                                 </div>
                             </div>
 
-                            <p className="text-1xl leading-relaxed tracking-widest">
+                            <p className="md:text-1xl text-[11px] leading-relaxed tracking-widest">
                                 EQUIPES
                             </p>
                         </div>
-                        <div className="flex flex-col gap-7">
+                        <div className="flex flex-col md:gap-7 gap-4">
                             <div className="flex">
-                                <div className="h-full border-b-3 border-black opacity-100">
+                                <div className="h-full  border-b-3 border-black opacity-100">
                                     <Fade
                                         cascade
                                         triggerOnce
                                         duration={1400}
                                         damping={0.14}
                                     >
-                                        <h2 className="text-5xl leading-relaxed tracking-widest">
+                                        <h2 className="md:text-5xl  text-[27px] leading-relaxed tracking-widest">
                                             R
                                         </h2>
                                     </Fade>
                                 </div>
-                                <div className="h-full w-56 border-b border-black opacity-100">
+                                <div className="h-full md:w-56 mb-10 w-25 border-b border-black opacity-100">
                                     <Fade
                                         cascade
                                         triggerOnce
                                         duration={1400}
                                         damping={0.14}
                                     >
-                                        <h2 className="text-5xl leading-relaxed tracking-widest">
+                                        <h2 className="md:text-5xl text-[27px] leading-relaxed tracking-widest">
                                             $100M
                                         </h2>
                                     </Fade>
                                 </div>
                             </div>
 
-                            <p className="text-1xl leading-relaxed tracking-widest">
+                            <p className="md:text-1xl text-[11px] leading-relaxed tracking-widest">
                                 EM CAPITAL
                             </p>
                         </div>
-                        <div className="flex flex-col gap-7">
+                        <div className="flex flex-col md:gap-7 gap-4">
                             <div className="flex">
                                 <div className="h-full border-b-3 border-black opacity-100">
                                     <Fade
@@ -131,26 +131,26 @@ function Infrografico() {
                                         duration={1400}
                                         damping={0.14}
                                     >
-                                        <h2 className="text-5xl leading-relaxed tracking-widest">
+                                        <h2 className="md:text-5xl text-[27px] leading-relaxed tracking-widest">
                                             3
                                         </h2>
                                     </Fade>
                                 </div>
-                                <div className="h-full w-36 border-b border-black opacity-100">
+                                <div className="h-full md:w-36 w-[76px] border-b border-black opacity-100">
                                     <Fade
                                         cascade
                                         triggerOnce
                                         duration={1400}
                                         damping={0.14}
                                     >
-                                        <h2 className="text-5xl leading-relaxed tracking-widest">
+                                        <h2 className="md:text-5xl mb-10 text-[27px] leading-relaxed tracking-widest">
                                             26
                                         </h2>
                                     </Fade>
                                 </div>
                             </div>
 
-                            <p className="text-1xl leading-relaxed tracking-widest">
+                            <p className="md:text-1xl text-[11px] leading-relaxed tracking-widest">
                                 PARCEIROS
                             </p>
                         </div>

@@ -23,10 +23,10 @@ export default function Intro_cmp({
         "max-w-8xl mx-auto px-6 lg:px-6 py-20 flex flex-col items-center ";
 
     const baseTitle =
-        "text-6xl max-w-3xl leading-snug tracking-wide text-black text-center";
+        "md:text-6xl max-w-3xl  md:leading-snug tracking-wide text-black text-center";
 
     const baseText =
-        "text-black text-2xl leading-relaxed tracking-wide max-w-2xl text-center mt-8 overflow-hidden block";
+        "text-black md:text-2xl leading-relaxed tracking-wide md:max-w-2xl text-center md:mt-8 mt-3 overflow-hidden block";
 
     // A mágica da Animação
     useGSAP(
