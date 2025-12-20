@@ -1,6 +1,8 @@
 import { useGsapContainerAnimation } from "../../../hooks/Efeitos/useGsapEfeitoZoomScroll";
 import { useRef } from "react";
 import ProjectImage from "../../../components/ProjectImage";
+import { Fade } from "react-awesome-reveal";
+
 
 function Infrografico() {
     const containerRef = useRef(null);
@@ -29,14 +31,28 @@ function Infrografico() {
                         <div className="flex flex-col gap-7">
                             <div className="flex">
                                 <div className="h-full border-b-3 border-black opacity-100">
-                                    <h2 className="text-5xl leading-relaxed tracking-widest">
-                                        2
-                                    </h2>
+                                    <Fade
+                                        cascade
+                                        triggerOnce
+                                        duration={1400}
+                                        damping={0.14}
+                                    >
+                                        <h2 className="text-5xl leading-relaxed tracking-widest">
+                                            2
+                                        </h2>
+                                    </Fade>
                                 </div>
                                 <div className="h-full w-56 border-b border-black opacity-100">
-                                    <h2 className="text-5xl leading-relaxed tracking-widest">
-                                        00
-                                    </h2>
+                                    <Fade
+                                        cascade
+                                        triggerOnce
+                                        duration={1400}
+                                        damping={0.14}
+                                    >
+                                        <h2 className="text-5xl leading-relaxed tracking-widest">
+                                            00
+                                        </h2>
+                                    </Fade>
                                 </div>
                             </div>
 
@@ -47,12 +63,26 @@ function Infrografico() {
                         <div className="flex flex-col gap-7">
                             <div className="flex">
                                 <div className="h-full border-b-3 border-black opacity-100">
-                                    <h2 className="text-5xl leading-relaxed tracking-widest">
-                                        5
-                                    </h2>
+                                    <Fade
+                                        cascade
+                                        triggerOnce
+                                        duration={1400}
+                                        damping={0.14}
+                                    >
+                                        <h2 className="text-5xl leading-relaxed tracking-widest">
+                                            5
+                                        </h2>
+                                    </Fade>
                                 </div>
                                 <div className="h-full w-36 border-b border-black opacity-100">
-                                    <h2 className="text-5xl leading-relaxed tracking-widest"></h2>
+                                    <Fade
+                                        cascade
+                                        triggerOnce
+                                        duration={1400}
+                                        damping={0.14}
+                                    >
+                                        <h2 className="text-5xl leading-relaxed tracking-widest"></h2>
+                                    </Fade>
                                 </div>
                             </div>
 
@@ -63,14 +93,28 @@ function Infrografico() {
                         <div className="flex flex-col gap-7">
                             <div className="flex">
                                 <div className="h-full border-b-3 border-black opacity-100">
-                                    <h2 className="text-5xl leading-relaxed tracking-widest">
-                                        R
-                                    </h2>
+                                    <Fade
+                                        cascade
+                                        triggerOnce
+                                        duration={1400}
+                                        damping={0.14}
+                                    >
+                                        <h2 className="text-5xl leading-relaxed tracking-widest">
+                                            R
+                                        </h2>
+                                    </Fade>
                                 </div>
                                 <div className="h-full w-56 border-b border-black opacity-100">
-                                    <h2 className="text-5xl leading-relaxed tracking-widest">
-                                        $100M
-                                    </h2>
+                                    <Fade
+                                        cascade
+                                        triggerOnce
+                                        duration={1400}
+                                        damping={0.14}
+                                    >
+                                        <h2 className="text-5xl leading-relaxed tracking-widest">
+                                            $100M
+                                        </h2>
+                                    </Fade>
                                 </div>
                             </div>
 
@@ -81,14 +125,28 @@ function Infrografico() {
                         <div className="flex flex-col gap-7">
                             <div className="flex">
                                 <div className="h-full border-b-3 border-black opacity-100">
-                                    <h2 className="text-5xl leading-relaxed tracking-widest">
-                                        3
-                                    </h2>
+                                    <Fade
+                                        cascade
+                                        triggerOnce
+                                        duration={1400}
+                                        damping={0.14}
+                                    >
+                                        <h2 className="text-5xl leading-relaxed tracking-widest">
+                                            3
+                                        </h2>
+                                    </Fade>
                                 </div>
                                 <div className="h-full w-36 border-b border-black opacity-100">
-                                    <h2 className="text-5xl leading-relaxed tracking-widest">
-                                        26
-                                    </h2>
+                                    <Fade
+                                        cascade
+                                        triggerOnce
+                                        duration={1400}
+                                        damping={0.14}
+                                    >
+                                        <h2 className="text-5xl leading-relaxed tracking-widest">
+                                            26
+                                        </h2>
+                                    </Fade>
                                 </div>
                             </div>
 

@@ -28,7 +28,7 @@ export default function Intro_cmp({
     const baseText =
         "text-black text-2xl leading-relaxed tracking-wide max-w-2xl text-center mt-8 overflow-hidden block";
 
-    // 3. A mágica da Animação
+    // A mágica da Animação
     useGSAP(
         () => {
             // Animação do Título (SplitText manual)

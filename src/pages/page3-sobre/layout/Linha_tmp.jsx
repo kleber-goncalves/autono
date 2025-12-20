@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import TimelineCard from "./TimelineCard";
+import { Fade } from "react-awesome-reveal";
+import { Slide } from "react-awesome-reveal";
+
 
 // Dados de exemplo expandidos para ter 8 itens, resultando em 4 slides de 2 itens
 const timelineData = [
@@ -186,42 +189,55 @@ function Linha_temp() {
                                         className="shrink-0 flex flex-col items-center relative"
                                         style={{ width: ITEM_WIDTH }}
                                     >
-                                        {/* Seção Superior (Conteúdo ou Vazio) */}
-                                        <div
-                                            className={`h-[300px] flex items-end w-full ${alignmentClass}`}
+                                        <Slide
+                                            duration={2600}
+                                            direction="right"
+                                            triggerOnce
                                         >
-                                            {isEven && (
-                                                <div
-                                                    className={`relative transform transition-all duration-500 hover:-translate-y-2 `}
-                                                >
-                                                    <TimelineCard
-                                                        data={item}
-                                                        position="top"
-                                                    />
-                                                </div>
-                                            )}
-                                        </div>
+                                            {/* Seção Superior (Conteúdo ou Vazio) */}
+                                            <div
+                                                className={`h-[300px] flex items-end w-full ${alignmentClass}`}
+                                            >
+                                                {isEven && (
+                                                    <div
+                                                        className={`relative transform transition-all duration-500 hover:-translate-y-2 `}
+                                                    >
+                                                        <TimelineCard
+                                                            data={item}
+                                                            position="top"
+                                                        />
+                                                    </div>
+                                                )}
+                                            </div>
+                                        </Slide>
 
                                         {/* O Marcador Central na Linha */}
                                         <div className="relative z-10 w-full flex justify-center items-center h-4">
-                                            <div className="w-8 h-[3px] bg-black rounded-full shadow-sm"></div>
+                                            <Fade triggerOnce duration={2600}>
+                                                <div className="w-8 h-[3px] bg-black rounded-full shadow-sm"></div>
+                                            </Fade>
                                         </div>
-
-                                        {/* Seção Inferior (Conteúdo ou Vazio) */}
-                                        <div
-                                            className={`h-[300px] flex items-start w-full ${alignmentClass}`}
+                                        <Slide
+                                            duration={2600}
+                                            triggerOnce
+                                            direction="left"
                                         >
-                                            {!isEven && (
-                                                <div
-                                                    className={`relative transform transition-all duration-500 hover:translate-y-2`}
-                                                >
-                                                    <TimelineCard
-                                                        data={item}
-                                                        position="bottom"
-                                                    />
-                                                </div>
-                                            )}
-                                        </div>
+                                            {/* Seção Inferior (Conteúdo ou Vazio) */}
+                                            <div
+                                                className={`h-[300px] flex items-start w-full ${alignmentClass}`}
+                                            >
+                                                {!isEven && (
+                                                    <div
+                                                        className={`relative transform transition-all duration-500 hover:translate-y-2`}
+                                                    >
+                                                        <TimelineCard
+                                                            data={item}
+                                                            position="bottom"
+                                                        />
+                                                    </div>
+                                                )}
+                                            </div>
+                                        </Slide>
                                     </div>
                                 );
                             })}

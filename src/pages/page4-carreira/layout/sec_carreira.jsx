@@ -1,11 +1,39 @@
+import {  useRef } from "react";
 import Card from "../../../components/Card";
 import Card_II from "../../../components/Card_II";
-
 import ProjectImage from "../../../components/ProjectImage";
-
-
+import useEfeitoGsap from "../../../hooks/Efeitos/useEfeito-simples_scrollTigger";
+import { Fade } from "react-awesome-reveal";
 
 function Sec_carreira() {
+  const boxRef1 = useRef(null);
+  const boxRef2 = useRef(null);
+    const boxRef3 = useRef(null); 
+      const boxRef4 = useRef(null); 
+
+      useEfeitoGsap(boxRef1, {
+          fromX: -120,
+          duration: 1.5,
+          opacity: 0.4,
+      });
+      useEfeitoGsap(boxRef2, {
+          fromX: 120,
+          duration: 1.5,
+          opacity: 0,
+      });
+      useEfeitoGsap(boxRef3, {
+          fromX: -120,
+          duration: 1.5,
+          opacity: 0.4,
+      });
+      useEfeitoGsap(boxRef4, {
+          fromX: 120,
+          duration: 1.5,
+          opacity: 0.4,
+      });
+
+
+
     return (
         <section className="bg-black max-w-8xl mx-auto gap-y-30 py-30 flex flex-col ">
             <div className="grid grid-cols-2 items-center gap-y-20">
@@ -24,7 +52,7 @@ function Sec_carreira() {
                 </div>
             </div>
             <div className="grid grid-cols-2 items-center gap-x-90 gap-y-30 px-6 pb-20 lg:px-59">
-                <div>
+                <div ref={boxRef1}>
                     <Card_II
                         mt="mtII"
                         size="sizeI"
@@ -35,7 +63,7 @@ function Sec_carreira() {
                         text_button="Enviar CV"
                     />
                 </div>
-                <div className="flex flex-col items-center">
+                <div ref={boxRef2} className="flex flex-col items-center">
                     <Card_II
                         classNameTitle="text-lg"
                         variant="white"
@@ -45,7 +73,7 @@ function Sec_carreira() {
                         text_button="Enviar CV"
                     />
                 </div>
-                <div>
+                <div ref={boxRef3}>
                     <Card_II
                         mt="mtI"
                         classNameTitle="text-lg"
@@ -56,7 +84,7 @@ function Sec_carreira() {
                         text_button="Enviar CV"
                     />
                 </div>
-                <div className="flex flex-col items-center">
+                <div ref={boxRef4} className="flex flex-col items-center">
                     <Card_II
                         classNameTitle="text-lg"
                         mt="mtII"
@@ -67,17 +95,19 @@ function Sec_carreira() {
                         text_button="Enviar CV"
                     />
                 </div>
-                <div >
-                    <Card_II
-                        size="sizeII"
-                        variant="black"
-                        title="Não achou a vaga que procurava? Tudo bem! Envie seu CV.
+                <Fade triggerOnce  duration={1300}>
+                    <div>
+                        <Card_II
+                            size="sizeII"
+                            variant="black"
+                            title="Não achou a vaga que procurava? Tudo bem! Envie seu CV.
 "
-                        classNameText="hidden"
-                        classNameTextII="hidden"
-                        text_button="Enviar CV"
-                    />
-                </div>
+                            classNameText="hidden"
+                            classNameTextII="hidden"
+                            text_button="Enviar CV"
+                        />
+                    </div>
+                </Fade>
             </div>
         </section>
     );
