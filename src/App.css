@@ -150,34 +150,35 @@ html {
 }
 
 
+/* App.css -> correção das grid-areas */
 .grid-templete {
-    display: grid;
-   grid-template-areas: 
-   ". 1 ."
-   ". 2 ."
-   ". 3 ."
-   ". 4 ."
-   ". 5 ."
-   ". 6 ."
-   ;
+  display: grid;
+  grid-template-areas:
+    ". um ."
+    ". dois ."
+    ". tres ."
+    ". quatro ."
+    ". cinco ."
+    ". seis .";
 }
 
-.um {
-    grid-area: 1;
-}
-.dois {
-    grid-area: 2;
-}
-.tres {
-    grid-area: 3;
-}
-.quatro {
-    grid-area: 4;
-}
-.cinco {
-    grid-area: 5;
-}
-.seis {
-    grid-area: 6;
-}
+/* nomes válidos de área */
+.um { grid-area: um; }
+.dois { grid-area: dois; }
+.tres { grid-area: tres; }
+.quatro { grid-area: quatro; }
+.cinco { grid-area: cinco; }
+.seis { grid-area: seis; }
 
+/* remover o uso de grid-template-areas em telas maiores
+   (assim o md:grid-cols-2 do Tailwind não ficará em conflito) */
+@media (min-width: 768px) {
+  .grid-templete {
+    grid-template-areas: none;
+  }
+
+  /* IMPORTANTE: Você também deve resetar os itens filhos para 'auto' */
+  .um, .dois, .tres, .quatro, .cinco, .seis {
+    grid-area: auto;
+  }
+}
