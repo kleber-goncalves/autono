@@ -17,17 +17,17 @@ function Infrografico() {
     return (
         <section
             ref={containerRef}
-            className="bg-red-900 md:min-h-screen efeito-container sticky md:mb-90 mb-50 top-0 md:py-4 px-8 overflow-hidden"
+            className=" md:min-h-screen h-screen efeito-container sticky md:mb-90  mt-20 top-0 md:py-4  overflow-hidden"
         >
-            <div className="grid grid-cols-1 lg:grid-cols-2  md:gap-16 md:items-center">
+            <div className="md:grid flex flex-col-reverse lg:grid-cols-2 gap-30  md:gap-16 md:items-center">
                 <div className="flex justify-center stat-area md:items-center md:w-full md:h-full ">
-                    <ProjectImage id="braco-info" />
+                    <ProjectImage id="braco-info2" />
                 </div>
-                <div className="flex stat-area  flex-col md:gap-20 gap-4">
+                <div className="flex stat-area flex-col md:gap-20 gap-4 px-8 mb:px-0">
                     <h2 className="text-black md:text-4xl text-lg leading-relaxed tracking-widest ">
                         Autono em números
                     </h2>
-                    <div className="grid grid-cols-2 md:max-w-4xl justify-center  md:gap-y-20 gap-y-10 ">
+                    <div className="grid grid-cols-2 md:max-w-4xl md:gap-y-20 gap-y-10 gap-x-10  ">
                         <div className="flex flex-col md:gap-7 gap-4">
                             <div className="flex">
                                 <div className="md:h-full border-b-3 border-black opacity-100">

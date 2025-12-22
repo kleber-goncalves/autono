@@ -1,5 +1,6 @@
 // src/data/mediaImgs.js
 import bracoInfo from "../assets/braco-info.jpg";
+import bracoInfo2 from "../assets/braco-infoII.jpg";
 import carProdutoI from "../assets/car-produtoI.jpg";
 import carServico1 from "../assets/car-servico-1.jpg";
 import carServico2 from "../assets/car-servico-2.jpg";
@@ -28,6 +29,7 @@ import velocimetroServico from "../assets/velocimetro-servico.jpg";
 
 export const mediaImgs = [
     { id: "braco-info", src: bracoInfo, alt: "Braço info" },
+    { id: "braco-info2", src: bracoInfo2, alt: "Braço info II" },
     { id: "car-produtoI", src: carProdutoI, alt: "Car produto I" },
     { id: "car-servico-1", src: carServico1, alt: "Car serviço 1" },
     { id: "car-servico-2", src: carServico2, alt: "Car serviço 2" },

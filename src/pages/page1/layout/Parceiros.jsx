@@ -17,14 +17,15 @@ function Parceiros() {
     return (
         <section
             ref={containerRef}
-            className="bg-black max-h-screen border-b-2 sticky top-0 efeito-container border-white pl-50 py-37 overflow-hidden"
+            className="bg-black min-h-screen border-b-2 sticky top-0 efeito-container border-white  md:pl-50 pl-5 md:py-37 pb-2 overflow-hidden flex flex-col justify-center"
         >
-            <div className="grid grid-cols-1 lg:grid-cols-2 pr-40  gap-16">
-                <div className="flex max-w-sm stat-area flex-col ">
+            <div className="grid grid-cols-1 lg:grid-cols-2 md:pr-40 pr-10 md:gap-16 gap-6 w-full">
+                <div className="flex md:max-w-sm  stat-area flex-col justify-center">
                     <Card
                         classNameBarraII="h-17"
-                        classNameBaseII="mt-17 gap-8"
-                        classNameTitle="max-w-"
+                        classNameBaseII="md:mt-17 mt-8 gap-8"
+                        classNameTitle="max-w-sm text-lg"
+                        classNameText="text-[11px] "
                         variant="white"
                         text="INDÚSTRIA"
                         title="Nossos
@@ -32,25 +33,25 @@ parceiros"
                         text_2="Nossa empresa une forças com Transporte X, IDI Software, Imagine Carros e TRI-NEX para combinar logística, software, engenharia e componentes de alta qualidade. Essa colaboração integra competências complementares para criar veículos elétricos com tecnologia, confiabilidade e eficiência técnica. Juntos, transformamos ideias em realidade e ampliamos nossa capacidade de inovar e entregar produtos robustos."
                     />
                 </div>
-                <div className="grid grid-cols-2 gap-30 items-center justify-items-center">
+                <div className="grid grid-cols-2 gap-8 md:gap-30 items-center justify-items-center">
                     <Fade cascade duration={1200} triggerOnce damping={0.14}>
-                        <div className="flex flex-col stat-area gap-3 items-center">
+                        <div className="flex flex-col stat-area gap-3 items-center w-full">
                             <ProjectImage
                                 id="TransportX-parceiros"
-                                className="w-4/6"
+                                className="md:w-4/6 w-3/4 object-contain"
                             />
-                            <h2 className="text-white text-xl text-center tracking-widest">
+                            <h2 className="text-white text-xs md:text-xl text-center tracking-widest">
                                 TRANSPORTE X
                             </h2>
                         </div>
                     </Fade>
                     <Fade cascade duration={1800} triggerOnce damping={0.14}>
-                        <div className="flex flex-col stat-area gap-13 items-center">
+                        <div className="flex flex-col stat-area md:gap-13 gap-3 items-center w-full">
                             <ProjectImage
                                 id="IDISoftware-parceiros"
-                                className="w-2/4 flex pt-4"
+                                className="md:w-2/4 w-2/3 object-contain flex pt-4"
                             />
-                            <h2 className="text-white text-center  text-xl tracking-widest">
+                            <h2 className="text-white text-center text-xs md:text-xl tracking-widest">
                                 IDI SOFTWARE
                             </h2>
                         </div>
@@ -62,12 +63,12 @@ parceiros"
                         damping={0.14}
                         fraction={0.2}
                     >
-                        <div className="flex flex-col stat-area gap-9 items-center">
+                        <div className="flex flex-col stat-area md:gap-9 gap-3 items-center w-full">
                             <ProjectImage
                                 id="ICars-parceiros"
-                                className="w-3/6"
+                                className="object-contain w-2/3 md:w-3/6"
                             />
-                            <h2 className="text-white text-center text-xl tracking-widest">
+                            <h2 className="text-white text-center text-xs md:text-xl tracking-widest">
                                 IMAGINE CARROS
                             </h2>
                         </div>
@@ -79,13 +80,13 @@ parceiros"
                         damping={0.14}
                         fraction={0.2}
                     >
-                        <div className="flex flex-col stat-area  items-center">
+                        <div className="flex flex-col stat-area  items-center w-full">
                             <ProjectImage
                                 id="Tri-Nex-parceiro"
-                                className="w-8/6 flex pb-3"
+                                className="w-full md:w-8/6 flex pb-3 object-contain"
                             />
 
-                            <h2 className="text-white relative top-6 text-center text-xl tracking-widest">
+                            <h2 className="text-white relative md:top-6 top-2 text-center text-xs md:text-xl tracking-widest ">
                                 TRI-NEX
                             </h2>
                         </div>

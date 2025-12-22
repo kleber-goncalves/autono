@@ -28,7 +28,7 @@ function Sobre() {
                 <div ref={boxRef2} className="flex md:px-30 px-7">
                     <Card_eft
                         classNameBaseII="md:mt-17 mt-8 text-xs md:max-w-sm max-w-xs gap-8"
-                        classNameTitle="max-w-ms text-lg mt-8"
+                        classNameTitle="max-w-sm text-lg mt-8"
                         classNameText="text-[11px]"
                         variant="white"
                         text="VISÃO"
@@ -36,7 +36,7 @@ function Sobre() {
                         text_2="Sou um parágrafo. Aqui você pode adicionar e editar seu próprio texto. É fácil, basta clicar em Editar texto ou clicar duas vezes sobre mim. Você também pode alterar a fonte e mais. Sou um ótimo lugar para você compartilhar a sua história com os visitantes."
                     />
                 </div>
-                <div className="md:max-w-2xl flex pl-4 max-w-xl">
+                <div className="md:max-w-2xl flex pl-4 md:pl-0 max-w-xl">
                     <ProjectImage id="car-sobre" ref={boxRef1} />
 
                     {/*

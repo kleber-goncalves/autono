@@ -37,11 +37,11 @@ export default function Card_eft({
     const baseBarraEfeito = "absolute md:top-19 top-10 border-l-4 h-33"; //Barra grossa - pegar o componete todo
     const baseBarraII = "border-l md:h-13"; //Barra fina - o tomanho da barra é fixo
     const baseBarraIII = "border-l"; //Barra fina - pegar o componete todo
-    const baseTitle = " text-2xl  leading-relaxed tracking-widest ";
+    const baseTitle = " md:text-2xl  leading-relaxed tracking-widest ";
     const baseText =
-        "md:text-base text-justify md:max-w-md tracking-widest leading-relaxed";
+        "md:text-base text-justify md:text-left md:max-w-md tracking-widest leading-relaxed";
     const baseTextII =
-        "md:text-base text-justify md:max-w-md md:tracking-widest leading-relaxed";
+        "md:text-base text-justify md:text-left  md:max-w-md md:tracking-widest leading-relaxed";
     const baseButtonClassName =
         "flex-row flex border  cursor-pointer rounded-lg w-fit max-w-xs items-center tracking-wider transition-all duration-300 ";
     const divPClassName = "px-4 py-2 border-r   ";
