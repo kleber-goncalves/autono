@@ -57,9 +57,9 @@ export default function CardSlideshow() {
     };
 
     return (
-        <div className=" max-w-md  flex flex-col gap-6">
+        <div className=" max-w-md  flex flex-col gap-6 ">
             {/* Container dos Slides (Janela de visualização) */}
-            <div className="overflow-hidden rounded-2xl">
+            <div className="overflow-hidden rounded-2xl ">
                 <div
                     className="flex transition-transform duration-1200 ease-in-out"
                     style={{ transform: `translateX(-${currentIndex * 100}%)` }}

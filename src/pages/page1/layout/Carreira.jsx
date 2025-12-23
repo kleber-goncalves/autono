@@ -4,13 +4,14 @@ import CardSlideshow from "../../../components/Slide_Card";
 
 function Carreira() {
     return (
-        <section className=" bg-black max-h-screen border-t sticky mt-90 border-white py-15 overflow-hidden">
+        <section className=" bg-black md:max-h-screen border-t sticky md:mt-90 border-white py-15 md:px-10 overflow-hidden">
             <div className="max-w-7xl mx-auto">
-                <div className="flex flex-row items-stretch gap-x-80">
-                    <div className="flex flex-col py-37">
+                <div className="flex md:flex-row flex-col items-stretch md:gap-x-80">
+                    <div className="flex flex-col py-37 px-5 md:px-0">
                         <Card
-                            classNameBaseII="mt-17 max-w-sm gap-8"
-                            classNameTitle="max-w-sm mt-8"
+                            classNameBaseII="md:mt-17 mt-10 md:max-w-sm gap-8"
+                            classNameTitle="max-w-sm text-lg md:mt-8 mt-4"
+                            classNameText="text-[11px] "
                             variant="white"
                             text="CARREIRAS"
                             title="Procuramos pessoas talentosas e inovativas para o nosso time. Veja as vagas e envie seu CV."
@@ -18,7 +19,7 @@ function Carreira() {
                             href="/carreiras"
                         />
                     </div>
-                    <div>
+                    <div className="">
                         <CardSlideshow />
                     </div>
                 </div>

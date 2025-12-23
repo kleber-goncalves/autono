@@ -40,7 +40,7 @@ export default function Card({
     const baseText =
         "md:text-base  text-xs  md:max-w-md tracking-widest leading-relaxed";
     const baseTextII =
-        "md:text-base text-justify md:text-left  md:max-w-md tracking-widest leading-relaxed";
+        "md:text-base text-justify md:text-left  max-w-md tracking-widest leading-relaxed";
     const baseButtonClassName =
         "flex-row flex border  cursor-pointer rounded-lg w-fit max-w-xs items-center tracking-wider transition-all duration-300 ";
     const divPClassName = "md:px-4 px-3 py-2 border-r   ";

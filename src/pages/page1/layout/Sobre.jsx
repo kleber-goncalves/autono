@@ -1,7 +1,7 @@
 import Card_eft from "../../../components/Card-eft";
 import { useRef } from "react";
 import useEfeitoGsap from "../../../hooks/Efeitos/useEfeito-simples_scrollTigger";
-import ProjectImage from "../../../components/ProjectImage";
+import ProjectImage from "/src/components/ProjectImage";
 
 function Sobre() {
     //As referências para os elementos que serão animados
