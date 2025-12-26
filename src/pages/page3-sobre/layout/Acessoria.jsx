@@ -5,12 +5,17 @@ import { Fade } from "react-awesome-reveal";
 
 function Acessoria() {
     return (
-        <section className="max-w-8xl  bg-black border border-black mx-auto py-36 px-6 lg:px-9 flex flex-col  ">
-            <div className="flex flex-col gap-y-36 px-50">
+        <section className="max-w-8xl  bg-black border border-black mx-auto md:py-36 py-20 px-6 lg:px-9 flex flex-col  ">
+            <div className="flex flex-col md:gap-y-36 gap-y-20 md:px-50 px-0">
                 <div className="flex flex-col  ">
-                    <Card title="Autono na mídia" text="NOTÍCIAS" />
+                    <Card
+                        classNameTitle="max-w-sm text-lg "
+                        classNameText="text-[11px]"
+                        title="Autono na mídia"
+                        text="NOTÍCIAS"
+                    />
                 </div>
-                <div className="grid grid-cols-5 gap-40">
+                <div className="grid grid-cols-2 md:grid-cols-5 md:gap-40 gap-20">
                     <Fade cascade triggerOnce duration={1300} delay={0}>
                         <div className="flex items-center">
                             <ProjectImage id="RCR" />

@@ -18,8 +18,8 @@ gsap.registerPlugin(ScrollTrigger);
 const useEfeitoGsap = (refElement, config = {}) => {
     // Configurações padrão
     const {
-        opacity = 0,
-        fromX = 120, // O seu original era 120px
+        autoAlphaInitial = 0, // Substituindo opacity por autoAlpha
+        xInitial = 0,
         duration = 1.5,
         start = "top 100%",
         end = "top 0.7%",
@@ -31,18 +31,19 @@ const useEfeitoGsap = (refElement, config = {}) => {
         const element = refElement.current;
 
         if (!element) return;
+        
 
         // Cria um contexto GSAP para isolar e limpar facilmente as animações
         let ctx = gsap.context(() => {
             gsap.fromTo(
                 element,
                 {
-                    opacity: opacity, // Bom adicionar o opacity: 0 para evitar piscar antes da animação
-                    x: fromX, // Posição inicial X
+                    autoAlpha: autoAlphaInitial, // Define opacity: 0 e visibility: hidden
+                    x: xInitial,
                 },
                 {
-                    opacity: 1,
-                    x: 0, // Posição final X
+                    autoAlpha: 1, // Define opacity: 1 e visibility: visible
+                    x: 0,
                     duration: duration,
                     scrollTrigger: {
                         trigger: element,
@@ -58,7 +59,16 @@ const useEfeitoGsap = (refElement, config = {}) => {
 
         // Função de limpeza: reverte todas as animações criadas neste contexto
         return () => ctx.revert();
-    }, [refElement, opacity, fromX, duration, start, end, scrub, pin]); // Dependências para reexecutar se as props mudarem
+    }, [
+        refElement,
+        autoAlphaInitial,
+        xInitial,
+        duration,
+        start,
+        end,
+        scrub,
+        pin,
+    ]); // Dependências para reexecutar se as props mudarem
 };
 
 export default useEfeitoGsap;

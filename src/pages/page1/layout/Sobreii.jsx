@@ -9,9 +9,8 @@ function Sobreii() {
                 <div className="flex item bg-black max-w-lg rounded-2xl px-6 py-10  flex-col md:pl-10 ">
                     <Card
                         classNameBaseII="md:mt-17 mt-10 max-w-sm md:gap-8"
-                        classNameTitle="max-w-sm text-lg md:mt-8 mt-4"
+                        classNameTitle="max-w-sm md:mt-8 mt-4"
                         classNameButton="mt-8"
-                        classNameText="text-[11px]"
                         variant="white"
                         text="POR QUE AUTONO"
                         title="Uma abordagem diferente, com um novo método de produção."

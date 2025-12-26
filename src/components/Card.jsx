@@ -34,13 +34,13 @@ export default function Card({
     const baseClassII = "flex  md:px-6 md:pl-10 pl-7 flex-col  ";
     //const baseBarra = "border-l-4"; //Barra grossa - pegar o componete todo//
     const baseBarra = "border-l-4"; //Barra grossa - pegar o componete todo
-    const baseBarraII = "border-l md:h-13 h-8"; //Barra fina - o tomanho da barra é fixo
+    const baseBarraII = "border-l md:h-16 h-9"; //Barra fina - o tomanho da barra é fixo
     const baseBarraIII = "border-l"; //Barra fina - pegar o componete todo
-    const baseTitle = " md:text-2xl  leading-relaxed tracking-widest ";
+    const baseTitle = " md:text-2xl text-lg  leading-relaxed tracking-widest ";
     const baseText =
         "md:text-base  text-xs  md:max-w-md tracking-widest leading-relaxed";
     const baseTextII =
-        "md:text-base text-justify md:text-left  max-w-md tracking-widest leading-relaxed";
+        "md:text-base text-[11px] text-justify md:text-left  max-w-md tracking-widest leading-relaxed";
     const baseButtonClassName =
         "flex-row flex border  cursor-pointer rounded-lg w-fit max-w-xs items-center tracking-wider transition-all duration-300 ";
     const divPClassName = "md:px-4 px-3 py-2 border-r   ";

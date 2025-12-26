@@ -1,4 +1,3 @@
-// src/components/ProjectImage.jsx
 import React from "react";
 import useMediaImage from "../hooks/useMediaImage";
 
@@ -8,7 +7,7 @@ export default function ProjectImage({
     alt: altProp,
     ...rest
 }) {
-    // <- chama o "hook" sempre, não condicionamente
+    
     const media = useMediaImage(id);
 
     const src = media?.src ?? srcProp;

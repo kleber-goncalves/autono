@@ -24,89 +24,57 @@ function Servicos() {
     const boxRef3 = useRef(null); 
 
     useEfeitoGsap(boxRef1, {
-        fromX: 0,
         duration: 0.2,
-        opacity: 0.4,
+        autoAlphaInitial: 0, // Usando autoAlpha para o efeito de "aparecer"
     });
     useEfeitoGsap(boxRef2, {
-        fromX: 0,
         duration: 0.2,
-        opacity: 0,
+        autoAlphaInitial: 0, // Usando autoAlpha para o efeito de "aparecer"
     });
     useEfeitoGsap(boxRef3, {
-        fromX: 0,
         duration: 0.2,
-        opacity: 0.4,
+        autoAlphaInitial: 0, // Usando autoAlpha para o efeito de "aparecer"
     });
 
     useEffect(() => {
-        let ctx = gsap.context(() => {
-            // 1. Animação para a primeira imagem de carro (slide da direita para a esquerda)
-            gsap.fromTo(
-                imgRef1.current,
-                {
-                    opacity: 0,
-                    x: 150, // Começa 150px à direita ( → )
-                },
-                {
-                    opacity: 1,
-                    x: 0, // Vai para a posição original
-                    duration: 1.5,
-                    scrollTrigger: {
-                        trigger: imgRef1.current,
-                        start: "top 100%", // Inicia quando o topo do elemento estiver a 100% do topo da viewport
-                        end: "top 0.7%", // Termina quando o botão estiver a 0.7%",
-                        scrub: 1.5, // Animação suave ligada à rolagem
-                    },
-                }
-            );
+let ctx = gsap.context(() => {
+    // Animação para as imagens usando autoAlpha para suavidade
+    const animacoes = [
+        { ref: imgRef1, x: 100 }, // Reduzi de 150 para 100 para ser mais discreto
+        { ref: imgRef2, x: -100 },
+        { ref: imgRef3, x: 100 },
+    ];
 
-            // 2. Animação para a imagem do velocímetro (slide da esquerda para a direita)
-            gsap.fromTo(
-                imgRef2.current,
-                {
-                    opacity: 0,
-                    x: -150, // Começa 150px à esquerda ( → )
+    animacoes.forEach((item) => {
+        gsap.fromTo(
+            item.ref.current,
+            {
+                autoAlpha: 0, // Substituído de autoAlphaInitial (que não existe no GSAP puro)
+                x: item.x,
+            },
+            {
+                autoAlpha: 1,
+                x: 0,
+                duration: 1.5,
+                scrollTrigger: {
+                    trigger: item.ref.current,
+                    start: "top 95%", // Inicia um pouco antes de entrar totalmente
+                    end: "top 30%",
+                    scrub: 1.5,
                 },
-                {
-                    opacity: 1,
-                    x: 0, // Vai para a posição original
-                    duration: 1.5,
-                    scrollTrigger: {
-                        trigger: imgRef2.current,
-                        start: "top 100%",
-                        end: "top 0.7%", // Termina quando o botão estiver a 0.7%",
-                        scrub: 1.5,
-                    },
-                }
-            );
-
-            // 3. Animação para a segunda imagem de carro (slide da direita para a esquerda)
-            gsap.fromTo(
-                imgRef3.current,
-                {
-                    opacity: 0,
-                    x: 150, // Começa 150px à direita ( ← )
-                },
-                {
-                    opacity: 1,
-                    x: 0, // Vai para a posição original
-                    duration: 1.5,
-                    scrollTrigger: {
-                        trigger: imgRef3.current,
-                        start: "top 100%",
-                        end: "top 0.7%", // Termina quando o botão estiver a 0.7%",
-                        scrub: 1.5,
-                    },
-                }
-            );
-        }, containerRef);
+            }
+        );
+    });
+}, containerRef);
 
         return () => ctx.revert(); // Limpa o contexto ao desmontar o componente
     }, []);
 
     return (
-        <section className="bg-white min-h-screen md:py-44 pt-44 pb-20" ref={containerRef}>
+        <section
+            className="bg-white min-h-screen overflow-hidden md:py-44 pt-44 pb-20"
+            ref={containerRef}
+        >
             <div className="flex flex-col max-w-7xl  mx-auto md:gap-y-30 gap-y-20 px-6 lg:px-8">
                 <Card
                     classNameBaseII="max-w-sm"
@@ -153,7 +121,10 @@ function Servicos() {
                         />
                     </div>
 
-                    <div ref={boxRef3} className="md:flex md:flex-col cinco pl-10 gap-8">
+                    <div
+                        ref={boxRef3}
+                        className="md:flex md:flex-col cinco pl-10 gap-8"
+                    >
                         <Card_III
                             size="sizeIII"
                             variant="black"

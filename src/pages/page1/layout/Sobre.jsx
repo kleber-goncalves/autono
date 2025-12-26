@@ -9,20 +9,20 @@ function Sobre() {
     const boxRef2 = useRef(null); // Imagem do velocímetro (lado esquerdo)
 
     useEfeitoGsap(boxRef1, {
-        fromX: 120,
-        start: "top 90%", // Um pouco antes do original para variar
+        xInitial: 50, // Valor reduzido para evitar quebra de layout
+        autoAlphaInitial: 0, // Usando autoAlpha para o efeito de "aparecer"
+        start: "top 90%",
     });
 
     useEfeitoGsap(boxRef2, {
-        fromX: 0,
         duration: 2,
-        opacity: 0.4,
+        autoAlphaInitial: 0,
     });
 
     return (
         <section
             data-bg="dark"
-            className="max-w-8xl bg-black border border-black mx-auto md:py-46 pt-46 pb-10 flex flex-col  "
+            className="max-w-8xl bg-black border overflow-hidden border-black mx-auto md:py-46 pt-46 pb-10 flex flex-col  "
         >
             <div className="flex flex-col md:flex-row mx-auto gap-20  items-center ">
                 <div ref={boxRef2} className="flex md:px-30 px-7">
@@ -38,14 +38,6 @@ function Sobre() {
                 </div>
                 <div className="md:max-w-2xl flex pl-4 md:pl-0 max-w-xl">
                     <ProjectImage id="car-sobre" ref={boxRef1} />
-
-                    {/*
-                    <img
-                        ref={boxRef1}
-                        src="/public/car-sobre.jpg"
-                        alt="car-sobre"
-                    />
-                    */}
                 </div>
             </div>
         </section>

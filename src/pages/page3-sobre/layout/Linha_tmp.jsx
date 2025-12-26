@@ -5,6 +5,13 @@ import { Fade } from "react-awesome-reveal";
 import { Slide } from "react-awesome-reveal";
 
 
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, FreeMode } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css/free-mode";
+
+
 // Dados de exemplo expandidos para ter 8 itens, resultando em 4 slides de 2 itens
 const timelineData = [
     {
@@ -89,17 +96,17 @@ function Linha_temp() {
 
     return (
         <section className="bg-white">
-            <div className="min-h-screen bg-white flex flex-col items-center justify-center py-40 font-sans selection:bg-orange-100">
+            <div className="md:min-h-screen bg-white flex flex-col items-center justify-center md:py-40 py-20 font-sans selection:bg-orange-100">
                 {/* Header */}
-                <div className="w-full max-w-6xl mb-12">
-                    <h1 className="text-3xl text-black tracking-wide">
+                <div className="w-full flex justify-center md:justify-start max-w-6xl mb-12">
+                    <h1 className="text-lg md:text-3xl text-black tracking-wide">
                         Linha do tempo
                     </h1>
                 </div>
 
                 {/* Timeline Container */}
                 {/* max-w-7xl para ter espaço para os botões */}
-                <div className="relative w-full max-w-7xl flex items-center justify-center">
+                <div className="relative hidden  md:flex w-full max-w-7xl  items-center justify-center">
                     {/* Navigation Button Left */}
                     {/* Posicionado à esquerda da "janela" de 1200px */}
                     {/* translate-x-[750px] (Para afastar a seta) */}
@@ -138,7 +145,7 @@ function Linha_temp() {
                     </button>
 
                     {/* A Linha Horizontal Principal (Fundo) */}
-                    {/* max-w-[1300px] para garantir que a linha fique centralizada e não se estenda demais */}
+                    {/* max-w-[1400px] para garantir que a linha fique centralizada e não se estenda demais */}
                     <div className="absolute top-1/2 h-px bg-gray-400 -translate-y-1/2 hidden md:block w-full max-w-[90%] md:max-w-[1400px]" />
 
                     {/* Janela do Slider - Fixada em 1200px para mostrar EXATAMENTE 2 itens de 600px */}
@@ -165,7 +172,6 @@ function Linha_temp() {
                                 let alignmentClass = "";
 
                                 // Lógica de Alinhamento Horizontal (Efeito Degrau):
-                                // Esta classe será aplicada ao container flex (h-[300px] flex w-full)
                                 if (isSlideEven) {
                                     // SLIDE PAR (0, 2, 4...):
                                     // Card Par (Topo) -> justify-start (Esquerda)
@@ -181,7 +187,7 @@ function Linha_temp() {
                                         ? "justify-end"
                                         : "justify-start";
                                 }
-                                // No seu código original, isEven era usado para TOP/BOTTOM. Vamos manter isso.
+                               
 
                                 return (
                                     <div
@@ -245,9 +251,42 @@ function Linha_temp() {
                     </div>
                 </div>
 
-                {/* Instruções para Mobile */}
-                <div className="md:hidden text-gray-400 text-sm mt-8">
-                    Deslize para ver mais
+                {/* ========================================================= */}
+                {/* VERSÃO MOBILE (Swiper Infinito) */}
+                {/* ========================================================= */}
+                <div className="md:hidden w-full px-4">
+                    <Swiper
+                        modules={[Autoplay]}
+                        spaceBetween={20} // Espaço entre os cards
+                        slidesPerView={1.1} // Mostra um pouco do próximo card para indicar scroll
+                        centeredSlides={true} // Centraliza o card ativo
+                        loop={true}
+                        speed={800}
+                        autoplay={{
+                            delay: 3000,
+                            disableOnInteraction: false, // Continua rodando mesmo após toque
+                        }}
+                        // Melhora o comportamento do arraste manual
+                        className="py-4 w-full"
+                    >
+                        {timelineData.map((item) => (
+                            <SwiperSlide key={item.id}>
+                                <div className="flex justify-center h-auto">
+                                    <TimelineCard
+                                        data={item}
+                                        position="mobile"
+                                    />
+                                </div>
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
+                </div>
+
+                {/* Instruções Visuais */}
+                <div className="md:hidden flex justify-center items-center mt-10 text-gray-400 text-sm animate-pulse">
+                    <ChevronLeft size={16} />
+                    <span className="mx-2">Deslize para ver mais</span>
+                    <ChevronRight size={16} />
                 </div>
             </div>
         </section>

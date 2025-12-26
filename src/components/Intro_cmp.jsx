@@ -10,23 +10,28 @@ export default function Intro_cmp({
     texto_2,
     children,
     image,
+    imageII,
     className = "",
     classNameTitle = "",
     classNameText = "",
     classNameTextI = "",
     classNameImage = "",
+    classNameImageII = "",
     ...props
 }) {
-    // 2. Criamos uma referência para o container principal (o escopo da animação)
+    // referência para o container principal (o escopo da animação)
     const containerRef = useRef(null);
     const baseClass =
-        "max-w-8xl mx-auto px-6 lg:px-6 py-20 flex flex-col items-center ";
+        "max-w-8xl mx-auto md:px-6 lg:px-6 py-20 flex flex-col items-center ";
 
     const baseTitle =
-        "md:text-6xl max-w-3xl  md:leading-snug tracking-wide text-black text-center";
+        "md:text-6xl max-w-3xl px-6 md:px-0  md:leading-snug tracking-wide text-black text-center";
 
     const baseText =
-        "text-black md:text-2xl leading-relaxed tracking-wide md:max-w-2xl text-center md:mt-8 mt-3 overflow-hidden block";
+        "text-black md:text-2xl text-sm px-6 md:px-0 leading-relaxed tracking-wide md:max-w-2xl text-center md:mt-8 mt-3 overflow-hidden block";
+
+    const baseImage = "hidden md:block";
+    const baseImageII = "md:hidden w-full";
 
     // A mágica da Animação
     useGSAP(
@@ -70,13 +75,23 @@ export default function Intro_cmp({
             <h1 className={`${baseTitle} ${classNameTitle}`}>
                 <TitleMask>{titulo}</TitleMask>
             </h1>
-            {image && (
-                <img
-                    src={image}
-                    alt={titulo}
-                    className={`anim-fade ${classNameImage}`}
-                />
-            )}
+           
+                {image && (
+                    <img
+                        src={image}
+                        alt={titulo}
+                        className={`anim-fade ${classNameImage} ${baseImage}`}
+                    />
+                )}
+                {imageII && (
+                    <img
+                        src={imageII}
+                        alt={titulo}
+                        className={`anim-fade ${classNameImageII} ${baseImageII}`}
+                    />
+                )}
+  
+
             <p
                 className={`anim-fade ${baseText} ${classNameTextI} ${classNameText}`}
             >
