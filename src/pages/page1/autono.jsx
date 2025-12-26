@@ -17,7 +17,6 @@ import Rodape from "/src/components/Rodape";
 gsap.registerPlugin(ScrollTrigger);
 
 function Autono() {
-    // ✅ ESSAS LINHAS ESTAVAM FALTANDO
     const lenisRef = useRef(null);
 
     useEffect(() => {

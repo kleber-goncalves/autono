@@ -12,35 +12,35 @@ function Sec_carreira() {
       const boxRef4 = useRef(null); 
 
       useEfeitoGsap(boxRef1, {
-          fromX: -120,
+          xInitial: -50, // Valor reduzido para evitar quebra de layout
           duration: 1.5,
-          opacity: 0.4,
+          autoAlphaInitial: 0, // Usando autoAlpha para o efeito de "aparecer"
       });
       useEfeitoGsap(boxRef2, {
-          fromX: 120,
+          xInitial: 50, // Valor reduzido para evitar quebra de layout
           duration: 1.5,
-          opacity: 0,
+          autoAlphaInitial: 0, // Usando autoAlpha para o efeito de "aparecer"
       });
       useEfeitoGsap(boxRef3, {
-          fromX: -120,
+          xInitial: -50, // Valor reduzido para evitar quebra de layout
           duration: 1.5,
           opacity: 0.4,
       });
       useEfeitoGsap(boxRef4, {
-          fromX: 120,
+          xInitial: 50, // Valor reduzido para evitar quebra de layout
           duration: 1.5,
-          opacity: 0.4,
+          autoAlphaInitial: 0, // Usando autoAlpha para o efeito de "aparecer"
       });
 
 
 
     return (
         <section className="bg-black max-w-8xl mx-auto gap-y-30 py-30 flex flex-col ">
-            <div className="grid grid-cols-2 items-center gap-y-20">
+            <div className="md:grid flex flex-col md:grid-cols-2 items-center gap-y-20">
                 <div className="flex flex-col px-6 lg:px-59 ">
                     <Card
-                        classNameBarraII="h-17"
-                        classNameBaseII="mt-17 gap-8"
+                        classNameBarraII="md:h-17"
+                        classNameBaseII="md:mt-17 mt-10 gap-8"
                         variant="white"
                         text="VAGAS"
                         title="Pensando diferente, podemos mudar o futuro do transporte"
@@ -51,7 +51,7 @@ function Sec_carreira() {
                     <ProjectImage id="carreira" />
                 </div>
             </div>
-            <div className="grid grid-cols-2 items-center gap-x-90 gap-y-30 px-6 pb-20 lg:px-59">
+            <div className="md:grid md:grid-cols-2 flex flex-col items-center gap-x-90 gap-y-30 px-6 pb-20 lg:px-59">
                 <div ref={boxRef1}>
                     <Card_II
                         mt="mtII"

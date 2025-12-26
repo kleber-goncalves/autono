@@ -26,6 +26,12 @@ function Nav() {
 
     const [isScrolled, setIsScrolled] = useState(false);
     const [isNavOverDark, setIsNavOverDark] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false); // Estado para o Mobile
+
+    // Bloquear scroll quando menu mobile estiver aberto
+    useEffect(() => {
+        document.body.style.overflow = isMenuOpen ? "hidden" : "unset";
+    }, [isMenuOpen]);
 
     //  isScrolled
     useEffect(() => {
@@ -39,6 +45,7 @@ function Nav() {
         };
     }, []);
 
+    // Lógica de detecção de cor de fundo
     // Checagem rápida e imediata durante o scroll (rAF)
     useEffect(() => {
         if (!navRef.current) return;
@@ -140,9 +147,16 @@ function Nav() {
         scrollDirection === "down" ? "-translate-y-18" : "translate-y-0 nav-up";
 
     // Mudança de cor de fundo do nav bar do "isNavOverDark ( Detector de cor de fundo )" dizer
-    const bgColorClassII = isNavOverDark
-        ? "bg-white/20 border border-white/60 backdrop-blur-sm "
-        : "bg-black/20 border border-black/60 backdrop-blur-sm ";
+
+
+    // Se o menu estiver aberto, fundo sólido. Se fechado, mantém o efeito de vidro.
+    const bgColorClassII = isMenuOpen
+        ? isNavOverDark
+            ? "bg-black border-white/20"
+            : "bg-white border-black/10" // Fundo sólido sem transparência
+        : isNavOverDark
+        ? "bg-white/20 border border-white/60 backdrop-blur-sm"
+        : "bg-black/20 border border-black/60 backdrop-blur-sm";
 
     // Mudança de cor do texto do nav bar com base do "isNavOverDark ( Detector de cor de fundo )" dizer
     const textColorClass = isNavOverDark ? "text-white" : "text-black";
@@ -152,18 +166,20 @@ function Nav() {
         : "hover:text-black text-gray-700 hover:font-medium"; // V- text-preto
 
     // Controle maior do layout do nav bar com base do "isScrolled ( Detector de rolagem )" dizer
-    const bgColorClass = isScrolled
-        ? "w-auto ml-23 mr-23 top-3 rounded-2xl"
-        : "bg-transparent border-none";
+    const bgColorClass = isMenuOpen 
+        ? "w-screen h-screen top-0 left-0 rounded-none border-none" // Tela cheia mobile : isScrolled
+        : isScrolled
+            ? "w-[300px] md:w-auto md:ml-23 ml-3 md:mr-23 top-0 md:top-3 rounded-2xl"
+            : "bg-transparent border-none w-[300px] md:w-auto md:ml-0 ml-3";
 
-    // Controle maior do layout do nav bar 
+    // Controle maior do layout do nav bar
     const containerBase =
-        "w-full mx-auto flex items-center justify-between transition-all duration-150 ease-linear will-change-transform";
-    
+        "md:w-full mx-auto flex items-center justify-between transition-all duration-150 ease-linear will-change-transform";
+
     // Mudança do layout do nav bar com base do "isScrolled ( Detector de rolagem )" dizer
     const containerSizeClass = isScrolled
         ? "max-w-6xl px-4 py-3"
-        : "max-w-8xl px-30 py-7";
+        : "max-w-8xl md:px-30 px-6 py-7";
 
     // animação para o nav nao ter animação quando estiver no topo do hero
     const animtion = isScrolled ? "" : "nav-padrao";
@@ -176,15 +192,41 @@ function Nav() {
             style={{ willChange: "transform, background-color" }}
         >
             <div className={`${containerBase} ${containerSizeClass}`}>
-                <div className="shrink-0">
+                <div className="shrink-0 z-110">
                     <a
                         href="/"
-                        className={`font-bold tracking-[0.4rem] text-xl transition-colors duration-75 ease-linear ${textColorClass}`}
+                        className={`font-bold tracking-[0.4rem] text-sm md:text-xl  transition-colors duration-75 ease-linear ${textColorClass}`}
                         style={{ willChange: "color" }}
                     >
                         AUTONO
                     </a>
                 </div>
+
+                {/* MOBILE TOGGLE BUTTON */}
+                {/* MOBILE TOGGLE BUTTON */}
+                {/* MOBILE TOGGLE BUTTON */}
+                <button
+                    onClick={() => setIsMenuOpen(!isMenuOpen)}
+                    className="md:hidden z-[110] p-1 focus:outline-none relative w-10 h-10"
+                    aria-label="Toggle Menu"
+                >
+                    <div className="absolute inset-0 flex flex-col items-center justify-center">
+                        <span
+                            className={`block w-6 h-[2px] transition-all duration-300 ${textColorClass} bg-current ${
+                                isMenuOpen
+                                    ? "rotate-45 translate-y-[1px]"
+                                    : "-translate-y-1"
+                            }`}
+                        ></span>
+                        <span
+                            className={`block w-6 h-[2px] transition-all duration-300 ${textColorClass} bg-current ${
+                                isMenuOpen
+                                    ? "-rotate-45 -translate-y-[1px]"
+                                    : "translate-y-1"
+                            }`}
+                        ></span>
+                    </div>
+                </button>
 
                 <div
                     className={`hidden md:flex gap-8 items-center ${textColorClass}`}
@@ -220,6 +262,53 @@ function Nav() {
                                 : "bg-black text-white border-black hover:bg-white hover:text-black"
                         }`}
                         style={{ willChange: "color, border-color" }}
+                    >
+                        Assinar
+                    </a>
+                </div>
+
+                {/* MOBILE MENU OVERLAY */}
+                {/* MOBILE MENU OVERLAY - Com o mesmo fundo do Nav */}
+                <div
+                    className={`
+            fixed inset-0 h-screen w-screen transition-all duration-500 md:hidden flex flex-col items-center justify-center gap-8
+            ${bgColorClassII}
+            ${
+                isMenuOpen
+                    ? "opacity-100 visible"
+                    : "opacity-0 invisible pointer-events-none"
+            }
+        `}
+                >
+                    <a
+                        onClick={() => setIsMenuOpen(false)}
+                        href="/tecnologia"
+                        className={`text-2xl font-light ${textColorClass}`}
+                    >
+                        Tecnologia
+                    </a>
+                    <a
+                        onClick={() => setIsMenuOpen(false)}
+                        href="/sobre"
+                        className={`text-2xl font-light ${textColorClass}`}
+                    >
+                        Sobre
+                    </a>
+                    <a
+                        onClick={() => setIsMenuOpen(false)}
+                        href="/carreiras"
+                        className={`text-2xl font-light ${textColorClass}`}
+                    >
+                        Carreiras
+                    </a>
+                    <a
+                        onClick={() => setIsMenuOpen(false)}
+                        href="/subscribe"
+                        className={`px-10 py-3 rounded-full text-xl ${
+                            isNavOverDark
+                                ? "bg-white text-black"
+                                : "bg-black text-white"
+                        }`}
                     >
                         Assinar
                     </a>

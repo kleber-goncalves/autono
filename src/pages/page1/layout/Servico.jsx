@@ -24,102 +24,72 @@ function Servicos() {
     const boxRef3 = useRef(null); 
 
     useEfeitoGsap(boxRef1, {
-        fromX: 0,
         duration: 0.2,
-        opacity: 0.4,
+        autoAlphaInitial: 0, // Usando autoAlpha para o efeito de "aparecer"
     });
     useEfeitoGsap(boxRef2, {
-        fromX: 0,
         duration: 0.2,
-        opacity: 0,
+        autoAlphaInitial: 0, // Usando autoAlpha para o efeito de "aparecer"
     });
     useEfeitoGsap(boxRef3, {
-        fromX: 0,
         duration: 0.2,
-        opacity: 0.4,
+        autoAlphaInitial: 0, // Usando autoAlpha para o efeito de "aparecer"
     });
 
     useEffect(() => {
-        let ctx = gsap.context(() => {
-            // 1. Animação para a primeira imagem de carro (slide da direita para a esquerda)
-            gsap.fromTo(
-                imgRef1.current,
-                {
-                    opacity: 0,
-                    x: 150, // Começa 150px à direita ( → )
-                },
-                {
-                    opacity: 1,
-                    x: 0, // Vai para a posição original
-                    duration: 1.5,
-                    scrollTrigger: {
-                        trigger: imgRef1.current,
-                        start: "top 100%", // Inicia quando o topo do elemento estiver a 100% do topo da viewport
-                        end: "top 0.7%", // Termina quando o botão estiver a 0.7%",
-                        scrub: 1.5, // Animação suave ligada à rolagem
-                    },
-                }
-            );
+let ctx = gsap.context(() => {
+    // Animação para as imagens usando autoAlpha para suavidade
+    const animacoes = [
+        { ref: imgRef1, x: 100 }, // Reduzi de 150 para 100 para ser mais discreto
+        { ref: imgRef2, x: -100 },
+        { ref: imgRef3, x: 100 },
+    ];
 
-            // 2. Animação para a imagem do velocímetro (slide da esquerda para a direita)
-            gsap.fromTo(
-                imgRef2.current,
-                {
-                    opacity: 0,
-                    x: -150, // Começa 150px à esquerda ( → )
+    animacoes.forEach((item) => {
+        gsap.fromTo(
+            item.ref.current,
+            {
+                autoAlpha: 0, // Substituído de autoAlphaInitial (que não existe no GSAP puro)
+                x: item.x,
+            },
+            {
+                autoAlpha: 1,
+                x: 0,
+                duration: 1.5,
+                scrollTrigger: {
+                    trigger: item.ref.current,
+                    start: "top 95%", // Inicia um pouco antes de entrar totalmente
+                    end: "top 30%",
+                    scrub: 1.5,
                 },
-                {
-                    opacity: 1,
-                    x: 0, // Vai para a posição original
-                    duration: 1.5,
-                    scrollTrigger: {
-                        trigger: imgRef2.current,
-                        start: "top 100%",
-                        end: "top 0.7%", // Termina quando o botão estiver a 0.7%",
-                        scrub: 1.5,
-                    },
-                }
-            );
-
-            // 3. Animação para a segunda imagem de carro (slide da direita para a esquerda)
-            gsap.fromTo(
-                imgRef3.current,
-                {
-                    opacity: 0,
-                    x: 150, // Começa 150px à direita ( ← )
-                },
-                {
-                    opacity: 1,
-                    x: 0, // Vai para a posição original
-                    duration: 1.5,
-                    scrollTrigger: {
-                        trigger: imgRef3.current,
-                        start: "top 100%",
-                        end: "top 0.7%", // Termina quando o botão estiver a 0.7%",
-                        scrub: 1.5,
-                    },
-                }
-            );
-        }, containerRef);
+            }
+        );
+    });
+}, containerRef);
 
         return () => ctx.revert(); // Limpa o contexto ao desmontar o componente
     }, []);
 
     return (
-        <section className="bg-white min-h-screen py-44 " ref={containerRef}>
-            <div className="flex flex-col max-w-7xl  mx-auto gap-y-30 px-6 lg:px-8">
+        <section
+            className="bg-white min-h-screen overflow-hidden md:py-44 pt-44 pb-20"
+            ref={containerRef}
+        >
+            <div className="flex flex-col max-w-7xl  mx-auto md:gap-y-30 gap-y-20 px-6 lg:px-8">
                 <Card
-                    classNameBaseII=" max-w-sm"
-                    classNameTitle="max-w-sm "
+                    classNameBaseII="max-w-sm"
+                    classNameTitle="max-w-sm text-lg"
+                    classNameText="text-[11px]"
                     variant="black"
                     text="SERVIÇOS"
                     title="Entregamos produtos e serviços incríveis no mundo todo"
                 />
 
-                <div className="grid grid-cols-1 lg:grid-cols-2  gap-x-16 gap-y-40 items-center">
-                    <div ref={boxRef1} className="flex flex-col pl-10 gap-8">
+                <div className="grid grid-templete  md:grid-cols-2 lg:grid-cols-2  md:gap-x-16 md:gap-y-40 gap-y-17 md:items-center">
+                    <div ref={boxRef1} className="um md:flex md:flex-col pl-10">
                         <Card_III
                             size="sizeIII"
+                            classNameTitle="text-xl"
                             variant="black"
                             title="DIREÇÃO AUTÔNOMA"
                             text="O carro usa sensores, câmeras, radares e softwares inteligentes para “ver” ruas, tráfego, pedestres e sinais, tornando cada viagem mais segura, suave e precisa. Com direção autônoma, há menos esforço do motorista, menos erros, mais eficiência e menor impacto ambiental."
@@ -127,38 +97,44 @@ function Servicos() {
                             href="/tecnologia"
                         />
                     </div>
-                    <div className="">
+                    <div className="dois items-center">
                         <ProjectImage id="car-servico-1" ref={imgRef1} />
                     </div>
-                    <div className="relative w-full ">
+                    <div className="relative quatro w-full ">
                         <ProjectImage
                             id="velocimetroServico"
                             ref={imgRef2}
                             className="w-full h-auto object-cover "
                         />
                     </div>
-
-                    <div ref={boxRef2} className="pl-20 flex  flex-col gap-8">
+                    <div
+                        ref={boxRef2}
+                        className="tres md:pl-20 pl-10 md:flex md:flex-col gap-8"
+                    >
                         <Card_III
                             size="sizeIII"
                             variant="black"
                             title="INFORMAÇÕES AO VIVO"
-                            text="O carro entrega dados em tempo real sobre bateria, consumo de energia, autonomia e funcionamento dos sistemas — tudo direto no painel, sem mistério. Com isso, você dirige com clareza, previsão e tranquilidade, sabendo exatamente o que acontece a cada instante. Mobilidade elétrica com transparência, controle e confiança."
+                            text="O carro entrega dados em tempo real sobre bateria, consumo de energia, autonomia e funcionamento dos sistemas, tudo direto no painel, sem mistério. Com isso, você dirige com clareza, previsão e tranquilidade, sabendo exatamente o que acontece a cada instante. Mobilidade elétrica com transparência, controle e confiança."
                             text_button="Saiba mais"
                             href="/tecnologia"
                         />
                     </div>
-                    <div ref={boxRef3} className="flex flex-col pl-10 gap-8">
+
+                    <div
+                        ref={boxRef3}
+                        className="md:flex md:flex-col cinco pl-10 gap-8"
+                    >
                         <Card_III
                             size="sizeIII"
                             variant="black"
                             title="PERCEPÇÃO ATIVADA"
-                            text="O carro usa sensores e software para “ver” o ambiente — ruas, tráfego, pedestres e sinais — tornando a viagem mais segura e precisa. A direção autônoma reduz o esforço do motorista, diminui erros e traz mais eficiência, com menor impacto ambiental."
+                            text="O carro usa sensores e software para “ver” o ambiente nas ruas, tráfego, pedestres e sinais tornando a viagem mais segura e precisa. A direção autônoma reduz o esforço do motorista, diminui erros e traz mais eficiência, com menor impacto ambiental."
                             text_button="Saiba mais"
                             href="/tecnologia"
                         />
                     </div>
-                    <div className="pr-4 relative w-full">
+                    <div className="md:pr-4 seis relative w-full">
                         <ProjectImage
                             id="car-servico-2"
                             ref={imgRef3}

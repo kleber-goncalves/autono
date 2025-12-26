@@ -1,5 +1,5 @@
-// src/data/mediaImgs.js
 import bracoInfo from "../assets/braco-info.jpg";
+import bracoInfo2 from "../assets/braco-infoII.jpg";
 import carProdutoI from "../assets/car-produtoI.jpg";
 import carServico1 from "../assets/car-servico-1.jpg";
 import carServico2 from "../assets/car-servico-2.jpg";
@@ -8,12 +8,14 @@ import carreira from "../assets/carreira.jpg";
 import degrade from "../assets/degrade.png";
 import Finance from "../assets/Finance.png";
 import fundoDestaques from "../assets/fundo-destaques.jpg";
+import fundoDestaquesMobile from "../assets/fundo-destaquesII.jpg";
 import fundoHero from "../assets/fundo-hero.jpg";
 import fundoIntro from "../assets/fundo-intro.jpg";
 import fundoSobreii from "../assets/fundo-sobreii.jpg";
 import ICarsParceiros from "../assets/ICars-parceiros.png";
 import IDISoftwareParceiros from "../assets/IDISoftware-parceiros.png";
 import localy from "../assets/localy.jpg";
+import localyMobile from "../assets/localyII.jpg";
 import LondonPost from "../assets/London_post.png";
 import mulherAbordagem from "../assets/mulher-abordagem.jpg";
 import paineilProdutoII from "../assets/paineil-produtoII.jpg";
@@ -28,6 +30,7 @@ import velocimetroServico from "../assets/velocimetro-servico.jpg";
 
 export const mediaImgs = [
     { id: "braco-info", src: bracoInfo, alt: "Braço info" },
+    { id: "braco-info2", src: bracoInfo2, alt: "Braço info II" },
     { id: "car-produtoI", src: carProdutoI, alt: "Car produto I" },
     { id: "car-servico-1", src: carServico1, alt: "Car serviço 1" },
     { id: "car-servico-2", src: carServico2, alt: "Car serviço 2" },
@@ -36,6 +39,7 @@ export const mediaImgs = [
     { id: "degrade", src: degrade, alt: "Degrade" },
     { id: "Finance", src: Finance, alt: "Finance" },
     { id: "fundo-destaques", src: fundoDestaques, alt: "Fundo destaques" },
+    { id: "fundo-destaques-Mobile", src: fundoDestaquesMobile, alt: "Fundo destaques Mobile" },
     { id: "fundo-hero", src: fundoHero, alt: "Fundo hero" },
     { id: "fundo-intro", src: fundoIntro, alt: "Fundo intro" },
     { id: "fundo-sobreii", src: fundoSobreii, alt: "Fundo sobre ii" },
@@ -46,6 +50,7 @@ export const mediaImgs = [
         alt: "IDI Software parceiros",
     },
     { id: "localy", src: localy, alt: "Localy" },
+    { id: "localyMobile", src: localyMobile, alt: "localyMobile" },
     { id: "Londonpost", src: LondonPost, alt: "London post" },
     { id: "mulher-abordagem", src: mulherAbordagem, alt: "Mulher abordagem" },
     {

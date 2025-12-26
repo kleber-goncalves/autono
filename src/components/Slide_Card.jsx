@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Card_II from "./Card_II"; // Certifique-se que o caminho está correto
+import Card_II from "./Card_II"; 
 
 export default function CardSlideshow() {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -57,9 +57,9 @@ export default function CardSlideshow() {
     };
 
     return (
-        <div className=" max-w-md  flex flex-col gap-6">
+        <div className=" max-w-md  flex flex-col gap-6 ">
             {/* Container dos Slides (Janela de visualização) */}
-            <div className="overflow-hidden rounded-2xl">
+            <div className="overflow-hidden rounded-2xl ">
                 <div
                     className="flex transition-transform duration-1200 ease-in-out"
                     style={{ transform: `translateX(-${currentIndex * 100}%)` }}
@@ -72,7 +72,7 @@ export default function CardSlideshow() {
                                 text_2={slide.text_2}
                                 text_button={slide.text_button}
                                 variant={slide.variant}
-                                // Forçamos a largura total e removemos margens extras para alinhar no slide
+                                // Forçando a largura total e removemendo margens extras para alinhar no slide
                                 className="w-full h-full"
                             />
                         </div>

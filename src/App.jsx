@@ -4,17 +4,17 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import CustomCursor from "/src/components/CustomCursor";
 
-// Importar o novo wrapper
+// Importar o wrapper
 import MinimumLoadingWrapper from "./utils/MinimumLoadingWrapper";
 
 // Imports dos skeletons customizados
-import LoadingScreenAutono from "./components/Loadings/LoadingScreenAutono"; // Seu original renomeado
+import LoadingScreenAutono from "./components/Loadings/LoadingScreenAutono";
 import LoadingScreenTecnologia from "./components/Loadings/LoadingScreenTecnologia";
 import LoadingScreenSobre from "./components/Loadings/LoadingScreenSobre";
 import LoadingScreenCarreiras from "./components/Loadings/LoadingScreenCarreiras";
 
 // Importes das páginas
-// Usar React.lazy() para fazer o Code Splitting dos componentes da página
+// React.lazy() para fazer o Code Splitting dos componentes da página
 const Autono = React.lazy(() => import("./pages/page1/autono"));
 const Tecnologia = React.lazy(() => import("./pages/page2-tec/Tecnologia"));
 const Sobre = React.lazy(() => import("./pages/page3-sobre/Sobre"));

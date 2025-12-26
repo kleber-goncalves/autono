@@ -31,14 +31,17 @@ export default function Card_eft({
 }) {
     // 🟦 BASES FIXAS
     const baseClass = "flex  flex-col  ";
-    const baseClassII = "flex  px-6 pl-10 flex-col  ";
+    const baseClassII = "flex  md:px-6 md:pl-10 pl-7 flex-col  ";
     //const baseBarra = "border-l-4"; //Barra grossa - pegar o componete todo//
     const baseBarra = "border-l"; //Barra grossa - pegar o componete todo
-    const baseBarraEfeito = "absolute top-19 border-l-4 h-33"; //Barra grossa - pegar o componete todo
-    const baseBarraII = "border-l h-13"; //Barra fina - o tomanho da barra é fixo
+    const baseBarraEfeito = "absolute md:top-19 top-10 border-l-4 h-33"; //Barra grossa - pegar o componete todo
+    const baseBarraII = "border-l md:h-13"; //Barra fina - o tomanho da barra é fixo
     const baseBarraIII = "border-l"; //Barra fina - pegar o componete todo
-    const baseTitle = " text-2xl  leading-relaxed tracking-widest ";
-    const baseText = "text-base max-w-md tracking-widest leading-relaxed";
+    const baseTitle = " md:text-2xl  leading-relaxed tracking-widest ";
+    const baseText =
+        "md:text-base text-justify md:text-left md:max-w-md tracking-widest leading-relaxed";
+    const baseTextII =
+        "md:text-base text-justify md:text-left  md:max-w-md md:tracking-widest leading-relaxed";
     const baseButtonClassName =
         "flex-row flex border  cursor-pointer rounded-lg w-fit max-w-xs items-center tracking-wider transition-all duration-300 ";
     const divPClassName = "px-4 py-2 border-r   ";
@@ -49,7 +52,7 @@ export default function Card_eft({
     const variants = {
         white: {
             title: "text-white",
-            text: "text-white",
+            text: "text-white", 
             text_2: "text-white",
             text_3: "text-white",
             baseClass: "text-white ",
@@ -192,7 +195,7 @@ export default function Card_eft({
                                 <>
                                     {text_2 && (
                                         <p
-                                            className={`${baseText} ${styles.text_2} ${classNameTextII}`}
+                                            className={`${baseTextII} ${styles.text_2} ${classNameTextII}`}
                                         >
                                             {text_2}
                                         </p>

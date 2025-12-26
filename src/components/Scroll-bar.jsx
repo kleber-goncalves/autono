@@ -1,4 +1,3 @@
-// Scroll-bar.jsx
 import React, { useEffect, useState } from "react";
 
 function ScrollProgressBar({ lenisRef = null }) {
