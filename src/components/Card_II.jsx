@@ -17,7 +17,7 @@ export default function Card_II({
     target = "_self",
 }) {
     const baseClass =
-        "flex md:max-w-md max-w-xs h-full  flex-col py-8 px-6 md:px-10 py-10 md:gap-17 gap-6  rounded-2xl border border-white";
+        "flex md:max-w-md max-w-sm h-full  flex-col py-8 px-6 md:px-10 py-10 md:gap-17 gap-6  rounded-2xl border border-white";
     const baseTitle = "text-sm md:text-base leading-relaxed tracking-widest";
     const baseText =
         "md:text-sm text-xs max-w-xs tracking-wider leading-relaxed";

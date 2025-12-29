@@ -1,6 +1,12 @@
 import { useState, useEffect } from "react";
 import Card_II from "./Card_II"; 
 
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, FreeMode } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css/free-mode";
+
 export default function CardSlideshow() {
     const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -57,9 +63,9 @@ export default function CardSlideshow() {
     };
 
     return (
-        <div className=" max-w-md  flex flex-col gap-6 ">
+        <div className=" md:max-w-md  flex flex-col gap-6 ">
             {/* Container dos Slides (Janela de visualização) */}
-            <div className="overflow-hidden rounded-2xl ">
+            <div className="overflow-hidden hidden md:block rounded-2xl ">
                 <div
                     className="flex transition-transform duration-1200 ease-in-out"
                     style={{ transform: `translateX(-${currentIndex * 100}%)` }}
@@ -81,7 +87,7 @@ export default function CardSlideshow() {
             </div>
 
             {/* Indicadores (Dots) - Sem setas */}
-            <div className="flex justify-center gap-3">
+            <div className="hidden md:flex justify-center gap-3">
                 {slides.map((_, index) => (
                     <button
                         key={index}
@@ -94,6 +100,37 @@ export default function CardSlideshow() {
                         aria-label={`Ir para slide ${index + 1}`}
                     />
                 ))}
+            </div>
+
+            <div className="md:hidden w-full h-full px-4 md:px-0">
+                <Swiper
+                    modules={[Autoplay, FreeMode]}
+                    spaceBetween={20} // Espaço entre os cards
+                    slidesPerView='auto' // Mostra um pouco do próximo card para indicar scroll
+                    loop={true}
+                    speed={5300}
+                    autoplay={{
+                        delay: 0,
+                        disableOnInteraction: false, // Continua rodando mesmo após toque
+                    }}
+                    // Melhora o comportamento do arraste manual
+                    freeModeMomentum: false
+                  
+                >
+                    {slides.map((slide) => (
+                        <SwiperSlide key={slide.id}>
+                            <Card_II
+                                title={slide.title}
+                                text={slide.text}
+                                text_2={slide.text_2}
+                                text_button={slide.text_button}
+                                variant={slide.variant}
+                                // Forçando a largura total e removemendo margens extras para alinhar no slide
+                               
+                            />
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
             </div>
         </div>
     );
