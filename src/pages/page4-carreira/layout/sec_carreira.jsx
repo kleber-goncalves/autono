@@ -17,7 +17,7 @@ function Sec_carreira() {
           autoAlphaInitial: 0, // Usando autoAlpha para o efeito de "aparecer"
       });
       useEfeitoGsap(boxRef2, {
-          xInitial: 50, // Valor reduzido para evitar quebra de layout
+          xInitial: 20, // Valor reduzido para evitar quebra de layout
           duration: 1.5,
           autoAlphaInitial: 0, // Usando autoAlpha para o efeito de "aparecer"
       });
@@ -27,7 +27,7 @@ function Sec_carreira() {
           opacity: 0.4,
       });
       useEfeitoGsap(boxRef4, {
-          xInitial: 50, // Valor reduzido para evitar quebra de layout
+          xInitial: 20, // Valor reduzido para evitar quebra de layout
           duration: 1.5,
           autoAlphaInitial: 0, // Usando autoAlpha para o efeito de "aparecer"
       });

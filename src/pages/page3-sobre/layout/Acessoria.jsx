@@ -15,30 +15,33 @@ function Acessoria() {
                         text="NOTÍCIAS"
                     />
                 </div>
-                <div className="grid grid-cols-2 md:grid-cols-5 md:gap-40 gap-20">
+                <div className="grid grid-cols-2 md:grid-cols-5 md:gap-40 gap-20 items-center">
                     <Fade cascade triggerOnce duration={1300} delay={0}>
-                        <div className="flex items-center">
-                            <ProjectImage id="RCR" />
+                        <div className="w-full flex justify-center items-center">
+                            <ProjectImage
+                                id="RCR"
+                                loading="lazy" className="w-full max-w-[110px] sm:max-w-[140px] md:md:max-w-40 lg:max-w-[200px] h-auto object-contain"
+                            />
                         </div>
                     </Fade>
                     <Fade cascade triggerOnce duration={1300} delay={200}>
-                        <div className="flex items-center">
-                            <ProjectImage id="TBReview" />
+                        <div className="w-full flex justify-center items-center">
+                            <ProjectImage id="TBReview" loading="lazy" className="w-full max-w-[110px] sm:max-w-[140px] md:md:max-w-40 lg:max-w-[200px] h-auto object-contain"/>
                         </div>
                     </Fade>
                     <Fade cascade triggerOnce duration={1300} delay={500}>
-                        <div className="flex items-center">
-                            <ProjectImage id="Finance" />
+                        <div className="w-full flex justify-center items-center">
+                            <ProjectImage id="Finance" loading="lazy" className="w-full max-w-[110px] sm:max-w-[140px] md:md:max-w-40 lg:max-w-[200px] h-auto object-contain"/>
                         </div>
                     </Fade>
                     <Fade cascade triggerOnce duration={1300} delay={800}>
-                        <div className="flex items-center">
-                            <ProjectImage id="PaloAltoTribunal" />
+                        <div className="w-full flex justify-center items-center">
+                            <ProjectImage id="PaloAltoTribunal" loading="lazy" className="w-full max-w-[110px] sm:max-w-[140px] md:md:max-w-40 lg:max-w-[200px] h-auto object-contain"/>
                         </div>
                     </Fade>
                     <Fade cascade triggerOnce duration={1300} delay={1200}>
-                        <div className="flex items-center">
-                            <ProjectImage id="Londonpost" />
+                        <div className="w-full flex justify-center items-center">
+                            <ProjectImage id="Londonpost" loading="lazy" className="w-full max-w-[110px] sm:max-w-[140px] md:md:max-w-40 lg:max-w-[200px] h-auto object-contain"/>
                         </div>
                     </Fade>
                 </div>

@@ -4,21 +4,26 @@ const LoadingScreenCarreiras = () => {
             {/* Container principal para centralizar e simular o layout do site */}
             <div className="max-w-8xl mx-auto">
                 {/* Cabeçalho (Header) Skeleton */}
-                <header className="flex justify-between items-center py-4 px-25">
+                <header className="flex justify-between items-center py-4 md:px-25">
                     {/* Logo 'AUTONO' */}
-                    <div className="w-34 h-5 bg-gray-400 rounded animate-pulse"></div>
+                    <div className="md:w-34 w-22 h-5 bg-gray-400 rounded animate-pulse"></div>
 
                     {/* Links e Botão Assinar */}
-                    <div className="flex space-x-10 items-center">
+                    <div className="flex md:hidden space-y-2 items-center flex-col">
+                        <div className="w-8 h-1 bg-gray-400 rounded animate-pulse"></div>
+                        <div className="w-8 h-1 bg-gray-400 rounded animate-pulse"></div>
+                    </div>
+                    {/* Links e Botão Assinar */}
+                    <div className="hidden md:flex space-x-10 items-center">
                         {/* Links de navegação (Tecnologia, Sobre, Carreiras) */}
-                        <div className="hidden sm:flex space-x-10">
+                        <div className="hidden md:flex space-x-10">
                             <div className="w-16 h-4 bg-gray-300 rounded animate-pulse"></div>
                             <div className="w-16 h-4 bg-gray-300 rounded animate-pulse"></div>
                             <div className="w-16 h-4 bg-gray-300 rounded animate-pulse"></div>
                         </div>
 
                         {/* Botão 'Assinar' */}
-                        <div className="w-28 h-8 bg-black opacity-100 rounded animate-pulse"></div>
+                        <div className="hidden sm:block w-28 h-8 bg-black opacity-100 rounded animate-pulse"></div>
                     </div>
                 </header>
 
@@ -26,13 +31,13 @@ const LoadingScreenCarreiras = () => {
                 <div className="h-0.5 my-4 bg-black opacity-1"></div>
 
                 {/* Área de Conteúdo Central (Título e Subtítulo) Skeleton */}
-                <div className="flex flex-col items-center pt-22  text-center">
+                <div className="flex flex-col items-center justify-center md:pt-22 pt-7  text-center">
                     {/* Título Principal: "NÓS REALIZAMOS GRANDES IDEIAS"*/}
-                    <div className="w-4/2 max-w-2xl h-18 bg-gray-400 rounded mb-8 animate-pulse"></div>
-                    <div className="w-2/3 max-w-[630px] h-18 bg-gray-400 rounded mb-24 animate-pulse"></div>
+                    <div className="md:w-4/2 md:max-w-2xl w-3xs md:h-18 h-6 bg-gray-400 rounded md:mb-8 mb-3 animate-pulse"></div>
+                    <div className="md:w-2/3 md:max-w-[630px] w-48 md:h-18 h-6 bg-gray-400 rounded md:mb-24 mb-5 animate-pulse"></div>
 
                     {/* Subtítulo" */}
-                    <div className="w-1/6 max-w-xl h-2 sm:h-7 bg-gray-300 rounded  animate-pulse"></div>
+                    <div className="md:w-1/6 md:max-w-xl w-34 h-2 sm:h-7 bg-gray-300 rounded  animate-pulse"></div>
                 </div>
             </div>
         </div>
