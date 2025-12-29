@@ -8,7 +8,7 @@ import carreira from "../assets/carreira.jpg";
 import degrade from "../assets/degrade.png";
 import Finance from "../assets/Finance.png";
 import fundoDestaques from "../assets/fundo-destaques.jpg";
-import fundoDestaquesMobile from "../assets/fundo-destaquesII.jpg";
+import fundoDestaquesMobile from "../assets/fundo-destaquesII.png";
 import fundoHero from "../assets/fundo-hero.jpg";
 import fundoIntro from "../assets/fundo-intro.jpg";
 import fundoSobreii from "../assets/fundo-sobreii.jpg";

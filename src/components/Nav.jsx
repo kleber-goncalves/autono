@@ -169,8 +169,8 @@ function Nav() {
     const bgColorClass = isMenuOpen 
         ? "w-screen h-screen top-0 left-0 rounded-none border-none" // Tela cheia mobile : isScrolled
         : isScrolled
-            ? "w-[300px] md:w-auto md:ml-23 ml-3 md:mr-23 top-0 md:top-3 rounded-2xl"
-            : "bg-transparent border-none w-[300px] md:w-auto md:ml-0 ml-3";
+            ? "w-auto mx-4 md:mx-23 top-0 md:top-3 rounded-2xl"
+            : "bg-transparent border-none w-full ";
 
     // Controle maior do layout do nav bar
     const containerBase =
@@ -179,7 +179,7 @@ function Nav() {
     // Mudança do layout do nav bar com base do "isScrolled ( Detector de rolagem )" dizer
     const containerSizeClass = isScrolled
         ? "max-w-6xl px-4 py-3"
-        : "max-w-8xl md:px-30 px-6 py-7";
+        : "max-w-8xl lg:px-30 px-6 py-7";
 
     // animação para o nav nao ter animação quando estiver no topo do hero
     const animtion = isScrolled ? "" : "nav-padrao";

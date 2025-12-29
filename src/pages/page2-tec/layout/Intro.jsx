@@ -1,6 +1,6 @@
 import Intro_cmp from "../../../components/Intro_cmp";
 import fundointro from "/src/assets/fundo-intro.jpg";
-import fundoIntroMobile from "/src/assets/fundo-introII.jpg";
+import fundoIntroMobile from "/src/assets/fundo-introII.png";
 
 function Intro() {
     return (

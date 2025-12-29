@@ -22,7 +22,7 @@ nos movemos"
                 <div className="flex flex-col md:items-center max-w-xs md:max-w-none p-3 md:p-0">
                     <ProjectImage
                         id="mulher-abordagem"
-                        className="rounded-3xl md:max-w-sm"
+                        className="rounded-3xl md:max-w-sm lg:max-w-xl xl:max-w-2xl"
                     />
                 </div>
             </div>
