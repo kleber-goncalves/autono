@@ -34,10 +34,14 @@ function Parceiros() {
                 }
                 .swiper-slide {
                     opacity: 0.4;
-                    transition: opacity 0.5s ease;
+                    transition: opacity 1.5s ease;
+                }
+                .swiper-slide-next {
+                    opacity: 1;
+                    transition: opacity 3.2s ease;
                 }
                
-                .swiper-slide-active, .swiper-slide-next {
+                .swiper-slide-active{
                     opacity: 1;
                 }
             `}</style>

@@ -3,9 +3,9 @@ import ProjectImage from "../../../components/ProjectImage";
 
 function Abordagem() {
     return (
-        <section className="max-w-8xl md:border border-t  bg-white border-black mx-auto md:py-40 py-10 px-6 lg:px-9 flex flex-col items-center ">
-            <div className="md:grid md:grid-cols-2 flex flex-col-reverse items-center md:items-start gap-y-20">
-                <div className="flex flex-col  md:px-50  ">
+        <section className="max-w-8xl md:border border-t  bg-white border-black mx-auto py-10 md:py-40 px-6 xl:px-9 flex flex-col items-center ">
+            <div className="xl:grid xl:grid-cols-2 flex flex-col-reverse items-center xl:items-start gap-y-20 xl:gap-x-23 2xl:gap-x-0">
+                <div className="flex flex-col 2xl:px-50">
                     <Card
                         classNameBarraII="md:h-17 "
                         classNameBaseII="md:mt-17 mt-10  gap-8"
@@ -19,10 +19,10 @@ nos movemos"
                         text_3="Nós acreditamos que cada viagem, cada trajeto, pode ser uma oportunidade de mudança — para o indivíduo, para a comunidade, para o planeta. Nosso compromisso é construir um transporte que faça sentido, que respeite o mundo e que leve as pessoas adiante com propósito."
                     />
                 </div>
-                <div className="flex flex-col md:items-center max-w-xs md:max-w-none p-3 md:p-0">
+                <div className="flex flex-col md:items-center max-w-xs lg:max-w-none p-3 md:p-0">
                     <ProjectImage
                         id="mulher-abordagem"
-                        className="rounded-3xl md:max-w-sm lg:max-w-xl xl:max-w-2xl"
+                        className="rounded-3xl md:max-w-xs lg:max-w-sm xl:max-w-2xl"
                     />
                 </div>
             </div>
