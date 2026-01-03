@@ -6,7 +6,7 @@ function ProdutosII() {
     return (
         <section className="bg-white max-w-8xl pb-30 pt-20 md:pt-0 mx-auto border-b border-black flex flex-col items-center ">
             <div className="flex flex-col lg:grid lg:grid-cols-2 gap-y-10 ">
-                <div className="flex flex-col px-7 xl:px-50 md:py-36 xl:py-60">
+                <div className="flex flex-col px-7 xl:px-20 2xl:px-50 md:py-36 xl:py-60">
                     <Card
                         classNameBaseII="text-xs max-w-xs md:max-w-sm gap-8"
                         classNameTitle="max-w-sm"

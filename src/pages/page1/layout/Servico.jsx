@@ -75,7 +75,7 @@ let ctx = gsap.context(() => {
             className="bg-white min-h-screen overflow-hidden md:py-44 pt-44 pb-20"
             ref={containerRef}
         >
-            <div className="flex flex-col max-w-7xl  mx-auto md:gap-y-30 gap-y-20 px-6 lg:px-8">
+            <div className="flex flex-col max-w-7xl  mx-auto md:gap-y-30 gap-y-20 px-6 lg:px-30 2xl:px-8">
                 <Card
                     classNameBaseII="max-w-sm"
                     classNameTitle="max-w-sm text-lg"

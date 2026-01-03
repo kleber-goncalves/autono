@@ -19,15 +19,15 @@ function Infrografico() {
             ref={containerRef}
             className=" md:min-h-screen h-screen bg-white efeito-container sticky md:mb-90 mb-0 md:mt-0 mt-20 top-0 md:py-7 overflow-hidden"
         >
-            <div className="md:grid flex flex-col-reverse  md:grid-cols-2   md:gap-0 xl:gap-16 ">
+            <div className="xl:grid flex flex-col-reverse  xl:grid-cols-2   md:gap-0 xl:gap-16 ">
                 <div className="flex  justify-center pt-20 stat-area  md:w-full md:h-full ">
                     <ProjectImage id="braco-info2" />
                 </div>
-                <div className="flex stat-area flex-col md:gap-20 gap-4 px-7 md:px-0">
+                <div className="flex stat-area flex-col md:gap-20 gap-4 px-7 xl:px-0">
                     <h2 className="text-black md:text-4xl text-lg leading-relaxed tracking-widest ">
                         Autono em números
                     </h2>
-                    <div className="grid grid-cols-2 md:max-w-4xl md:gap-y-20 md:gap-x-0 gap-y-10 gap-x-10  ">
+                    <div className="grid grid-cols-2 m:max-w-4xl md:gap-y-20 md:gap-x-0 gap-y-10 gap-x-10  ">
                         <div className="flex flex-col md:gap-7 gap-4">
                             <div className="flex">
                                 <div className="md:h-full border-b-3 border-black opacity-100">
