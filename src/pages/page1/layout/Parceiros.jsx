@@ -25,7 +25,7 @@ function Parceiros() {
     return (
         <section
             ref={containerRef}
-            className="bg-black min-h-screen md:max-h-screen border-b-2 sticky top-0 efeito-container border-white md:pl-50 pl-5 py-10 md:py-37 mb-70 md:mb-0 overflow-hidden md:block  flex flex-col justify-center "
+            className="bg-black min-h-screen md:max-h-screen border-b-2 sticky top-0 efeito-container border-white pl-5 xl:pl-30 2xl:pl-50 py-10 xl:py-37 mb-70 xl:mb-0 overflow-hidden xl:block  flex flex-col justify-center "
         >
             {/* CSS para transição linear (essencial para o efeito de esteira) */}
             <style>{`
@@ -34,16 +34,20 @@ function Parceiros() {
                 }
                 .swiper-slide {
                     opacity: 0.4;
-                    transition: opacity 0.5s ease;
+                    transition: opacity 1.5s ease;
+                }
+                .swiper-slide-next {
+                    opacity: 1;
+                    transition: opacity 3.2s ease;
                 }
                
-                .swiper-slide-active, .swiper-slide-next {
+                .swiper-slide-active{
                     opacity: 1;
                 }
             `}</style>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 md:pr-40 pr-5 gap-20 w-full ">
-                <div className="flex md:max-w-sm stat-area flex-col justify-center">
+            <div className="grid grid-cols-1 xl:grid-cols-2 pr-5 xl:pr-30 2xl:pr-40 gap-20 w-full ">
+                <div className="flex xl:max-w-sm stat-area flex-col justify-center">
                     <Card
                         classNameBarraII="md:h-17"
                         classNameBaseII="md:mt-17 mt-7 gap-4"
@@ -58,7 +62,7 @@ function Parceiros() {
 
                 <div className="w-full">
                     {/* MOBILE: Carrossel Contínuo (Infinito Suave) */}
-                    <div className="lg:hidden block w-full">
+                    <div className="xl:hidden block w-full">
                         <Swiper
                             modules={[Autoplay, FreeMode]}
                             spaceBetween={15}
@@ -96,7 +100,7 @@ function Parceiros() {
                     </div>
 
                     {/* DESKTOP: Grid Original */}
-                    <div className="hidden md:grid grid-cols-2 gap-40 items-center md:pt-7 justify-items-center">
+                    <div className="hidden xl:grid grid-cols-2 gap-40 items-center md:pt-7 justify-items-center">
                         <Fade
                             cascade
                             duration={1200}

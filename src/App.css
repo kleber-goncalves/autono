@@ -172,7 +172,7 @@ html {
 
 /* remover o uso de grid-template-areas em telas maiores
    (assim o md:grid-cols-2 do Tailwind não ficará em conflito) */
-@media (min-width: 768px) {
+@media (min-width: 989px) {
   .grid-templete {
     grid-template-areas: none;
   }

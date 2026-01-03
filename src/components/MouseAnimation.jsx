@@ -57,7 +57,7 @@ function MouseAnimation() {
     return (
         <div
             ref={containerRef}
-            className="hidden md:flex flex-col z-4 items-center mt-45 "
+            className="hidden lg:flex flex-col z-4 items-center lg:mt-35 2xl:mt-45 "
         >
             <div
                 ref={box1Ref}

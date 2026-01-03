@@ -63,9 +63,9 @@ export default function CardSlideshow() {
     };
 
     return (
-        <div className=" md:max-w-md  flex flex-col gap-6 ">
+        <div className=" xl:max-w-md  flex flex-col gap-6 ">
             {/* Container dos Slides (Janela de visualização) */}
-            <div className="overflow-hidden hidden md:block rounded-2xl ">
+            <div className="overflow-hidden hidden xl:block rounded-2xl ">
                 <div
                     className="flex transition-transform duration-1200 ease-in-out"
                     style={{ transform: `translateX(-${currentIndex * 100}%)` }}
@@ -87,7 +87,7 @@ export default function CardSlideshow() {
             </div>
 
             {/* Indicadores (Dots) - Sem setas */}
-            <div className="hidden md:flex justify-center gap-3">
+            <div className="hidden xl:flex justify-center gap-3">
                 {slides.map((_, index) => (
                     <button
                         key={index}
@@ -102,7 +102,7 @@ export default function CardSlideshow() {
                 ))}
             </div>
 
-            <div className="md:hidden w-full h-full px-4 md:px-0">
+            <div className="xl:hidden w-full h-full px-4 md:px-0">
                 <Swiper
                     modules={[Autoplay, FreeMode]}
                     spaceBetween={20} // Espaço entre os cards

@@ -20,6 +20,7 @@ const Tecnologia = React.lazy(() => import("./pages/page2-tec/Tecnologia"));
 const Sobre = React.lazy(() => import("./pages/page3-sobre/Sobre"));
 const Carreiras = React.lazy(() => import("./pages/page4-carreira/Carreiras"));
 
+
 // Importar o componente de Load
 
 function App() {
@@ -72,6 +73,7 @@ function App() {
                             </MinimumLoadingWrapper>
                         }
                     />
+
                 </Routes>
             </BrowserRouter>
         </>

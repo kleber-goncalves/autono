@@ -75,7 +75,7 @@ let ctx = gsap.context(() => {
             className="bg-white min-h-screen overflow-hidden md:py-44 pt-44 pb-20"
             ref={containerRef}
         >
-            <div className="flex flex-col max-w-7xl  mx-auto md:gap-y-30 gap-y-20 px-6 lg:px-8">
+            <div className="flex flex-col max-w-7xl  mx-auto md:gap-y-30 gap-y-20 px-6 lg:px-30 2xl:px-8">
                 <Card
                     classNameBaseII="max-w-sm"
                     classNameTitle="max-w-sm text-lg"
@@ -85,8 +85,8 @@ let ctx = gsap.context(() => {
                     title="Entregamos produtos e serviços incríveis no mundo todo"
                 />
 
-                <div className="grid grid-templete  md:grid-cols-2 lg:grid-cols-2  md:gap-x-16 md:gap-y-40 gap-y-17 md:items-center">
-                    <div ref={boxRef1} className="um md:flex md:flex-col pl-10">
+                <div className="grid grid-templete  lg:grid-cols-2  lg:gap-x-16 lg:gap-y-40 gap-y-17 lg:items-center">
+                    <div ref={boxRef1} className="um xl:flex xl:flex-col pl-10">
                         <Card_III
                             size="sizeIII"
                             classNameTitle="text-xl"
@@ -97,10 +97,10 @@ let ctx = gsap.context(() => {
                             href="/tecnologia"
                         />
                     </div>
-                    <div className="dois items-center">
+                    <div className="dois items-center p-0 sm:p-25 lg:p-0">
                         <ProjectImage id="car-servico-1" ref={imgRef1} />
                     </div>
-                    <div className="relative quatro w-full ">
+                    <div className="relative quatro w-full p-0 sm:p-25 lg:p-0">
                         <ProjectImage
                             id="velocimetroServico"
                             ref={imgRef2}
@@ -109,7 +109,7 @@ let ctx = gsap.context(() => {
                     </div>
                     <div
                         ref={boxRef2}
-                        className="tres md:pl-20 pl-10 md:flex md:flex-col gap-8"
+                        className="tres lg:pl-20 pl-10 lg:flex lg:flex-col gap-8"
                     >
                         <Card_III
                             size="sizeIII"
@@ -123,10 +123,11 @@ let ctx = gsap.context(() => {
 
                     <div
                         ref={boxRef3}
-                        className="md:flex md:flex-col cinco pl-10 gap-8"
+                        className="lg:flex lg:flex-col cinco pl-10 gap-8"
                     >
                         <Card_III
                             size="sizeIII"
+                            p-0
                             variant="black"
                             title="PERCEPÇÃO ATIVADA"
                             text="O carro usa sensores e software para “ver” o ambiente nas ruas, tráfego, pedestres e sinais tornando a viagem mais segura e precisa. A direção autônoma reduz o esforço do motorista, diminui erros e traz mais eficiência, com menor impacto ambiental."
@@ -134,7 +135,7 @@ let ctx = gsap.context(() => {
                             href="/tecnologia"
                         />
                     </div>
-                    <div className="md:pr-4 seis relative w-full">
+                    <div className="lg:pr-4 seis relative w-full p-0 sm:p-25 lg:p-0">
                         <ProjectImage
                             id="car-servico-2"
                             ref={imgRef3}

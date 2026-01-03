@@ -98,7 +98,7 @@ function Linha_temp() {
         <section className="bg-white">
             <div className="md:min-h-screen bg-white flex flex-col items-center justify-center md:py-40 py-20 font-sans selection:bg-orange-100">
                 {/* Header */}
-                <div className="w-full flex justify-center md:justify-start max-w-6xl mb-12">
+                <div className="w-full flex justify-center xl:justify-start max-w-6xl mb-12">
                     <h1 className="text-lg md:text-3xl text-black tracking-wide">
                         Linha do tempo
                     </h1>
@@ -106,7 +106,7 @@ function Linha_temp() {
 
                 {/* Timeline Container */}
                 {/* max-w-7xl para ter espaço para os botões */}
-                <div className="relative hidden  md:flex w-full max-w-7xl  items-center justify-center">
+                <div className="relative hidden  xl:flex w-full max-w-7xl  items-center justify-center">
                     {/* Navigation Button Left */}
                     {/* Posicionado à esquerda da "janela" de 1200px */}
                     {/* translate-x-[750px] (Para afastar a seta) */}
@@ -114,7 +114,7 @@ function Linha_temp() {
                         onClick={prevSlide}
                         disabled={currentIndex === 0}
                         className={`
-            z-20 p-2 rounded-full transition-colors hidden md:block absolute left-1/2 transform -translate-x-[750px]
+            z-20 p-2 rounded-full transition-colors hidden md:block absolute left-1/2 transform -translate-x-[750px] xl:-translate-x-[600px] 2xl:-translate-x-[750px]
             
             ${
                 currentIndex === 0
@@ -133,7 +133,7 @@ function Linha_temp() {
                         onClick={nextSlide}
                         disabled={currentIndex === TOTAL_SLIDES - 1}
                         className={`
-            z-20 p-2 rounded-full transition-colors hidden md:block absolute right-1/2 transform translate-x-[750px]
+            z-20 p-2 rounded-full transition-colors hidden md:block absolute right-1/2 transform translate-x-[750px] xl:translate-x-[600px] 2xl:translate-x-[750px]
             ${
                 currentIndex === TOTAL_SLIDES - 1
                     ? "text-gray-300 cursor-not-allowed"
@@ -146,7 +146,7 @@ function Linha_temp() {
 
                     {/* A Linha Horizontal Principal (Fundo) */}
                     {/* max-w-[1400px] para garantir que a linha fique centralizada e não se estenda demais */}
-                    <div className="absolute top-1/2 h-px bg-gray-400 -translate-y-1/2 hidden md:block w-full max-w-[90%] md:max-w-[1400px]" />
+                    <div className="absolute top-1/2 h-px bg-gray-400 -translate-y-1/2 hidden md:block w-full max-w-[90%] md:max-w-[1400px] xl:max-w-[1070px] 2xl:max-w-[1400px]" />
 
                     {/* Janela do Slider - Fixada em 1200px para mostrar EXATAMENTE 2 itens de 600px */}
                     <div className="w-[1200px] overflow-hidden py-10">
@@ -187,7 +187,6 @@ function Linha_temp() {
                                         ? "justify-end"
                                         : "justify-start";
                                 }
-                               
 
                                 return (
                                     <div
@@ -202,7 +201,7 @@ function Linha_temp() {
                                         >
                                             {/* Seção Superior (Conteúdo ou Vazio) */}
                                             <div
-                                                className={`h-[300px] flex items-end w-full ${alignmentClass}`}
+                                                className={`h-[300px] flex items-end xl:pl-62 2xl:pl-0 w-full ${alignmentClass}`}
                                             >
                                                 {isEven && (
                                                     <div
@@ -218,7 +217,7 @@ function Linha_temp() {
                                         </Slide>
 
                                         {/* O Marcador Central na Linha */}
-                                        <div className="relative z-10 w-full flex justify-center items-center h-4">
+                                        <div className="relative z-10 w-full  flex justify-center items-center h-4">
                                             <Fade triggerOnce duration={2600}>
                                                 <div className="w-8 h-[3px] bg-black rounded-full shadow-sm"></div>
                                             </Fade>
@@ -230,7 +229,7 @@ function Linha_temp() {
                                         >
                                             {/* Seção Inferior (Conteúdo ou Vazio) */}
                                             <div
-                                                className={`h-[300px] flex items-start w-full ${alignmentClass}`}
+                                                className={`h-[300px] flex items-start xl:pr-62 2xl:pr-0 w-full ${alignmentClass}`}
                                             >
                                                 {!isEven && (
                                                     <div
@@ -251,10 +250,29 @@ function Linha_temp() {
                     </div>
                 </div>
 
+                {/* CSS para transição linear (essencial para o efeito de esteira) */}
+                <style>{`
+                .swiper-wrapper {
+                
+                    transition-timing-function: linear !important;
+                }
+                .swiper-slide {
+                    opacity: 0.2;
+                    transition: opacity 0.5s ease;
+                }
+                .swiper-slide-next {
+                    opacity: 0.2;
+                    transition: opacity 0.5s ease;
+                }
+               
+                .swiper-slide-active  {
+                    opacity: 1;
+                }
+            `}</style>
                 {/* ========================================================= */}
                 {/* VERSÃO MOBILE (Swiper Infinito) */}
                 {/* ========================================================= */}
-                <div className="md:hidden w-full px-4">
+                <div className="xl:hidden w-full sm:w-4/5 md:w-full px-4">
                     <Swiper
                         modules={[Autoplay]}
                         spaceBetween={20} // Espaço entre os cards
@@ -267,7 +285,7 @@ function Linha_temp() {
                             disableOnInteraction: false, // Continua rodando mesmo após toque
                         }}
                         // Melhora o comportamento do arraste manual
-                        className="py-4 w-full"
+                        className="py-4 w-full sm:w-auto md:w-full"
                     >
                         {timelineData.map((item) => (
                             <SwiperSlide key={item.id}>
@@ -283,7 +301,7 @@ function Linha_temp() {
                 </div>
 
                 {/* Instruções Visuais */}
-                <div className="md:hidden flex justify-center items-center mt-10 text-gray-400 text-sm animate-pulse">
+                <div className="xl:hidden flex justify-center items-center mt-10 text-gray-400 text-sm animate-pulse">
                     <ChevronLeft size={16} />
                     <span className="mx-2">Deslize para ver mais</span>
                     <ChevronRight size={16} />

@@ -14,8 +14,9 @@ export default function Card_III({
     href = "#",
     target = "_self",
 }) {
-    const baseClass = "flex max-w-xs flex-col md:gap-9 gap-6";
-    const baseTitle = "max-w-xs text-wrap leading-relaxed tracking-widest";
+    const baseClass = "flex max-w-xs sm:max-w-none lg:max-w-xs flex-col md:gap-9 gap-6";
+    const baseTitle =
+        "max-w-xs sm:max-w-none  lg:max-w-xs text-wrap leading-relaxed tracking-widest";
     const baseText =
         "md:text-base text-xs tracking-wider leading-relaxed";
     const baseButtonClassName =

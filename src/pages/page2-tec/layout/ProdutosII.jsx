@@ -4,11 +4,11 @@ import { Slide } from "react-awesome-reveal";
 
 function ProdutosII() {
     return (
-        <section className="bg-white max-w-8xl  py-10 pb-30 pt-20 md:pt-0 mx-auto border-b border-black flex flex-col items-center ">
-            <div className="md:grid md:grid-cols-2 flex flex-col gap-y-10 ">
-                <div className="flex flex-col md:px-50 px-7 md:py-60">
+        <section className="bg-white max-w-8xl pb-30 pt-20 md:pt-0 mx-auto border-b border-black flex flex-col items-center ">
+            <div className="flex flex-col lg:grid lg:grid-cols-2 gap-y-10 ">
+                <div className="flex flex-col px-7 xl:px-20 2xl:px-50 md:py-36 xl:py-60">
                     <Card
-                        classNameBaseII="text-xs md:max-w-sm max-w-xs gap-8"
+                        classNameBaseII="text-xs max-w-xs md:max-w-sm gap-8"
                         classNameTitle="max-w-sm"
                         variant="black"
                         text="PRODUTOS DIGITAIS AUTONO
@@ -19,16 +19,16 @@ function ProdutosII() {
                     />
                 </div>
 
-                <div className="flex flex-col md:ml-10 md:max-w-2xl p-7 md:p-0 ">
+                <div className="flex flex-col md:ml-10 xl:max-w-2xl p-7 md:p-0 ">
                     <ProjectImage id="paineil-produtoII" />
                 </div>
-                <div className=" text-black flex flex-col px-7 pb-8 md:px-0 items-center">
+                <div className=" text-black flex flex-col px-7 xl:px-0  pb-8  items-center">
                     <Slide direction="up" triggerOnce duration={1600}>
                         <div className="flex flex-col md:gap-8 gap-5">
-                            <h2 className="text-sm md:text-xl max-w-md tracking-widest leading-relaxed">
+                            <h2 className="text-sm md:text-xl xl:max-w-md tracking-widest leading-relaxed">
                                 CIBERSEGURANÇA AVANÇADA
                             </h2>
-                            <p className="text-xs md:text-base max-w-md tracking-widest leading-relaxed">
+                            <p className="text-xs md:text-base xl:max-w-md tracking-widest leading-relaxed">
                                 Em um mundo onde carros já não são simples
                                 máquinas, mas computadores sobre rodas, nossa
                                 empresa garante que seu volante também
@@ -43,13 +43,13 @@ function ProdutosII() {
                         </div>
                     </Slide>
                 </div>
-                <div className=" text-black flex  flex-col px-7 md:px-0 items-center">
+                <div className=" text-black flex  flex-col px-7 xl:px-0 items-center">
                     <Slide direction="up" triggerOnce duration={1600}>
                         <div className="flex flex-col md:gap-8 gap-5">
-                            <h2 className="text-sm md:text-xl max-w-md tracking-widest leading-relaxed">
+                            <h2 className="text-sm md:text-xl xl:max-w-md tracking-widest leading-relaxed">
                                 INFORMAÇÕES EM TEMPO REAL
                             </h2>
-                            <p className="text-xs md:text-base max-w-md tracking-widest leading-relaxed">
+                            <p className="text-xs md:text-base xl:max-w-md tracking-widest leading-relaxed">
                                 Nossa visão vai além de mover pessoas — queremos
                                 entregar clareza, controle e segurança desde o
                                 primeiro segundo da viagem. Por isso, todos os

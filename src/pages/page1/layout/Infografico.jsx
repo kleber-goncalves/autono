@@ -19,15 +19,15 @@ function Infrografico() {
             ref={containerRef}
             className=" md:min-h-screen h-screen bg-white efeito-container sticky md:mb-90 mb-0 md:mt-0 mt-20 top-0 md:py-7 overflow-hidden"
         >
-            <div className="md:grid flex flex-col-reverse  lg:grid-cols-2   md:gap-16 ">
+            <div className="xl:grid flex flex-col-reverse  xl:grid-cols-2   md:gap-0 xl:gap-16 ">
                 <div className="flex  justify-center pt-20 stat-area  md:w-full md:h-full ">
                     <ProjectImage id="braco-info2" />
                 </div>
-                <div className="flex stat-area flex-col md:gap-20 gap-4 px-8 mb:px-0 ">
+                <div className="flex stat-area flex-col md:gap-20 gap-4 px-7 xl:px-0">
                     <h2 className="text-black md:text-4xl text-lg leading-relaxed tracking-widest ">
                         Autono em números
                     </h2>
-                    <div className="grid grid-cols-2 md:max-w-4xl md:gap-y-20 md:gap-x-0 gap-y-10 gap-x-10  ">
+                    <div className="grid grid-cols-2 m:max-w-4xl md:gap-y-20 md:gap-x-0 gap-y-10 gap-x-10  ">
                         <div className="flex flex-col md:gap-7 gap-4">
                             <div className="flex">
                                 <div className="md:h-full border-b-3 border-black opacity-100">
@@ -37,19 +37,19 @@ function Infrografico() {
                                         duration={1400}
                                         damping={0.14}
                                     >
-                                        <h2 className="md:text-5xl  text-[27px] leading-relaxed tracking-widest">
+                                        <h2 className="text-[27px] md:text-4xl xl:text-5xl leading-relaxed tracking-widest">
                                             2
                                         </h2>
                                     </Fade>
                                 </div>
-                                <div className="h-full md:w-56 w-26 border-b border-black opacity-100">
+                                <div className="h-full w-26 md:w-36 xl:w-56 border-b border-black opacity-100">
                                     <Fade
                                         cascade
                                         triggerOnce
                                         duration={1400}
                                         damping={0.14}
                                     >
-                                        <h2 className="md:text-5xl md:mb-0 mb-3 text-[27px] leading-relaxed tracking-widest">
+                                        <h2 className="text-[27px] md:text-4xl xl:text-5xl md:mb-0 mb-3 leading-relaxed tracking-widest">
                                             00
                                         </h2>
                                     </Fade>
@@ -69,7 +69,7 @@ function Infrografico() {
                                         duration={1400}
                                         damping={0.14}
                                     >
-                                        <h2 className="md:text-5xl md:mb-0 mb-2 text-[27px] leading-relaxed tracking-widest">
+                                        <h2 className="text-[27px] md:text-4xl xl:text-5xl md:mb-0 mb-2 leading-relaxed tracking-widest">
                                             5
                                         </h2>
                                     </Fade>
@@ -81,7 +81,7 @@ function Infrografico() {
                                         duration={1400}
                                         damping={0.14}
                                     >
-                                        <h2 className="md:text-5xl  text-[27px] leading-relaxed tracking-widest"></h2>
+                                        <h2 className="md:text-5xl text-[27px] leading-relaxed tracking-widest"></h2>
                                     </Fade>
                                 </div>
                             </div>
@@ -99,19 +99,19 @@ function Infrografico() {
                                         duration={1400}
                                         damping={0.14}
                                     >
-                                        <h2 className="md:text-5xl  text-[27px] leading-relaxed tracking-widest">
+                                        <h2 className="text-[27px] md:text-4xl xl:text-5xl leading-relaxed tracking-widest">
                                             R
                                         </h2>
                                     </Fade>
                                 </div>
-                                <div className="h-full md:w-56 md:mb-0 mb-10 w-25 border-b border-black opacity-100">
+                                <div className="h-full w-25 md:w-34 xl:w-56 md:mb-0 mb-10 border-b border-black opacity-100">
                                     <Fade
                                         cascade
                                         triggerOnce
                                         duration={1400}
                                         damping={0.14}
                                     >
-                                        <h2 className="md:text-5xl text-[27px] leading-relaxed tracking-widest">
+                                        <h2 className="text-[27px] md:text-4xl xl:text-5xl  leading-relaxed tracking-widest">
                                             $100M
                                         </h2>
                                     </Fade>
@@ -131,7 +131,7 @@ function Infrografico() {
                                         duration={1400}
                                         damping={0.14}
                                     >
-                                        <h2 className="md:text-5xl text-[27px] leading-relaxed tracking-widest">
+                                        <h2 className="text-[27px] md:text-4xl xl:text-5xl leading-relaxed tracking-widest">
                                             3
                                         </h2>
                                     </Fade>
@@ -143,7 +143,7 @@ function Infrografico() {
                                         duration={1400}
                                         damping={0.14}
                                     >
-                                        <h2 className="md:text-5xl md:mb-0 mb-10 text-[27px] leading-relaxed tracking-widest">
+                                        <h2 className="text-[27px] md:text-4xl xl:text-5xl md:mb-0 mb-10 leading-relaxed tracking-widest">
                                             26
                                         </h2>
                                     </Fade>
