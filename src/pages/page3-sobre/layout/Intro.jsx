@@ -7,9 +7,8 @@ function Intro() {
                 className="gap-15"
                 classNameTitle="md:text-7xl text-[26px]"
                 classNameText="tracking-wide md:max-w-3xl"
-                classNameTextI="hidden"
                 titulo="NOSSA HISTÓRIA"
-                texto_2="Desde o primeiro instante, nossa jornada foi movida por sonho, propósito e a certeza de que o futuro da mobilidade deveria ser mais limpo, inteligente e humano. Tudo começou com uma visão: reimaginar o transporte, substituindo poluição e ruído por energia limpa, silêncio e eficiência — acreditando que cada trajeto poderia ser uma escolha pelo planeta"
+                texto="Desde o primeiro instante, nossa jornada foi movida por sonho, propósito e a certeza de que o futuro da mobilidade deveria ser mais limpo, inteligente e humano. Tudo começou com uma visão: reimaginar o transporte, substituindo poluição e ruído por energia limpa, silêncio e eficiência — acreditando que cada trajeto poderia ser uma escolha pelo planeta"
             />
         </section>
     );

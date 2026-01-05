@@ -61,6 +61,7 @@ function Sec_carreira() {
                         text="Curitiba, PR"
                         text_2="Você vai atuar em projetos elétricos e eletrotécnicos — desde planejamento, dimensionamento e especificação, até supervisão, execução e manutenção de instalações elétricas. Seu papel será garantir que sistemas, máquinas e infraestrutura elétrica funcionem com segurança, eficiência e dentro das normas técnicas."
                         text_button="Enviar CV"
+                        href="/engenheiro-eletrico"
                     />
                 </div>
                 <div ref={boxRef2} className="flex flex-col items-center">
@@ -95,7 +96,7 @@ function Sec_carreira() {
                         text_button="Enviar CV"
                     />
                 </div>
-                <Fade triggerOnce  duration={1300}>
+                <Fade triggerOnce duration={1300}>
                     <div>
                         <Card_II
                             size="sizeII"

@@ -19,6 +19,7 @@ const Autono = React.lazy(() => import("./pages/page1/autono"));
 const Tecnologia = React.lazy(() => import("./pages/page2-tec/Tecnologia"));
 const Sobre = React.lazy(() => import("./pages/page3-sobre/Sobre"));
 const Carreiras = React.lazy(() => import("./pages/page4-carreira/Carreiras"));
+const EngenheiroEletrico = React.lazy(() => import("./pages/page-areas-cv/pageEngenheiro-eletrico/engenheiroEletrico.jsx"));
 
 
 // Importar o componente de Load
@@ -73,8 +74,19 @@ function App() {
                             </MinimumLoadingWrapper>
                         }
                     />
-
+                    <Route
+                        path="/engenheiro-eletrico"
+                        element={
+                            <MinimumLoadingWrapper
+                                fallback={<LoadingScreenCarreiras />}
+                                minDuration={900}
+                            >
+                                <EngenheiroEletrico />
+                            </MinimumLoadingWrapper>
+                        }
+                    />
                 </Routes>
+
             </BrowserRouter>
         </>
     );
