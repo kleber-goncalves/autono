@@ -23,6 +23,7 @@ const EngenheiroEletrico = React.lazy(() => import("./pages/page-areas-cv/pageEn
 const Cientistadedados = React.lazy(() => import("./pages/page-areas-cv/pageCientista-dados/cientistaDados.jsx"));
 const PesquisadorIA = React.lazy(() => import("./pages/page-areas-cv/pagePesqIA/pesquisador-IA.jsx"));
 const EngenheiroDeepLearning = React.lazy(() => import("./pages/page-areas-cv/pageEngenheiro-Deep-Learning/engenheiro-Deep-Learning.jsx"));
+const EnvioCurriculo = React.lazy(() => import("./pages/pageCV/envieCurriculo.jsx"));
 
 
 // Importar o componente de Load
@@ -118,6 +119,17 @@ function App() {
                                 minDuration={900}
                             >
                                 <EngenheiroDeepLearning />
+                            </MinimumLoadingWrapper>
+                        }
+                    />
+                    <Route
+                        path="/junte-se-a-nos"
+                        element={
+                            <MinimumLoadingWrapper
+                                fallback={<LoadingScreenCarreiras />}
+                                minDuration={900}
+                            >
+                                <EnvioCurriculo />
                             </MinimumLoadingWrapper>
                         }
                     />
