@@ -24,7 +24,7 @@ export default function Sec_Lists({
 }) {
     const baseClass = "flex xl:px-50 px-7 flex-col  ";
     const ul =
-        "flex flex-col md:grid grid-cols-2 grid-rows-3 gap-y-10 gap-x-100  list-disc space-y-3 ml-5";
+        "flex flex-col md:grid grid-cols-2 grid-rows-3 gap-y-10 gap-x-100  list-disc ml-5";
     const baseTitle = " md:text-2xl text-lg  leading-relaxed tracking-widest ";
     const baseLi =
         "md:text-base  text-xs  xl:max-w-md  leading-[1.8] tracking-wider";

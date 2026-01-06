@@ -8,7 +8,7 @@ function Intro() {
                 classNameTitle="md:text-7xl text-[26px]"
                 classNameText="tracking-wide md:max-w-3xl"
                 titulo="ENGENHEIRO ELÉTRICO"
-                texto="Sou um parágrafo. Aqui você pode adicionar e editar seu próprio texto. É fácil, basta clicar em Editar texto ou clicar duas vezes sobre mim. Você também pode alterar a fonte e mais. Sou um ótimo lugar para você compartilhar a sua história."
+                texto="Um profissional que projeta, desenvolve e supervisiona sistemas e soluções elétricas, garantindo eficiência, segurança e conformidade técnica em instalações, equipamentos e processos. Trabalho com desenho técnico, testes, análises e colaborações para transformar ideias em projetos confiáveis e de alto desempenho."
                 Tp_contrado="Fixo"
                 cidade="Curitiba"
             />

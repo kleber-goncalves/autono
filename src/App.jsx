@@ -20,6 +20,9 @@ const Tecnologia = React.lazy(() => import("./pages/page2-tec/Tecnologia"));
 const Sobre = React.lazy(() => import("./pages/page3-sobre/Sobre"));
 const Carreiras = React.lazy(() => import("./pages/page4-carreira/Carreiras"));
 const EngenheiroEletrico = React.lazy(() => import("./pages/page-areas-cv/pageEngenheiro-eletrico/engenheiroEletrico.jsx"));
+const Cientistadedados = React.lazy(() => import("./pages/page-areas-cv/pageCientista-dados/cientistaDados.jsx"));
+const PesquisadorIA = React.lazy(() => import("./pages/page-areas-cv/pagePesqIA/pesquisador-IA.jsx"));
+const EngenheiroDeepLearning = React.lazy(() => import("./pages/page-areas-cv/pageEngenheiro-Deep-Learning/engenheiro-Deep-Learning.jsx"));
 
 
 // Importar o componente de Load
@@ -85,8 +88,40 @@ function App() {
                             </MinimumLoadingWrapper>
                         }
                     />
+                    <Route
+                        path="/cientista-de-dados"
+                        element={
+                            <MinimumLoadingWrapper
+                                fallback={<LoadingScreenCarreiras />}
+                                minDuration={900}
+                            >
+                                <Cientistadedados />
+                            </MinimumLoadingWrapper>
+                        }
+                    />
+                    <Route
+                        path="/pesquisidor-de-IA"
+                        element={
+                            <MinimumLoadingWrapper
+                                fallback={<LoadingScreenCarreiras />}
+                                minDuration={900}
+                            >
+                                <PesquisadorIA />
+                            </MinimumLoadingWrapper>
+                        }
+                    />
+                    <Route
+                        path="/engenheiro-Deep-Learning"
+                        element={
+                            <MinimumLoadingWrapper
+                                fallback={<LoadingScreenCarreiras />}
+                                minDuration={900}
+                            >
+                                <EngenheiroDeepLearning />
+                            </MinimumLoadingWrapper>
+                        }
+                    />
                 </Routes>
-
             </BrowserRouter>
         </>
     );

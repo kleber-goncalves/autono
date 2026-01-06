@@ -72,6 +72,7 @@ function Sec_carreira() {
                         text="São Paulo, SP"
                         text_2="Você fará parte de um time multidisciplinar dedicado a coletar, organizar, analisar e interpretar grandes volumes de dados — de fontes diversas e com formatos variados — para gerar insights estratégicos e suporte a decisões da empresa. Sua função não será apenas analisar dados, mas construir modelos, hipóteses e soluções inteligentes que contribuam para resultados concretos e inovação."
                         text_button="Enviar CV"
+                        href="/cientista-de-dados"
                     />
                 </div>
                 <div ref={boxRef3}>
@@ -83,6 +84,7 @@ function Sec_carreira() {
                         text="Brasília, DF"
                         text_2="Você fará parte de um time dedicado a pesquisar e criar algoritmos e modelos de IA de ponta, com o propósito de resolver problemas complexos, gerar insights impactantes e construir as bases da próxima geração de sistemas inteligentes. Sua contribuição vai além do código: você vai contribuir para descobertas, estudar tendências, propor caminhos novos, e ajudar a dar forma a ideias que podem mudar o rumo de produtos e soluções."
                         text_button="Enviar CV"
+                        href="/pesquisidor-de-IA"
                     />
                 </div>
                 <div ref={boxRef4} className="flex flex-col items-center">
@@ -94,6 +96,7 @@ function Sec_carreira() {
                         text="Santa Catarina, SC"
                         text_2="Você fará parte de uma equipe técnica de ponta, empenhada em criar e implementar modelos complexos de aprendizagem profunda para resolver problemas reais — desde visão computacional, processamento de linguagem natural, até sistemas autônomos ou análise de dados de larga escala. Vai trabalhar desde o design da arquitetura até o deploy em produção, contribuindo para soluções inteligentes e escaláveis."
                         text_button="Enviar CV"
+                        href="/engenheiro-Deep-Learning"
                     />
                 </div>
                 <Fade triggerOnce duration={1300}>

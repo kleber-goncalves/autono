@@ -32,7 +32,7 @@ export default function Intro_cmp({
         "md:text-6xl max-w-3xl px-6 md:px-0  md:leading-snug tracking-wide text-black text-center";
 
     const baseText =
-        "text-black md:text-2xl text-sm px-6 md:px-0 leading-relaxed tracking-wider md:max-w-2xl text-center md:mt-8 mt-3 overflow-hidden block";
+        "text-black md:text-2xl text-sm px-6 md:px-0 leading-relaxed tracking-wider md:max-w-2xl text-center md:mt-1 mt-3 overflow-hidden block";
     const baseTextII =
         "text-black md:text-2xl text-sm px-6 md:px-0 leading-relaxed tracking-wider md:max-w-2xl text-center md:mt-4 mt-3 overflow-hidden block";
 
