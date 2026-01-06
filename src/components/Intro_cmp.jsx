@@ -17,6 +17,7 @@ export default function Intro_cmp({
     classNameTitle = "",
     classNameText = "",
     classNameTextI = "",
+    classNameTextII = "",
     classNameTextIII = "",
     classNameImage = "",
     classNameImageII = "",
@@ -31,10 +32,13 @@ export default function Intro_cmp({
         "md:text-6xl max-w-3xl px-6 md:px-0  md:leading-snug tracking-wide text-black text-center";
 
     const baseText =
-        "text-black md:text-2xl text-sm px-6 md:px-0 leading-relaxed tracking-wide md:max-w-2xl text-center md:mt-8 mt-3 overflow-hidden block";
+        "text-black md:text-2xl text-sm px-6 md:px-0 leading-relaxed tracking-wider md:max-w-2xl text-center md:mt-1 mt-3 overflow-hidden block";
+    const baseTextII =
+        "text-black md:text-2xl text-sm px-6 md:px-0 leading-relaxed tracking-wider md:max-w-2xl text-center md:mt-4 mt-3 overflow-hidden block";
 
+    
     const baseTextIII =
-        "text-black text-sm px-6 md:px-0 leading-relaxed tracking-wide md:max-w-2xl text-center md:mt-8 mt-3 overflow-hidden block";
+        "text-black text-sm px-6 md:px-0 leading-relaxed tracking-[0.16rem] md:max-w-2xl text-center md:mb-4 mb-3 overflow-hidden block";
     const baseImage = "hidden md:block";
     const baseImageII = "md:hidden w-full";
 
@@ -63,6 +67,27 @@ export default function Intro_cmp({
                 opacity: 0,
                 duration: 1,
                 delay: 1.2, // Espera um pouco o título terminar
+                stagger: 0.2, // Anima a imagem e depois o texto
+            });
+            gsap.from(".anim-fadeIII", {
+                y: 0,
+                opacity: 0,
+                duration: 1,
+                delay: 1.2, // Espera um pouco o título terminar
+                stagger: 0.2, // Anima a imagem e depois o texto
+            });
+            gsap.from(".anim-barra", {
+                y: 0,
+                opacity: 0,
+                duration: 4,
+                delay: 1.4, // Espera um pouco o título terminar
+                stagger: 0.2, // Anima a imagem e depois o texto
+            });
+            gsap.from(".anim-barra-M", {
+                x: 120,
+                opacity: 0,
+                duration: 2,
+                delay: 1.4, // Espera um pouco o título terminar
                 stagger: 0.2, // Anima a imagem e depois o texto
             });
         },
@@ -114,31 +139,37 @@ export default function Intro_cmp({
                                     {texto_2}
                                 </p>
                             )}
-                            <div>
-                                <div>
+                            <div className="flex flex-col md:grid grid-cols-2 gap-10 w-full">
+                                <div className="flex flex-col items-center">
                                     <p
-                                        className={`anim-fadeII ${baseTextIII} ${classNameTextIII}`}
+                                        className={`anim-fadeIII ${baseTextIII} ${classNameTextIII}`}
                                     >
                                         LOCAL
                                     </p>
 
+                                    <div className="anim-barra-M border-b-3  border-black w-23 opacity-100"></div>
+                                    <div className="anim-barra border-b border-black w-50 opacity-100"></div>
+
                                     {cidade && (
                                         <p
-                                            className={`anim-fadeII ${baseText} ${classNameText}`}
+                                            className={`anim-fadeIII ${baseTextII} ${classNameTextII}`}
                                         >
                                             {cidade}
                                         </p>
                                     )}
                                 </div>
-                                <div>
+                                <div className="flex flex-col items-center">
                                     <p
-                                        className={`anim-fadeII ${baseTextIII} ${classNameTextIII}`}
+                                        className={`anim-fadeIII ${baseTextIII} ${classNameTextIII}`}
                                     >
                                         TIPO DE CONTRATO
                                     </p>
+                                    <div className="anim-barra-M border-b-3  border-black w-23 opacity-100"></div>
+                                    <div className="anim-barra border-b border-black w-50 opacity-100"></div>
+
                                     {Tp_contrado && (
                                         <p
-                                            className={`anim-fadeII ${baseText} ${classNameText}`}
+                                            className={`anim-fadeIII ${baseTextII} ${classNameTextII}`}
                                         >
                                             {Tp_contrado}
                                         </p>
