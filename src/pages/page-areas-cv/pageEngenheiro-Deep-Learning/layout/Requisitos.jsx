@@ -12,6 +12,7 @@ function Requisitos() {
                 li_4="Experiência com grandes conjuntos de dados e pipelines de modelagem, habilidade em preparar e pré-processar datasets, criar pipelines robustos para treinamento de modelos e avaliar métricas de desempenho, garantindo eficiência e precisão para aplicações reais."
                 li_5="Habilidades de comunicação, trabalho em equipe e aprendizagem contínua, capacidade de colaborar com times multidisciplinares, comunicar resultados técnicos de forma clara e manter-se atualizado com as últimas tendências e avanços na área de IA e deep learning."
                 text_button="Enviar CV"
+                href="/junte-se-a-nos"
             />
         </section>
     );

@@ -109,6 +109,7 @@ function Sec_carreira() {
                             classNameText="hidden"
                             classNameTextII="hidden"
                             text_button="Enviar CV"
+                            href="/junte-se-a-nos"
                         />
                     </div>
                 </Fade>

@@ -12,6 +12,7 @@ function Requisitos() {
                 li_4="Pensamento analítico e solução de problemas com forte habilidade lógica para diagnosticar, testar e solucionar desafios em sistemas elétricos, de forma eficaz e segura, apoiando a evolução de projetos e manutenção."
                 li_5="Comunicação clara e trabalho em equipe com habilidades de negócio, boa comunicação verbal e escrita, com capacidade de colaborar com equipes multidisciplinares, explicar conceitos técnicos para públicos diversos e contribuir com o sucesso coletivo do projeto"
                 text_button="Enviar CV"
+                href="/junte-se-a-nos"
             />
         </section>
     );

@@ -12,6 +12,7 @@ function Requisitos() {
                 li_4="Capacidade de conduzir pesquisa científica rigorosa, com habilidade para planejar experimentos, testar hipóteses, analisar resultados e produzir documentação ou publicações que traduzam descobertas científicas em avanços concretos."
                 li_5="Comunicação clara e colaboração em equipes multidisciplinares com habilidades de negócio, boa excelente comunicação verbal e escrita para apresentar resultados, trabalhar com outras áreas (engenharia, produto, negócios) e transformar pesquisa em produtos ou soluções aplicáveis."
                 text_button="Enviar CV"
+                href="/junte-se-a-nos"
             />
         </section>
     );
