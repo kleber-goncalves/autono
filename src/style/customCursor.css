@@ -1,8 +1,15 @@
-/* customCursor.css */
-
 /* Esconde cursor nativo */
 html, body {
   cursor: none;
+}
+
+/*Restaura o cursor nativo em elementos clicáveis.
+   Isso faz o "mãozinha" ou "texto" do sistema aparecer. */
+a, button, input, textarea, label, [role="button"], select {
+  cursor: pointer; /* ou auto/text dependendo do caso */
+}
+input[type="text"], textarea {
+  cursor: text;
 }
 
 /* elemento externo: anel suave que faz a inversão de cor */
@@ -40,15 +47,12 @@ html, body {
   box-shadow: 0 2px 6px rgba(0,0,0,0.25);
 }
 
-/* Quando quiser alterar visual ao passar sobre links (exemplo) */
-a:hover ~ .custom-cursor-outer,
-button:hover ~ .custom-cursor-outer {
-  transform: scale(1.08) translate(-50%, -50%); /* leve aumento */
+/*Quando estiver sobre um link, essa classe é adicionada via JS */
+.is-hover-clickable {
+  opacity: 0 !important; /* Torna invisível */
+  width: 4px; /* Opcional: diminui um pouco ao sumir */
+  height: 4px;
 }
-
-/* Se precisar forçar blend com o que está por baixo (fallbacks) */
-/* .app-root { isolation: auto; }  <-- não coloque isolation: isolate no pai */
-
 
 /* aplica cursor: none apenas em dispositivos que suportam hover/mouse */
 @media (hover: hover) and (pointer: fine) {
