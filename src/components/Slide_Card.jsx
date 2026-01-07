@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Card_II from "./Card_II"; 
+import Card_II from "./Card_II";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, FreeMode } from "swiper/modules";
@@ -18,6 +18,7 @@ export default function CardSlideshow() {
             text: "Curitiba, PR",
             text_2: "Você vai atuar em projetos elétricos e eletrotécnicos — desde planejamento, dimensionamento e especificação, até supervisão, execução e manutenção de instalações elétricas. Seu papel será garantir que sistemas, máquinas e infraestrutura elétrica funcionem com segurança, eficiência e dentro das normas técnicas.",
             text_button: "Enviar CV",
+            href: "/engenheiro-eletrico",
             variant: "black",
         },
         {
@@ -26,6 +27,7 @@ export default function CardSlideshow() {
             text: "São Paulo, SP",
             text_2: "Você fará parte de um time multidisciplinar dedicado a coletar, organizar, analisar e interpretar grandes volumes de dados — de fontes diversas e com formatos variados — para gerar insights estratégicos e suporte a decisões da empresa. Sua função não será apenas analisar dados, mas construir modelos, hipóteses e soluções inteligentes que contribuam para resultados concretos e inovação.",
             text_button: "Enviar CV",
+            href: "/cientista-de-dados",
             variant: "white", // Exemplo de variação de cor
         },
         {
@@ -34,6 +36,7 @@ export default function CardSlideshow() {
             text: "Brasília, DF",
             text_2: "Você fará parte de um time dedicado a pesquisar e criar algoritmos e modelos de IA de ponta, com o propósito de resolver problemas complexos, gerar insights impactantes e construir as bases da próxima geração de sistemas inteligentes. Sua contribuição vai além do código: você vai contribuir para descobertas, estudar tendências, propor caminhos novos, e ajudar a dar forma a ideias que podem mudar o rumo de produtos e soluções.",
             text_button: "Enviar CV",
+            href: "/pesquisidor-de-IA",
             variant: "black",
         },
         {
@@ -42,6 +45,7 @@ export default function CardSlideshow() {
             text: "Santa Catarina, SC",
             text_2: "Você fará parte de uma equipe técnica de ponta, empenhada em criar e implementar modelos complexos de aprendizagem profunda para resolver problemas reais — desde visão computacional, processamento de linguagem natural, até sistemas autônomos ou análise de dados de larga escala. Vai trabalhar desde o design da arquitetura até o deploy em produção, contribuindo para soluções inteligentes e escaláveis.",
             text_button: "Enviar CV",
+            href: "/engenheiro-Deep-Learning",
             variant: "white",
         },
     ];
@@ -77,6 +81,7 @@ export default function CardSlideshow() {
                                 text={slide.text}
                                 text_2={slide.text_2}
                                 text_button={slide.text_button}
+                                href={slide.href}
                                 variant={slide.variant}
                                 // Forçando a largura total e removemendo margens extras para alinhar no slide
                                 className="w-full h-full"
@@ -106,7 +111,7 @@ export default function CardSlideshow() {
                 <Swiper
                     modules={[Autoplay, FreeMode]}
                     spaceBetween={20} // Espaço entre os cards
-                    slidesPerView='auto' // Mostra um pouco do próximo card para indicar scroll
+                    slidesPerView="auto" // Mostra um pouco do próximo card para indicar scroll
                     loop={true}
                     speed={5300}
                     autoplay={{
@@ -114,8 +119,7 @@ export default function CardSlideshow() {
                         disableOnInteraction: false, // Continua rodando mesmo após toque
                     }}
                     // Melhora o comportamento do arraste manual
-                    freeModeMomentum: false
-                  
+                    freeModeMomentum:false
                 >
                     {slides.map((slide) => (
                         <SwiperSlide key={slide.id}>
@@ -126,7 +130,6 @@ export default function CardSlideshow() {
                                 text_button={slide.text_button}
                                 variant={slide.variant}
                                 // Forçando a largura total e removemendo margens extras para alinhar no slide
-                               
                             />
                         </SwiperSlide>
                     ))}

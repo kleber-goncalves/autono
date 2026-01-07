@@ -15,6 +15,12 @@ const CustomCursor = ({ speed = 0.28, innerSize = 6, outerSize = 27  }) => {
     useEffect(() => {
         // Atualiza a posição alvo com o mouse
         const onMove = (e) => {
+            // Se for o primeiro movimento, teletransporta o anel para não vir do (0,0)
+            if (pos.current.x === 0 && pos.current.y === 0) {
+                pos.current.x = e.clientX;
+                pos.current.y = e.clientY;
+            }
+
             target.current.x = e.clientX;
             target.current.y = e.clientY;
 
@@ -29,6 +35,32 @@ const CustomCursor = ({ speed = 0.28, innerSize = 6, outerSize = 27  }) => {
             }
             if (innerRef.current && innerRef.current.style.opacity === "0") {
                 innerRef.current.style.opacity = "1";
+            }
+        };
+
+        // Detectar hover em elementos clicáveis ---
+        const onHoverCheck = (e) => {
+            // Verifica se o alvo (target) ou algum pai dele é clicável
+            // Adicione mais tags aqui se necessário (ex: label, select)
+            const isClickable = e.target.closest(
+                "a, button, input, textarea, [role='button'], select, .clickable"
+            );
+
+            const cursorOuter = outerRef.current;
+            const cursorInner = innerRef.current;
+
+            if (isClickable) {
+                // Se for clicável, esconde nosso cursor (adicionando a classe CSS que tem opacity: 0)
+                if (cursorOuter)
+                    cursorOuter.classList.add("is-hover-clickable");
+                if (cursorInner)
+                    cursorInner.classList.add("is-hover-clickable");
+            } else {
+                // Se saiu de um clicável, mostra nosso cursor novamente
+                if (cursorOuter)
+                    cursorOuter.classList.remove("is-hover-clickable");
+                if (cursorInner)
+                    cursorInner.classList.remove("is-hover-clickable");
             }
         };
 
@@ -55,6 +87,8 @@ const CustomCursor = ({ speed = 0.28, innerSize = 6, outerSize = 27  }) => {
 
         // Adiciona listeners
         document.addEventListener("mousemove", onMove);
+        // Usamos mouseover (que propaga/bubles) para detectar entrada em elementos
+        document.addEventListener("mouseover", onHoverCheck);
         document.addEventListener("mouseout", onDocMouseOut);
         window.addEventListener("blur", onWindowBlur);
         window.addEventListener("focus", onWindowFocus);
@@ -76,12 +110,12 @@ const CustomCursor = ({ speed = 0.28, innerSize = 6, outerSize = 27  }) => {
 
         // Ao desmontar, limpa tudo
         return () => {
-      document.removeEventListener("mousemove", onMove);
-      document.removeEventListener("mouseout", onDocMouseOut);
-      window.removeEventListener("blur", onWindowBlur);
-      window.removeEventListener("focus", onWindowFocus);
-      cancelAnimationFrame(frameId);
-
+            document.removeEventListener("mousemove", onMove);
+            document.removeEventListener("mouseover", onHoverCheck);
+            document.removeEventListener("mouseout", onDocMouseOut);
+            window.removeEventListener("blur", onWindowBlur);
+            window.removeEventListener("focus", onWindowFocus);
+            cancelAnimationFrame(frameId);
         };
     }, [speed]);
 
@@ -91,12 +125,12 @@ const CustomCursor = ({ speed = 0.28, innerSize = 6, outerSize = 27  }) => {
             <div
                 ref={outerRef}
                 className="custom-cursor-outer"
-                style={{ width: outerSize, height: outerSize, opacity: 1 }}
+                style={{ width: outerSize, height: outerSize}}
             />
             <div
                 ref={innerRef}
                 className="custom-cursor-inner"
-                style={{ width: innerSize, height: innerSize, opacity: 1 }}
+                style={{ width: innerSize, height: innerSize}}
             />
         </>
     );

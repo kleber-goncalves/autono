@@ -13,7 +13,7 @@ export default function Card_II({
     classNameTitle = "",
     classNameText = "",
     classNameTextII = "",
-    href = "#",
+    href = "",
     target = "_self",
 }) {
     const baseClass =

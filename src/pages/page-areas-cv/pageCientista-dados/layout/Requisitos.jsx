@@ -12,6 +12,7 @@ function Requisitos() {
                 li_4="Habilidade para visualizar dados e apresentar resultados claros e impactantes usando ferramentas como Tableau, Power BI ou similares, facilitando decisões baseadas em dados."
                 li_5="Excelentes competências de comunicação e trabalho em equipe, com capacidade de traduzir análises complexas em recomendações estratégicas para públicos técnicos e não técnicos."
                 text_button="Enviar CV"
+                href="/junte-se-a-nos"
             />
         </section>
     );
