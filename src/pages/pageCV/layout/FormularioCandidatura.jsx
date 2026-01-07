@@ -43,13 +43,12 @@ const FormularioCandidatura = () => {
 
     return (
         <div className="min-h-screen bg-white flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-            <div className="max-w-7xl w-full space-y-8 bg-white p-10 rounded-xl shadow-lg">
+            <div className="max-w-7xl w-full space-y-8 bg-white  ">
                 {/* Cabeçalho */}
                 <div className="">
                     <h2 className="mt-2 text-3xl text-black">
                         Envie seu Currículo
                     </h2>
-
                 </div>
 
                 {/* Formulário */}
@@ -70,7 +69,7 @@ const FormularioCandidatura = () => {
                                 required
                                 value={formData.nome}
                                 onChange={handleChange}
-                                className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400  hover:border-black hover:border-2 hover:bg-gray-200 sm:text-sm"
                                 placeholder="Seu nome"
                             />
                         </div>
@@ -90,7 +89,7 @@ const FormularioCandidatura = () => {
                                 required
                                 value={formData.sobrenome}
                                 onChange={handleChange}
-                                className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400  hover:border-black hover:border-2 hover:bg-gray-200 sm:text-sm"
                                 placeholder="Seu sobrenome"
                             />
                         </div>
@@ -112,7 +111,7 @@ const FormularioCandidatura = () => {
                                 required
                                 value={formData.email}
                                 onChange={handleChange}
-                                className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400  hover:border-black hover:border-2 hover:bg-gray-200 sm:text-sm"
                                 placeholder="exemplo@email.com"
                             />
                         </div>
@@ -131,7 +130,7 @@ const FormularioCandidatura = () => {
                                 type="tel"
                                 value={formData.telefone}
                                 onChange={handleChange}
-                                className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400  hover:border-black hover:border-2 hover:bg-gray-200 sm:text-sm"
                                 placeholder="(00) 00000-0000"
                             />
                         </div>
@@ -151,7 +150,7 @@ const FormularioCandidatura = () => {
                             required
                             value={formData.vaga}
                             onChange={handleChange}
-                            className="block w-full px-3 py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                            className="block w-full px-3 py-2 border border-gray-300 bg-white rounded-md shadow-sm  hover:border-black hover:border-2 hover:bg-gray-200 sm:text-sm"
                         >
                             <option value="" disabled>
                                 Selecione a vaga
@@ -179,7 +178,7 @@ const FormularioCandidatura = () => {
                             required
                             value={formData.cvUrl}
                             onChange={handleChange}
-                            className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                            className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400  hover:border-black hover:border-2 hover:bg-gray-200 sm:text-sm"
                             placeholder="https://meuportfolio.com/cv.pdf"
                         />
                     </div>
@@ -198,7 +197,7 @@ const FormularioCandidatura = () => {
                             type="url"
                             value={formData.linkedinUrl}
                             onChange={handleChange}
-                            className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                            className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400  hover:border-black hover:border-2 hover:bg-gray-200 sm:text-sm"
                             placeholder="https://linkedin.com/in/usuario"
                         />
                     </div>
@@ -217,7 +216,7 @@ const FormularioCandidatura = () => {
                             rows="4"
                             value={formData.mensagem}
                             onChange={handleChange}
-                            className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                            className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 sm:text-sm hover:border-black hover:border-2 hover:bg-gray-200"
                             placeholder="Conte-nos um pouco sobre você..."
                         />
                     </div>
