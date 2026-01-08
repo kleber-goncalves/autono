@@ -1,4 +1,122 @@
 import React, { useState, useRef, useEffect } from "react";
+import ModalTrigger from "./ModalTrigger";
+import { useForm } from "../hooks/useForm";
+
+// conteúdo do modal
+function SubscribeContent() {
+
+
+
+    const validateSchema = {
+    email: {
+        required: true,
+        type: "email",
+    },
+    };
+    
+        const onSubmit = async (values) => {
+        await new Promise((resolve) => setTimeout(resolve, 2000));
+        console.log("Payload enviado:", values);
+        alert("Candidatura enviada com sucesso!");
+        // await api.post("/users", values);
+    };
+
+    const { values, errors, loading, handleChange, handleSubmit } = useForm(
+        {
+            email: "",
+        },
+        validateSchema,
+        onSubmit
+    );
+
+  return (
+      <>
+          <div className="flex flex-col gap-6">
+              <h2 className="text-xl text-white tracking-widest">ASSINAR</h2>
+              <p className="mt-12 text-base text-white tracking-wide">
+                  Receba notícias e atualizações sobre o Autono. pelo seu
+                  e-mail.
+              </p>
+
+              <form
+                  className="mt-4 flex w-full max-w-md group"
+                  onSubmit={handleSubmit}
+              >
+                  <input
+                      id="email"
+                      value={values.email}
+                      loading={loading}
+                      onChange={handleChange}
+                      errors={errors}
+                      aria-describedby={
+                          errors.email ? "email-error" : undefined
+                      }
+                      aria-invalid={!!errors.email}
+                      type="email"
+                      name="email"
+                      className="flex-1 px-4 py-2 bg-transparent border border-white/20 text-white rounded-l-lg outline-none placeholder-gray-400 focus:border-white/60 focus:bg-white/5 transition-all duration-300"
+                      placeholder="seu@email.com"
+                  />
+
+                  <button
+                      type="submit"
+                      disabled={loading}
+                      className={`flex-row flex px-6 py-2 bg-white text-black font-semibold rounded-r-lg border border-black hover:bg-gray-200  duration-300 tracking-wide cursor-pointer text-xs md:text-base transition-all transform active:scale-[0.98]
+                            ${
+                                loading
+                                    ? "bg-gray-400 cursor-not-allowed"
+                                    : "border-white bg-black hover:bg-white hover:inset-shadow-sm hover:inset-shadow-indigo-500 hover:shadow-lg/20 hover:shadow-[#ffffff] hover:text-black"
+                            }`}
+                  >
+                      {loading ? (
+                          <span className="flex items-center justify-center">
+                              <svg
+                                  className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                                  viewBox="0 0 24 24"
+                              >
+                                  <circle
+                                      className="opacity-25"
+                                      cx="12"
+                                      cy="12"
+                                      r="10"
+                                      stroke="currentColor"
+                                      strokeWidth="4"
+                                  ></circle>
+                                  <path
+                                      className="opacity-75"
+                                      fill="currentColor"
+                                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                                  ></path>
+                              </svg>
+                              Processando...
+                          </span>
+                      ) : (
+                          "Enviar"
+                      )}
+                  </button>
+              </form>
+              {/* Mensagem de erro (aparece somente se errors.email existir) */}
+              {errors.email && (
+                  <p
+                      id="email-error"
+                      role="alert"
+                      aria-live="assertive"
+                      className="mt-2 text-sm text-red-400 flex items-center gap-2"
+                  >
+                      Erro de envio do {errors.email}. Por favor, tente
+                      novamente.
+                  </p>
+              )}
+          </div>
+
+          <div className="text-xs text-slate-500">
+              Dica: feche com ESC ou tocando fora do modal.
+          </div>
+      </>
+  );
+}
+
+//888888888888888888///
 
 // Hook para direção de scroll (mantive sua lógica)
 function useScrollDirection() {
@@ -203,8 +321,7 @@ function Nav() {
                 </div>
 
                 {/* MOBILE TOGGLE BUTTON */}
-                {/* MOBILE TOGGLE BUTTON */}
-                {/* MOBILE TOGGLE BUTTON */}
+
                 <button
                     onClick={() => setIsMenuOpen(!isMenuOpen)}
                     className="md:hidden z-[110] p-1 focus:outline-none relative w-10 h-10"
@@ -228,6 +345,7 @@ function Nav() {
                     </div>
                 </button>
 
+                {/* DESKTOP LINKS*/}
                 <div
                     className={`hidden md:flex gap-8 items-center ${textColorClass}`}
                 >
@@ -252,19 +370,26 @@ function Nav() {
                     >
                         Carreiras
                     </a>
-
-                    <a
-                        role="link"
-                        href="/subscribe"
-                        className={`px-7 py-[3px] rounded-md  border transition-colors duration-150 ease-linear ${
-                            isNavOverDark
-                                ? "bg-white text-black hover:bg-black hover:text-white"
-                                : "bg-black text-white border-black hover:bg-white hover:text-black"
-                        }`}
-                        style={{ willChange: "color, border-color" }}
+                    <ModalTrigger
+                        modalContent={<SubscribeContent />}
+                        modalProps={{
+                            height: "60vh",
+                            ariaLabel: "Assinar agora",
+                        }}
                     >
-                        Assinar
-                    </a>
+                        <a
+                            role="link"
+                            href="/assinar"
+                            className={`px-7 py-[3px] rounded-md  border transition-colors duration-150 ease-linear ${
+                                isNavOverDark
+                                    ? "bg-white text-black hover:bg-black hover:text-white"
+                                    : "bg-black text-white border-black hover:bg-white hover:text-black"
+                            }`}
+                            style={{ willChange: "color, border-color" }}
+                        >
+                            Assinar
+                        </a>
+                    </ModalTrigger>
                 </div>
 
                 {/* MOBILE MENU OVERLAY */}
