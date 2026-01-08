@@ -33,14 +33,14 @@ function Sobre() {
                         variant="white"
                         text="VISÃO"
                         title="Uma revolução no modo como pensamos sobre carros"
-                        text_2="Sou um parágrafo. Aqui você pode adicionar e editar seu próprio texto. É fácil, basta clicar em Editar texto ou clicar duas vezes sobre mim. Você também pode alterar a fonte e mais. Sou um ótimo lugar para você compartilhar a sua história com os visitantes."
+                        text_2="Uma empresa de carros elétricos que promove uma revolução no modo como pensamos sobre carros tem uma visão voltada para transformar a mobilidade global com veículos limpos, eficientes e inteligentes, reduzindo emissões e reinventando a experiência de dirigir com tecnologia sustentável e impacto ambiental positivo."
                     />
                 </div>
                 <div className="flex sm:mx-auto lg:mx-0 pl-4 lg:pl-0 max-w-xl lg:max-w-2xl ">
                     <ProjectImage id="car-sobre" ref={boxRef1} />
                 </div>
             </div>
-        </section> 
+        </section>
     );
 }
 
