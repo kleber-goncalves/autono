@@ -146,6 +146,16 @@ function Nav() {
     const [isNavOverDark, setIsNavOverDark] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false); // Estado para o Mobile
 
+    // --- NOVO: Estado para rastrear o link ativo ---
+    const [activeLink, setActiveLink] = useState("");
+
+    // --- NOVO: Detecta a página atual ao carregar ---
+    useEffect(() => {
+        // Pega o caminho atual (ex: "/tecnologia")
+        const path = window.location.pathname;
+        setActiveLink(path);
+    }, []);
+
     // Bloquear scroll quando menu mobile estiver aberto
     useEffect(() => {
         document.body.style.overflow = isMenuOpen ? "hidden" : "unset";
@@ -265,8 +275,6 @@ function Nav() {
         scrollDirection === "down" ? "-translate-y-18" : "translate-y-0 nav-up";
 
     // Mudança de cor de fundo do nav bar do "isNavOverDark ( Detector de cor de fundo )" dizer
-
-
     // Se o menu estiver aberto, fundo sólido. Se fechado, mantém o efeito de vidro.
     const bgColorClassII = isMenuOpen
         ? isNavOverDark
@@ -279,16 +287,40 @@ function Nav() {
     // Mudança de cor do texto do nav bar com base do "isNavOverDark ( Detector de cor de fundo )" dizer
     const textColorClass = isNavOverDark ? "text-white" : "text-black";
 
+    // --- Lógica Atualizada para Hover/Active ---
+    const getLinkClasses = (path) => {
+        const isActive = activeLink === path;
+
+        // Se estiver ativo, usamos cores "fixas" (como se estivesse em hover constante)
+        // Adicionei a classe 'nav-active' para você poder estilizar o glow no CSS se precisar
+        if (isActive) {
+            return isNavOverDark
+                ? "text-white font-medium nav-active"
+                : "text-black font-medium nav-active";
+        }
+
+        // Se não ativo, comportamento padrão
+        return isNavOverDark
+            ? "text-gray-300 hover:text-white hover:font-medium"
+            : "text-gray-700 hover:text-black hover:font-medium";
+    };
+
+
+
+/*
     const linkHover = isNavOverDark
         ? "hover:text-white text-gray-300 hover:font-medium" // V- text-branco
         : "hover:text-black text-gray-700 hover:font-medium"; // V- text-preto
+*/
 
+
+    
     // Controle maior do layout do nav bar com base do "isScrolled ( Detector de rolagem )" dizer
-    const bgColorClass = isMenuOpen 
+    const bgColorClass = isMenuOpen
         ? "w-screen h-screen top-0 left-0 rounded-none border-none" // Tela cheia mobile : isScrolled
         : isScrolled
-            ? "w-auto mx-4 md:mx-23 top-0 md:top-3 rounded-2xl"
-            : "bg-transparent border-none w-full ";
+        ? "w-auto mx-4 md:mx-23 top-0 md:top-3 rounded-2xl"
+        : "bg-transparent border-none w-full ";
 
     // Controle maior do layout do nav bar
     const containerBase =
@@ -352,21 +384,28 @@ function Nav() {
                     <a
                         style={{ "--delay": "80ms" }}
                         href="/tecnologia"
-                        className={`text-base transition-colors duration-75 link-glow  ease-linear ${linkHover}`}
+                        onClick={() => setActiveLink("/tecnologia")}
+                        className={`text-base transition-colors duration-75 link-glow  ease-linear ${getLinkClasses(
+                            "/tecnologia"
+                        )}`}
                     >
                         Tecnologia
                     </a>
                     <a
                         style={{ "--delay": "80ms" }}
                         href="/sobre"
-                        className={`text-base transition-colors duration-75 link-glow  ease-linear ${linkHover}`}
+                        onClick={() => setActiveLink("/sobre")}
+                        className={`text-base transition-colors duration-75 link-glow  ease-linear ${getLinkClasses(
+                            "/sobre"
+                        )}`}
                     >
                         Sobre
                     </a>
                     <a
                         style={{ "--delay": "160ms" }}
                         href="/carreiras"
-                        className={`text-base transition-colors duration-75 link-glow ease-linear ${linkHover}`}
+                        onClick={() => setActiveLink("/carreiras")}
+                        className={`text-base transition-colors duration-75 link-glow ease-linear ${getLinkClasses("/carreiras")}`}
                     >
                         Carreiras
                     </a>

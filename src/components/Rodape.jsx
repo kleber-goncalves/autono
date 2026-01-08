@@ -10,6 +10,10 @@ function Rodape() {
     const [isError, setIsError] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
 
+    const [activeLink, setActiveLink] = useState(
+        typeof window !== "undefined" ? window.location.pathname : ""
+    );
+
     // Expressão regular para validação de e-mail
     const emailRegex = /^.+@.+\.[a-zA-Z]{2,63}$/;
 
@@ -58,27 +62,52 @@ function Rodape() {
         }, 1500); // Simula um atraso de rede
     };
 
+    const getLinkClasses = (path) => {
+        const isActive = activeLink === path;
+        return isActive
+            ? "text-black font-medium nav-active"
+            : "text-gray-500 hover:text-black hover:font-medium";
+    };
+
     return (
-        
         <footer className="bg-white text-black sticky py-12 md:py-28 ">
-         
             <section className="max-w-7xl mx-auto px-4 flex flex-col lg:flex-row justify-between flex-wrap gap-10 lg:gap-0">
-               
                 <div className="flex flex-col gap-6 w-full lg:w-1/2">
                     <h2 className="tracking-widest text-2xl font-bold mb-2">
                         AUTONO
                     </h2>
                     <div className="flex flex-col md:flex-row gap-10 md:gap-40">
                         <div className="flex flex-col gap-2">
-                            <p className="tcursor-pointer hover:underline">
+                            <a
+                                style={{ "--delay": "80ms" }}
+                                href="/tecnologia"
+                                onClick={() => setActiveLink("/tecnologia")}
+                                className={`link-glow ease-linear  ${getLinkClasses(
+                                    "/tecnologia"
+                                )}`}
+                            >
                                 Tecnologia
-                            </p>
-                            <p className="cursor-pointer hover:underline">
+                            </a>
+                            <a
+                                style={{ "--delay": "80ms" }}
+                                href="/sobre"
+                                onClick={() => setActiveLink("/sobre")}
+                                className={`link-glow ease-linear w-fit ${getLinkClasses(
+                                    "/sobre"
+                                )}`}
+                            >
                                 Sobre
-                            </p>
-                            <p className="cursor-pointer hover:underline">
+                            </a>
+                            <a
+                                style={{ "--delay": "160ms" }}
+                                href="/carreiras"
+                                onClick={() => setActiveLink("/carreiras")}
+                                className={`link-glow ease-linear w-fit ${getLinkClasses(
+                                    "/carreiras"
+                                )}`}
+                            >
                                 Carreiras
-                            </p>
+                            </a>
                         </div>
 
                         <div className="flex flex-col gap-2">
@@ -162,7 +191,7 @@ function Rodape() {
                 </div>
 
                 {/* RODAPÉ INFERIOR: Copyright e Redes Sociais */}
-              
+
                 <div className="w-full flex flex-col-reverse md:flex-row justify-between items-center mt-10 md:mt-14 gap-6 md:gap-0 border-t border-transparent pt-4 lg:pt-0">
                     <div className="text-center md:text-left">
                         <p className="text-sm text-gray-600">
