@@ -6,8 +6,9 @@ function Intro() {
             <Intro_cmp
                 className="gap-15 md:py-0"
                 classNameTitle="md:text-7xl text-[26px]"
-                classNameText="tracking-wide md:max-w-3xl"
+                classNameText="hidden"
                 titulo="JUNTE-SE A NÓS"
+                
             />
         </section>
     );
