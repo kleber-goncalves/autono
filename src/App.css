@@ -187,3 +187,9 @@ html {
     grid-area: auto;
   }
 }
+
+
+
+.textRoot:hover {
+    color: rgb(158, 117, 90);
+}
