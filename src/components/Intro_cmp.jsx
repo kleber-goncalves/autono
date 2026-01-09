@@ -34,11 +34,11 @@ export default function Intro_cmp({
     const baseText =
         "text-black md:text-2xl text-sm px-6 md:px-0 leading-relaxed tracking-wider md:max-w-2xl text-center md:mt-1 mt-3 overflow-hidden block";
     const baseTextII =
-        "text-black md:text-2xl text-sm px-6 md:px-0 leading-relaxed tracking-wider md:max-w-2xl text-center md:mt-4 mt-3 overflow-hidden block";
+        "text-black md:text-2xl text-lg px-6 md:px-0 leading-relaxed tracking-wider md:max-w-2xl text-center md:mt-4 mt-3 overflow-hidden block";
 
     
     const baseTextIII =
-        "text-black text-sm px-6 md:px-0 leading-relaxed tracking-[0.16rem] md:max-w-2xl text-center md:mb-4 mb-3 overflow-hidden block";
+        "text-black text-[11px] md:text-sm px-6 md:px-0 leading-relaxed tracking-[0.16rem] md:max-w-2xl text-center md:mb-4 mb-3 overflow-hidden block";
     const baseImage = "hidden md:block";
     const baseImageII = "md:hidden w-full";
 

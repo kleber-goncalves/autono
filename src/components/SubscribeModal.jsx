@@ -15,7 +15,7 @@ export default function SubscribeModal({
     isOpen,
     onClose,
     children,
-    height = "60vh",
+    className = "h-[60vh]",
     ariaLabel = "Assinar",
 }) {
     const [mounted, setMounted] = useState(false);
@@ -106,20 +106,19 @@ export default function SubscribeModal({
                 aria-label={ariaLabel}
                 className={`fixed left-0 bottom-0 z-50 w-full  transform transition-transform duration-300 ease-out ${
                     visible ? "translate-y-0" : "translate-y-full"
-                }`}
-                style={{ height }}
+                } ${className}`}
             >
                 <div
                     ref={panelRef}
-                    className="grid grid-cols-2 mx-auto max-w-full h-full px-50 py-16 bg-black rounded-t-2xl shadow-xl relative overflow-hidden"
+                    className="flex flex-col md:grid md:grid-cols-2 mx-auto max-w-full h-full md:px-10 xl:px-50 md:py-16 py-4 bg-black rounded-t-2xl shadow-xl relative overflow-hidden"
                     onClick={(e) => e.stopPropagation()}
                 >
                     {/* Conteúdo do modal */}
-                    <div className="p-6 h-full flex flex-col justify-between">
+                    <div className="p-6 h-full flex flex-col justify-around md:justify-between">
                         {children}
                     </div>
 
-                    <div className="p-6 w-full flex justify-end">
+                    <div className="hidden lg:p-6 w-full md:flex justify-end">
                         {/* Botão fechar redondo */}
                         <button
                             onClick={onClose}

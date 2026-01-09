@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import ModalTrigger from "./ModalTrigger";
 import { useForm } from "../hooks/useForm";
+import { X } from "lucide-react";
 
 // conteúdo do modal
 function SubscribeContent() {
@@ -32,11 +33,24 @@ function SubscribeContent() {
   return (
       <>
           <div className="flex flex-col gap-6">
-              <h2 className="text-xl text-white tracking-widest">ASSINAR</h2>
-              <p className="mt-12 text-base text-white tracking-wide">
+              <div className="flex flex-row justify-between items-center">
+                  <h2 className="text-xl text-white tracking-widest">
+                      ASSINAR
+                  </h2>
+                  <button
+                      className=" md:hidden w-9 h-9 rounded-full bg-slate-100 flex items-center justify-center shadow-sm focus:outline-none"
+                      aria-label="Fechar modal"
+                  >
+                      <X size={18} />
+                  </button>
+              </div>
+
+              <p className="md:mt-12 text-base text-white tracking-wide">
                   Receba notícias e atualizações sobre o Autono. pelo seu
                   e-mail.
               </p>
+
+              {/* Botão fechar redondo */}
 
               <form
                   className="mt-4 flex w-full max-w-md group"
@@ -405,7 +419,9 @@ function Nav() {
                         style={{ "--delay": "160ms" }}
                         href="/carreiras"
                         onClick={() => setActiveLink("/carreiras")}
-                        className={`text-base transition-colors duration-75 link-glow ease-linear ${getLinkClasses("/carreiras")}`}
+                        className={`text-base transition-colors duration-75 link-glow ease-linear ${getLinkClasses(
+                            "/carreiras"
+                        )}`}
                     >
                         Carreiras
                     </a>
@@ -445,37 +461,57 @@ function Nav() {
         `}
                 >
                     <a
-                        onClick={() => setIsMenuOpen(false)}
+                        onClick={() => (
+                            setActiveLink("/tecnologia"), setIsMenuOpen(false)
+                        )}
                         href="/tecnologia"
-                        className={`text-2xl font-light ${textColorClass}`}
+                        className={`text-2xl font-light transition-colors duration-75 link-glow  ease-linear ${getLinkClasses(
+                            "/tecnologia"
+                        )}`}
                     >
                         Tecnologia
                     </a>
                     <a
-                        onClick={() => setIsMenuOpen(false)}
+                        onClick={() => (
+                            setIsMenuOpen(false), setActiveLink("/sobre")
+                        )}
                         href="/sobre"
-                        className={`text-2xl font-light ${textColorClass}`}
+                        className={`text-2xl font-light transition-colors duration-75 link-glow  ease-linear ${getLinkClasses(
+                            "/sobre"
+                        )}`}
                     >
                         Sobre
                     </a>
                     <a
-                        onClick={() => setIsMenuOpen(false)}
+                        onClick={() => (
+                            setIsMenuOpen(false), setActiveLink("/carreiras")
+                        )}
                         href="/carreiras"
-                        className={`text-2xl font-light ${textColorClass}`}
+                        className={`text-2xl font-light transition-colors duration-75 link-glow ease-linear ${getLinkClasses(
+                            "/carreiras"
+                        )}`}
                     >
                         Carreiras
                     </a>
-                    <a
-                        onClick={() => setIsMenuOpen(false)}
-                        href="/subscribe"
-                        className={`px-10 py-3 rounded-full text-xl ${
-                            isNavOverDark
-                                ? "bg-white text-black"
-                                : "bg-black text-white"
-                        }`}
+                    <ModalTrigger
+                        modalContent={<SubscribeContent />}
+                        modalProps={{
+                            className: "h-[40vh] sm:h-[50vh] xl:h-[60vh]",
+                            ariaLabel: "Assinar agora",
+                        }}
                     >
-                        Assinar
-                    </a>
+                        <a
+                            onClick={() => setIsMenuOpen(false)}
+                            href="/assinar"
+                            className={`px-10 py-3 rounded-full text-xl ${
+                                isNavOverDark
+                                    ? "bg-white text-black"
+                                    : "bg-black text-white"
+                            }`}
+                        >
+                            Assinar
+                        </a>
+                    </ModalTrigger>
                 </div>
             </div>
         </nav>

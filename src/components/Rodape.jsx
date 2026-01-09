@@ -77,12 +77,12 @@ function Rodape() {
                         AUTONO
                     </h2>
                     <div className="flex flex-col md:flex-row gap-10 md:gap-40">
-                        <div className="flex flex-col gap-2">
+                        <div className="flex flex-col gap-4 xl:gap-4 ">
                             <a
                                 style={{ "--delay": "80ms" }}
                                 href="/tecnologia"
                                 onClick={() => setActiveLink("/tecnologia")}
-                                className={`link-glow ease-linear  ${getLinkClasses(
+                                className={`link-glow ease-linear w-fit md:w-none ${getLinkClasses(
                                     "/tecnologia"
                                 )}`}
                             >

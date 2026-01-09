@@ -24,7 +24,7 @@ export default function Sec_Lists({
 }) {
     const baseClass = "flex xl:px-50 px-7 flex-col  ";
     const ul =
-        "flex flex-col md:grid grid-cols-2 grid-rows-3 gap-y-10 gap-x-100  list-disc ml-5";
+        "flex flex-col md:grid grid-cols-2 grid-rows-3 gap-y-10 gap-x-20 lg:gap-x-100  list-disc ml-5";
     const baseTitle = " md:text-2xl text-lg  leading-relaxed tracking-widest ";
     const baseLi =
         "md:text-base  text-xs  xl:max-w-md  leading-[1.8] tracking-wider";
@@ -32,7 +32,7 @@ export default function Sec_Lists({
         "md:text-base  text-xs  xl:max-w-md leading-[1.8] tracking-wider";
     const liBlack = "";
     const barraMenor = "anim-barra-M border-b-3  border-black w-23 opacity-100";
-    const barraMaior = "anim-barra border-b border-black w-120 opacity-100";
+    const barraMaior = "anim-barra  border-b border-black md:w-80 lg:w-120 opacity-100";
     const baseButtonClassName =
         "flex-row flex border  cursor-pointer rounded-lg w-fit max-w-xs items-center tracking-wider transition-all duration-300 ";
     const divPClassName = "md:px-4 px-3 py-2 border-r   ";
