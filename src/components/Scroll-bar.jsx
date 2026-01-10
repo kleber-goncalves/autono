@@ -37,7 +37,7 @@ function ScrollProgressBar({ lenisRef = null }) {
             }
         }
 
-        // 🔥 LOOP INTELIGENTE — SEM AVISOS
+        // LOOP INTELIGENTE — SEM AVISOS
         let lastScroll = -1;
 
         const loop = () => {

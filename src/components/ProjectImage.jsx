@@ -1,6 +1,18 @@
 import React from "react";
 import useMediaImage from "../hooks/useMediaImage";
 
+
+/**
+ * Componente que renderiza uma imagem com fallback para uma imagem 
+ * nao encontrada com estilos personalizados.
+ * 
+ * @param {string} id - O id da imagem a ser buscada.
+ * @param {string} srcProp - O src da imagem.
+ * @param {string} altProp - O texto alternativo da imagem.
+ * @param {Object} rest - Outros props do componente img.
+ * @returns {JSX.Element} - O elemento img ou um fallback com estilo personalizado.
+ */
+
 export default function ProjectImage({
     id,
     src: srcProp,

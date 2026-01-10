@@ -38,7 +38,7 @@ function Rodape() {
             return;
         }
 
-        // Simulação de envio de e-mail (chame sua API real aqui)
+        // Simulação de envio de e-mail (chame API real aqui)
         setIsLoading(true);
 
         setTimeout(() => {

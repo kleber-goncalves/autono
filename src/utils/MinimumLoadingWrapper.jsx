@@ -1,6 +1,6 @@
-import React, { useEffect } from "react"; // O hook useMinimumLoadingTime deve ser mantido, pois ele gerencia o atraso de tempo.
+import React, { useEffect } from "react";
 import useMinimumLoadingTime from "../hooks/useMinimumLoadingTime";
-import { ScrollTrigger } from "gsap/ScrollTrigger"; // importe
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 // Este componente recebe a página (children) e a tela de carregamento (fallback)
 const MinimumLoadingWrapper = ({ children, fallback, minDuration = 1000 }) => {

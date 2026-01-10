@@ -8,7 +8,7 @@ function Infrografico() {
     const containerRef = useRef(null);
 
     useGsapContainerAnimation(
-        containerRef, // ⬅️ Passando a Ref
+        containerRef,
 
         ".stat-area",
         2000

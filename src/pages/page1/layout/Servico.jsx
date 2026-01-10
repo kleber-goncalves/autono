@@ -40,7 +40,7 @@ function Servicos() {
 let ctx = gsap.context(() => {
     // Animação para as imagens usando autoAlpha para suavidade
     const animacoes = [
-        { ref: imgRef1, x: 100 }, // Reduzi de 150 para 100 para ser mais discreto
+        { ref: imgRef1, x: 100 },
         { ref: imgRef2, x: -100 },
         { ref: imgRef3, x: 100 },
     ];
@@ -49,7 +49,7 @@ let ctx = gsap.context(() => {
         gsap.fromTo(
             item.ref.current,
             {
-                autoAlpha: 0, // Substituído de autoAlphaInitial (que não existe no GSAP puro)
+                autoAlpha: 0,
                 x: item.x,
             },
             {

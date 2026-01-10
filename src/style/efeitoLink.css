@@ -25,6 +25,5 @@
 }
 
 .link.nav-active::after {
-   /* Copie as mesmas propriedades do hover aqui */
    width: 100%;
 }

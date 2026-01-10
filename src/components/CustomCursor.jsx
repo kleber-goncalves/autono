@@ -1,6 +1,5 @@
-// CustomCursor.jsx
 import React, { useEffect, useRef } from "react";
-import "../style/customCursor.css"; // importe o CSS (nome sugestão)
+import "../style/customCursor.css"; 
 
 const CustomCursor = ({ speed = 0.28, innerSize = 6, outerSize = 27  }) => {
     //speed = 0.28 → controla quanto “atraso” o anel externo terá (maior = menos atraso, mais responsivo).
