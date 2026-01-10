@@ -82,7 +82,7 @@ function Rodape() {
                                 style={{ "--delay": "80ms" }}
                                 href="/tecnologia"
                                 onClick={() => setActiveLink("/tecnologia")}
-                                className={`link-glow ease-linear w-fit md:w-none ${getLinkClasses(
+                                className={`link md:link-glow ease-linear w-fit md:w-none ${getLinkClasses(
                                     "/tecnologia"
                                 )}`}
                             >
@@ -92,7 +92,7 @@ function Rodape() {
                                 style={{ "--delay": "80ms" }}
                                 href="/sobre"
                                 onClick={() => setActiveLink("/sobre")}
-                                className={`link-glow ease-linear w-fit ${getLinkClasses(
+                                className={`link md:link-glow ease-linear w-fit ${getLinkClasses(
                                     "/sobre"
                                 )}`}
                             >
@@ -102,7 +102,7 @@ function Rodape() {
                                 style={{ "--delay": "160ms" }}
                                 href="/carreiras"
                                 onClick={() => setActiveLink("/carreiras")}
-                                className={`link-glow ease-linear w-fit ${getLinkClasses(
+                                className={`link md:link-glow ease-linear w-fit ${getLinkClasses(
                                     "/carreiras"
                                 )}`}
                             >

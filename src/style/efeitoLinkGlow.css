@@ -1,0 +1,39 @@
+
+.link-glow {
+    position: relative;
+    display: inline-block;
+}
+
+/* Linha base */
+.link-glow::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -6px;
+    transform: translateX(-50%);
+    width: 0%;
+    height: 1px;
+    background-color: currentColor;
+    border-radius: 999px;
+
+    /* Glow */
+    box-shadow:
+        0 0 2px currentColor,
+        0 0 12px currentColor;
+
+    transition:
+        width 0.18s ease-out,
+        box-shadow 0.25s ease-out;
+
+    transition-delay: var(--delay, 0ms);
+}
+
+/* Hover */
+.link-glow:hover::after {
+    width: 100%;
+}
+
+.link-glow.nav-active::after {
+   /* Copie as mesmas propriedades do hover aqui */
+   width: 100%;
+}

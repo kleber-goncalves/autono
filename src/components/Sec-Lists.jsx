@@ -22,7 +22,7 @@ export default function Sec_Lists({
     href = "#",
     target = "_self",
 }) {
-    const baseClass = "flex xl:px-50 px-7 flex-col  ";
+    const baseClass = "flex xl:px-50  flex-col  ";
     const ul =
         "flex flex-col md:grid grid-cols-2 grid-rows-3 gap-y-10 gap-x-20 lg:gap-x-100  list-disc ml-5";
     const baseTitle = " md:text-2xl text-lg  leading-relaxed tracking-widest ";

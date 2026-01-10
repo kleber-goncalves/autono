@@ -2,6 +2,8 @@ import React, { useState, useRef, useEffect } from "react";
 import ModalTrigger from "./ModalTrigger";
 import { useForm } from "../hooks/useForm";
 import { X } from "lucide-react";
+import "../style/efeitoLink.css"
+import "../style/efeitoLinkGlow.css"
 
 // conteúdo do modal
 function SubscribeContent() {
@@ -465,7 +467,7 @@ function Nav() {
                             setActiveLink("/tecnologia"), setIsMenuOpen(false)
                         )}
                         href="/tecnologia"
-                        className={`text-2xl font-light transition-colors duration-75 link-glow  ease-linear ${getLinkClasses(
+                        className={`text-2xl font-light transition-colors duration-75 link  ease-linear ${getLinkClasses(
                             "/tecnologia"
                         )}`}
                     >
@@ -476,7 +478,7 @@ function Nav() {
                             setIsMenuOpen(false), setActiveLink("/sobre")
                         )}
                         href="/sobre"
-                        className={`text-2xl font-light transition-colors duration-75 link-glow  ease-linear ${getLinkClasses(
+                        className={`text-2xl font-light transition-colors duration-75 link  ease-linear ${getLinkClasses(
                             "/sobre"
                         )}`}
                     >
@@ -487,7 +489,7 @@ function Nav() {
                             setIsMenuOpen(false), setActiveLink("/carreiras")
                         )}
                         href="/carreiras"
-                        className={`text-2xl font-light transition-colors duration-75 link-glow ease-linear ${getLinkClasses(
+                        className={`text-2xl font-light transition-colors duration-75 link ease-linear ${getLinkClasses(
                             "/carreiras"
                         )}`}
                     >
