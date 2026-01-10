@@ -14,7 +14,7 @@ if (typeof window !== "undefined") {
  * @param {number} scrollLength - A duração da rolagem em pixels para a animação (ex: 2000).
  */
 export function useGsapContainerAnimation(
-    containerRef, // ⬅️ Agora aceita uma Ref
+    containerRef,
     animatedElementsSelector,
     scrollLength = 2000
 ) {
@@ -56,7 +56,7 @@ export function useGsapContainerAnimation(
             });
         });
 
-        // 3. Função de limpeza (cleanup)
+        // Função de limpeza (cleanup)
         return () => {
             // A melhor forma de limpar é matar todos os triggers associados a este elemento Ref
             ScrollTrigger.getAll().forEach((trigger) => {

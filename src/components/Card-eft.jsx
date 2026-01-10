@@ -92,7 +92,7 @@ export default function Card_eft({
 
     useEffect(() => {
         let ctx = gsap.context(() => {
-            // 1. Animação para a primeira imagem de carro (slide da direita para a esquerda)
+            //  Animação para a primeira imagem de carro (slide da direita para a esquerda)
             // animação do box1 (usa o ref diretamente)
             if (box1Ref.current) {
                 gsap.fromTo(

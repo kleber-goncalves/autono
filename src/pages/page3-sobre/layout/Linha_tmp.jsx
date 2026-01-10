@@ -12,7 +12,7 @@ import "swiper/css";
 import "swiper/css/free-mode";
 
 
-// Dados de exemplo expandidos para ter 8 itens, resultando em 4 slides de 2 itens
+// Dados dos 4 Slides
 const timelineData = [
     {
         id: 1,

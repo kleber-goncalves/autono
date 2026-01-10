@@ -6,12 +6,12 @@ import MouseAnimation from "/src/components/MouseAnimation";
 
 function BackgroundVideo() {
     return (
-        // 1. O container pai deve ser relative para conter o vídeo absolute
+        // O container pai deve ser relative para conter o vídeo absolute
         <div
             className="relative z-3 w-full md:h-screen h-full overflow-hidden"
             data-bg="white"
         >
-            {/* 2. O Vídeo: age como o background */}
+            {/* O Vídeo: age como o background */}
             <video
                 data-bg="white"
                 className="absolute top-0  left-0 w-full h-full object-center  object-cover -z-10 "
@@ -22,7 +22,7 @@ function BackgroundVideo() {
                 playsInline // Importante para iOS
             />
 
-            {/* 4. O Conteúdo: Fica por cima de tudo */}
+            {/* O Conteúdo: Fica por cima de tudo */}
             <div data-bg="white" className="flex z-10 flex-col  ">
                 <Intro_cmp
                     className=" py-30"

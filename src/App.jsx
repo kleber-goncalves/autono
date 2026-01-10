@@ -1,5 +1,4 @@
 import React from "react";
-
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import CustomCursor from "/src/components/CustomCursor";
@@ -26,8 +25,6 @@ const PesquisadorIA = React.lazy(() => import("./pages/page-areas-cv/pagePesqIA/
 const EngenheiroDeepLearning = React.lazy(() => import("./pages/page-areas-cv/pageEngenheiro-Deep-Learning/engenheiro-Deep-Learning.jsx"));
 const EnvioCurriculo = React.lazy(() => import("./pages/pageCV/envieCurriculo.jsx"));
 
-
-// Importar o componente de Load
 
 function App() {
     return (

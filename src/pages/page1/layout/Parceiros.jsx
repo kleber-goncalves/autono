@@ -27,7 +27,7 @@ function Parceiros() {
             ref={containerRef}
             className="bg-black min-h-screen md:max-h-screen border-b-2 sticky top-0 efeito-container border-white pl-5 xl:pl-30 2xl:pl-50 py-10 xl:py-37 mb-70 xl:mb-0 overflow-hidden xl:block  flex flex-col justify-center "
         >
-            {/* CSS para transição linear (essencial para o efeito de esteira) */}
+            {/* CSS para transição linear (para o efeito de esteira) */}
             <style>{`
                 .swiper-wrapper {
                     transition-timing-function: linear !important;

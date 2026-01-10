@@ -134,7 +134,7 @@ function SubscribeContent() {
 
 //888888888888888888///
 
-// Hook para direção de scroll (mantive sua lógica)
+// Hook para direção de scroll
 function useScrollDirection() {
     const [lastScrollY, setLastScrollY] = useState(0);
     const [scrollDirection, setScrollDirection] = useState("up");
@@ -162,10 +162,10 @@ function Nav() {
     const [isNavOverDark, setIsNavOverDark] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false); // Estado para o Mobile
 
-    // --- NOVO: Estado para rastrear o link ativo ---
+    // Estado para rastrear o link ativo ---
     const [activeLink, setActiveLink] = useState("");
 
-    // --- NOVO: Detecta a página atual ao carregar ---
+    // Detecta a página atual ao carregar ---
     useEffect(() => {
         // Pega o caminho atual (ex: "/tecnologia")
         const path = window.location.pathname;
@@ -286,7 +286,7 @@ function Nav() {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [navRef]);
 
-    // Classes rápidas
+   
     const visibilityClass =
         scrollDirection === "down" ? "-translate-y-18" : "translate-y-0 nav-up";
 
@@ -300,15 +300,15 @@ function Nav() {
         ? "bg-white/20 border border-white/60 backdrop-blur-sm"
         : "bg-black/20 border border-black/60 backdrop-blur-sm";
 
-    // Mudança de cor do texto do nav bar com base do "isNavOverDark ( Detector de cor de fundo )" dizer
+    // Mudança de cor do texto do nav bar com base do "isNavOverDark ( Detector de cor de fundo )
     const textColorClass = isNavOverDark ? "text-white" : "text-black";
 
     // --- Lógica Atualizada para Hover/Active ---
     const getLinkClasses = (path) => {
         const isActive = activeLink === path;
 
-        // Se estiver ativo, usamos cores "fixas" (como se estivesse em hover constante)
-        // Adicionei a classe 'nav-active' para você poder estilizar o glow no CSS se precisar
+        // Se estiver ativo, usara cores "fixas" (como se estivesse em hover constante)
+        // classe 'nav-active' para poder estilizar o glow no CSS se precisar
         if (isActive) {
             return isNavOverDark
                 ? "text-white font-medium nav-active"
@@ -320,14 +320,6 @@ function Nav() {
             ? "text-gray-300 hover:text-white hover:font-medium"
             : "text-gray-700 hover:text-black hover:font-medium";
     };
-
-
-
-/*
-    const linkHover = isNavOverDark
-        ? "hover:text-white text-gray-300 hover:font-medium" // V- text-branco
-        : "hover:text-black text-gray-700 hover:font-medium"; // V- text-preto
-*/
 
 
     

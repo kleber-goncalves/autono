@@ -1,5 +1,12 @@
-
-// Componente que prepara a estrutura de máscara
+/**
+ * TitleMask:
+ * Componente que quebra strings em linhas e aplica animação de mask
+ * 
+ * @param {object} props - Props do componente
+ * @param {string|array} props.children - Conteúdo a ser quebrado (string ou array de strings)
+ * @param {string} props.className - Classes CSS extras
+ * @returns {JSX.Element} - Elemento JSX
+ */
 export const TitleMask = ({ children, className }) => {
     // Se recebermos uma string simples, transformamos em array para garantir consistência
     // Se você quiser quebrar linhas manualmente, passe um array: ["Linha 1", "Linha 2"]
