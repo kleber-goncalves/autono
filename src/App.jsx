@@ -12,6 +12,7 @@ import LoadingScreenAutono from "./components/Loadings/LoadingScreenAutono";
 import LoadingScreenTecnologia from "./components/Loadings/LoadingScreenTecnologia";
 import LoadingScreenSobre from "./components/Loadings/LoadingScreenSobre";
 import LoadingScreenCarreiras from "./components/Loadings/LoadingScreenCarreiras";
+import LoadingPageCV from "./components/Loadings/LoadingPageCV";
 
 // Importes das páginas
 // React.lazy() para fazer o Code Splitting dos componentes da página
@@ -82,7 +83,7 @@ function App() {
                         path="/engenheiro-eletrico"
                         element={
                             <MinimumLoadingWrapper
-                                fallback={<LoadingScreenCarreiras />}
+                                fallback={<LoadingPageCV />}
                                 minDuration={900}
                             >
                                 <EngenheiroEletrico />
@@ -93,7 +94,7 @@ function App() {
                         path="/cientista-de-dados"
                         element={
                             <MinimumLoadingWrapper
-                                fallback={<LoadingScreenCarreiras />}
+                                fallback={<LoadingPageCV />}
                                 minDuration={900}
                             >
                                 <Cientistadedados />
@@ -104,7 +105,7 @@ function App() {
                         path="/pesquisidor-de-IA"
                         element={
                             <MinimumLoadingWrapper
-                                fallback={<LoadingScreenCarreiras />}
+                                fallback={<LoadingPageCV />}
                                 minDuration={900}
                             >
                                 <PesquisadorIA />
@@ -115,7 +116,7 @@ function App() {
                         path="/engenheiro-Deep-Learning"
                         element={
                             <MinimumLoadingWrapper
-                                fallback={<LoadingScreenCarreiras />}
+                                fallback={<LoadingPageCV />}
                                 minDuration={900}
                             >
                                 <EngenheiroDeepLearning />

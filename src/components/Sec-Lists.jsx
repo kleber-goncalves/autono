@@ -24,7 +24,7 @@ export default function Sec_Lists({
 }) {
     const baseClass = "flex xl:px-50  flex-col  ";
     const ul =
-        "flex flex-col md:grid grid-cols-2 grid-rows-3 gap-y-10 gap-x-20 lg:gap-x-100  list-disc ml-5";
+        "flex flex-col md:grid grid-cols-2 grid-rows-3 gap-y-10 gap-x-20 xl:gap-x-100  list-disc ml-5";
     const baseTitle = " md:text-2xl text-lg  leading-relaxed tracking-widest ";
     const baseLi =
         "md:text-base  text-xs  xl:max-w-md  leading-[1.8] tracking-wider";
@@ -39,7 +39,7 @@ export default function Sec_Lists({
     const divArrowClassName =
         "cursor-pointer md:text-xl text-sm md:px-3 px-2 md:py-2.5 hover:border-l";
 
-    // 🟨 VARIANTES
+    // VARIANTES
     const variants = {
         white: {
             title: "text-white",
