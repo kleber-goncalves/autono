@@ -20,6 +20,7 @@ function Localy() {
                     <img
                         src={IMAGES.PAGE4.LOCALY}
                         loading="lazy"
+                        decoding="async"
                         alt="localy"
                     />
                 </div>
@@ -27,6 +28,7 @@ function Localy() {
                     <img
                         src={IMAGES.PAGE4.LOCALY_MOBILE}
                         loading="lazy"
+                        decoding="async"
                         alt="localy mobile"
                     />
                 </div>

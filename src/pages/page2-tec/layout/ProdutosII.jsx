@@ -24,6 +24,7 @@ function ProdutosII() {
                         src={IMAGES.PAGE2.PAINEL_PRODUTOII}
                         alt="painel produto II"
                         loading="lazy"
+                        decoding="async"
                     />
                 </div>
                 <div className=" text-black flex flex-col px-7 xl:px-0  pb-8  items-center">

@@ -23,6 +23,7 @@ function ProdutosI() {
                         src={IMAGES.PAGE2.CAR_PRODUTO}
                         alt="car produto I"
                         loading="lazy"
+                        decoding="async"
                     />
                 </div>
                 <div className=" text-white flex flex-col px-7 xl:px-0 items-center">

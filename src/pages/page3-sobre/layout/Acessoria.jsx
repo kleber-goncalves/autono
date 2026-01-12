@@ -22,6 +22,7 @@ function Acessoria() {
                                 src={IMAGES.LOGOS.RCR}
                                 alt="RCR"
                                 loading="lazy"
+                                decoding="async"
                                 className="w-full max-w-[110px]  sm:max-w-[140px]  md:max-w-30 lg:max-w-[130px] xl:w-[700px] h-auto object-contain"
                             />
                         </div>
@@ -32,6 +33,7 @@ function Acessoria() {
                                 src={IMAGES.LOGOS.TB_REVIEW}
                                 alt="TBReview"
                                 loading="lazy"
+                                decoding="async"
                                 className="w-full max-w-[110px]  sm:max-w-[140px] md:max-w-30 lg:max-w-[130px] xl:w-[700px] h-auto object-contain"
                             />
                         </div>
@@ -43,6 +45,7 @@ function Acessoria() {
                                 src={IMAGES.LOGOS.FINANCE}
                                 alt="Finance"
                                 loading="lazy"
+                                decoding="async"
                                 className="w-full max-w-[110px]  sm:max-w-[140px] md:max-w-30 lg:max-w-[130px] xl:w-[700px] h-auto object-contain"
                             />
                         </div>
@@ -54,6 +57,7 @@ function Acessoria() {
                                 src={IMAGES.LOGOS.PABLO_ALTO_TRIBUNAL}
                                 alt="Palo Alto Tribunal"
                                 loading="lazy"
+                                decoding="async"
                                 className="w-full max-w-[110px]  sm:max-w-[140px] md:max-w-30 lg:max-w-[130px] xl:w-[700px] h-auto object-contain"
                             />
                         </div>
@@ -65,6 +69,7 @@ function Acessoria() {
                                 src={IMAGES.LOGOS.LONDON_POST}
                                 alt="London post"
                                 loading="lazy"
+                                decoding="async"
                                 className="w-full  max-w-[110px] sm:max-w-[140px] md:max-w-30 lg:max-w-[130px] xl:w-[700px] h-auto object-contain"
                             />
                         </div>

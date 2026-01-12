@@ -24,6 +24,7 @@ nos movemos"
                         src={IMAGES.PAGE3.MULHER_ABORDAGEM}
                         alt="mulher abordagem"
                         loading="lazy"
+                        decoding="async"
                         className="rounded-3xl md:max-w-xs lg:max-w-sm xl:max-w-2xl"
                     />
                 </div>

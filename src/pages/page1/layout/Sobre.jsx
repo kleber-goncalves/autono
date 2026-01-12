@@ -42,6 +42,7 @@ function Sobre() {
                         src={IMAGES.PAGE1.CAR_SOBRE}
                         alt="sobre"
                         loading="lazy"
+                        decoding="async"
                         ref={boxRef1}
                     />
                 </div>

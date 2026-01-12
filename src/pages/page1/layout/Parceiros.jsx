@@ -1,7 +1,6 @@
 import Card from "../../../components/Card";
 import { useGsapContainerAnimation } from "../../../hooks/Efeitos/useGsapEfeitoZoomScroll";
 import { useRef } from "react";
-import ProjectImage from "../../../components/ProjectImage";
 import { IMAGES } from "../../../data/imagesSupaBase";
 
 import { Fade } from "react-awesome-reveal";
@@ -110,6 +109,7 @@ const parceirosData = [
                                     <div className="flex flex-col items-center justify-center bg-white/5 border border-white/10 p-4 rounded-lg h-36">
                                         <img
                                             loading="lazy"
+                                            decoding="async"
                                             src={p.src}
                                            alt={p.name}
                                             className="h-14 w-full object-contain mb-3"
@@ -134,6 +134,7 @@ const parceirosData = [
                             <div className="flex flex-col stat-area gap-3 items-center">
                                 <img
                                     loading="lazy"
+                                    decoding="async"
                                     src={IMAGES.LOGOS.TRANS_PORT_X}
                                     alt="transportex parceiros"
                                     className="w-4/6"
@@ -152,6 +153,7 @@ const parceirosData = [
                             <div className="flex flex-col stat-area gap-13 items-center">
                                 <img
                                     loading="lazy"
+                                    decoding="async"
                                     src={IMAGES.LOGOS.IDISOFTWARE}
                                     alt="IDI Software parceiros"
                                     className="w-2/4 flex pt-4"
@@ -171,6 +173,7 @@ const parceirosData = [
                             <div className="flex flex-col stat-area gap-9 items-center">
                                 <img
                                     loading="lazy"
+                                    decoding="async"
                                     src={IMAGES.LOGOS.ICARS}
                                     alt="ICars parceiros"
                                     className="w-3/6"
@@ -190,6 +193,7 @@ const parceirosData = [
                             <div className="flex flex-col stat-area  items-center">
                                 <img
                                     loading="lazy"
+                                    decoding="async"
                                     src={IMAGES.LOGOS.TRI_NEX}
                                     alt="Tri-Nex parceiro"
                                     className="w-8/6 flex pb-3"
