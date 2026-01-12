@@ -1,69 +1,26 @@
-import { TfiArrowRight } from "react-icons/tfi";
+
+import Card from "../../../components/Card";
+import CardSlideshow from "../../../components/Slide_Card";
 
 function Carreira() {
     return (
-        <section className="bg-black border-b-2 border-white py-37 overflow-hidden">
+        <section className=" bg-black xl:max-h-screen border-t sticky md:mt-90 border-white py-15 px-8 xl:px-30 2xl:px-10  overflow-hidden">
             <div className="max-w-7xl mx-auto">
-                <div className="flex flex-row items-stretch gap-x-80">
-                    <div className="flex max-w-lg flex-col">
-                        <div className="border-l-2 border-white">
-                            <div className="flex text-white px-9 py-10 flex-col pl-10 gap-17">
-                                <p className="text-lg tracking-widest uppercase">
-                                    CARREIRAS
-                                </p>
-                                <h2 className="text-3xl leading-relaxed tracking-widest ">
-                                    Procuramos pessoas
-                                    <br />
-                                    talentosas e inovativas para o nosso time.
-                                    Veja as vagas e envie seu CV.
-                                </h2>
-                                <button
-                                    className="bg-black text-white flex border border-white cursor-pointer
-                                                rounded-lg w-fit max-w-xs items-center gap-2 px-8 py-3 tracking-wider hover:bg-white hover:border-black hover:text-black transition"
-                                >
-                                    <p className="text-2xl cursor-pointer">
-                                        Vagas
-                                    </p>
-                                    <div className="cursor-pointer text-2xl pl-4 border-l border-white h-full flex items-center">
-                                        <TfiArrowRight />
-                                    </div>
-                                </button>
-                            </div>
-                        </div>
+                <div className="flex xl:flex-row flex-col items-stretch xl:gap-x-30 2xl:gap-x-80">
+                    <div className="flex flex-col py-37 px-5 md:px-0">
+                        <Card
+                            classNameBaseII="md:mt-17 mt-10 md:max-w-sm gap-8"
+                            classNameTitle="max-w-sm text-lg md:mt-8 mt-4"
+                            classNameText="text-[11px] "
+                            variant="white"
+                            text="CARREIRAS"
+                            title="Procuramos pessoas talentosas e inovativas para o nosso time. Veja as vagas e envie seu CV."
+                            text_button="Vagas"
+                            href="/carreiras"
+                        />
                     </div>
-
-                    <div className="flex max-w-xl text-white text-xl flex-col rounded-3xl border-2 border-white">
-                        <div className="flex max-w-2xl flex-col">
-                            <div className="flex text-white px-9 py-10 flex-col pl-10 gap-10">
-                                <h2 className="text-3xl leading-relaxed tracking-widest ">
-                                    ENGENHEIRO ELÉTRICO
-                                </h2>
-                                
-                                    <p className="text-lg tracking-widest uppercase">
-                                        Curitiba, PR
-                                    </p>
-                                    <p className=" text-white max-w-3xl text-lg tracking-widest leading-relaxed">
-                                        Sou um parágrafo. Aqui você pode
-                                        adicionar seu texto. É fácil, basta
-                                        clicar em "Editar texto" ou clicar duas
-                                        vezes sobre mim para editar o conteúdo,
-                                        a fonte e mais.
-                                    </p>
-                                
-
-                                <button
-                                    className="bg-black text-white flex border border-white cursor-pointer
-                                                rounded-lg w-fit max-w-xs items-center gap-2 px-8 py-3 tracking-wider hover:bg-white hover:border-black hover:text-black transition"
-                                >
-                                    <p className="text-2xl cursor-pointer">
-                                        Candidatar
-                                    </p>
-                                    <div className="cursor-pointer text-2xl pl-4 border-l border-white h-full flex items-center">
-                                        <TfiArrowRight />
-                                    </div>
-                                </button>
-                            </div>
-                        </div>
+                    <div className="">
+                        <CardSlideshow />
                     </div>
                 </div>
             </div>

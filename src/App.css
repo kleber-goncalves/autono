@@ -1,10 +1,92 @@
 @import "tailwindcss";
 
 @layer base {
-  * {
-    font-family: "Montserrat", sans-serif;
-    box-sizing: border-box;
-  }
+    * {
+        font-family: "Montserrat", sans-serif;
+        box-sizing: border-box;
+    }
+}
+
+html {
+    -webkit-overflow-scrolling: touch;
+}
+
+
+
+
+@keyframes nav-up {
+    0% {
+        transform: translateY(26%);
+    }
+    50% {
+        transform: translateY(46%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.nav-up {
+    animation: nav-up 1.5s ease;
+}
+
+@keyframes nav-padrao {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.nav-padrao {
+    animation: nav-padrao;
+}
+
+@keyframes fadeIn {
+    /* 0% (Início da animação) */
+    from {
+        opacity: 0;
+    }
+    /* 100% (Fim da animação) */
+    to {
+        opacity: 1;
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes custom-bounce {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(3px);
+    } /* Aumente este valor para descer mais */
+}
+.animate-custom-bounce {
+    animation: custom-bounce 1.5s infinite ease;
+}
+
+@keyframes animation_scroll {
+    from {
+        opacity: 0;
+        transform: translate(-150px);
+    }
+    to {
+        opacity: 1;
+        transform: translate(0px);
+    }
+}
+
+.scroll-animation {
+    animation: animation_scroll linear;
+    animation-duration: 1s;
+    animation-timeline: view();
+    animation-range: entry 0% cover 100%;
 }
 
 .hero {
@@ -23,10 +105,6 @@
     padding-bottom: 17rem;
 }
 
-.textRoot {
-    color: black;
-}
-
 .textRoot:hover {
     color: rgb(158, 117, 90);
 }
@@ -36,4 +114,38 @@
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
+}
+
+
+/* App.css -> correção das grid-areas */
+.grid-templete {
+  display: grid;
+  grid-template-areas:
+    ". um ."
+    ". dois ."
+    ". tres ."
+    ". quatro ."
+    ". cinco ."
+    ". seis .";
+}
+
+/* nomes válidos de área */
+.um { grid-area: um; }
+.dois { grid-area: dois; }
+.tres { grid-area: tres; }
+.quatro { grid-area: quatro; }
+.cinco { grid-area: cinco; }
+.seis { grid-area: seis; }
+
+/* remover o uso de grid-template-areas em telas maiores
+   (assim o md:grid-cols-2 do Tailwind não ficará em conflito) */
+@media (min-width: 989px) {
+  .grid-templete {
+    grid-template-areas: none;
+  }
+
+  /* IMPORTANTE: Você também deve resetar os itens filhos para 'auto' */
+  .um, .dois, .tres, .quatro, .cinco, .seis {
+    grid-area: auto;
+  }
 }

@@ -1,118 +1,511 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import ModalTrigger from "./ModalTrigger";
+import { useForm } from "../hooks/useForm";
+import { X } from "lucide-react";
+import "../style/efeitoLink.css"
+import "../style/efeitoLinkGlow.css"
 
-// =========================================================
-// 1. HOOK CUSTOMIZADO: Lógica de esconder/mostrar (Smart Navbar)
-// Mantido do código anterior.
-// =========================================================
+// conteúdo do modal
+function SubscribeContent() {
+
+
+
+    const validateSchema = {
+    email: {
+        required: true,
+        type: "email",
+    },
+    };
+    
+        const onSubmit = async (values) => {
+        await new Promise((resolve) => setTimeout(resolve, 2000));
+        console.log("Payload enviado:", values);
+        alert("Candidatura enviada com sucesso!");
+        // await api.post("/users", values);
+    };
+
+    const { values, errors, loading, handleChange, handleSubmit } = useForm(
+        {
+            email: "",
+        },
+        validateSchema,
+        onSubmit
+    );
+
+  return (
+      <>
+          <div className="flex flex-col gap-6">
+              <div className="flex flex-row justify-between items-center">
+                  <h2 className="text-xl text-white tracking-widest">
+                      ASSINAR
+                  </h2>
+                  <button
+                      className=" md:hidden w-9 h-9 rounded-full bg-slate-100 flex items-center justify-center shadow-sm focus:outline-none"
+                      aria-label="Fechar modal"
+                  >
+                      <X size={18} />
+                  </button>
+              </div>
+
+              <p className="md:mt-12 text-base text-white tracking-wide">
+                  Receba notícias e atualizações sobre o Autono. pelo seu
+                  e-mail.
+              </p>
+
+              {/* Botão fechar redondo */}
+
+              <form
+                  className="mt-4 flex w-full max-w-md group"
+                  onSubmit={handleSubmit}
+              >
+                  <input
+                      id="email"
+                      value={values.email}
+                      loading={loading}
+                      onChange={handleChange}
+                      errors={errors}
+                      aria-describedby={
+                          errors.email ? "email-error" : undefined
+                      }
+                      aria-invalid={!!errors.email}
+                      type="email"
+                      name="email"
+                      className="flex-1 px-4 py-2 bg-transparent border border-white/20 text-white rounded-l-lg outline-none placeholder-gray-400 focus:border-white/60 focus:bg-white/5 transition-all duration-300"
+                      placeholder="seu@email.com"
+                  />
+
+                  <button
+                      type="submit"
+                      disabled={loading}
+                      className={`flex-row flex px-6 py-2 bg-white text-black font-semibold rounded-r-lg border border-black hover:bg-gray-200  duration-300 tracking-wide cursor-pointer text-xs md:text-base transition-all transform active:scale-[0.98]
+                            ${
+                                loading
+                                    ? "bg-gray-400 cursor-not-allowed"
+                                    : "border-white bg-black hover:bg-white hover:inset-shadow-sm hover:inset-shadow-indigo-500 hover:shadow-lg/20 hover:shadow-[#ffffff] hover:text-black"
+                            }`}
+                  >
+                      {loading ? (
+                          <span className="flex items-center justify-center">
+                              <svg
+                                  className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                                  viewBox="0 0 24 24"
+                              >
+                                  <circle
+                                      className="opacity-25"
+                                      cx="12"
+                                      cy="12"
+                                      r="10"
+                                      stroke="currentColor"
+                                      strokeWidth="4"
+                                  ></circle>
+                                  <path
+                                      className="opacity-75"
+                                      fill="currentColor"
+                                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                                  ></path>
+                              </svg>
+                              Processando...
+                          </span>
+                      ) : (
+                          "Enviar"
+                      )}
+                  </button>
+              </form>
+              {/* Mensagem de erro (aparece somente se errors.email existir) */}
+              {errors.email && (
+                  <p
+                      id="email-error"
+                      role="alert"
+                      aria-live="assertive"
+                      className="mt-2 text-sm text-red-400 flex items-center gap-2"
+                  >
+                      Erro de envio do {errors.email}. Por favor, tente
+                      novamente.
+                  </p>
+              )}
+          </div>
+
+          <div className="text-xs text-slate-500">
+              Dica: feche com ESC ou tocando fora do modal.
+          </div>
+      </>
+  );
+}
+
+//888888888888888888///
+
+// Hook para direção de scroll
 function useScrollDirection() {
     const [lastScrollY, setLastScrollY] = useState(0);
     const [scrollDirection, setScrollDirection] = useState("up");
 
-    const updateScrollDirection = () => {
-        const scrollY = window.scrollY;
-
-        // Esconde se rolar para baixo e já tiver saído do topo (> 50px)
-        const direction = scrollY > lastScrollY && scrollY > 600 ? "down" : "up";
-
-        if (direction !== scrollDirection) {
-            setScrollDirection(direction);
-        }
-
-        setLastScrollY(scrollY > 0 ? scrollY : 0);
-    };
-
     useEffect(() => {
-        window.addEventListener("scroll", updateScrollDirection);
-        return () => {
-            window.removeEventListener("scroll", updateScrollDirection);
+        const update = () => {
+            const y = window.scrollY;
+            const dir = y > lastScrollY && y > 600 ? "down" : "up";
+            if (dir !== scrollDirection) setScrollDirection(dir);
+            setLastScrollY(y > 0 ? y : 0);
         };
-    }, [lastScrollY]);
+        window.addEventListener("scroll", update, { passive: true });
+        return () => window.removeEventListener("scroll", update);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [lastScrollY, scrollDirection]);
 
     return scrollDirection;
 }
 
-// =========================================================
-// 2. COMPONENTE NAV: Lógica de Cor de Fundo
-// =========================================================
 function Nav() {
+    const navRef = useRef(null);
     const scrollDirection = useScrollDirection();
 
-    // NOVO ESTADO: Controla se o usuário rolou o suficiente para mudar a cor
     const [isScrolled, setIsScrolled] = useState(false);
+    const [isNavOverDark, setIsNavOverDark] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false); // Estado para o Mobile
 
-    // NOVO EFEITO: Monitora a posição do scroll para mudar 'isScrolled'
+    // Estado para rastrear o link ativo ---
+    const [activeLink, setActiveLink] = useState("");
+
+    // Detecta a página atual ao carregar ---
     useEffect(() => {
-        const handleScrollColor = () => {
-            // Define o limite de scroll (ex: 80px)
-            setIsScrolled(window.scrollY > 80);
-        };
+        // Pega o caminho atual (ex: "/tecnologia")
+        const path = window.location.pathname;
+        setActiveLink(path);
+    }, []);
 
-        window.addEventListener("scroll", handleScrollColor);
-        handleScrollColor(); // Executa na montagem para verificar o estado inicial
+    // Bloquear scroll quando menu mobile estiver aberto
+    useEffect(() => {
+        document.body.style.overflow = isMenuOpen ? "hidden" : "unset";
+    }, [isMenuOpen]);
 
+    //  isScrolled
+    useEffect(() => {
+        const handleScrollColor = () => setIsScrolled(window.scrollY > 80);
+        window.addEventListener("scroll", handleScrollColor, { passive: true });
+        window.addEventListener("resize", handleScrollColor);
+        handleScrollColor();
         return () => {
             window.removeEventListener("scroll", handleScrollColor);
+            window.removeEventListener("resize", handleScrollColor);
         };
     }, []);
 
-    // Classe para esconder/mostrar (baseada na direção)
+    // Lógica de detecção de cor de fundo
+    // Checagem rápida e imediata durante o scroll (rAF)
+    useEffect(() => {
+        if (!navRef.current) return;
+        let raf = null;
+
+        const parseRgb = (rgbStr) => {
+            if (!rgbStr) return null;
+            const m = rgbStr.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/i);
+            if (!m) return null;
+            return [parseInt(m[1], 10), parseInt(m[2], 10), parseInt(m[3], 10)];
+        };
+        const brightness = (r, g, b) => (299 * r + 587 * g + 114 * b) / 1000;
+        const findSectionAncestor = (el) => {
+            while (el && el !== document.body) {
+                if (el.tagName && el.tagName.toLowerCase() === "section")
+                    return el;
+                if (
+                    el.dataset &&
+                    (el.dataset.section !== undefined ||
+                        el.dataset.bg !== undefined)
+                )
+                    return el;
+                el = el.parentElement;
+            }
+            return null;
+        };
+
+        // Função que decide se está sobre fundo escuro
+        const checkUnderNav = () => {
+            if (!navRef.current) return;
+
+            const rect = navRef.current.getBoundingClientRect();
+            const x = Math.round(rect.left + rect.width / 2);
+            const y = Math.round(
+                Math.min(window.innerHeight - 1, rect.bottom + 2)
+            );
+            const el = document.elementFromPoint(x, y);
+            if (!el) return;
+
+            const section = findSectionAncestor(el) || el;
+
+            // Prioriza data-bg (controle manual)
+            if (section.dataset && section.dataset.bg) {
+                const val = section.dataset.bg.toLowerCase();
+                setIsNavOverDark(
+                    val === "dark" || val === "black" || val === "preto"
+                );
+                return;
+            }
+
+            // Sobe para achar background-color sólido
+            let cur = section;
+            let bg = null;
+            while (cur && cur !== document.body) {
+                const style = window.getComputedStyle(cur);
+                bg = style.backgroundColor;
+                if (bg && bg !== "rgba(0, 0, 0, 0)" && bg !== "transparent")
+                    break;
+                cur = cur.parentElement;
+            }
+            if (!bg || bg === "rgba(0, 0, 0, 0)" || bg === "transparent") {
+                bg =
+                    window.getComputedStyle(document.body).backgroundColor ||
+                    "rgb(255,255,255)";
+            }
+
+            const rgb = parseRgb(bg);
+            if (!rgb) {
+                setIsNavOverDark(false);
+                return;
+            }
+            const b = brightness(...rgb);
+            setIsNavOverDark(b < 130);
+        };
+
+        // Handler de scroll: chama checkUnderNav via rAF a cada frame enquanto rola
+        const onScroll = () => {
+            if (raf) cancelAnimationFrame(raf);
+            raf = requestAnimationFrame(checkUnderNav);
+        };
+
+        // ADICIONA o listener direto (sem debounce) mas com rAF para limitar por frame
+        window.addEventListener("scroll", onScroll, { passive: true });
+        window.addEventListener("resize", onScroll);
+
+        // faz um check inicial
+        onScroll();
+
+        return () => {
+            if (raf) cancelAnimationFrame(raf);
+            window.removeEventListener("scroll", onScroll);
+            window.removeEventListener("resize", onScroll);
+        };
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [navRef]);
+
+   
     const visibilityClass =
-        scrollDirection === "down" ? "-translate-y-full" : "translate-y-0";
+        scrollDirection === "down" ? "-translate-y-18" : "translate-y-0 nav-up";
 
-    // Classe para cor de fundo (baseada na posição)
-    const bgColorClass = isScrolled
-        ? "bg-white  shadow-md"
-        : "bg-transparent  shadow-none"; // Fundo transparente no topo
+    // Mudança de cor de fundo do nav bar do "isNavOverDark ( Detector de cor de fundo )" dizer
+    // Se o menu estiver aberto, fundo sólido. Se fechado, mantém o efeito de vidro.
+    const bgColorClassII = isMenuOpen
+        ? isNavOverDark
+            ? "bg-black border-white/20"
+            : "bg-white border-black/10" // Fundo sólido sem transparência
+        : isNavOverDark
+        ? "bg-white/20 border border-white/60 backdrop-blur-sm"
+        : "bg-black/20 border border-black/60 backdrop-blur-sm";
 
-    // Classe para o logo/texto para garantir que ele seja visível
-    const textColorClass = isScrolled ? "text-black" : "text-black"; // Supondo que o Hero tenha fundo escuro
+    // Mudança de cor do texto do nav bar com base do "isNavOverDark ( Detector de cor de fundo )
+    const textColorClass = isNavOverDark ? "text-white" : "text-black";
+
+    // --- Lógica Atualizada para Hover/Active ---
+    const getLinkClasses = (path) => {
+        const isActive = activeLink === path;
+
+        // Se estiver ativo, usara cores "fixas" (como se estivesse em hover constante)
+        // classe 'nav-active' para poder estilizar o glow no CSS se precisar
+        if (isActive) {
+            return isNavOverDark
+                ? "text-white font-medium nav-active"
+                : "text-black font-medium nav-active";
+        }
+
+        // Se não ativo, comportamento padrão
+        return isNavOverDark
+            ? "text-gray-300 hover:text-white hover:font-medium"
+            : "text-gray-700 hover:text-black hover:font-medium";
+    };
+
+
+    
+    // Controle maior do layout do nav bar com base do "isScrolled ( Detector de rolagem )" dizer
+    const bgColorClass = isMenuOpen
+        ? "w-screen h-screen top-0 left-0 rounded-none border-none" // Tela cheia mobile : isScrolled
+        : isScrolled
+        ? "w-auto mx-4 md:mx-23 top-0 md:top-3 rounded-2xl"
+        : "bg-transparent border-none w-full ";
+
+    // Controle maior do layout do nav bar
+    const containerBase =
+        "md:w-full mx-auto flex items-center justify-between transition-all duration-150 ease-linear will-change-transform";
+
+    // Mudança do layout do nav bar com base do "isScrolled ( Detector de rolagem )" dizer
+    const containerSizeClass = isScrolled
+        ? "max-w-6xl px-4 py-3"
+        : "max-w-8xl lg:px-30 px-6 py-7";
+
+    // animação para o nav nao ter animação quando estiver no topo do hero
+    const animtion = isScrolled ? "" : "nav-padrao";
 
     return (
         <nav
-            // ALTERADO: transition-all para animar tanto a posição quanto a cor
-            className={`
-                fixed top-0 w-full z-20 
-                transform transition-all duration-500
-                ${visibilityClass}
-                ${bgColorClass}
-            `}
+            ref={navRef}
+            // usar will-change pra performance, para o navegador ja esperar uma mudança
+            className={`fixed top-0 left-0 right-0 z-20 transform ${visibilityClass}  ${animtion} ${bgColorClassII}  ${bgColorClass} duration-800 ease-in-out`}
+            style={{ willChange: "transform, background-color" }}
         >
-            <div className="w-full max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-                {/* Logo */}
-                <div>
+            <div className={`${containerBase} ${containerSizeClass}`}>
+                <div className="shrink-0 z-110">
                     <a
                         href="/"
-                        // NOVO: Aplica a classe de cor de texto dinâmica
-                        className={`text-black text-xl tracking-widest font-extrabold transition duration-150 ${textColorClass}`}
+                        className={`font-bold tracking-[0.4rem] text-sm md:text-xl  transition-colors duration-75 ease-linear ${textColorClass}`}
+                        style={{ willChange: "color" }}
                     >
                         AUTONO
                     </a>
                 </div>
 
-                {/* Links de Navegação */}
-                <div className="hidden md:flex gap-8 items-center">
-                    {/* NOVO: Aplica a classe de cor de texto dinâmica nos links */}
-                    <LinkItem href="/tecnologia" isScrolled={isScrolled}>
-                        Tecnologia
-                    </LinkItem>
-                    <LinkItem href="/sobre" isScrolled={isScrolled}>
-                        Sobre
-                    </LinkItem>
-                    <LinkItem href="/carreiras" isScrolled={isScrolled}>
-                        Carreiras
-                    </LinkItem>
+                {/* MOBILE TOGGLE BUTTON */}
 
-                    {/* Botão de Ação (CTA) - Manter cores fortes para visibilidade */}
+                <button
+                    onClick={() => setIsMenuOpen(!isMenuOpen)}
+                    className="md:hidden z-[110] p-1 focus:outline-none relative w-10 h-10"
+                    aria-label="Toggle Menu"
+                >
+                    <div className="absolute inset-0 flex flex-col items-center justify-center">
+                        <span
+                            className={`block w-6 h-[2px] transition-all duration-300 ${textColorClass} bg-current ${
+                                isMenuOpen
+                                    ? "rotate-45 translate-y-[1px]"
+                                    : "-translate-y-1"
+                            }`}
+                        ></span>
+                        <span
+                            className={`block w-6 h-[2px] transition-all duration-300 ${textColorClass} bg-current ${
+                                isMenuOpen
+                                    ? "-rotate-45 -translate-y-[1px]"
+                                    : "translate-y-1"
+                            }`}
+                        ></span>
+                    </div>
+                </button>
+
+                {/* DESKTOP LINKS*/}
+                <div
+                    className={`hidden md:flex gap-8 items-center ${textColorClass}`}
+                >
                     <a
-                        href="/subscribe"
-                        className="
-                            bg-black text-white px-5 py-2 
-                            rounded-full font-medium text-sm
-                            hover:bg-white hover:text-black hover:border-black border-2 border-transparent transition duration-300
-                        "
+                        style={{ "--delay": "80ms" }}
+                        href="/tecnologia"
+                        onClick={() => setActiveLink("/tecnologia")}
+                        className={`text-base transition-colors duration-75 link-glow  ease-linear ${getLinkClasses(
+                            "/tecnologia"
+                        )}`}
                     >
-                        Assinar
+                        Tecnologia
                     </a>
+                    <a
+                        style={{ "--delay": "80ms" }}
+                        href="/sobre"
+                        onClick={() => setActiveLink("/sobre")}
+                        className={`text-base transition-colors duration-75 link-glow  ease-linear ${getLinkClasses(
+                            "/sobre"
+                        )}`}
+                    >
+                        Sobre
+                    </a>
+                    <a
+                        style={{ "--delay": "160ms" }}
+                        href="/carreiras"
+                        onClick={() => setActiveLink("/carreiras")}
+                        className={`text-base transition-colors duration-75 link-glow ease-linear ${getLinkClasses(
+                            "/carreiras"
+                        )}`}
+                    >
+                        Carreiras
+                    </a>
+                    <ModalTrigger
+                        modalContent={<SubscribeContent />}
+                        modalProps={{
+                            height: "60vh",
+                            ariaLabel: "Assinar agora",
+                        }}
+                    >
+                        <a
+                            role="link"
+                            href="/assinar"
+                            className={`px-7 py-[3px] rounded-md  border transition-colors duration-150 ease-linear ${
+                                isNavOverDark
+                                    ? "bg-white text-black hover:bg-black hover:text-white"
+                                    : "bg-black text-white border-black hover:bg-white hover:text-black"
+                            }`}
+                            style={{ willChange: "color, border-color" }}
+                        >
+                            Assinar
+                        </a>
+                    </ModalTrigger>
+                </div>
+
+                {/* MOBILE MENU OVERLAY */}
+                {/* MOBILE MENU OVERLAY - Com o mesmo fundo do Nav */}
+                <div
+                    className={`
+            fixed inset-0 h-screen w-screen transition-all duration-500 md:hidden flex flex-col items-center justify-center gap-8
+            ${bgColorClassII}
+            ${
+                isMenuOpen
+                    ? "opacity-100 visible"
+                    : "opacity-0 invisible pointer-events-none"
+            }
+        `}
+                >
+                    <a
+                        onClick={() => (
+                            setActiveLink("/tecnologia"), setIsMenuOpen(false)
+                        )}
+                        href="/tecnologia"
+                        className={`text-2xl font-light transition-colors duration-75 link  ease-linear ${getLinkClasses(
+                            "/tecnologia"
+                        )}`}
+                    >
+                        Tecnologia
+                    </a>
+                    <a
+                        onClick={() => (
+                            setIsMenuOpen(false), setActiveLink("/sobre")
+                        )}
+                        href="/sobre"
+                        className={`text-2xl font-light transition-colors duration-75 link  ease-linear ${getLinkClasses(
+                            "/sobre"
+                        )}`}
+                    >
+                        Sobre
+                    </a>
+                    <a
+                        onClick={() => (
+                            setIsMenuOpen(false), setActiveLink("/carreiras")
+                        )}
+                        href="/carreiras"
+                        className={`text-2xl font-light transition-colors duration-75 link ease-linear ${getLinkClasses(
+                            "/carreiras"
+                        )}`}
+                    >
+                        Carreiras
+                    </a>
+                    <ModalTrigger
+                        modalContent={<SubscribeContent />}
+                        modalProps={{
+                            className: "h-[40vh] sm:h-[50vh] xl:h-[60vh]",
+                            ariaLabel: "Assinar agora",
+                        }}
+                    >
+                        <a
+                            onClick={() => setIsMenuOpen(false)}
+                            href="/assinar"
+                            className={`px-10 py-3 rounded-full text-xl ${
+                                isNavOverDark
+                                    ? "bg-white text-black"
+                                    : "bg-black text-white"
+                            }`}
+                        >
+                            Assinar
+                        </a>
+                    </ModalTrigger>
                 </div>
             </div>
         </nav>
@@ -120,22 +513,3 @@ function Nav() {
 }
 
 export default Nav;
-
-// --- (Componente Auxiliar para Links) ---
-// ALTERADO: Recebe 'isScrolled' para gerenciar a cor do texto
-const LinkItem = ({ href, children, isScrolled }) => (
-    <a
-        href={href}
-        // Ajusta a cor do texto: preto quando scrollado, branco quando transparente
-        className={`
-            text-sm font-medium transition duration-150 py-1
-            ${
-                isScrolled
-                    ? "text-black hover:text-gray-600"
-                    : "text-black hover:text-gray-300"
-            }
-        `}
-    >
-        {children}
-    </a>
-);
