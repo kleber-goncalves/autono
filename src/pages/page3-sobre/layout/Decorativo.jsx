@@ -14,6 +14,7 @@ function Decorativo() {
             {/* Mobile: Imagem Normal */}
             <img
                 loading="lazy"
+                decoding="async"
                 src={IMAGES.FUNDOS.FUNDO_DESTAQUES_MOBILE}
                 alt="fundo destaque mobile"
                 className="lg:hidden object-cover w-full"

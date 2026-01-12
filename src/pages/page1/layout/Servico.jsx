@@ -103,6 +103,7 @@ let ctx = gsap.context(() => {
                             alt="car serviço"
                             ref={imgRef1}
                             loading="lazy"
+                            decoding="async"
                         />
                     </div>
                     <div className="relative quatro w-full p-0 sm:p-25 lg:p-0">
@@ -111,6 +112,7 @@ let ctx = gsap.context(() => {
                             alt="velocimentro"
                             ref={imgRef2}
                             loading="lazy"
+                            decoding="async"
                             className="w-full h-auto object-cover "
                         />
                     </div>
@@ -148,6 +150,7 @@ let ctx = gsap.context(() => {
                             alt="car servico 2"
                             ref={imgRef3}
                             loading="lazy"
+                            decoding="async"
                             className="w-full h-auto object-cover "
                         />
                     </div>

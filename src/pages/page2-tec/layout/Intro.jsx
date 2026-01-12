@@ -12,6 +12,7 @@ function Intro() {
                 image={IMAGES.FUNDOS.FUNDO_INTRO}
                 imageII={IMAGES.FUNDOS.FUNDO_INTRO_MOBILE}
                 rel="preload"
+                decoding="async"
                 as="image"
                 texto="Sentimos o mundo à nossa volta, interpretamos cada movimento —
 Veículos que “veem” como você, reagem antes mesmo do mundo pedir,

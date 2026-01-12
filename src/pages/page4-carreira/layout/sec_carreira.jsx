@@ -51,6 +51,7 @@ function Sec_carreira() {
                     <img
                         src={IMAGES.PAGE4.PISTA_CARREIRA}
                         loading="lazy"
+                        decoding="async"
                         alt="pista carreira"
                     />
                 </div>
