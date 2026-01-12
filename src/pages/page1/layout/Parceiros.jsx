@@ -1,80 +1,204 @@
+import Card from "../../../components/Card";
+import { useGsapContainerAnimation } from "../../../hooks/Efeitos/useGsapEfeitoZoomScroll";
+import { useRef } from "react";
+import ProjectImage from "../../../components/ProjectImage";
+import { IMAGES } from "../../../data/imagesSupaBase";
+
+import { Fade } from "react-awesome-reveal";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, FreeMode } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css/free-mode";
+
 function Parceiros() {
+    const containerRef = useRef(null);
+
+    useGsapContainerAnimation(containerRef, ".stat-area", 2000);
+
+const parceirosData = [
+    {
+        id: "trans-x",
+        src: IMAGES.LOGOS.TRANS_PORT_X, // Sem as chaves {}
+        name: "TRANSPORTE X",
+        delay: 1200,
+    },
+    {
+        id: "idi-software",
+        src: IMAGES.LOGOS.IDISOFTWARE,
+        name: "IDI SOFTWARE",
+        delay: 1800,
+    },
+    {
+        id: "icars",
+        src: IMAGES.LOGOS.ICARS,
+        name: "IMAGINE CARROS",
+        delay: 2200,
+    },
+    {
+        id: "tri-nex",
+        src: IMAGES.LOGOS.TRI_NEX,
+        name: "TRI-NEX",
+        delay: 2800,
+    },
+];
+
     return (
-        <section className="bg-black max-h-screen border-b-2 border-white pl-50 py-37 overflow-hidden">
-            <div className="grid grid-cols-1 lg:grid-cols-2 pr-40  gap-16">
-                <div className="flex max-w-lg flex-col ">
-                    <div className="top-0 left-0 h-full w-full border-l-4 border-white">
-                        <div className="flex min-w-dvw text-white px-9 flex-col pl-10 gap-14">
-                            <p className="text-lg tracking-widest uppercase">
-                                INDÚSTRIA
-                            </p>
+        <section
+            ref={containerRef}
+            className="bg-black min-h-screen md:max-h-screen border-b-2 sticky top-0 efeito-container border-white pl-5 xl:pl-30 2xl:pl-50 py-10 xl:py-37 mb-70 xl:mb-0 overflow-hidden xl:block  flex flex-col justify-center "
+        >
+            {/* CSS para transição linear (para o efeito de esteira) */}
+            <style>{`
+                .swiper-wrapper {
+                    transition-timing-function: linear !important;
+                }
+                .swiper-slide {
+                    opacity: 0.4;
+                    transition: opacity 1.5s ease;
+                }
+                .swiper-slide-next {
+                    opacity: 1;
+                    transition: opacity 3.2s ease;
+                }
+               
+                .swiper-slide-active{
+                    opacity: 1;
+                }
+            `}</style>
 
-                            <h2 className="text-5xl leading-relaxed tracking-widest ">
-                                Nossos
-                                <br />
-                                parceiros
-                            </h2>
-
-                            <p className="text-lg text-white max-w-md tracking-widest leading-relaxed">
-                                Clique aqui para adicionar e personalizar seu
-                                texto. Este é um ótimo espaço para contar sobre
-                                a sua empresa e fazer com que os visitantes
-                                saibam mais sobre sua história, sua equipe ou
-                                qualquer outra informação que você desejar
-                                compartilhar. É fácil, clique em “Editar texto”
-                                para começar.
-                            </p>
-                        </div>
-                    </div>
+            <div className="grid grid-cols-1 xl:grid-cols-2 pr-5 xl:pr-30 2xl:pr-40 gap-20 w-full ">
+                <div className="flex xl:max-w-sm stat-area flex-col justify-center">
+                    <Card
+                        classNameBarraII="md:h-17"
+                        classNameBaseII="md:mt-17 mt-7 gap-4"
+                        classNameTitle="max-w-sm  md:mt-4 text-lg"
+                        classNameText="text-[11px] "
+                        variant="white"
+                        text="INDÚSTRIA"
+                        title={"Nossos parceiros"}
+                        text_2="Nossa empresa une forças com Transporte X, IDI Software, Imagine Carros e TRI-NEX para combinar logística, software, engenharia e componentes de alta qualidade. Essa colaboração integra competências complementares para criar veículos elétricos com tecnologia, confiabilidade e eficiência técnica. Juntos, transformamos ideias em realidade e ampliamos nossa capacidade de inovar e entregar produtos robustos."
+                    />
                 </div>
-                <div className="grid grid-cols-2 gap-30 items-center justify-items-center">
-                    <div className="flex flex-col gap-3 items-center">
-                        <img
-                            src="/public/TransportX-parceiros.png"
-                            alt="TRANSPORTEX      
 
-"
-                            className="w-4/6"
-                        />
-                        <h2 className="text-white text-xl text-center tracking-widest">
-                            TRANSPORTE X
-                        </h2>
+                <div className="w-full">
+                    {/* MOBILE: Carrossel Contínuo (Infinito Suave) */}
+                    <div className="xl:hidden block w-full">
+                        <Swiper
+                            modules={[Autoplay, FreeMode]}
+                            spaceBetween={15}
+                            slidesPerView={2.2}
+                            loop={true}
+                            freeMode={{
+                                enabled: true,
+                                momentum: false, // Desativa o impulso para não conflitar com o autoplay linear
+                            }}
+                            speed={4000}
+                            autoplay={{
+                                delay: 0,
+                                disableOnInteraction: false,
+                                pauseOnMouseEnter: true, // Pausa o movimento automático se o usuário estiver interagindo
+                            }}
+                            // Melhora o comportamento do arraste manual
+                            touchEventsTarget="container"
+                            grabCursor={true}
+                            className="py-5"
+                        >
+                            {parceirosData.map((p) => (
+                                <SwiperSlide key={p.id}>
+                                    <div className="flex flex-col items-center justify-center bg-white/5 border border-white/10 p-4 rounded-lg h-36">
+                                        <img
+                                            loading="lazy"
+                                            src={p.src}
+                                           alt={p.name}
+                                            className="h-14 w-full object-contain mb-3"
+                                        />
+                                        <h2 className="text-white text-[9px] font-bold tracking-widest text-center uppercase">
+                                            {p.name}
+                                        </h2>
+                                    </div>
+                                </SwiperSlide>
+                            ))}
+                        </Swiper>
                     </div>
-                    <div className="flex flex-col gap-13 items-center">
-                        <img
-                            src="/public/IDISoftware-parceiros.png"
-                            alt="TRANSPORTEX      
 
-"
-                            className="w-2/4 flex pt-4"
-                        />
-                        <h2 className="text-white text-center  text-xl tracking-widest">
-                            IDI SOFTWARE
-                        </h2>
-                    </div>
-                    <div className="flex flex-col gap-9 items-center">
-                        <img
-                            src="/public/ICars-parceiros.png"
-                            alt="TRANSPORTEX      
-
-"
-                            className="w-3/6"
-                        />
-                        <h2 className="text-white text-center text-xl tracking-widest">
-                            IMAGINE CARROS
-                        </h2>
-                    </div>
-                    <div className="flex flex-col  items-center">
-                        <img
-                            src="/public/Tri-Nex-parceiro.png"
-                            alt="TRANSPORTEX      
-
-"
-                            className="w-8/6 flex pb-3"
-                        />
-                        <h2 className="text-white relative top-6 text-center text-xl tracking-widest">
-                            TRI-NEX
-                        </h2>
+                    {/* DESKTOP: Grid Original */}
+                    <div className="hidden xl:grid grid-cols-2 gap-40 items-center md:pt-7 justify-items-center">
+                        <Fade
+                            cascade
+                            duration={1200}
+                            triggerOnce
+                            damping={0.14}
+                        >
+                            <div className="flex flex-col stat-area gap-3 items-center">
+                                <img
+                                    loading="lazy"
+                                    src={IMAGES.LOGOS.TRANS_PORT_X}
+                                    alt="transportex parceiros"
+                                    className="w-4/6"
+                                />
+                                <h2 className="text-white text-xl text-center tracking-widest">
+                                    TRANSPORTE X
+                                </h2>
+                            </div>
+                        </Fade>
+                        <Fade
+                            cascade
+                            duration={1800}
+                            triggerOnce
+                            damping={0.14}
+                        >
+                            <div className="flex flex-col stat-area gap-13 items-center">
+                                <img
+                                    loading="lazy"
+                                    src={IMAGES.LOGOS.IDISOFTWARE}
+                                    alt="IDI Software parceiros"
+                                    className="w-2/4 flex pt-4"
+                                />
+                                <h2 className="text-white text-center  text-xl tracking-widest">
+                                    IDI SOFTWARE
+                                </h2>
+                            </div>
+                        </Fade>
+                        <Fade
+                            cascade
+                            duration={2200}
+                            triggerOnce
+                            damping={0.14}
+                            fraction={0.2}
+                        >
+                            <div className="flex flex-col stat-area gap-9 items-center">
+                                <img
+                                    loading="lazy"
+                                    src={IMAGES.LOGOS.ICARS}
+                                    alt="ICars parceiros"
+                                    className="w-3/6"
+                                />
+                                <h2 className="text-white text-center text-xl tracking-widest">
+                                    IMAGINE CARROS
+                                </h2>
+                            </div>
+                        </Fade>
+                        <Fade
+                            cascade
+                            triggerOnce
+                            duration={2800}
+                            damping={0.14}
+                            fraction={0.2}
+                        >
+                            <div className="flex flex-col stat-area  items-center">
+                                <img
+                                    loading="lazy"
+                                    src={IMAGES.LOGOS.TRI_NEX}
+                                    alt="Tri-Nex parceiro"
+                                    className="w-8/6 flex pb-3"
+                                />
+                                <h2 className="text-white relative top-6 text-center text-xl tracking-widest">
+                                    TRI-NEX
+                                </h2>
+                            </div>
+                        </Fade>
                     </div>
                 </div>
             </div>

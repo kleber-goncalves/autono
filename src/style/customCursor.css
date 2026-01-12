@@ -1,0 +1,71 @@
+/* Esconde cursor nativo */
+html, body {
+  cursor: none;
+}
+
+/*Restaura o cursor nativo em elementos clicáveis.
+   Isso faz o "mãozinha" ou "texto" do sistema aparecer. */
+a, button, input, textarea, label, [role="button"], select {
+  cursor: pointer; /* ou auto/text dependendo do caso */
+}
+input[type="text"], textarea {
+  cursor: text;
+}
+
+/* elemento externo: anel suave que faz a inversão de cor */
+.custom-cursor-outer {
+  position: fixed;
+  left: 0;
+  top: 0;
+  opacity: 1;
+  pointer-events: none;
+  z-index: 9999;
+  border-radius: 50%;
+  /* fundo branco + mix-blend-mode: difference -> inverte o que está por baixo */
+  background: white;
+  mix-blend-mode: difference;
+  transform: translate(-50%, -50%);
+  /* sombra leve pra dar profundidade (opcional) */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: opacity 0.12s ease, width 0.12s ease, height 0.12s ease, background 0.12s ease;
+  /* não usar will-change: transform aqui (em alguns casos cria stacking context),
+     mas se precisar de performance, troque por will-change: transform e teste. */
+}
+
+/* elemento interno: ponto instantâneo, cor fixa para ficar legível */
+.custom-cursor-inner {
+  position: fixed;
+  left: 0;
+  top: 0;
+  opacity: 1;
+  pointer-events: none;
+  z-index: 9999;
+  border-radius: 50%;
+  background: black; /* ponto preto por padrão (vai se inverter visualmente pelo outer) */
+  transform: translate(-50%, -50%);
+  transition: opacity 0.09s ease, width 0.08s ease, height 0.08s ease, background 0.12s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
+/*Quando estiver sobre um link, essa classe é adicionada via JS */
+.is-hover-clickable {
+  opacity: 0 !important; /* Torna invisível */
+  width: 4px; /* Opcional: diminui um pouco ao sumir */
+  height: 4px;
+}
+
+/* aplica cursor: none apenas em dispositivos que suportam hover/mouse */
+@media (hover: hover) and (pointer: fine) {
+  html, body {
+    cursor: none;
+  }
+}
+
+/* Esconde elementos do cursor (caso algo renderize por engano em mobile) */
+@media (hover: none), (pointer: coarse) {
+  .custom-cursor-outer,
+  .custom-cursor-inner {
+    display: none !important;
+  }
+}
+

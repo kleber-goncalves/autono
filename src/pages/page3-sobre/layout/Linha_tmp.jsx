@@ -1,8 +1,18 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import TimelineCard from "./TimelineCard";
+import { Fade } from "react-awesome-reveal";
+import { Slide } from "react-awesome-reveal";
 
-// Dados de exemplo expandidos para ter 8 itens, resultando em 4 slides de 2 itens
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, FreeMode } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css/free-mode";
+
+
+// Dados dos 4 Slides
 const timelineData = [
     {
         id: 1,
@@ -85,18 +95,18 @@ function Linha_temp() {
     };
 
     return (
-        <section>
-            <div className="min-h-screen bg-white flex flex-col items-center justify-center py-40 font-sans selection:bg-orange-100">
+        <section className="bg-white">
+            <div className="md:min-h-screen bg-white flex flex-col items-center justify-center md:py-40 py-20 font-sans selection:bg-orange-100">
                 {/* Header */}
-                <div className="w-full max-w-6xl mb-12">
-                    <h1 className="text-3xl text-black tracking-wide">
+                <div className="w-full flex justify-center xl:justify-start max-w-6xl mb-12">
+                    <h1 className="text-lg md:text-3xl text-black tracking-wide">
                         Linha do tempo
                     </h1>
                 </div>
 
                 {/* Timeline Container */}
                 {/* max-w-7xl para ter espaço para os botões */}
-                <div className="relative w-full max-w-7xl flex items-center justify-center">
+                <div className="relative hidden  xl:flex w-full max-w-7xl  items-center justify-center">
                     {/* Navigation Button Left */}
                     {/* Posicionado à esquerda da "janela" de 1200px */}
                     {/* translate-x-[750px] (Para afastar a seta) */}
@@ -104,7 +114,7 @@ function Linha_temp() {
                         onClick={prevSlide}
                         disabled={currentIndex === 0}
                         className={`
-            z-20 p-2 rounded-full transition-colors hidden md:block absolute left-1/2 transform -translate-x-[750px]
+            z-20 p-2 rounded-full transition-colors hidden md:block absolute left-1/2 transform -translate-x-[750px] xl:-translate-x-[600px] 2xl:-translate-x-[750px]
             
             ${
                 currentIndex === 0
@@ -123,7 +133,7 @@ function Linha_temp() {
                         onClick={nextSlide}
                         disabled={currentIndex === TOTAL_SLIDES - 1}
                         className={`
-            z-20 p-2 rounded-full transition-colors hidden md:block absolute right-1/2 transform translate-x-[750px]
+            z-20 p-2 rounded-full transition-colors hidden md:block absolute right-1/2 transform translate-x-[750px] xl:translate-x-[600px] 2xl:translate-x-[750px]
             ${
                 currentIndex === TOTAL_SLIDES - 1
                     ? "text-gray-300 cursor-not-allowed"
@@ -135,8 +145,8 @@ function Linha_temp() {
                     </button>
 
                     {/* A Linha Horizontal Principal (Fundo) */}
-                    {/* max-w-[1300px] para garantir que a linha fique centralizada e não se estenda demais */}
-                    <div className="absolute top-1/2 h-px bg-gray-400 -translate-y-1/2 hidden md:block w-full max-w-[90%] md:max-w-[1400px]" />
+                    {/* max-w-[1400px] para garantir que a linha fique centralizada e não se estenda demais */}
+                    <div className="absolute top-1/2 h-px bg-gray-400 -translate-y-1/2 hidden md:block w-full max-w-[90%] md:max-w-[1400px] xl:max-w-[1070px] 2xl:max-w-[1400px]" />
 
                     {/* Janela do Slider - Fixada em 1200px para mostrar EXATAMENTE 2 itens de 600px */}
                     <div className="w-[1200px] overflow-hidden py-10">
@@ -162,7 +172,6 @@ function Linha_temp() {
                                 let alignmentClass = "";
 
                                 // Lógica de Alinhamento Horizontal (Efeito Degrau):
-                                // Esta classe será aplicada ao container flex (h-[300px] flex w-full)
                                 if (isSlideEven) {
                                     // SLIDE PAR (0, 2, 4...):
                                     // Card Par (Topo) -> justify-start (Esquerda)
@@ -178,7 +187,6 @@ function Linha_temp() {
                                         ? "justify-end"
                                         : "justify-start";
                                 }
-                                // No seu código original, isEven era usado para TOP/BOTTOM. Vamos manter isso.
 
                                 return (
                                     <div
@@ -186,42 +194,55 @@ function Linha_temp() {
                                         className="shrink-0 flex flex-col items-center relative"
                                         style={{ width: ITEM_WIDTH }}
                                     >
-                                        {/* Seção Superior (Conteúdo ou Vazio) */}
-                                        <div
-                                            className={`h-[300px] flex items-end w-full ${alignmentClass}`}
+                                        <Slide
+                                            duration={2600}
+                                            direction="right"
+                                            triggerOnce
                                         >
-                                            {isEven && (
-                                                <div
-                                                    className={`relative transform transition-all duration-500 hover:-translate-y-2 `}
-                                                >
-                                                    <TimelineCard
-                                                        data={item}
-                                                        position="top"
-                                                    />
-                                                </div>
-                                            )}
-                                        </div>
+                                            {/* Seção Superior (Conteúdo ou Vazio) */}
+                                            <div
+                                                className={`h-[300px] flex items-end xl:pl-62 2xl:pl-0 w-full ${alignmentClass}`}
+                                            >
+                                                {isEven && (
+                                                    <div
+                                                        className={`relative transform transition-all duration-500 hover:-translate-y-2 `}
+                                                    >
+                                                        <TimelineCard
+                                                            data={item}
+                                                            position="top"
+                                                        />
+                                                    </div>
+                                                )}
+                                            </div>
+                                        </Slide>
 
                                         {/* O Marcador Central na Linha */}
-                                        <div className="relative z-10 w-full flex justify-center items-center h-4">
-                                            <div className="w-8 h-[3px] bg-black rounded-full shadow-sm"></div>
+                                        <div className="relative z-10 w-full  flex justify-center items-center h-4">
+                                            <Fade triggerOnce duration={2600}>
+                                                <div className="w-8 h-[3px] bg-black rounded-full shadow-sm"></div>
+                                            </Fade>
                                         </div>
-
-                                        {/* Seção Inferior (Conteúdo ou Vazio) */}
-                                        <div
-                                            className={`h-[300px] flex items-start w-full ${alignmentClass}`}
+                                        <Slide
+                                            duration={2600}
+                                            triggerOnce
+                                            direction="left"
                                         >
-                                            {!isEven && (
-                                                <div
-                                                    className={`relative transform transition-all duration-500 hover:translate-y-2`}
-                                                >
-                                                    <TimelineCard
-                                                        data={item}
-                                                        position="bottom"
-                                                    />
-                                                </div>
-                                            )}
-                                        </div>
+                                            {/* Seção Inferior (Conteúdo ou Vazio) */}
+                                            <div
+                                                className={`h-[300px] flex items-start xl:pr-62 2xl:pr-0 w-full ${alignmentClass}`}
+                                            >
+                                                {!isEven && (
+                                                    <div
+                                                        className={`relative transform transition-all duration-500 hover:translate-y-2`}
+                                                    >
+                                                        <TimelineCard
+                                                            data={item}
+                                                            position="bottom"
+                                                        />
+                                                    </div>
+                                                )}
+                                            </div>
+                                        </Slide>
                                     </div>
                                 );
                             })}
@@ -229,9 +250,61 @@ function Linha_temp() {
                     </div>
                 </div>
 
-                {/* Instruções para Mobile */}
-                <div className="md:hidden text-gray-400 text-sm mt-8">
-                    Deslize para ver mais
+                {/* CSS para transição linear (essencial para o efeito de esteira) */}
+                <style>{`
+                .swiper-wrapper {
+                
+                    transition-timing-function: linear !important;
+                }
+                .swiper-slide {
+                    opacity: 0.2;
+                    transition: opacity 0.5s ease;
+                }
+                .swiper-slide-next {
+                    opacity: 0.2;
+                    transition: opacity 0.5s ease;
+                }
+               
+                .swiper-slide-active  {
+                    opacity: 1;
+                }
+            `}</style>
+                {/* ========================================================= */}
+                {/* VERSÃO MOBILE (Swiper Infinito) */}
+                {/* ========================================================= */}
+                <div className="xl:hidden w-full sm:w-4/5 md:w-full px-4">
+                    <Swiper
+                        modules={[Autoplay]}
+                        spaceBetween={20} // Espaço entre os cards
+                        slidesPerView={1.1} // Mostra um pouco do próximo card para indicar scroll
+                        centeredSlides={true} // Centraliza o card ativo
+                        loop={true}
+                        speed={800}
+                        autoplay={{
+                            delay: 3000,
+                            disableOnInteraction: false, // Continua rodando mesmo após toque
+                        }}
+                        // Melhora o comportamento do arraste manual
+                        className="py-4 w-full sm:w-auto md:w-full"
+                    >
+                        {timelineData.map((item) => (
+                            <SwiperSlide key={item.id}>
+                                <div className="flex justify-center h-auto">
+                                    <TimelineCard
+                                        data={item}
+                                        position="mobile"
+                                    />
+                                </div>
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
+                </div>
+
+                {/* Instruções Visuais */}
+                <div className="xl:hidden flex justify-center items-center mt-10 text-gray-400 text-sm animate-pulse">
+                    <ChevronLeft size={16} />
+                    <span className="mx-2">Deslize para ver mais</span>
+                    <ChevronRight size={16} />
                 </div>
             </div>
         </section>

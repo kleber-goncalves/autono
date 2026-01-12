@@ -11,17 +11,19 @@ export default function Card_III({
     className = "",
     classNameTitle = "",
     classNameText = "",
+    href = "#",
+    target = "_self",
 }) {
-    
-    const baseClass =
-        "flex max-w-xs flex-col gap-9 ";
-    const baseTitle = " leading-relaxed tracking-widest";
-    const baseText = "text-base tracking-wider leading-relaxed";
+    const baseClass = "flex max-w-xs sm:max-w-none lg:max-w-xs flex-col md:gap-9 gap-6";
+    const baseTitle =
+        "max-w-xs sm:max-w-none  lg:max-w-xs text-wrap leading-relaxed tracking-widest";
+    const baseText =
+        "md:text-base text-xs tracking-wider leading-relaxed";
     const baseButtonClassName =
         "flex-row flex border cursor-pointer rounded-lg w-fit max-w-xs items-center tracking-wider transition-all duration-300 ";
-    const divPClassName = "px-4 py-2 border-r   ";
+    const divPClassName = "md:px-4 px-3 py-2 border-r   ";
     const divArrowClassName =
-        "cursor-pointer text-xl px-3 py-2.5 hover:border-l transition-all";
+        "cursor-pointer md:text-xl text-sm md:px-3 px-2 md:py-2.5 hover:border-l transition-all";
 
     const variants = {
         white: {
@@ -50,22 +52,20 @@ export default function Card_III({
             title: "text-2xl",
         },
         sizeIII: {
-            title: "text-[40px]",
-        }
+            title: "md:text-[40px]",
+        },
     };
 
     const mts = {
         mtI: "mt-4",
         mtII: "mt-12",
         mtIII: "mt-0",
-    }
+    };
 
-
-    const magt = mts[mt]
+    const magt = mts[mt];
     const tmlh = sizes[size];
     const styles = variants[variant];
     const showPartII = children || text;
-
 
     return (
         <>
@@ -78,7 +78,7 @@ export default function Card_III({
                     {title}
                 </h2>
                 {showPartII && (
-                    <div className="flex flex-col gap-4">
+                    <div className="flex flex-col  gap-4">
                         {children ? (
                             children
                         ) : (
@@ -95,20 +95,22 @@ export default function Card_III({
                     </div>
                 )}
 
-                <button
+                <a
+                    href={href}
+                    target={target}
                     className={`${baseButtonClassName} ${magt} ${styles.baseButtonClassName} `}
                 >
                     <div
                         className={`${divPClassName} ${styles.divPClassName} `}
                     >
-                        <p className=" cursor-pointer">{text_button}</p>
+                        <p className={` cursor-pointer text-xs md:text-base `} >{text_button}</p>
                     </div>
                     <div
                         className={`${divArrowClassName} ${styles.divArrowClassName}`}
                     >
                         <TfiArrowRight />
                     </div>
-                </button>
+                </a>
             </div>
         </>
     );

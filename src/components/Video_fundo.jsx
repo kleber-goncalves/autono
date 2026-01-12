@@ -1,0 +1,71 @@
+import { useRef, useEffect } from "react";
+import Intro_cmp from "./Intro_cmp";
+import MouseAnimation from "/src/components/MouseAnimation";
+import videoBg from "../../public/fundo-hero.mp4"; // Importe seu vídeo ou use URL externa
+import fotoHero from "../assets/fundo_hero.jpg";
+
+function BackgroundVideo() {
+  
+      const videoRef = useRef(null);
+
+
+  useEffect(() => {
+      function tryPlay() {
+          if (videoRef.current) {
+              videoRef.current.play().catch(() => {
+                  // podia ter um fallback, mas não bloqueia
+              });
+          }
+          window.removeEventListener("scroll", tryPlay);
+      }
+      // Tenta tocar quando o usuário rolar
+      window.addEventListener("scroll", tryPlay);
+
+      return () => window.removeEventListener("scroll", tryPlay);
+  }, []);
+
+    return (
+        // O container pai deve ser relative para conter o vídeo absolute
+        <div
+            ref={videoRef}
+            className="relative z-3 w-full md:h-screen h-full overflow-hidden"
+            data-bg="white"
+        >
+            {/* O Vídeo: age como o background */}
+
+            <video
+                data-bg="white"
+                className="absolute top-0 left-0 w-full h-full
+                object-center object-cover -z-10 "
+                poster={fotoHero}
+                preload="metadata"
+                autoPlay
+                loop
+                muted // Obrigatório para autoplay funcionar na maioria dos navegadores
+                playsInline // Importante  para iOS
+            >
+                <source src={videoBg} type="video/mp4" />
+                Seu navegador não suporta vídeos HTML5.
+            </video>
+
+            {/* O Conteúdo: Fica por cima de tudo */}
+            <div data-bg="white" className="flex z-10 flex-col  ">
+                <Intro_cmp
+                    className=" py-30"
+                    classNameTitle="md:text-7xl text-[26px] md:max-w-5xl"
+                    classNameText="tracking-wide md:max-w-3xl"
+                    titulo={["O FUTURO DA ", "MOBILIDADE CHEGOU"]}
+                    texto="Prove uma direção autônoma mais segura com Autono."
+                />
+
+                <MouseAnimation />
+                <div
+                    data-bg="white"
+                    className="absolute z-3 inset-0 bg-linear-to-b  from-black/5 via-transparent to-black"
+                ></div>
+            </div>
+        </div>
+    );
+}
+
+export default BackgroundVideo;
