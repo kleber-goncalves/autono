@@ -1,6 +1,5 @@
 import Intro_cmp from "../../../components/Intro_cmp";
-import fundointro from "/src/assets/fundo-intro.jpg";
-import fundoIntroMobile from "/src/assets/fundo-introII.png";
+import { IMAGES } from "../../../data/imagesSupaBase";
 
 function Intro() {
     return (
@@ -10,8 +9,8 @@ function Intro() {
                 classNameText="text-sm tracking-wide"
                 classNameImage=""
                 titulo={["TECNOLOGIA", "PERCEPTIVA ATIVADA"]}
-                image={fundointro}
-                imageII={fundoIntroMobile}
+                image={IMAGES.FUNDOS.FUNDO_INTRO}
+                imageII={IMAGES.FUNDOS.FUNDO_INTRO_MOBILE}
                 rel="preload"
                 as="image"
                 texto="Sentimos o mundo à nossa volta, interpretamos cada movimento —

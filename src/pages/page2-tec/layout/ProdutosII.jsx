@@ -1,5 +1,5 @@
 import Card from "../../../components/Card";
-import ProjectImage from "../../../components/ProjectImage";
+import { IMAGES } from "../../../data/imagesSupaBase";
 import { Slide } from "react-awesome-reveal";
 
 function ProdutosII() {
@@ -20,7 +20,11 @@ function ProdutosII() {
                 </div>
 
                 <div className="flex flex-col md:ml-10 xl:max-w-2xl p-7 md:p-0 ">
-                    <ProjectImage id="paineil-produtoII" />
+                    <img
+                        src={IMAGES.PAGE2.PAINEL_PRODUTOII}
+                        alt="painel produto II"
+                        loading="lazy"
+                    />
                 </div>
                 <div className=" text-black flex flex-col px-7 xl:px-0  pb-8  items-center">
                     <Slide direction="up" triggerOnce duration={1600}>

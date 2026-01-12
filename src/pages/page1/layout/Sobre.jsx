@@ -1,7 +1,8 @@
 import Card_eft from "../../../components/Card-eft";
 import { useRef } from "react";
 import useEfeitoGsap from "../../../hooks/Efeitos/useEfeito-simples_scrollTigger";
-import ProjectImage from "/src/components/ProjectImage";
+// IMAGENS SUPABASE
+import { IMAGES } from "../../../data/imagesSupaBase";
 
 function Sobre() {
     //As referências para os elementos que serão animados
@@ -37,7 +38,12 @@ function Sobre() {
                     />
                 </div>
                 <div className="flex sm:mx-auto lg:mx-0 pl-4 lg:pl-0 max-w-xl lg:max-w-2xl ">
-                    <ProjectImage id="car-sobre" ref={boxRef1} />
+                    <img
+                        src={IMAGES.PAGE1.CAR_SOBRE}
+                        alt="sobre"
+                        loading="lazy"
+                        ref={boxRef1}
+                    />
                 </div>
             </div>
         </section>

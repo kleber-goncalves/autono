@@ -1,6 +1,6 @@
 import { useGsapContainerAnimation } from "../../../hooks/Efeitos/useGsapEfeitoZoomScroll";
 import { useRef } from "react";
-import ProjectImage from "../../../components/ProjectImage";
+import { IMAGES } from "../../../data/imagesSupaBase";
 import { Fade } from "react-awesome-reveal";
 
 
@@ -21,7 +21,11 @@ function Infrografico() {
         >
             <div className="xl:grid flex flex-col-reverse  xl:grid-cols-2   md:gap-0 xl:gap-16 ">
                 <div className="flex  justify-center pt-20 stat-area  md:w-full md:h-full ">
-                    <ProjectImage id="braco-info2" />
+                    <img
+                        src={IMAGES.PAGE1.BRACO_INFO}
+                        alt="braço info"
+
+                    />
                 </div>
                 <div className="flex stat-area flex-col md:gap-20 gap-4 px-7 xl:px-0">
                     <h2 className="text-black md:text-4xl text-lg leading-relaxed tracking-widest ">

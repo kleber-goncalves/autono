@@ -1,7 +1,7 @@
 import {  useRef } from "react";
 import Card from "../../../components/Card";
 import Card_II from "../../../components/Card_II";
-import ProjectImage from "../../../components/ProjectImage";
+import { IMAGES } from "../../../data/imagesSupaBase";
 import useEfeitoGsap from "../../../hooks/Efeitos/useEfeito-simples_scrollTigger";
 import { Fade } from "react-awesome-reveal";
 
@@ -48,7 +48,11 @@ function Sec_carreira() {
                     />
                 </div>
                 <div className="flex flex-col">
-                    <ProjectImage id="carreira" />
+                    <img
+                        src={IMAGES.PAGE4.PISTA_CARREIRA}
+                        loading="lazy"
+                        alt="pista carreira"
+                    />
                 </div>
             </div>
             <div className="xl:grid xl:grid-cols-2 flex flex-col items-center gap-x-90 xl:gap-x-0 2xl:gap-x-90 gap-y-30 px-6 pb-20 2xl:px-59">

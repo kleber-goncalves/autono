@@ -1,5 +1,5 @@
 import Card from "../../../components/Card"
-import ProjectImage from "../../../components/ProjectImage";
+import { IMAGES } from "../../../data/imagesSupaBase";
 
 
 function Localy() {
@@ -17,10 +17,18 @@ function Localy() {
                     />
                 </div>
                 <div className="hidden xl:flex flex-col   ">
-                    <ProjectImage id="localy" />
+                    <img
+                        src={IMAGES.PAGE4.LOCALY}
+                        loading="lazy"
+                        alt="localy"
+                    />
                 </div>
                 <div className="xl:hidden flex flex-col md:w-full lg:w-auto  ">
-                    <ProjectImage id="localyMobile" />
+                    <img
+                        src={IMAGES.PAGE4.LOCALY_MOBILE}
+                        loading="lazy"
+                        alt="localy mobile"
+                    />
                 </div>
             </div>
         </section>

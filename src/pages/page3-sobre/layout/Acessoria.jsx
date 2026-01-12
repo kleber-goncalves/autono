@@ -1,5 +1,5 @@
 import Card from "../../../components/Card";
-import ProjectImage from "../../../components/ProjectImage";
+import { IMAGES } from "../../../data/imagesSupaBase";
 import { Fade } from "react-awesome-reveal";
 
 
@@ -18,8 +18,9 @@ function Acessoria() {
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-20 md:gap-0 md:gap-y-23 lg:gap-0 2xl:gap-40 items-center">
                     <Fade cascade triggerOnce duration={1300} delay={0}>
                         <div className="w-full flex justify-center md:justify-start lg:justify-start xl:justify-start 2xl:justify-center items-center">
-                            <ProjectImage
-                                id="RCR"
+                            <img
+                                src={IMAGES.LOGOS.RCR}
+                                alt="RCR"
                                 loading="lazy"
                                 className="w-full max-w-[110px]  sm:max-w-[140px]  md:max-w-30 lg:max-w-[130px] xl:w-[700px] h-auto object-contain"
                             />
@@ -27,8 +28,9 @@ function Acessoria() {
                     </Fade>
                     <Fade cascade triggerOnce duration={1300} delay={200}>
                         <div className="w-full flex justify-center  lg:justify-start xl:justify-start items-center">
-                            <ProjectImage
-                                id="TBReview"
+                            <img
+                                src={IMAGES.LOGOS.TB_REVIEW}
+                                alt="TBReview"
                                 loading="lazy"
                                 className="w-full max-w-[110px]  sm:max-w-[140px] md:max-w-30 lg:max-w-[130px] xl:w-[700px] h-auto object-contain"
                             />
@@ -36,8 +38,10 @@ function Acessoria() {
                     </Fade>
                     <Fade cascade triggerOnce duration={1300} delay={500}>
                         <div className="w-full flex justify-center md:justify-end lg:justify-center  xl:justify-start items-center">
-                            <ProjectImage
-                                id="Finance"
+
+                            <img
+                                src={IMAGES.LOGOS.FINANCE}
+                                alt="Finance"
                                 loading="lazy"
                                 className="w-full max-w-[110px]  sm:max-w-[140px] md:max-w-30 lg:max-w-[130px] xl:w-[700px] h-auto object-contain"
                             />
@@ -45,8 +49,10 @@ function Acessoria() {
                     </Fade>
                     <Fade cascade triggerOnce duration={1300} delay={800}>
                         <div className="w-full flex justify-center md:justify-start lg:justify-end xl:justify-start items-center">
-                            <ProjectImage
-                                id="PaloAltoTribunal"
+
+                            <img
+                                src={IMAGES.LOGOS.PABLO_ALTO_TRIBUNAL}
+                                alt="Palo Alto Tribunal"
                                 loading="lazy"
                                 className="w-full max-w-[110px]  sm:max-w-[140px] md:max-w-30 lg:max-w-[130px] xl:w-[700px] h-auto object-contain"
                             />
@@ -54,8 +60,10 @@ function Acessoria() {
                     </Fade>
                     <Fade cascade triggerOnce duration={1300} delay={1200}>
                         <div className="w-full flex justify-center lg:justify-end xl:justify-start items-center">
-                            <ProjectImage
-                                id="Londonpost"
+
+                            <img
+                                src={IMAGES.LOGOS.LONDON_POST}
+                                alt="London post"
                                 loading="lazy"
                                 className="w-full  max-w-[110px] sm:max-w-[140px] md:max-w-30 lg:max-w-[130px] xl:w-[700px] h-auto object-contain"
                             />

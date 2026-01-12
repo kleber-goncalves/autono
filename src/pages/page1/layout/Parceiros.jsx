@@ -2,6 +2,8 @@ import Card from "../../../components/Card";
 import { useGsapContainerAnimation } from "../../../hooks/Efeitos/useGsapEfeitoZoomScroll";
 import { useRef } from "react";
 import ProjectImage from "../../../components/ProjectImage";
+import { IMAGES } from "../../../data/imagesSupaBase";
+
 import { Fade } from "react-awesome-reveal";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -15,12 +17,32 @@ function Parceiros() {
 
     useGsapContainerAnimation(containerRef, ".stat-area", 2000);
 
-    const parceirosData = [
-        { id: "TransportX-parceiros", name: "TRANSPORTE X", delay: 1200 },
-        { id: "IDISoftware-parceiros", name: "IDI SOFTWARE", delay: 1800 },
-        { id: "ICars-parceiros", name: "IMAGINE CARROS", delay: 2200 },
-        { id: "Tri-Nex-parceiro", name: "TRI-NEX", delay: 2800 },
-    ];
+const parceirosData = [
+    {
+        id: "trans-x",
+        src: IMAGES.LOGOS.TRANS_PORT_X, // Sem as chaves {}
+        name: "TRANSPORTE X",
+        delay: 1200,
+    },
+    {
+        id: "idi-software",
+        src: IMAGES.LOGOS.IDISOFTWARE,
+        name: "IDI SOFTWARE",
+        delay: 1800,
+    },
+    {
+        id: "icars",
+        src: IMAGES.LOGOS.ICARS,
+        name: "IMAGINE CARROS",
+        delay: 2200,
+    },
+    {
+        id: "tri-nex",
+        src: IMAGES.LOGOS.TRI_NEX,
+        name: "TRI-NEX",
+        delay: 2800,
+    },
+];
 
     return (
         <section
@@ -86,8 +108,10 @@ function Parceiros() {
                             {parceirosData.map((p) => (
                                 <SwiperSlide key={p.id}>
                                     <div className="flex flex-col items-center justify-center bg-white/5 border border-white/10 p-4 rounded-lg h-36">
-                                        <ProjectImage
-                                            id={p.id}
+                                        <img
+                                            loading="lazy"
+                                            src={p.src}
+                                           alt={p.name}
                                             className="h-14 w-full object-contain mb-3"
                                         />
                                         <h2 className="text-white text-[9px] font-bold tracking-widest text-center uppercase">
@@ -108,8 +132,10 @@ function Parceiros() {
                             damping={0.14}
                         >
                             <div className="flex flex-col stat-area gap-3 items-center">
-                                <ProjectImage
-                                    id="TransportX-parceiros"
+                                <img
+                                    loading="lazy"
+                                    src={IMAGES.LOGOS.TRANS_PORT_X}
+                                    alt="transportex parceiros"
                                     className="w-4/6"
                                 />
                                 <h2 className="text-white text-xl text-center tracking-widest">
@@ -124,8 +150,10 @@ function Parceiros() {
                             damping={0.14}
                         >
                             <div className="flex flex-col stat-area gap-13 items-center">
-                                <ProjectImage
-                                    id="IDISoftware-parceiros"
+                                <img
+                                    loading="lazy"
+                                    src={IMAGES.LOGOS.IDISOFTWARE}
+                                    alt="IDI Software parceiros"
                                     className="w-2/4 flex pt-4"
                                 />
                                 <h2 className="text-white text-center  text-xl tracking-widest">
@@ -141,8 +169,10 @@ function Parceiros() {
                             fraction={0.2}
                         >
                             <div className="flex flex-col stat-area gap-9 items-center">
-                                <ProjectImage
-                                    id="ICars-parceiros"
+                                <img
+                                    loading="lazy"
+                                    src={IMAGES.LOGOS.ICARS}
+                                    alt="ICars parceiros"
                                     className="w-3/6"
                                 />
                                 <h2 className="text-white text-center text-xl tracking-widest">
@@ -158,11 +188,12 @@ function Parceiros() {
                             fraction={0.2}
                         >
                             <div className="flex flex-col stat-area  items-center">
-                                <ProjectImage
-                                    id="Tri-Nex-parceiro"
+                                <img
+                                    loading="lazy"
+                                    src={IMAGES.LOGOS.TRI_NEX}
+                                    alt="Tri-Nex parceiro"
                                     className="w-8/6 flex pb-3"
                                 />
-
                                 <h2 className="text-white relative top-6 text-center text-xl tracking-widest">
                                     TRI-NEX
                                 </h2>
