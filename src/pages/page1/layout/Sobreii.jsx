@@ -1,10 +1,15 @@
 import Card from "../../../components/Card";
 import { Fade } from "react-awesome-reveal";
-
+import { IMAGES } from "../../../data/imagesSupaBase";
 
 function Sobreii() {
     return (
-        <section className="bg-white min-h-screen px-6 md:pl-8 xl:pl-30 2xl:pl-58 py-34 overflow-hidden bg-[url('/src/assets/fundo-sobreii.jpg')] bg-fixed bg-cover bg-center">
+        <section
+            className="bg-white min-h-screen px-6 md:pl-8 xl:pl-30 2xl:pl-58 py-34 overflow-hidden bg-fixed bg-cover bg-center"
+            style={{
+                backgroundImage: `url(${IMAGES.FUNDOS.FUNDO_SOBREII})`,
+            }}
+        >
             <Fade duration={1300} triggerOnce>
                 <div className="flex item bg-black max-w-lg rounded-2xl px-6 py-10  flex-col md:pl-10 ">
                     <Card

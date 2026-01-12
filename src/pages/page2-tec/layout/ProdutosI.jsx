@@ -1,5 +1,5 @@
 import Card from "../../../components/Card";
-import ProjectImage from "../../../components/ProjectImage";
+import { IMAGES } from "../../../data/imagesSupaBase";
 import { Slide } from "react-awesome-reveal";
 
 
@@ -19,7 +19,11 @@ function ProdutosI() {
                 </div>
 
                 <div className="">
-                    <ProjectImage id="car-produtoI" />
+                    <img
+                        src={IMAGES.PAGE2.CAR_PRODUTO}
+                        alt="car produto I"
+                        loading="lazy"
+                    />
                 </div>
                 <div className=" text-white flex flex-col px-7 xl:px-0 items-center">
                     <Slide direction="up" triggerOnce duration={1600}>

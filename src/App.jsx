@@ -1,7 +1,9 @@
 import React from "react";
+import { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import CustomCursor from "/src/components/CustomCursor";
+import { supabase } from "./services/supabaseClient.js";
 
 // Importar o wrapper
 import MinimumLoadingWrapper from "./utils/MinimumLoadingWrapper";
@@ -19,14 +21,39 @@ const Autono = React.lazy(() => import("./pages/page1/autono"));
 const Tecnologia = React.lazy(() => import("./pages/page2-tec/Tecnologia"));
 const Sobre = React.lazy(() => import("./pages/page3-sobre/Sobre"));
 const Carreiras = React.lazy(() => import("./pages/page4-carreira/Carreiras"));
-const EngenheiroEletrico = React.lazy(() => import("./pages/page-areas-cv/pageEngenheiro-eletrico/engenheiroEletrico.jsx"));
-const Cientistadedados = React.lazy(() => import("./pages/page-areas-cv/pageCientista-dados/cientistaDados.jsx"));
-const PesquisadorIA = React.lazy(() => import("./pages/page-areas-cv/pagePesqIA/pesquisador-IA.jsx"));
-const EngenheiroDeepLearning = React.lazy(() => import("./pages/page-areas-cv/pageEngenheiro-Deep-Learning/engenheiro-Deep-Learning.jsx"));
-const EnvioCurriculo = React.lazy(() => import("./pages/pageCV/envieCurriculo.jsx"));
-
+const EngenheiroEletrico = React.lazy(() =>
+    import(
+        "./pages/page-areas-cv/pageEngenheiro-eletrico/engenheiroEletrico.jsx"
+    )
+);
+const Cientistadedados = React.lazy(() =>
+    import("./pages/page-areas-cv/pageCientista-dados/cientistaDados.jsx")
+);
+const PesquisadorIA = React.lazy(() =>
+    import("./pages/page-areas-cv/pagePesqIA/pesquisador-IA.jsx")
+);
+const EngenheiroDeepLearning = React.lazy(() =>
+    import(
+        "./pages/page-areas-cv/pageEngenheiro-Deep-Learning/engenheiro-Deep-Learning.jsx"
+    )
+);
+const EnvioCurriculo = React.lazy(() =>
+    import("./pages/pageCV/envieCurriculo.jsx")
+);
 
 function App() {
+    useEffect(() => {
+        async function testConnection() {
+            const { data, error } = await supabase.storage.listBuckets();
+            if (error) {
+                console.log("Erro ao conectar:", error.message);
+            } else {
+                console.log("Conectado com sucesso! Seus buckets:", data);
+            }
+        }
+        testConnection();
+    }, []);
+
     return (
         <>
             <BrowserRouter>

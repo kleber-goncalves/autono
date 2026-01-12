@@ -1,5 +1,5 @@
 import Card from "../../../components/Card";
-import ProjectImage from "../../../components/ProjectImage";
+import { IMAGES } from "../../../data/imagesSupaBase";
 
 function Abordagem() {
     return (
@@ -20,8 +20,10 @@ nos movemos"
                     />
                 </div>
                 <div className="flex flex-col md:items-center max-w-xs lg:max-w-none p-3 md:p-0">
-                    <ProjectImage
-                        id="mulher-abordagem"
+                    <img
+                        src={IMAGES.PAGE3.MULHER_ABORDAGEM}
+                        alt="mulher abordagem"
+                        loading="lazy"
                         className="rounded-3xl md:max-w-xs lg:max-w-sm xl:max-w-2xl"
                     />
                 </div>

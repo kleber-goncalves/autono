@@ -1,7 +1,7 @@
 import Card from "../../../components/Card";
 import Card_III from "../../../components/Card_III";
 import useEfeitoGsap from "../../../hooks/Efeitos/useEfeito-simples_scrollTigger";
-import ProjectImage from "../../../components/ProjectImage";
+import { IMAGES } from "../../../data/imagesSupaBase";
 
 
 // GSAP-IMPORTS
@@ -98,12 +98,19 @@ let ctx = gsap.context(() => {
                         />
                     </div>
                     <div className="dois items-center p-0 sm:p-25 lg:p-0">
-                        <ProjectImage id="car-servico-1" ref={imgRef1} />
+                        <img
+                            src={IMAGES.PAGE1.CAR_SERVICO1}
+                            alt="car serviço"
+                            ref={imgRef1}
+                            loading="lazy"
+                        />
                     </div>
                     <div className="relative quatro w-full p-0 sm:p-25 lg:p-0">
-                        <ProjectImage
-                            id="velocimetroServico"
+                        <img
+                            src={IMAGES.PAGE1.VELOCIMETRO}
+                            alt="velocimentro"
                             ref={imgRef2}
+                            loading="lazy"
                             className="w-full h-auto object-cover "
                         />
                     </div>
@@ -136,9 +143,11 @@ let ctx = gsap.context(() => {
                         />
                     </div>
                     <div className="lg:pr-4 seis relative w-full p-0 sm:p-25 lg:p-0">
-                        <ProjectImage
-                            id="car-servico-2"
+                        <img
+                            src={IMAGES.PAGE1.CAR_SERVICO2}
+                            alt="car servico 2"
                             ref={imgRef3}
+                            loading="lazy"
                             className="w-full h-auto object-cover "
                         />
                     </div>
