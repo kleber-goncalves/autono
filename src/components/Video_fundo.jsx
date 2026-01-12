@@ -1,11 +1,26 @@
-import React from "react";
+import { useRef, useState, useEffect } from "react";
 import Intro_cmp from "./Intro_cmp";
 import MouseAnimation from "/src/components/MouseAnimation";
 import videoBg from "../../public/fundo-hero.mp4"; // Importe seu vídeo ou use URL externa
-
 import fotoHero from "../assets/fundo_hero.jpg";
 
 function BackgroundVideo() {
+    const containerRef = useRef(null);
+    const [loaded, setLoaded] = useState(false);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setLoaded(true);
+                    observer.disconnect();
+                }
+            },
+            { rootMargin: "0px", threshold: 0.1 }
+        );
+        if (containerRef.current) observer.observe(containerRef.current);
+    }, []);
+
     return (
         // O container pai deve ser relative para conter o vídeo absolute
         <div
@@ -13,20 +28,21 @@ function BackgroundVideo() {
             data-bg="white"
         >
             {/* O Vídeo: age como o background */}
-            <video
-                data-bg="white"
-                className="absolute top-0 left-0 w-full h-full
+            {loaded && (
+                <video
+                    data-bg="white"
+                    className="absolute top-0 left-0 w-full h-full
                 object-center object-cover -z-10 "
-                poster={fotoHero}
-                controls
-                preload="none"
-                autoPlay
-                loop
-                muted // Obrigatório para autoplay funcionar na maioria dos navegadores
-                playsInline // Importante  para iOS
-            >
-                <source src={videoBg} type="video/mp4" />
-            </video>
+                    poster={fotoHero}
+                    controls
+                    preload="none"
+                    loop
+                    muted // Obrigatório para autoplay funcionar na maioria dos navegadores
+                    playsInline // Importante  para iOS
+                >
+                    <source src={videoBg} type="video/mp4" />
+                </video>
+            )}
 
             {/* O Conteúdo: Fica por cima de tudo */}
             <div data-bg="white" className="flex z-10 flex-col  ">
