@@ -1,31 +1,51 @@
-import React from "react";
+import { useRef, useEffect } from "react";
 import Intro_cmp from "./Intro_cmp";
 import MouseAnimation from "/src/components/MouseAnimation";
 import videoBg from "../../public/fundo-hero.mp4"; // Importe seu vídeo ou use URL externa
-
 import fotoHero from "../assets/fundo_hero.jpg";
 
 function BackgroundVideo() {
+  
+      const videoRef = useRef(null);
+
+
+  useEffect(() => {
+      function tryPlay() {
+          if (videoRef.current) {
+              videoRef.current.play().catch(() => {
+                  // podia ter um fallback, mas não bloqueia
+              });
+          }
+          window.removeEventListener("scroll", tryPlay);
+      }
+      // Tenta tocar quando o usuário rolar
+      window.addEventListener("scroll", tryPlay);
+
+      return () => window.removeEventListener("scroll", tryPlay);
+  }, []);
+
     return (
         // O container pai deve ser relative para conter o vídeo absolute
         <div
+            ref={videoRef}
             className="relative z-3 w-full md:h-screen h-full overflow-hidden"
             data-bg="white"
         >
             {/* O Vídeo: age como o background */}
+
             <video
                 data-bg="white"
                 className="absolute top-0 left-0 w-full h-full
                 object-center object-cover -z-10 "
                 poster={fotoHero}
-                controls
-                preload="none"
+                preload="metadata"
                 autoPlay
                 loop
                 muted // Obrigatório para autoplay funcionar na maioria dos navegadores
                 playsInline // Importante  para iOS
             >
                 <source src={videoBg} type="video/mp4" />
+                Seu navegador não suporta vídeos HTML5.
             </video>
 
             {/* O Conteúdo: Fica por cima de tudo */}
