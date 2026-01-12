@@ -108,6 +108,8 @@ export default function Intro_cmp({
 
             {image && (
                 <img
+                    rel="preload"
+                    as="image"
                     src={image}
                     alt={titulo}
                     className={`anim-fade ${classNameImage} ${baseImage}`}
@@ -115,6 +117,8 @@ export default function Intro_cmp({
             )}
             {imageII && (
                 <img
+                    rel="preload"
+                    as="image"
                     src={imageII}
                     alt={titulo}
                     className={`anim-fade ${classNameImageII} ${baseImageII}`}
