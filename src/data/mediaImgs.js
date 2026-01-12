@@ -9,7 +9,7 @@ import degrade from "../assets/degrade.png";
 import Finance from "../assets/Finance.png";
 import fundoDestaques from "../assets/fundo-destaques.jpg";
 import fundoDestaquesMobile from "../assets/fundo-destaquesII.png";
-import fundoHero from "../assets/fundo-hero.jpg";
+import fundoHero from "../assets/fundo_hero.jpg";
 import fundoIntro from "../assets/fundo-intro.jpg";
 import fundoSobreii from "../assets/fundo-sobreii.jpg";
 import ICarsParceiros from "../assets/ICars-parceiros.png";
@@ -26,54 +26,55 @@ import TransportXParceiros from "../assets/TransportX-parceiros.png";
 import TriNexParceiro from "../assets/Tri-Nex-parceiro.png";
 import velocimetroServico from "../assets/velocimetro-servico.jpg";
 
+
 // importa todas as imagens que precisar
 
 export const mediaImgs = [
-    { id: "braco-info", src: bracoInfo, alt: "Braço info" },
-    { id: "braco-info2", src: bracoInfo2, alt: "Braço info II" },
-    { id: "car-produtoI", src: carProdutoI, alt: "Car produto I" },
-    { id: "car-servico-1", src: carServico1, alt: "Car serviço 1" },
-    { id: "car-servico-2", src: carServico2, alt: "Car serviço 2" },
-    { id: "car-sobre", src: carSobre, alt: "Car sobre" },
-    { id: "carreira", src: carreira, alt: "Carreira" },
+    { id: "braco-info", src: bracoInfo, alt: "Braço info", loading:"lazy" },
+    { id: "braco-info2", src: bracoInfo2, alt: "Braço info II", loading:"lazy" },
+    { id: "car-produtoI", src: carProdutoI, alt: "Car produto I", loading:"lazy" },
+    { id: "car-servico-1", src: carServico1, alt: "Car serviço 1", loading:"lazy" },
+    { id: "car-servico-2", src: carServico2, alt: "Car serviço 2", loading:"lazy" },
+    { id: "car-sobre", src: carSobre, alt: "Car sobre", loading:"lazy" },
+    { id: "carreira", src: carreira, alt: "Carreira", loading:"lazy" },
     { id: "degrade", src: degrade, alt: "Degrade" },
-    { id: "Finance", src: Finance, alt: "Finance" },
-    { id: "fundo-destaques", src: fundoDestaques, alt: "Fundo destaques" },
-    { id: "fundo-destaques-Mobile", src: fundoDestaquesMobile, alt: "Fundo destaques Mobile" },
+    { id: "Finance", src: Finance, alt: "Finance", loading:"lazy" },
+    { id: "fundo-destaques", src: fundoDestaques, alt: "Fundo destaques", loading:"lazy" },
+    { id: "fundo-destaques-Mobile", src: fundoDestaquesMobile, alt: "Fundo destaques Mobile", loading:"lazy" },
     { id: "fundo-hero", src: fundoHero, alt: "Fundo hero" },
     { id: "fundo-intro", src: fundoIntro, alt: "Fundo intro" },
-    { id: "fundo-sobreii", src: fundoSobreii, alt: "Fundo sobre ii" },
-    { id: "ICars-parceiros", src: ICarsParceiros, alt: "ICars parceiros" },
+    { id: "fundo-sobreii", src: fundoSobreii, alt: "Fundo sobre ii", loading:"lazy" },
+    { id: "ICars-parceiros", src: ICarsParceiros, alt: "ICars parceiros", loading:"lazy" },
     {
         id: "IDISoftware-parceiros",
         src: IDISoftwareParceiros,
-        alt: "IDI Software parceiros",
+        alt: "IDI Software parceiros", loading:"lazy"
     },
     { id: "localy", src: localy, alt: "Localy" },
     { id: "localyMobile", src: localyMobile, alt: "localyMobile" },
-    { id: "Londonpost", src: LondonPost, alt: "London post" },
-    { id: "mulher-abordagem", src: mulherAbordagem, alt: "Mulher abordagem" },
+    { id: "Londonpost", src: LondonPost, alt: "London post", loading:"lazy" },
+    { id: "mulher-abordagem", src: mulherAbordagem, alt: "Mulher abordagem", loading:"lazy" },
     {
         id: "paineil-produtoII",
         src: paineilProdutoII,
-        alt: "Painel produto II",
+        alt: "Painel produto II", loading:"lazy"
     },
     {
         id: "PaloAltoTribunal",
         src: PaloAltoTribunal,
-        alt: "Palo Alto Tribunal",
+        alt: "Palo Alto Tribunal", loading:"lazy"
     },
-    { id: "RCR", src: RCR, alt: "RCR" },
-    { id: "TBReview", src: TBReview01, alt: "TB Review" },
+    { id: "RCR", src: RCR, alt: "RCR", loading:"lazy" },
+    { id: "TBReview", src: TBReview01, alt: "TB Review", loading:"lazy" },
     {
         id: "TransportX-parceiros",
         src: TransportXParceiros,
-        alt: "TransportX parceiros",
+        alt: "TransportX parceiros", loading:"lazy"
     },
-    { id: "Tri-Nex-parceiro", src: TriNexParceiro, alt: "Tri-Nex parceiro" },
+    { id: "Tri-Nex-parceiro", src: TriNexParceiro, alt: "Tri-Nex parceiro", loading:"lazy" },
     {
         id: "velocimetroServico",
         src: velocimetroServico,
-        alt: "Velocímetro serviço",
+        alt: "Velocímetro serviço", loading:"lazy"
     },
 ];

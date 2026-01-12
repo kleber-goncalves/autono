@@ -1,8 +1,9 @@
 import React from "react";
-import videoBg from "../../public/fundo-hero.mp4"; // Importe seu vídeo ou use URL externa
 import Intro_cmp from "./Intro_cmp";
 import MouseAnimation from "/src/components/MouseAnimation";
+import videoBg from "../../public/fundo-hero.mp4"; // Importe seu vídeo ou use URL externa
 
+import fotoHero from "../assets/fundo_hero.jpg";
 
 function BackgroundVideo() {
     return (
@@ -14,13 +15,18 @@ function BackgroundVideo() {
             {/* O Vídeo: age como o background */}
             <video
                 data-bg="white"
-                className="absolute top-0  left-0 w-full h-full object-center  object-cover -z-10 "
-                src={videoBg}
+                className="absolute top-0 left-0 w-full h-full
+                object-center object-cover -z-10 "
+                poster={fotoHero}
+                controls
+                preload="none"
                 autoPlay
                 loop
                 muted // Obrigatório para autoplay funcionar na maioria dos navegadores
-                playsInline // Importante para iOS
-            />
+                playsInline // Importante  para iOS
+            >
+                <source src={videoBg} type="video/mp4" />
+            </video>
 
             {/* O Conteúdo: Fica por cima de tudo */}
             <div data-bg="white" className="flex z-10 flex-col  ">
@@ -40,6 +46,6 @@ function BackgroundVideo() {
             </div>
         </div>
     );
-};
+}
 
 export default BackgroundVideo;

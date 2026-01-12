@@ -12,6 +12,8 @@ function Intro() {
                 titulo={["TECNOLOGIA", "PERCEPTIVA ATIVADA"]}
                 image={fundointro}
                 imageII={fundoIntroMobile}
+                rel="preload"
+                as="image"
                 texto="Sentimos o mundo à nossa volta, interpretamos cada movimento —
 Veículos que “veem” como você, reagem antes mesmo do mundo pedir,
 Transformando cada trajeto em segurança, consciência e futuro.
