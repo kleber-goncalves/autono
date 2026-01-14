@@ -4,6 +4,13 @@
 <!-- Substitua este comentário por uma imagem do site -->
 <!-- Exemplo: ![Preview do Site](preview-site.png) -->
 <!-- Recomendado: Screenshot mostrando o design responsivo -->
+<div align="center">
+
+![Preview do Site](preview-site.png)
+
+</div>
+
+
 
 [![React](https://img.shields.io/badge/React-19.2.0-61DAFB?style=for-the-badge&logo=react)](https://reactjs.org/)
 [![Vite](https://img.shields.io/badge/Vite-7.2.4-646CFF?style=for-the-badge&logo=vite)](https://vitejs.dev/)
